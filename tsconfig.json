@@ -2,21 +2,36 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"],
+      "@api/*": ["./api/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@contexts/*": ["./contexts/*"],
+      "@layout/*": ["./layout/*"],
+      "@styles/*": ["./styles/*"],
+      "@icons/*": ["./assets/icons/*"],
+      "@images/*": ["./assets/images/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@utils/*": ["./utils/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@components": ["./components"],
+      "@sections": ["./sections"],
+      "@views": ["./views"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env-custom.d.ts", "images.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
