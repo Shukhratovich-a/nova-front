@@ -1,5 +1,15 @@
 @import "./normalize";
 @import "./variables";
+@import "./fonts";
+
+body,
+p {
+  font-family: "Inter", "Arial", sans-serif;
+
+  font-size: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 14-16
+  line-height: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 18-24
+  font-weight: 400;
+}
 
 .container {
   max-width: 1480px;
@@ -33,18 +43,12 @@ h1 {
   font-size: clamp(2.5rem, 1.896rem + 2.27vw, 4rem); // 40-64
   line-height: clamp(2.375rem, 1.519rem + 3.22vw, 4.5rem); // 38-72
   font-weight: 900;
-
-  background-color: $black;
-  color: $white;
 }
 
 h2 {
   font-size: clamp(2rem, 1.899rem + 0.38vw, 2.25rem); // 32-36
   line-height: clamp(2.25rem, 2.149rem + 0.38vw, 2.5rem); // 36-40
   font-weight: 700;
-
-  background-color: $black;
-  color: $white;
 }
 
 h3 {
@@ -67,23 +71,35 @@ h3 {
 }
 
 // description
-body,
-p,
-.description-lg {
-  font-family: "Inter", "Arial", sans-serif;
+.text-lg {
   font-size: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 14-16
   line-height: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 18-24
   font-weight: 400;
 }
 
-.description-md {
+.text-md {
   font-size: clamp(0.75rem, 0.7rem + 0.19vw, 0.875rem); // 12-14
   line-height: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 16-18
   font-weight: 400;
 }
 
+// badges
+.badge {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+// navLink
+.nav-link {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
 // button
-button {
+button,
+a {
   font-size: 14px;
   line-height: 18px;
   font-weight: 700;

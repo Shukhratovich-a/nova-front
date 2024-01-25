@@ -1,0 +1,49 @@
+@import "@/styles/variables";
+.card {
+  position: relative;
+  overflow: hidden;
+
+  max-width: 300px;
+  width: 100%;
+  height: 288px;
+
+  border-radius: 12px;
+  background: $white;
+  border: 1px solid $stroke;
+  box-shadow: 4px 4px 15px 0px $stroke;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  // текст превышаюший 3 строки скрывается
+  max-width: 190px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: $stroke;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
