@@ -15,8 +15,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["src/*"],
       "@api/*": ["./api/*"],
       "@interfaces/*": ["./interfaces/*"],
       "@contexts/*": ["./contexts/*"],

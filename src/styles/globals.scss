@@ -1,14 +1,12 @@
 @import "./normalize";
+@import "./variables";
 
-html {
-  box-sizing: border-box;
-}
+.container {
+  max-width: 1480px;
+  width: 100%;
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  scroll-behavior: smooth;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .visually-hidden {
@@ -24,14 +22,147 @@ html {
   white-space: nowrap;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-
-  font-family: "Inter", "Arial", sans-serif;
-  font-size: 16px;
-}
-
 img {
   display: block;
+}
+
+/* font */ // lg md sm
+
+// title
+h1 {
+  font-size: clamp(2.5rem, 1.896rem + 2.27vw, 4rem); // 40-64
+  line-height: clamp(2.375rem, 1.519rem + 3.22vw, 4.5rem); // 38-72
+  font-weight: 900;
+
+  background-color: $black;
+  color: $white;
+}
+
+h2 {
+  font-size: clamp(2rem, 1.899rem + 0.38vw, 2.25rem); // 32-36
+  line-height: clamp(2.25rem, 2.149rem + 0.38vw, 2.5rem); // 36-40
+  font-weight: 700;
+
+  background-color: $black;
+  color: $white;
+}
+
+h3 {
+  font-size: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 14-16
+  line-height: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 16-18
+  font-weight: 500;
+}
+
+// subtitle
+.subtitle-lg {
+  font-size: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 20-24
+  line-height: clamp(1.563rem, 1.386rem + 0.66vw, 2rem); // 25-32
+  font-weight: 700;
+}
+
+.subtitle-md {
+  font-size: clamp(1rem, 0.899rem + 0.38vw, 1.25rem); // 16-20
+  line-height: clamp(1.25rem, 1.149rem + 0.38vw, 1.5rem); // 20-24
+  font-weight: 400;
+}
+
+// description
+body,
+p,
+.description-lg {
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 14-16
+  line-height: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 18-24
+  font-weight: 400;
+}
+
+.description-md {
+  font-size: clamp(0.75rem, 0.7rem + 0.19vw, 0.875rem); // 12-14
+  line-height: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 16-18
+  font-weight: 400;
+}
+
+// button
+button {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.button {
+  text-transform: capitalize;
+  padding: 16px 32px;
+  border-radius: 100px;
+}
+
+.button-blue {
+  color: $white;
+  background-color: $accent;
+}
+
+.button-yellow {
+  color: $white;
+  background-color: $yellow;
+}
+
+.button-border {
+  border: 2px solid $accent;
+  color: $accent;
+}
+
+// font-weight
+// 400
+.fw-regular {
+  font-weight: 400;
+}
+// 500
+.fw-medium {
+  font-weight: 500;
+}
+// 600
+.fw-semibold {
+  font-weight: 600;
+}
+// 700
+.fw-bold {
+  font-weight: 700;
+}
+// 800
+.fw-extrabold {
+  font-weight: 800;
+}
+// 900
+.fw-black {
+  font-weight: 900;
+}
+
+// color
+.color-white {
+  color: $white;
+  fill: $white;
+}
+.color-accent {
+  color: $accent;
+  fill: $accent;
+}
+.color-black {
+  color: $black;
+  fill: $black;
+}
+.color-stroke {
+  color: $stroke;
+  fill: $stroke;
+}
+.color-yellow {
+  color: $yellow;
+  fill: $yellow;
+}
+.color-gray {
+  color: $gray;
+  fill: $gray;
+}
+
+// background
+.bg-primary {
+  background-color: $bg-primary;
 }
