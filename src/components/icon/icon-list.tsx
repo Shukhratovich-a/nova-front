@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, HTMLAttributes } from "react";
 import { arrow, facebook, search, vk, youtube } from "./icons";
 
 const iconList: { [key: string]: JSX.Element } = {
@@ -9,13 +9,18 @@ const iconList: { [key: string]: JSX.Element } = {
   vk: vk,
 };
 
-
-interface IconProps {
-  name: string;//keyof typeof iconList;
+interface IconProps extends HTMLAttributes<HTMLDivElement> {
+  name: string; //keyof typeof iconList;
 }
 
-const Icon: FC<IconProps> = ({ name }: IconProps) => {
-  return iconList[name] || null;
+const Icon: FC<IconProps> = ({ name, className, ...rest }: IconProps) => {
+  return (
+    (
+      <div className={className} {...rest}>
+        {iconList[name]}
+      </div>
+    ) || null
+  );
 };
 
 export default Icon;

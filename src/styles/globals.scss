@@ -139,21 +139,27 @@ button {
 // color
 .color-white {
   color: $white;
+  fill: $white;
 }
 .color-accent {
   color: $accent;
+  fill: $accent;
 }
 .color-black {
   color: $black;
+  fill: $black;
 }
 .color-stroke {
   color: $stroke;
+  fill: $stroke;
 }
 .color-yellow {
   color: $yellow;
+  fill: $yellow;
 }
 .color-gray {
   color: $gray;
+  fill: $gray;
 }
 
 // background
