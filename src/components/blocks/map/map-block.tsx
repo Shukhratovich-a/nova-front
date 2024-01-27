@@ -3,8 +3,8 @@ import Map from "@/components/map/map";
 import cn from "classnames";
 import Link from "next/link";
 import { FC } from "react";
-import styles from "./map-card.module.scss";
-import { MapCardProps } from "./map-card.props";
+import styles from "./map-block.module.scss";
+import { MapCardProps } from "./map-block.props";
 
 const MapCard: FC<MapCardProps> = (props) => {
   const { orient, title, address, map, phone, mail, ...rest } = props;
