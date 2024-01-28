@@ -1,4 +1,3 @@
-import { IconArrowRight } from "@/assets/icons";
 import Map from "@/components/map/map";
 import cn from "classnames";
 import Link from "next/link";
@@ -10,7 +9,7 @@ const MapCard: FC<MapCardProps> = (props) => {
   const { orient, title, address, map, phone, mail, ...rest } = props;
 
   // Стиль ориентации блока
-  const orientStyle = orient === "row" ? styles.cardRow : styles.cardColumn;
+  const orientStyle = orient === "row" ? styles.cardOrientRow : styles.cardColumn;
 
   return (
     <div className={cn(styles.card, orientStyle)} {...rest}>

@@ -9,13 +9,13 @@
   gap: 30px;
 }
 
-.cardRow {
-  width: 100%;
+.cardOrientRow {
+  width: auto;
   flex-direction: row;
   align-items: center;
 }
 
-.cardRow .map {
+.cardOrientRow .map {
   width: 650px;
   aspect-ratio: 130 / 73; //соотношение сторон
 }

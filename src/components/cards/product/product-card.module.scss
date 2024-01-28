@@ -1,23 +1,33 @@
 @import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
 .card {
   position: relative;
   overflow: hidden;
 
   max-width: 300px;
-  width: 100%;
+  width: auto;
   height: 288px;
 
   border-radius: 12px;
-  background: $white;
+  background: $bg-primary;
   border: 1px solid $stroke;
   box-shadow: 4px 4px 15px 0px $stroke;
+
+  @include desktop {
+  }
+  @include table {
+  }
+  @include mobile {
+  }
+
+  @include hover-control {
+  }
 }
 
 .content {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
 
   padding: 20px;
 
@@ -37,8 +47,9 @@
 
 .image {
   width: 100%;
-  height: 100%;
+  // height: 100%;
   object-fit: cover;
+  object-position: top;
   background-color: $stroke;
 }
 

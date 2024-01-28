@@ -1,23 +1,29 @@
 .wrapper {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  // display: grid;
+  // grid-template-rows: auto 1fr auto;
 
+  // min-height: 100vh;
+  // grid-template-areas:
+  //   "header"
+  //   "main"
+  //   "footer";
+
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
+
   overflow: hidden;
 }
 
 .header {
-  grid-area: header;
+  // grid-area: header;
 }
 
 .main {
-  grid-area: main;
+  // grid-area: main;
 }
 
 .footer {
-  grid-area: footer;
+  // grid-area: footer;
+  margin-top: auto;
 }
