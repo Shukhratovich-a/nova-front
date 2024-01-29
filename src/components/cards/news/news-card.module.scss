@@ -1,12 +1,14 @@
 @import "@/styles/variables";
 .card {
-  max-width: 350px;
-  width: 100%;
+  max-width: 450px;
+  width: auto;
   height: 365px;
 
   background: $bg-primary;
   display: flex;
   flex-direction: column;
+
+  border-radius: 16px 16px 0 0;
 }
 
 // head
@@ -18,6 +20,7 @@
 }
 
 .image {
+  width: 100%;
   object-fit: cover;
   background-color: $stroke;
 
@@ -52,7 +55,6 @@
 
 // content
 .content {
-  width: 100%;
   height: inherit;
 
   display: flex;

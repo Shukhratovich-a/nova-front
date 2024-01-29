@@ -1,0 +1,38 @@
+@import "@/styles/variables";
+// $mobile-breakpoint: 500px;
+// $table-breakpoint: 800px;
+// $desktop-breakpoint: 1200px;
+
+// mobile, table, desktop
+@mixin mobile {
+  @media screen and (max-width: #{$mobile-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin table {
+  @media screen and (max-width: #{$table-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: #{$desktop-breakpoint}) {
+    @content;
+  }
+}
+
+
+@mixin hover-control {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
