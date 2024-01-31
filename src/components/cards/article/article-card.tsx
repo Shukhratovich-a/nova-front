@@ -5,29 +5,36 @@ import { ArticleCardProps } from "./article-card.props";
 
 import articleImageSrc1 from "@/assets/images/article-1.jpg";
 import articleImageSrc2 from "@/assets/images/article-2.jpg";
+import { useRouter } from "next/router";
 
 const ArticleCard: FC<ArticleCardProps> = (props) => {
-  const { productCode, text, imageUrl, link, ...rest } = props;
+  const { productCode, text, imageUrl, link, children, ...rest } = props;
+
+  const router = useRouter();
+
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
 
   return (
     <div>
-      <div className={styles.card} {...rest}>
-        <div>
-          <Image className={styles.image} src={articleImageSrc1} alt="" width={350} height={200} />
+      <div onClick={() => handleNavigation("link")} className={styles.card} {...rest}>
+        <div className={styles.image}>
+          <Image src={articleImageSrc1} alt="" width={350} height={200} />
         </div>
 
         <div className={styles.content}>
-          {productCode ? <p className="badge fw-extrabold color-accent">{productCode}</p> : ""}
+          {productCode ? <p className="badge-text fw-extrabold color-accent">{productCode}</p> : ""}
           <h3>Nova Alçıpan Ti̇p Gömme Rezervuar Montaj Vi̇deosu</h3>
         </div>
       </div>
-      <div className={styles.card} {...rest}>
-        <div>
-          <Image className={styles.image} src={articleImageSrc2} alt="" width={350} height={200} />
+      <div onClick={() => handleNavigation("link")} className={styles.card} {...rest}>
+        <div className={styles.image}>
+          <Image src={articleImageSrc2} alt="" width={350} height={200} />
         </div>
 
         <div className={styles.content}>
-          {/* {productCode ? <p className="badge fw-extrabold color-accent">{4105}</p> : ""} */}
+          {/* {productCode ? <p className="badge-text fw-extrabold color-accent">{productCode}</p> : ""} */}
           <h3>Nova Alçıpan Ti̇p Gömme Rezervuar Montaj Vi̇deosu</h3>
         </div>
       </div>
