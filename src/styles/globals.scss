@@ -1,6 +1,7 @@
 @import "./normalize";
 @import "./variables";
 @import "./fonts";
+@import "@/styles/media/media-queries";
 
 body,
 p {
@@ -83,25 +84,32 @@ h3 {
   font-weight: 400;
 }
 
-// badges
-.badge {
+// badge-texts
+.badge-text {
   font-size: 12px;
   line-height: 14px;
   font-weight: 400;
 }
 
 // navLink
-.nav-link {
+.nav-link-text {
   font-size: 16px;
   line-height: 24px;
   font-weight: 700;
 }
 
-// button
+// button, link (a)
 button,
 a {
   font-size: 14px;
   line-height: 18px;
+}
+
+a {
+  font-weight: 400;
+}
+
+button {
   font-weight: 700;
 }
 
