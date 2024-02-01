@@ -1,0 +1,22 @@
+@import "@/styles/variables";
+
+
+.button {
+  text-transform: capitalize;
+  padding: 16px 32px;
+  border-radius: 100px;
+  
+}
+
+.yellow {
+  color: $white;
+  background-color: $yellow;
+}
+.accent {
+  color: $white;
+  background-color: $accent;
+}
+.outlined {
+  border: 2px solid $accent;
+  color: $accent;
+}
