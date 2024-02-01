@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import cn from "classnames";
 import cnBind from "classnames/bind";
@@ -14,13 +14,37 @@ const cx = cnBind.bind(styles);
 
 export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) => {
   const [burgerActive, setBurgerActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const menuController = () => {
     setBurgerActive(!burgerActive);
   };
 
+  // scroll controller
+  useEffect(() => {
+    console.log("scrolling");
+    const handleScroll = () => {
+      // Проверьте, прокручена ли страница больше, чем scrollThreshold
+      const scrollThreshold = 200;
+      const isScrolled = window.scrollY > scrollThreshold;
+
+      // Обновите состояние только если произошли изменения
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    // Добавьте обработчик события прокрутки
+    window.addEventListener("scroll", handleScroll);
+
+    // Уберите обработчик события при размонтировании компонента
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
+
   return (
-    <header className={cn(className, styles.wrapper)} {...rest}>
+    <header className={cn(className, styles.wrapper, scrolled ? styles.scrolled : "")} {...rest}>
       <div className="container">
         <div className={styles.wrap}>
           <Link className={styles.logo} href="/">
@@ -28,8 +52,11 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) 
           </Link>
           <Navbar onClick={menuController} active={burgerActive} />
           <div className={cn(styles.additions, "color-white")}>
-            <IconSearch /> ru
-            <IconArrowBottom />
+            <IconSearch />
+            <div>
+              ru
+              <IconArrowBottom />
+            </div>
           </div>
           <button className={cn(styles.burger, burgerActive && cx({ active: true }))} onClick={menuController}>
             {/* ▤ */}
@@ -40,3 +67,5 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) 
     </header>
   );
 };
+
+export default Header;
