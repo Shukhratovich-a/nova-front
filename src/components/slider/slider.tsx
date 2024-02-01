@@ -10,7 +10,11 @@ import { getSwiperConfig } from "./swiper.config";
 const Slider: FC<SliderProps> = ({ type, quantity, width, children, ...rest }) => {
   // className="swiper-slide-image"
 
-  return <Swiper {...getSwiperConfig({ type, quantity, width })}>{children}</Swiper>;
+  return (
+    <Swiper {...getSwiperConfig({ type, quantity, width })} style={{ maxWidth: width }}>
+      {children}
+    </Swiper>
+  );
 };
 
 export default Slider;

@@ -3,12 +3,12 @@ import ArticleCard from "@/components/cards/article/article-card";
 import NewsCard from "@/components/cards/news/news-card";
 import ProductCard from "@/components/cards/product/product-card";
 import Slider from "@/components/slider/slider";
+import { withLayout } from "@/layout/Layout";
 import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 
 const emptyArray = Array.from({ length: 10 });
-
 const About: FC = () => {
   return (
     <div>
@@ -25,8 +25,8 @@ const About: FC = () => {
           </SwiperSlide>
         ))}
       </Slider>
-      
-      <Slider type="dynamic" quantity={4}>
+
+      <Slider type="dynamic" quantity={3}>
         {emptyArray.map((_, index) => (
           <SwiperSlide key={index}>
             <NewsCard title="" imageUrl="" text="" link="" date="" />
@@ -73,4 +73,4 @@ const About: FC = () => {
   );
 };
 
-export default About;
+export default withLayout(About);

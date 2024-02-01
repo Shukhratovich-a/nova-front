@@ -1,4 +1,6 @@
 @import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
 .card {
   max-width: 350px;
   width: 100%;
@@ -12,12 +14,36 @@
   border: 1px solid $stroke;
   background: $bg-primary;
   box-shadow: 4px 4px 15px 0px $stroke;
+  @include desktop {
+  }
+  @include table {
+  }
+  @include mobile {
+  }
 }
 
 .image {
   height: auto;
-  object-fit: cover;
+
   background-color: $stroke;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  img {
+    height: auto;
+
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+  }
+
+  @include hover-control {
+    img {
+      transform: scale(1);
+    }
+  }
 }
 
 .content {

@@ -1,0 +1,64 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+// container
+.wrapper {
+  // @include desktop {
+  //   background-color: #f00;
+  // }
+  // @include table {
+  //   background-color: #0f0;
+  // }
+  // @include mobile {
+  //   background-color: #00f;
+  // }
+}
+
+// block
+
+.social,
+.wrap {
+  padding: 20px;
+}
+
+.social {
+  justify-content: center;
+  gap: 60px;
+
+  border-top: 1px solid $stroke;
+  border-bottom: 1px solid $stroke;
+}
+
+.wrap {
+  gap: 20px;
+  @include table {
+    flex-direction: column;
+  }
+}
+
+.social,
+.wrap,
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+// element
+
+.nav-list {
+  gap: 20px;
+  a {
+    padding: 10px 0;
+  }
+
+  @include table {
+    order: 2;
+  }
+}
+
+.copyright-info {
+  flex: 1;
+  @include table {
+    order: 3;
+  }
+}

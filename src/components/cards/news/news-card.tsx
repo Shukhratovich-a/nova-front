@@ -3,20 +3,30 @@ import newsImageSrc from "@/assets/images/news.jpg";
 import cn from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import styles from "./news-card.module.scss";
 import { NewsCardProps } from "./news-card.props";
+7;
 
 const NewsCard: FC<NewsCardProps> = (props) => {
   const { title, text, imageUrl, link, date, ...rest } = props;
 
+  const router = useRouter();
+
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <div className={styles.card} {...rest}>
-      <div className={styles.head}>
-        <Image className={styles.image} src={newsImageSrc} alt="" width={350} height={200} />
+      <div onClick={() => handleNavigation("link")} className={styles.head}>
+        <div className={styles.image}>
+          <Image src={newsImageSrc} alt="" width={350} height={200} />
+        </div>
         <div className={styles.captions}>
-          <span className={cn(styles.date, "badge")}>24 November 2023</span>
-          <span className={cn(styles.label, "badge")}>Новости</span>
+          <span className={cn(styles.date, "badge-text")}>24 November 2023</span>
+          <span className={cn(styles.label, "badge-text")}>Новости</span>
         </div>
       </div>
 
