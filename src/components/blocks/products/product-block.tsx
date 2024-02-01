@@ -2,7 +2,7 @@ import { Button } from "@/components/button/button";
 import ProductCard from "@/components/cards/product/product-card";
 import cn from "classnames";
 import { FC } from "react";
-import styles from "./product.module.scss";
+import styles from "./product-block.module.scss";
 import { ProductBlockProps } from "./products-block.props";
 
 export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => {
