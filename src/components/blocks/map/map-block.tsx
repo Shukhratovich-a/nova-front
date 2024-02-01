@@ -1,11 +1,11 @@
-import Map from "@/components/map/map";
+import { Map } from "@/components";
 import cn from "classnames";
 import Link from "next/link";
 import { FC } from "react";
 import styles from "./map-block.module.scss";
 import { MapCardProps } from "./map-block.props";
 
-const MapCard: FC<MapCardProps> = (props) => {
+export const MapCard: FC<MapCardProps> = (props) => {
   const { orient, title, address, map, phone, mail, ...rest } = props;
 
   // Стиль ориентации блока
@@ -35,5 +35,4 @@ const MapCard: FC<MapCardProps> = (props) => {
     </div>
   );
 };
-
 export default MapCard;

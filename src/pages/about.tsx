@@ -1,10 +1,6 @@
-import MapCard from "@/components/blocks/map/map-block";
-import ArticleCard from "@/components/cards/article/article-card";
-import NewsCard from "@/components/cards/news/news-card";
-import ProductCard from "@/components/cards/product/product-card";
-import Slider from "@/components/slider/slider";
+import { ArticleCard, MapCard, NewsCard, ProductCard, Slider } from "@/components";
+
 import { withLayout } from "@/layout/Layout";
-import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 

@@ -9,7 +9,7 @@ import styles from "./news-card.module.scss";
 import { NewsCardProps } from "./news-card.props";
 7;
 
-const NewsCard: FC<NewsCardProps> = (props) => {
+export const NewsCard: FC<NewsCardProps> = (props) => {
   const { title, text, imageUrl, link, date, ...rest } = props;
 
   const router = useRouter();

@@ -8,7 +8,7 @@ import { FC } from "react";
 import styles from "./product-card.module.scss";
 import { ProductCardProps } from "./product-card.props";
 
-const ProductCard: FC<ProductCardProps> = (props) => {
+export const ProductCard: FC<ProductCardProps> = (props) => {
   const { name, imageUrl, link, ...rest } = props;
 
   const router = useRouter();

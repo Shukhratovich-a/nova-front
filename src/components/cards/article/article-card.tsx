@@ -7,7 +7,7 @@ import articleImageSrc1 from "@/assets/images/article-1.jpg";
 import articleImageSrc2 from "@/assets/images/article-2.jpg";
 import { useRouter } from "next/router";
 
-const ArticleCard: FC<ArticleCardProps> = (props) => {
+export const ArticleCard: FC<ArticleCardProps> = (props) => {
   const { productCode, text, imageUrl, link, children, ...rest } = props;
 
   const router = useRouter();
