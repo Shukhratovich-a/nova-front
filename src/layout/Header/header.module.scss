@@ -1,0 +1,125 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  // backdrop-filter: blur(5px) brightness(0.95);
+  width: 100%;
+}
+
+.wrap {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  @include table {
+    justify-content: flex-start;
+  }
+}
+
+.logo,
+.additions {
+  z-index: 2;
+}
+
+// logo parent
+.logo {
+  @include table {
+    flex: 1;
+  }
+  img {
+    background-color: $accent;
+
+    @include desktop {
+      width: 130px;
+      height: auto;
+    }
+
+    @include table {
+      width: 220px;
+    }
+  }
+}
+
+// search and language parent
+.additions {
+  display: flex;
+  align-items: center;
+}
+
+// burger menu button
+.burger {
+  display: none;
+  width: 30px;
+  height: 30px;
+
+  position: relative;
+  z-index: 2;
+
+  cursor: pointer;
+
+  // media query
+  @include table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // elements
+  // width
+  span,
+  span::before,
+  span::after {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+
+  // position
+  span::before,
+  span::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    transition:
+      transform 0.2s ease-in,
+      top 0.2s linear 0.2s;
+  }
+
+  span {
+    position: relative;
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      top: 10px;
+    }
+  }
+
+  // active
+  &.active {
+    span {
+      background-color: transparent;
+      &::before,
+      &::after {
+        top: 0;
+        transition:
+          top 0.2s linear,
+          transform 0.2s ease-in 0.2s;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
