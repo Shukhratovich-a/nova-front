@@ -36,7 +36,7 @@
 
 .name {
   // текст превышаюший 3 строки скрывается
-  max-width: 190px;
+  max-width: 90%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -44,8 +44,9 @@
 }
 
 .image {
-  width: 100%;
+  width: 300px;
   height: auto;
+  margin: auto;
   object-fit: cover;
   object-position: center;
   background-color: $stroke;

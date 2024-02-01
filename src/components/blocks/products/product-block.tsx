@@ -10,7 +10,7 @@ export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => 
     <div className={cn(styles.wrapper, className, "container")}>
       <h2>Продукты</h2>
       <ul className={styles.list}>
-      {children}
+        {children}
         <li className={styles.item}>
           <ProductCard name={""} imageUrl={""} link={""} />
         </li>
@@ -64,4 +64,4 @@ export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => 
   );
 };
 
-export default ProductBlock
+export default ProductBlock;
