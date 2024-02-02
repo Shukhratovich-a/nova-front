@@ -1,0 +1,35 @@
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  margin-bottom: 80px;
+
+  @include table {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  button {
+    @include table {
+      display: none;
+    }
+  }
+}
+
+.button-mobile {
+  display: none;
+  @include table {
+    display: block;
+  }
+}
