@@ -22,7 +22,6 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) 
 
   // scroll controller
   useEffect(() => {
-    console.log("scrolling");
     const handleScroll = () => {
       // Проверьте, прокручена ли страница больше, чем scrollThreshold
       const scrollThreshold = 200;

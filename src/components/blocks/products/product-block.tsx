@@ -7,7 +7,7 @@ import { ProductBlockProps } from "./products-block.props";
 
 export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => {
   return (
-    <div className={cn(styles.wrapper, className, "container")}>
+    <div className={cn(styles.wrapper, className)}>
       <h2>Продукты</h2>
       <ul className={styles.list}>
         {children}

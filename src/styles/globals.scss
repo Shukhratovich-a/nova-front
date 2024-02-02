@@ -70,6 +70,11 @@ h3 {
   line-height: clamp(1.25rem, 1.149rem + 0.38vw, 1.5rem); // 20-24
   font-weight: 400;
 }
+.subtitle-sm {
+  font-size: clamp(0.875rem, 0.7743rem + 0.3791vw, 1.125rem); // 14-18
+  line-height: clamp(1.125rem, 0.9739rem + 0.5687vw, 1.5rem); // 18-24
+  font-weight: 500;
+}
 
 // description
 .text-lg {
@@ -103,21 +108,16 @@ button,
 a {
   font-size: 14px;
   line-height: 18px;
-}
-
-a {
-  font-weight: 400;
-}
-
-button {
   font-weight: 700;
 }
 
-.button {
-  text-transform: capitalize;
-  padding: 16px 32px;
-  border-radius: 100px;
-}
+// a {
+//   font-weight: 400;
+// }
+
+// button {
+//   font-weight: 700;
+// }
 
 // font-weight
 // 400

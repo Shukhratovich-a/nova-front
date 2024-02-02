@@ -1,7 +1,7 @@
 import cn from "classnames";
 import React from "react";
 
-import styles from "./Button.module.scss";
+import styles from "./button.module.scss";
 import { ButtonProps } from "./button.props";
 
 export const Button: React.FC<ButtonProps> = ({ className, children, appearance = "accent", ...props }) => {
