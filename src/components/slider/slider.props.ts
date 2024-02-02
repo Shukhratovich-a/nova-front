@@ -1,9 +1,10 @@
 import { HTMLAttributes } from "react";
 
 export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
-  quantity?: 1 | 2 | 3 | 4;
+  quantity?: number;
   type: "full-screen" | "dynamic";
   width?: number;
+  mobile?: boolean
 }
 
 export interface IBreakpoints {
@@ -16,4 +17,5 @@ export interface IBreakpoints {
 export interface IGetBreakpoints {
   quantity: number;
   width: number;
+  mobile?: boolean;
 }

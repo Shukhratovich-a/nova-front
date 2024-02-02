@@ -1,6 +1,7 @@
 import { ArticleCard, MapCard, NewsCard, ProductCard, Slider } from "@/components";
 
 import { withLayout } from "@/layout/Layout";
+import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 

@@ -1,12 +1,18 @@
 import { Autoplay, Pagination } from "swiper/modules";
 import { IBreakpoints, IGetBreakpoints, SliderProps } from "./slider.props";
 
-const getBreakpoints = ({ quantity, width }: IGetBreakpoints) => {
+const getBreakpoints = ({mobile ,quantity, width }: IGetBreakpoints) => {
   // calculate breakpoint
-  const minimalWidth = [0, 800, 560, 450][quantity - 1];
+  const minimalWidth = [0, 800, 560, 450][quantity - 1] + (1440 - width);
+  const mobileBreakpoints = {
+    550: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+    },
+  };
   const breakpointCount = quantity - 1;
 
-  const breakpointWidth = (width - minimalWidth) / breakpointCount;
+  const breakpointWidth = (1440 - minimalWidth) / breakpointCount;
 
   const breakpoints: IBreakpoints = {
     0: {
@@ -17,7 +23,7 @@ const getBreakpoints = ({ quantity, width }: IGetBreakpoints) => {
 
   // add breakpoint
   for (let i = 0; i < quantity - 1; i++) {
-    const breakpointKey = width - breakpointWidth * (i + 1);
+    const breakpointKey = 1440 - breakpointWidth * (i + 1);
     const elementCount = quantity - i;
 
     breakpoints[breakpointKey] = {
@@ -26,10 +32,10 @@ const getBreakpoints = ({ quantity, width }: IGetBreakpoints) => {
     };
   }
 
-  return breakpoints;
+  return mobile ? { ...breakpoints, ...mobileBreakpoints } : breakpoints;
 };
 
-export const getSwiperConfig = ({ type, quantity = 1, width = 1440 }: SliderProps) => {
+export const getSwiperConfig = ({ mobile,type, quantity = 1, width = 1440 }: SliderProps) => {
   // create Swiper attributes
   const singleSwiperAttr = {
     slidesPerView: 1,
@@ -47,12 +53,12 @@ export const getSwiperConfig = ({ type, quantity = 1, width = 1440 }: SliderProp
   };
 
   if (quantity > 1) {
-    const breakpoints = getBreakpoints({ quantity, width });
+    const breakpoints = getBreakpoints({mobile, quantity, width });
     multipleSwiperAttr.breakpoints = breakpoints;
   }
 
   const swiperAttr = {
-    speed: 1200,
+    speed: 600,
     loop: true,
     pagination: { clickable: true },
     modules: [Pagination, Autoplay],
