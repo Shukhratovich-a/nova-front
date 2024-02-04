@@ -1,0 +1,52 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid $stroke;
+
+  @include table {
+    flex-direction: column;
+  }
+}
+
+.content {
+  min-width: 50%;
+  flex: 1;
+  @include table {
+    order: 2;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.description {
+  max-height: 150px;
+  overflow: auto;
+  padding-right: 7px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.gallery {
+  // height: 425px;
+  // flex: 1;
+  @include table {
+    order: 1;
+  }
+}
+// .image {
+//   height: 425px;
+// }
