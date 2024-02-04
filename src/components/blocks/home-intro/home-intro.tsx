@@ -6,7 +6,7 @@ import { SwiperSlide } from "swiper/react";
 import styles from "./home-intro.module.scss";
 import { HomeIntroProps } from "./home-intro.props";
 
-const HomeIntro: FC<HomeIntroProps> = (props) => {
+export const HomeIntro: FC<HomeIntroProps> = (props) => {
   // const { title, subtitle, caption } = props;
 
   return (
