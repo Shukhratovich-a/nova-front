@@ -1,12 +1,12 @@
+import { Slider } from "@/components";
 import cn from "classnames";
 import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
-import styles from "./intro-block.module.scss";
-import { IntroProps } from "./intro-block.props";
-import { Slider } from "@/components";
+import styles from "./home-intro.module.scss";
+import { HomeIntroProps } from "./home-intro.props";
 
-export const Intro: FC<IntroProps> = (props) => {
+const HomeIntro: FC<HomeIntroProps> = (props) => {
   // const { title, subtitle, caption } = props;
 
   return (
@@ -71,4 +71,4 @@ export const Intro: FC<IntroProps> = (props) => {
   );
 };
 
-export default Intro
+export default HomeIntro;

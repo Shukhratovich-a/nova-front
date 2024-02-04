@@ -2,10 +2,10 @@ import { Button } from "@/components/button/button";
 import ProductCard from "@/components/cards/product/product-card";
 import cn from "classnames";
 import { FC } from "react";
-import styles from "./product-block.module.scss";
-import { ProductBlockProps } from "./products-block.props";
+import styles from "./home-products.module.scss";
+import { HomeProductProps } from "./home-products.props";
 
-export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => {
+export const HomeProduct: FC<HomeProductProps> = ({ children, className }) => {
   return (
     <div className={cn(styles.wrapper, className)}>
       <h2>Продукты</h2>
@@ -64,4 +64,4 @@ export const ProductBlock: FC<ProductBlockProps> = ({ children, className }) => 
   );
 };
 
-export default ProductBlock;
+export default HomeProduct;
