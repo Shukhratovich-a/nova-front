@@ -1,14 +1,14 @@
 @import "@/styles/variables";
 
-
 .button {
-  text-transform: capitalize;
-  padding: 16px 32px;
-  border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 5px;
   
+  padding: 16px 32px;
+
+  text-transform: capitalize;
+  border-radius: 100px;
 }
 
 .yellow {
@@ -19,6 +19,7 @@
   color: $white;
   background-color: $accent;
 }
+
 .outlined {
   border: 2px solid $accent;
   color: $accent;

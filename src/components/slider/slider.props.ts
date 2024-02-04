@@ -4,7 +4,7 @@ export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
   quantity?: number;
   type: "full-screen" | "dynamic";
   width?: number;
-  mobile?: boolean
+  mobile?: boolean;
 }
 
 export interface IBreakpoints {
