@@ -38,11 +38,16 @@
 }
 
 .swiper-dynamic.swiper {
-  width: 100%;
+  // element shadow view
+  width: calc(100% + 15px);
+  padding-right: 15px;
+  border-radius: 0 10px 0 0;
+  margin-right: -15px;
+
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-right: 10px;
+
 
   & .swiper-wrapper {
   }
@@ -51,9 +56,11 @@
     position: static;
   }
 
-  & .swiper-slide-image {
-    object-fit: cover;
-    height: 100%;
+  & .swiper-slide {
+    &-image {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 }
 
