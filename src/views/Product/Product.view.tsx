@@ -1,4 +1,4 @@
-import { Breadcrumbs, ProductInfo, ProductIntro } from "@/components";
+import { Breadcrumbs, ProductInfo, ProductIntro, ProductRelated } from "@/components";
 import { FC } from "react";
 
 export const ProductView: FC = () => {
@@ -12,6 +12,9 @@ export const ProductView: FC = () => {
       </section>
       <section>
         <ProductInfo />
+      </section>
+      <section>
+        <ProductRelated />
       </section>
     </div>
   );
