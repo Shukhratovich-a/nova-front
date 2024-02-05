@@ -1,9 +1,9 @@
 import { Autoplay, Pagination } from "swiper/modules";
 import { IBreakpoints, IGetBreakpoints, SliderProps } from "./slider.props";
 
-const getBreakpoints = ({mobile ,quantity, width }: IGetBreakpoints) => {
+const getBreakpoints = ({ mobile, quantity, width }: IGetBreakpoints) => {
   // calculate breakpoint
-  const minimalWidth = [0, 800, 560, 450][quantity - 1] + (1440 - width);
+  const minimalWidth = [0, 800, 560, 450][quantity - 1 && 3] + (1440 - width);
   const mobileBreakpoints = {
     550: {
       slidesPerView: 2,
@@ -35,7 +35,7 @@ const getBreakpoints = ({mobile ,quantity, width }: IGetBreakpoints) => {
   return mobile ? { ...breakpoints, ...mobileBreakpoints } : breakpoints;
 };
 
-export const getSwiperConfig = ({ mobile,type, quantity = 1, width = 1440 }: SliderProps) => {
+export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440 }: SliderProps) => {
   // create Swiper attributes
   const singleSwiperAttr = {
     slidesPerView: 1,
@@ -53,7 +53,7 @@ export const getSwiperConfig = ({ mobile,type, quantity = 1, width = 1440 }: Sli
   };
 
   if (quantity > 1) {
-    const breakpoints = getBreakpoints({mobile, quantity, width });
+    const breakpoints = getBreakpoints({ mobile, quantity, width });
     multipleSwiperAttr.breakpoints = breakpoints;
   }
 
