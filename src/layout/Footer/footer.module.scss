@@ -31,6 +31,7 @@
 
 .wrap {
   gap: 20px;
+  padding-bottom: 25px;
   @include table {
     flex-direction: column;
   }

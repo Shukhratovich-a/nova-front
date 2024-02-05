@@ -4,6 +4,7 @@ import React from "react";
 import { FooterProps } from "./Footer.props";
 
 import { IconFacebook, IconVk, IconYoutube } from "@/assets/icons";
+import LogoBlue from "@/assets/images/Logo-blue.png";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./footer.module.scss";
@@ -25,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         </Link>
       </div>
       <div className={cn(styles.wrap, "container")}>
-        <Image src="" alt="" width={142} height={40} />
+        <Image src={LogoBlue} alt="" width={142} height={40} />
         <p className={cn(styles["copyright-info"], "text-md color-gray")}>© NOVA Plastic 2024. Все права защищены.</p>
         <nav>
           <ul className={cn(styles["nav-list"], "color-gray")}>
