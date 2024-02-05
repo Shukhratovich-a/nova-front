@@ -11,7 +11,7 @@ const Navbar: FC<NavbarProps> = ({ className, active, onClick }) => {
   const classActive = active ? cx({ active: true }) : "";
 
   return (
-    <nav onClick={onClick} className={cn(styles.nav, "color-white", className, classActive)}>
+    <nav onClick={onClick} className={cn(styles.nav, className, classActive)}>
       <ul className={styles.list}>
         <li className={styles.item}>
           <Link className={cn(styles.link, "nav-link-text")} href="/">

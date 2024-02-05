@@ -1,4 +1,4 @@
-import { ArticleCard, MapCard, NewsCard, ProductCard, Slider } from "@/components";
+import { ArticleCard, ContactsMap, NewsCard, ProductCard, Slider } from "@/components";
 
 import { withLayout } from "@/layout/Layout";
 import Image from "next/image";
@@ -41,7 +41,7 @@ const About: FC = () => {
 
       <NewsCard title="" imageUrl="" text="" link="" date="" />
 
-      <MapCard
+      <ContactsMap
         title={""}
         address={""}
         map={{
@@ -53,7 +53,7 @@ const About: FC = () => {
         orient={"column"}
       />
 
-      <MapCard
+      <ContactsMap
         title={""}
         address={""}
         map={{

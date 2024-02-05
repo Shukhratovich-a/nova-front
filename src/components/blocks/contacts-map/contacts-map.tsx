@@ -2,10 +2,10 @@ import { Map } from "@/components";
 import cn from "classnames";
 import Link from "next/link";
 import { FC } from "react";
-import styles from "./map-block.module.scss";
-import { MapCardProps } from "./map-block.props";
+import styles from "./contacts-map.module.scss";
+import { ContactsMapProps } from "./contacts-map.props";
 
-export const MapCard: FC<MapCardProps> = (props) => {
+export const ContactsMap: FC<ContactsMapProps> = (props) => {
   const { orient, title, address, map, phone, mail, ...rest } = props;
 
   // Стиль ориентации блока
@@ -35,4 +35,4 @@ export const MapCard: FC<MapCardProps> = (props) => {
     </div>
   );
 };
-export default MapCard;
+export default ContactsMap;

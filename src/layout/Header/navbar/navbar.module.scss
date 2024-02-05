@@ -15,6 +15,7 @@
       visibility 0.6s ease,
       transform 0.6s ease;
     &.active {
+      color: $white;
       visibility: visible;
       transform: translateX(0);
     }

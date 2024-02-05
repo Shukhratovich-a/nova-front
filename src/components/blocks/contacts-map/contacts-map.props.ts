@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 
-export interface MapCardProps extends HTMLAttributes<HTMLDivElement> {
+export interface ContactsMapProps extends HTMLAttributes<HTMLDivElement> {
   orient: "row" | "column";
   title: string;
   address: string;

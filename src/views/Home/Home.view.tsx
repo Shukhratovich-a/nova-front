@@ -1,16 +1,14 @@
-import { ArticleSlide, Intro, ProductBlock } from "@/components";
-
-const emptyArray = Array.from({ length: 10 });
+import { ArticleSlide, HomeProduct, HomeIntro } from "@/components";
 
 export const HomeView = () => {
   return (
     <>
       <section>
-        <Intro data={[]} />
+        <HomeIntro data={[]} />
       </section>
 
       <section className="container">
-        <ProductBlock />
+        <HomeProduct />
       </section>
 
       <section className="container">

@@ -1,0 +1,22 @@
+@import '@/styles/media/media-queries';
+
+.wrapper {
+  @include mobile {
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.item {
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  text-transform: capitalize;
+}
