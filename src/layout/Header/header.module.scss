@@ -8,23 +8,50 @@
   z-index: 20;
 
   width: 100%;
+  color: $accent;
   transition: background 0.4s ease;
 }
+
 .scrolled {
   background: $accent;
+  & .burger {
+    transition: background-color 0.4s ease-in;
+    span,
+    span::before,
+    span::after {
+      background-color: $bg-primary;
+    }
+  }
 }
-
+// 220 62, 177 50
 .wrap {
-  padding: 20px 0;
+  padding: 24px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   @include table {
+    padding: 20px 0;
     justify-content: flex-start;
+  }
+  @include mobile {
+    padding: 15px 0;
   }
 }
 
+.headerHome {
+  color: $white;
+
+  & .burger {
+    span,
+    span::before,
+    span::after {
+      background: $white;
+    }
+  }
+}
+
+// general
 .logo,
 .additions {
   z-index: 2;
@@ -36,15 +63,17 @@
     flex: 1;
   }
   img {
-    background-color: $accent;
-
     @include desktop {
       width: 130px;
       height: auto;
     }
 
     @include table {
-      width: 220px;
+      width: 177px;
+    }
+
+    @include mobile {
+      width: 130px;
     }
   }
 }
@@ -53,6 +82,25 @@
 .additions {
   display: flex;
   align-items: center;
+  gap: 20px;
+
+  @include table {
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      opacity 0.3s ease-in,
+      visibility 0.3s ease-in;
+    &.active {
+      color: $bg-primary;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    stroke: none;
+  }
 }
 
 // burger menu button
@@ -79,9 +127,13 @@
   span::before,
   span::after {
     width: 30px;
-    height: 3px;
-    background-color: #fff;
+    height: 5px;
+    background-color: $accent;
     border-radius: 3px;
+    transition:
+      transform 0.2s ease-in,
+      top 0.2s linear 0.2s,
+      background-color 0.4s ease-in;
   }
 
   // position
@@ -90,9 +142,6 @@
     position: absolute;
     left: 0;
     content: "";
-    transition:
-      transform 0.2s ease-in,
-      top 0.2s linear 0.2s;
   }
 
   span {
@@ -111,6 +160,7 @@
       background-color: transparent;
       &::before,
       &::after {
+        background-color: $bg-primary;
         top: 0;
         transition:
           top 0.2s linear,
