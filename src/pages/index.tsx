@@ -1,20 +1,27 @@
 import { withLayout } from "@/layout/Layout";
-import { HomeView } from "@/views";
-import Head from "next/head";
+import { IBanner } from "@/types/banner.interface";
 
-const Home = () => {
+import { HomeView } from "@/views";
+import axios from "axios";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import { FC } from "react";
+
+const Home: FC<{ banner: IBanner[] }> = (props) => {
   return (
     <>
       <Head>
         <title>Nova</title>
       </Head>
-      <HomeView />
+      <HomeView banner={props.banner} />
     </>
   );
 };
 
-// getStaticPaths
-// getStaticProps
-// getServerSideProps
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get("http://localhost:3001/banner/get-all?language=ru");
+
+  return { props: { banner: res.data } };
+};
 
 export default withLayout(Home);

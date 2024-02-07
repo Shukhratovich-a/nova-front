@@ -38,6 +38,7 @@ const getBreakpoints = ({ mobile, quantity, width }: IGetBreakpoints) => {
 export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440 }: SliderProps) => {
   // create Swiper attributes
   const singleSwiperAttr = {
+    loop: true,
     slidesPerView: 1,
     slidesPerGroup: 1,
     className: "mySwiper swiper-full-screen",
@@ -59,7 +60,6 @@ export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440 }: Sl
 
   const swiperAttr = {
     speed: 600,
-    loop: true,
     pagination: { clickable: true },
     modules: [Pagination, Autoplay],
     ...(type === "dynamic" ? multipleSwiperAttr : singleSwiperAttr),

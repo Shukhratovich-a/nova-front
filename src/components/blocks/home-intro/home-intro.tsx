@@ -6,66 +6,34 @@ import { SwiperSlide } from "swiper/react";
 import styles from "./home-intro.module.scss";
 import { HomeIntroProps } from "./home-intro.props";
 
-export const HomeIntro: FC<HomeIntroProps> = (props) => {
-  // const { title, subtitle, caption } = props;
+export const HomeIntro: FC<HomeIntroProps> = ({ banner }) => {
+  // const { id, poster, title, description, subtitle } = props.banner;
+  console.log(banner);
 
   return (
     <div className={styles.wrapper}>
       <Slider type={"full-screen"}>
-        <SwiperSlide>
-          <Image
-            className="swiper-slide-image"
-            width={1200}
-            height={800}
-            alt=""
-            src="https://picsum.photos/2600/1500"
-          />
-          <div className={cn(styles.wrap, "container")}>
-            <div className={styles.content}>
-              <h1 className={cn("color-white")}>Nova – секрет беспроблемной кухни</h1>
-              <p className={cn("subtitle-lg color-white")}>
-                Внедрение инновационных сантехнических решений для вашего удобства
-              </p>
-              <p className={cn("subtitle-md color-white")}>Продукция Nova поставляется в 61 страну Мира</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="swiper-slide-image"
-            width={1200}
-            height={800}
-            alt=""
-            src="https://picsum.photos/2600/1500"
-          />
-          <div className={cn(styles.wrap, "container")}>
-            <div className={styles.content}>
-              <h1 className={cn("color-white")}>Nova – секрет беспроблемной кухни</h1>
-              <p className={cn("subtitle-lg color-white")}>
-                Внедрение инновационных сантехнических решений для вашего удобства
-              </p>
-              <p className={cn("subtitle-md color-white")}>Продукция Nova поставляется в 61 страну Мира</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="swiper-slide-image"
-            width={1200}
-            height={800}
-            alt=""
-            src="https://picsum.photos/2600/1500"
-          />
-          <div className={cn(styles.wrap, "container")}>
-            <div className={styles.content}>
-              <h1 className={cn("color-white")}>Nova – секрет беспроблемной кухни</h1>
-              <p className={cn("subtitle-lg color-white")}>
-                Внедрение инновационных сантехнических решений для вашего удобства
-              </p>
-              <p className={cn("subtitle-md color-white")}>Продукция Nova поставляется в 61 страну Мира</p>
-            </div>
-          </div>
-        </SwiperSlide>
+        {banner.map(({ id, poster, title, description, subtitle }) => {
+          return (
+            <SwiperSlide key={id}>
+              <Image
+                className="swiper-slide-image"
+                width={1200}
+                height={800}
+                alt=""
+                src={`http://localhost:3001${poster}`}
+              />
+              <div className={cn(styles.wrap, "container")}>
+                <div className={styles.content}>
+                  <h1 className={cn("color-white")} dangerouslySetInnerHTML={{ __html: title }}></h1>
+                  <p className={cn("subtitle-lg color-white")} dangerouslySetInnerHTML={{ __html: description }}>
+                  </p>
+                  <p className={"subtitle-md color-white"} dangerouslySetInnerHTML={{ __html: subtitle }}></p>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Slider>
     </div>
   );
