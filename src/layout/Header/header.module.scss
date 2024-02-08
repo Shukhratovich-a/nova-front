@@ -9,7 +9,7 @@
 
   width: 100%;
   color: $accent;
-  transition: background 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
 .scrolled {
@@ -24,6 +24,9 @@
     span::after {
       background-color: $bg-primary;
     }
+  }
+  & .additions {
+    color: $white;
   }
 }
 // 220 62, 177 50
