@@ -17,6 +17,13 @@
     padding-right: 15px;
   }
 
+  &:not(.cardOrientRow):nth-child(even),
+  &:not(.cardOrientRow):nth-child(odd) {
+    @include table {
+      padding: 0;
+    }
+  }
+
   @include table {
     width: 100%;
   }
