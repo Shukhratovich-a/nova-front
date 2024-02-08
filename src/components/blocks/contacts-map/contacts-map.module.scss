@@ -1,28 +1,48 @@
 @import "@/styles/variables";
+@import "@/styles/media/media-queries";
 .card {
   width: 50%;
 
-  background: $bg-primary;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 0 0 auto;
   gap: 30px;
+  background: $bg-primary;
+
+  &:not(.cardOrientRow):nth-child(even) {
+    padding-left: 15px;
+  }
+  &:not(.cardOrientRow):nth-child(odd) {
+    padding-right: 15px;
+  }
+
+  @include table {
+    width: 100%;
+  }
+}
+
+.map {
+  width: 100%;
+  aspect-ratio: 235 / 132;
 }
 
 .cardOrientRow {
   width: auto;
   flex-direction: row;
   align-items: center;
-}
+  & .map {
+    width: 650px;
+    aspect-ratio: 130 / 73; //соотношение сторон
+  }
 
-.cardOrientRow .map {
-  width: 650px;
-  aspect-ratio: 130 / 73; //соотношение сторон
-}
-
-.map {
-  width: 100%;
-  aspect-ratio: 235 / 132;
+  @include table {
+    flex-direction: column;
+    & .content,
+    & .map {
+      width: 100%;
+    }
+  }
 }
 
 .content {
