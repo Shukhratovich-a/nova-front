@@ -43,6 +43,10 @@ img {
 
 /* font */ // lg md sm
 
+.text-center {
+  text-align: center;
+}
+
 // title
 h1 {
   font-size: clamp(2.5rem, 1.896rem + 2.27vw, 4rem); // 40-64
