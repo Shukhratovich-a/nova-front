@@ -1,7 +1,7 @@
 import { withLayout } from "@/layout/Layout";
 import { IBanner } from "@/types/banner.interface";
 
-import { HomeView } from "@/views";
+import { MediaView } from "@/views";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -13,7 +13,7 @@ const Home: FC<{ banner: IBanner[] }> = (props) => {
       <Head>
         <title>Nova</title>
       </Head>
-      <HomeView banner={props.banner} />
+      <MediaView banner={props.banner} />
     </>
   );
 };
