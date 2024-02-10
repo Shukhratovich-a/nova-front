@@ -10,8 +10,8 @@ import { IconArrowBottom } from "@/assets/icons";
 export const MediaIntro: FC<MediaIntroProps> = () => {
   return (
     <div className={styles.wrapper}>
-      <Slider type="dynamic" quantity={1}>
-        <SwiperSlide className={styles.item}>
+      <Slider className={styles.slider} type="full-screen">
+        <SwiperSlide className={styles["slider-item"]}>
           <Image
             className={cn("swiper-slide-image", styles.image)}
             width={1200}
@@ -20,7 +20,13 @@ export const MediaIntro: FC<MediaIntroProps> = () => {
             src={`https://picsum.photos/1200/700`}
           />
           <div className={cn(styles.wrap, "container")}>
-            <Image className={styles['catalog-image']} width={372} height={522} alt="" src={`https://picsum.photos/372/522`} />
+            <Image
+              className={styles["catalog-image"]}
+              width={372}
+              height={522}
+              alt=""
+              src={`https://picsum.photos/372/522`}
+            />
             <div className={styles.content}>
               <h2 className={cn("color-accent")}>Каталог Турции 2022</h2>
               <p className={cn("subtitle-lg color-gray")}>Plumbing Solutions</p>
@@ -42,7 +48,13 @@ export const MediaIntro: FC<MediaIntroProps> = () => {
             src={`https://picsum.photos/1200/700`}
           />
           <div className={cn(styles.wrap, "container")}>
-            <Image className={styles['catalog-image']} width={372} height={522} alt="" src={`https://picsum.photos/372/522`} />
+            <Image
+              className={styles["catalog-image"]}
+              width={372}
+              height={522}
+              alt=""
+              src={`https://picsum.photos/372/522`}
+            />
             <div className={styles.content}>
               <h2 className={cn("color-accent")}>Каталог Турции 2022</h2>
               <p className={cn("subtitle-lg color-gray")}>Plumbing Solutions</p>
