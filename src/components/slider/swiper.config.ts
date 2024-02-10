@@ -35,13 +35,13 @@ const getBreakpoints = ({ mobile, quantity, width }: IGetBreakpoints) => {
   return mobile ? { ...breakpoints, ...mobileBreakpoints } : breakpoints;
 };
 
-export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440 }: SliderProps) => {
+export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440, className }: SliderProps) => {
   // create Swiper attributes
   const singleSwiperAttr = {
     loop: true,
     slidesPerView: 1,
     slidesPerGroup: 1,
-    className: "mySwiper swiper-full-screen",
+    className: `mySwiper swiper-full-screen ${className}`,
     // autoplay: { delay: 5000 },
   };
 
@@ -49,7 +49,7 @@ export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440 }: Sl
     slidesPerView: quantity,
     slidesPerGroup: quantity,
     spaceBetween: 20,
-    className: "mySwiper swiper-dynamic",
+    className: `mySwiper swiper-dynamic ${className}`,
     breakpoints: {},
   };
 
