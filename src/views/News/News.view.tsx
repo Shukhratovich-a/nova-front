@@ -7,6 +7,9 @@ export const NewsView: FC = () => {
       <section className="container">
         <Breadcrumbs mb="30px" />
       </section>
+      <section>
+        <h2>Новости</h2>
+      </section>
     </div>
   );
 };
