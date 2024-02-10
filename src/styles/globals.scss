@@ -188,6 +188,10 @@ a {
 .main-margin {
   margin-top: 190px;
 
+  @include desktop {
+    margin-top: 110px;
+  }
+
   @include table {
     margin-top: 140px;
   }
@@ -205,11 +209,9 @@ a {
   &::-webkit-scrollbar-track {
     border-radius: 5px;
     background: #e9e9e9;
-
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background: $accent;
   }
-
 }
