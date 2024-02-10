@@ -19,9 +19,9 @@ const Home: FC<{ banner: IBanner[] }> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get("http://localhost:3001/banner/get-all?language=ru");
+  const res = await axios.get("http://localhost:3001/banner/get-all?language=ru").catch((error) => error);
 
-  return { props: { banner: res.data } };
+  return { props: { banner: res.data || [] } };
 };
 
 export default withLayout(Home);
