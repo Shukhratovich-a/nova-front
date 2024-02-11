@@ -1,0 +1,76 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  margin-bottom: 80px;
+}
+
+.head,
+.title {
+  margin-bottom: 10px;
+}
+
+.body {
+  display: flex;
+  gap: 30px;
+  @include desktop {
+    flex-direction: column;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.article {
+  max-width: 350px;
+  @include desktop {
+    max-width: 100%;
+  }
+
+  &-head {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      justify-items: center;
+      // flex-direction: row;
+      gap: 20px;
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+  border-radius: 16px;
+}
+
+// .item {
+//   @include table {
+//     display: none;
+//     &:nth-child(-n + 6) {
+//       display: grid;
+//     }
+//   }
+// }

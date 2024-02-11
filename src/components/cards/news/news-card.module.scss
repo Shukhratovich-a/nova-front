@@ -3,7 +3,7 @@
 .card {
   max-width: 450px;
   width: auto;
-  height: 365px;
+  min-height: 370px;
 
   background: $bg-primary;
   display: flex;
@@ -78,9 +78,11 @@
 // content
 .content {
   height: inherit;
+  flex: 1;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 15px;
 }
 

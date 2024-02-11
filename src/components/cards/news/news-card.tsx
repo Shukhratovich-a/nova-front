@@ -10,7 +10,7 @@ import { NewsCardProps } from "./news-card.props";
 7;
 
 export const NewsCard: FC<NewsCardProps> = (props) => {
-  const { title, text, imageUrl, link, date, ...rest } = props;
+  // const { title, text, imageUrl, link, date, ...rest } = props;
 
   const router = useRouter();
 
@@ -19,7 +19,7 @@ export const NewsCard: FC<NewsCardProps> = (props) => {
   };
 
   return (
-    <div className={styles.card} {...rest}>
+    <div className={styles.card}>
       <div onClick={() => handleNavigation("link")} className={styles.head}>
         <div className={styles.image}>
           <Image src={newsImageSrc} alt="" width={350} height={200} />
