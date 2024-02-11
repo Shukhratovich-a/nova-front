@@ -10,6 +10,8 @@ export * from "./blocks/product-intro/product-intro";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-related/product-related";
+// News page blocks
+export * from "./blocks/news-item/news-item";
 
 // CARDS
 export * from "./cards/article/article-card";

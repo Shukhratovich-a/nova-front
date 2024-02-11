@@ -1,0 +1,63 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  margin-bottom: 80px;
+}
+
+.head,
+.title {
+  margin-bottom: 10px;
+}
+
+.body {
+  display: flex;
+  gap: 30px;
+}
+
+.content {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.article {
+  &-head {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+  border-radius: 16px;
+}
+
+// .item {
+//   @include table {
+//     display: none;
+//     &:nth-child(-n + 6) {
+//       display: grid;
+//     }
+//   }
+// }
