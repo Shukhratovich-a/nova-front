@@ -49,6 +49,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
     @include desktop {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -74,3 +75,24 @@
 //     }
 //   }
 // }
+
+.type1 {
+  & .head {
+    border-bottom: 1px solid $stroke;
+    padding-bottom: 10px;
+  }
+  & .body {
+    flex-direction: column;
+  }
+
+  & .article {
+    max-width: 100%;
+    &-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      justify-items: center;
+      // flex-direction: row;
+      gap: 20px;
+    }
+  }
+}
