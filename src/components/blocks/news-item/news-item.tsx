@@ -5,17 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconArrowRight } from "@/assets/icons";
 import NewsCard from "@/components/cards/news/news-card";
+import cn from 'classnames';
 
 export const NewsItem: FC<NewsItemProps> = (props) => {
+  const test = false
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, styles.type1)}>
       <div className={styles.head}>
         <h2 className={styles.title}>Новости</h2>
         <p className="text-md">24 November 2023</p>
       </div>
       <div className={styles.body}>
         <div className={styles.content}>
-          <Image className={styles.image} width={1000} height={480} alt="" src={`https://picsum.photos/1000/480`} />
+          {/* <Image className={styles.image} width={1000} height={480} alt="" src={`https://picsum.photos/1000/480`} /> */}
           <p className="subtitle-sm">
             Солидарность и социальная ответственность: Nova Plastik поддерживает благотворительную инициативу Kizilay
           </p>
