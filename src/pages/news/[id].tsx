@@ -10,7 +10,7 @@ const NewsItemPage: FC = () => {
   return (
     <>
       <Head>
-        <title>News</title>
+        <title>News item</title>
       </Head>
       <NewsItemView />
     </>
