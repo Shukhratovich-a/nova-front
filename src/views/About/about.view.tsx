@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components";
+import AboutContent from "@/components/blocks/about-content/about-content";
 import { FC } from "react";
 
 export const AboutView: FC = (props) => {
@@ -8,7 +9,7 @@ export const AboutView: FC = (props) => {
         <Breadcrumbs mb="30px" />
       </section>
       <section>
-        
+        <AboutContent />
       </section>
     </div>
   );
