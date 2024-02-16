@@ -23,8 +23,6 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
     setIsOpen((prev) => !prev);
   };
 
-  console.log(i18n);
-
   const handleChange = (locale: string) => {
     setIsOpen(false);
 
