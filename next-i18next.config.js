@@ -6,6 +6,6 @@ module.exports = {
   },
   react: { useSuspense: true },
 
-  defaultNS: "common",
-  ns: ["common", "header", "inputs", "catalog", "errors", "product"],
+  defaultNS: "translation",
+  ns: ["translation"],
 };
