@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import cnBind from "classnames/bind";
 import Link from "next/link";
-import { HeaderProps } from "./Header.props";
+import { HeaderProps } from "./header.props";
 
 import { IconSearch } from "@/assets/icons";
 import LogoBlue from "@/assets/images/Logo-blue.png";
@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "./header.module.scss";
 import Navbar from "./navbar/navbar";
+import { Language } from "@/components";
 const cx = cnBind.bind(styles);
 
 export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) => {
@@ -60,11 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) 
           <div className={cn(styles.additions, cx({ active: burgerActive }))}>
             <IconSearch />
             <div>
-              <select name="" id="">
-                <option value="ru">uz</option>
-                <option value="en">en</option>
-                <option value="kr">ru</option>
-              </select>
+              <Language />
             </div>
           </div>
           <button className={cn(styles.burger, burgerActive && cx({ active: true }))} onClick={menuController}>

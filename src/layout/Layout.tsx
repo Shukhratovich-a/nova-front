@@ -4,7 +4,7 @@ import { LayoutProps } from "./Layout.props";
 
 // import { AppContextProvider, IAppContext } from "@/context/app.context";
 
-import { Header } from "./Header/Header.component";
+import { Header } from "./header/header.component";
 import { Footer } from "./Footer/Footer.component";
 
 import styles from "./Layout.module.scss";
