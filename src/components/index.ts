@@ -28,3 +28,4 @@ export * from "./breadcrumbs/breadcrumbs";
 export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
+export * from "./language/language";
