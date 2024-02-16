@@ -7,7 +7,7 @@ import { LanguageProps } from "./language.props";
 
 import { languages } from "@/helpers/languages.helper";
 
-import ArrowBottom from "@icons/arrow-bottom.svg";
+import { IconArrowBottom } from "@icons";
 
 import styles from "./language.module.scss";
 
@@ -40,7 +40,7 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
     >
       <span className={cn(styles["language--selected"])} onClick={handleOpenClose}>
         <span>{i18n.language}</span>
-        <ArrowBottom />
+        <IconArrowBottom />
       </span>
 
       <ul
