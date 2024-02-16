@@ -8,8 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "@/styles/slider/slider.scss";
 
-import "@/utils/i18n";
-
 const App = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />;
 };
