@@ -1,5 +1,6 @@
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import { ParsedUrlQuery } from "querystring";
 
@@ -23,12 +24,16 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const {
-    data: { data: posts },
-  } = await getAll(1, 1000000);
+export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPathsContext) => {
+  let paths: string[] = [];
 
-  const paths = posts.map((post) => `/news/${post.alias}`);
+  for (let locale of locales as string[]) {
+    const {
+      data: { data: posts },
+    } = await getAll(1, 1000000, locale);
+
+    paths = paths.concat(posts.map((post) => `/${locale}/news/${post.alias}`));
+  }
 
   return {
     paths,
@@ -36,18 +41,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
     return {
       notFound: true,
     };
   }
 
-  const { data: post } = await getByAlias(params.alias as string);
+  const { data: post } = await getByAlias(params.alias as string, locale);
 
   return {
     props: {
       post,
+      ...(await serverSideTranslations(String(locale))),
     },
   };
 };

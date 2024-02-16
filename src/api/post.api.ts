@@ -11,6 +11,8 @@ export const getAll = (page?: number, limit?: number, language?: string) => {
   return axios.get<IGetAll<IPost[]>>(query);
 };
 
-export const getByAlias = async (alias: string) => {
-  return axios.get<IPost>(`/news/get-by-alias/${alias}`);
+export const getByAlias = async (alias: string, language?: string) => {
+  const query = queryString.stringifyUrl({ url: `/news/get-by-alias/${alias}`, query: { language } });
+
+  return axios.get<IPost>(query);
 };
