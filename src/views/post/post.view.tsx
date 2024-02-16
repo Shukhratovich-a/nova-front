@@ -1,17 +1,19 @@
-import { Breadcrumbs, NewsItem } from "@/components";
 import { FC } from "react";
 
-export const NewsItemView: FC = () => {
+import { PostProps } from "./post.props";
+
+import { Breadcrumbs, PostItem } from "@/components";
+
+export const PostView: FC<PostProps> = ({ post }) => {
   return (
     <div className="main-margin container">
       <section>
         <Breadcrumbs mb="30px" />
       </section>
+
       <section>
-        <NewsItem />
+        <PostItem post={post} />
       </section>
     </div>
   );
 };
-
-export default NewsItemView;
