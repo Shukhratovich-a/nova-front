@@ -4,8 +4,24 @@ const { i18n } = require("./next-i18next.config");
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos", "localhost"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3001",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "3001",
+      },
+    ],
   },
+
   i18n,
 
   webpack(config, options) {
