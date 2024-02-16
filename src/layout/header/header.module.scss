@@ -1,0 +1,184 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  width: 100%;
+  color: $accent;
+  transition: background-color 0.4s ease;
+}
+
+.scrolled {
+  background: $accent;
+  ul {
+    color: $white;
+  }
+  & .burger {
+    transition: background-color 0.4s ease-in;
+    span,
+    span::before,
+    span::after {
+      background-color: $bg-primary;
+    }
+  }
+  & .additions {
+    color: $white;
+  }
+}
+// 220 62, 177 50
+.wrap {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  @include table {
+    padding: 20px 0;
+    justify-content: flex-start;
+  }
+  @include mobile {
+    padding: 15px 0;
+  }
+}
+
+.headerHome {
+  color: $white;
+
+  & .burger {
+    span,
+    span::before,
+    span::after {
+      background: $white;
+    }
+  }
+}
+
+// general
+.logo,
+.additions {
+  z-index: 2;
+}
+
+// logo parent
+.logo {
+  @include table {
+    flex: 1;
+  }
+  img {
+    @include desktop {
+      width: 130px;
+      height: auto;
+    }
+
+    @include table {
+      width: 177px;
+    }
+
+    @include mobile {
+      width: 130px;
+    }
+  }
+}
+
+// search and language parent
+.additions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include table {
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      opacity 0.3s ease-in,
+      visibility 0.3s ease-in;
+    &.active {
+      color: $bg-primary;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    stroke: none;
+  }
+}
+
+// burger menu button
+.burger {
+  display: none;
+  width: 30px;
+  height: 30px;
+
+  position: relative;
+  z-index: 2;
+
+  cursor: pointer;
+
+  // media query
+  @include table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // elements
+  // width
+  span,
+  span::before,
+  span::after {
+    width: 30px;
+    height: 5px;
+    background-color: $accent;
+    border-radius: 3px;
+    transition:
+      transform 0.2s ease-in,
+      top 0.2s linear 0.2s,
+      background-color 0.4s ease-in;
+  }
+
+  // position
+  span::before,
+  span::after {
+    position: absolute;
+    left: 0;
+    content: "";
+  }
+
+  span {
+    position: relative;
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      top: 10px;
+    }
+  }
+
+  // active
+  &.active {
+    span {
+      background-color: transparent;
+      &::before,
+      &::after {
+        background-color: $bg-primary;
+        top: 0;
+        transition:
+          top 0.2s linear,
+          transform 0.2s ease-in 0.2s;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
