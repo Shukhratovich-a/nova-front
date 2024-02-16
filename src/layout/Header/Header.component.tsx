@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import cnBind from "classnames/bind";
 import Link from "next/link";
-import { HeaderProps } from "./Header.props";
+import { HeaderProps } from "./header.props";
 
 import { IconSearch } from "@/assets/icons";
 import LogoBlue from "@/assets/images/Logo-blue.png";
