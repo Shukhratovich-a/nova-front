@@ -23,7 +23,7 @@
       "@contexts/*": ["./contexts/*"],
       "@layout/*": ["./layout/*"],
       "@styles/*": ["./styles/*"],
-      "@icons/*": ["./src/assets/icons/*"],
+      "@icons": ["./src/assets/icons/"],
       "@images/*": ["./src/assets/images/*"],
       "@helpers/*": ["./helpers/*"],
       "@utils/*": ["./utils/*"],
