@@ -25,6 +25,6 @@ export * from "./cards/product/product-card";
 
 // COMPONENTS
 export * from "./breadcrumbs/breadcrumbs";
-export * from "./Button/button";
+export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
