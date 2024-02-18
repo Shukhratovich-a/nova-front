@@ -6,20 +6,20 @@ import { ParsedUrlQuery } from "querystring";
 
 import { IPost } from "@/types/post.interface";
 
-import { getAll, getByAlias } from "@/api/post.api";
+import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/Layout";
 
 import { PostView } from "@/views";
 
-const PostPage: React.FC<PostPageProps> = ({ post }) => {
+const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
   return (
     <>
       <Head>
         <title>{`Новости - ${post.title}`}</title>
       </Head>
 
-      <PostView post={post} />
+      <PostView post={post} relatedPosts={relatedPosts} />
     </>
   );
 };
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   for (let locale of locales as string[]) {
     const {
       data: { data: posts },
-    } = await getAll(1, 1000000, locale);
+    } = await getAll({ page: 1, limit: 1, language: locale });
 
     paths = paths.concat(posts.map((post) => `/${locale}/news/${post.alias}`));
   }
@@ -41,18 +41,26 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<PostPageProps> = async ({
+  params,
+  locale,
+}: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
     return {
       notFound: true,
     };
   }
 
-  const { data: post } = await getByAlias(params.alias as string, locale);
+  const { data: post } = await getByAlias(params.alias as string, { language: locale });
+
+  let {
+    data: { data: relatedPosts },
+  } = await getByTags(post.tags, { language: locale, page: 1, limit: post.type === "hor" ? 3 : 4, newsId: post.id });
 
   return {
     props: {
       post,
+      relatedPosts,
       ...(await serverSideTranslations(String(locale))),
     },
   };
@@ -62,4 +70,5 @@ export default withLayout(PostPage);
 
 export interface PostPageProps extends Record<string, unknown> {
   post: IPost;
+  relatedPosts: IPost[];
 }
