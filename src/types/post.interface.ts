@@ -8,6 +8,6 @@ export interface IPost {
   subtitle: string;
   body: string;
   tags: string[];
-  createAt: Date;
-  updateAt: Date;
+  createAt: string;
+  updateAt: string;
 }
