@@ -8,7 +8,7 @@ import { DOMAIN } from "@/helpers/api.helper";
 
 import { PostCardProps } from "./post-card.props";
 
-import { Tag, Date, ShowLink } from "@/components";
+import { Tag, DateTime, ShowLink } from "@/components";
 
 import styles from "./post-card.module.scss";
 
@@ -29,7 +29,7 @@ export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
         </div>
 
         <div className={cn(styles.captions)}>
-          <Date className={cn(styles.date)} date={createAt} />
+          <DateTime className={cn(styles.date)} date={createAt} />
 
           {tags.length && (
             <Tag href={{ pathname: "news", query: { tags: tags[0] } }} replace>
