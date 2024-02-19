@@ -3,11 +3,11 @@ export interface IPost {
   alias: string;
   poster: string;
   image: string;
-  type: string;
+  type: "ver" | "hor" | "none";
   title: string;
   subtitle: string;
   body: string;
   tags: string[];
-  createAt: string;
-  updateAt: string;
+  createAt: Date;
+  updateAt: Date;
 }

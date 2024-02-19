@@ -1,0 +1,11 @@
+.body {
+  &--hor {
+    display: grid;
+    grid-template-columns: 1fr 345px;
+    gap: 30px;
+
+    .posts {
+      margin-top: calc(clamp(1.563rem, 1.386rem + 0.66vw, 2rem) + 10px + clamp(1rem, 0.95rem + 0.19vw, 1.125rem));
+    }
+  }
+}

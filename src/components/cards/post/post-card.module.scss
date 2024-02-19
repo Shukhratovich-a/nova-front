@@ -1,5 +1,6 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
+
 .card {
   max-width: 450px;
   width: auto;
@@ -10,6 +11,7 @@
   flex-direction: column;
 
   border-radius: 16px 16px 0 0;
+
   @include desktop {
   }
   @include table {
@@ -58,21 +60,13 @@
   gap: 10px;
 }
 
-.date,
-.label {
-  line-height: 30px;
-  padding: 0 16px;
-}
-
 .date {
+  padding: 0 16px;
+
+  line-height: 30px !important;
+
   border-radius: 0 15px 15px 0;
   background: $bg-primary;
-}
-
-.label {
-  border-radius: 30px;
-  background-color: $accent;
-  color: $white;
 }
 
 // content
@@ -86,7 +80,7 @@
   gap: 15px;
 }
 
-// текст превышаюший n строк скрывается
+// текст превышающий n строк скрывается
 .title,
 .description {
   display: -webkit-box;
@@ -95,18 +89,12 @@
 }
 
 .title {
-  // текст превышаюший 2 строки скрывается
+  // текст превышающий 2 строки скрывается
   -webkit-line-clamp: 2;
 }
 
 .description {
-  // текст превышаюший 3 строки скрывается
+  // текст превышающий 3 строки скрывается
   -webkit-line-clamp: 3;
   margin-bottom: auto;
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }

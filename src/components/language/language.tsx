@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
+import { getTags } from "@/api/tag.api";
+
 import { LanguageProps } from "./language.props";
 
 import { languages } from "@/helpers/languages.helper";
@@ -13,7 +15,7 @@ import styles from "./language.module.scss";
 
 export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...props }) => {
   const { i18n } = useTranslation();
-  const { push, asPath, query, pathname } = useRouter();
+  let { push, query, pathname } = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -23,10 +25,19 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
     setIsOpen((prev) => !prev);
   };
 
-  const handleChange = (locale: string) => {
+  const handleChange = async (locale: string) => {
     setIsOpen(false);
+    let currentQuery = { ...query };
 
-    push({ pathname, query }, asPath, { locale, scroll: false });
+    if (query.tags) {
+      const { data } = await getTags(typeof query.tags === "string" ? [query.tags] : [...query.tags], {
+        language: locale,
+      });
+
+      currentQuery = { ...query, tags: data };
+    }
+
+    push({ pathname, query: currentQuery }, "", { locale, scroll: false });
   };
 
   return (
