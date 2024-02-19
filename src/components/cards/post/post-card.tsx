@@ -32,7 +32,7 @@ export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
           <DateTime className={cn(styles.date)} date={createAt} />
 
           {tags.length && (
-            <Tag href={{ pathname: "news", query: { tags: tags[0] } }} replace>
+            <Tag href={{ pathname: "/news", query: { tags: tags[0] } }} replace>
               {tags[0]}
             </Tag>
           )}
