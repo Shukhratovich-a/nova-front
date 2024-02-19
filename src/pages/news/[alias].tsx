@@ -30,14 +30,14 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   for (let locale of locales as string[]) {
     const {
       data: { data: posts },
-    } = await getAll({ page: 1, limit: 1, language: locale });
+    } = await getAll({ limit: 100000000, language: locale });
 
     paths = paths.concat(posts.map((post) => `/${locale}/news/${post.alias}`));
   }
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 };
 
@@ -45,25 +45,29 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   params,
   locale,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
-  if (!params) {
+  if (!params) return { notFound: true };
+
+  const alias = params.alias as string;
+  if (!alias) return { notFound: true };
+
+  try {
+    const { data: post } = await getByAlias(alias, { language: locale });
+    if (!post) return { notFound: true };
+
+    let {
+      data: { data: relatedPosts },
+    } = await getByTags(post.tags, { language: locale, limit: post.type === "hor" ? 3 : 4, newsId: post.id });
+
     return {
-      notFound: true,
+      props: {
+        post,
+        relatedPosts,
+        ...(await serverSideTranslations(String(locale))),
+      },
     };
+  } catch {
+    return { notFound: true };
   }
-
-  const { data: post } = await getByAlias(params.alias as string, { language: locale });
-
-  let {
-    data: { data: relatedPosts },
-  } = await getByTags(post.tags, { language: locale, page: 1, limit: post.type === "hor" ? 3 : 4, newsId: post.id });
-
-  return {
-    props: {
-      post,
-      relatedPosts,
-      ...(await serverSideTranslations(String(locale))),
-    },
-  };
 };
 
 export default withLayout(PostPage);
