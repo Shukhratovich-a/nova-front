@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, TimeHTMLAttributes } from "react";
 
-export interface DateProps extends DetailedHTMLProps<TimeHTMLAttributes<HTMLTimeElement>, HTMLTimeElement> {
-  date: Date;
+export interface DateTimeProps extends DetailedHTMLProps<TimeHTMLAttributes<HTMLTimeElement>, HTMLTimeElement> {
+  date: string;
   size?: "sm" | "md";
 }
