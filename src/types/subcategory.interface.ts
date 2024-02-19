@@ -1,4 +1,5 @@
 import { ICategory } from "./category.interface";
+import { IProduct } from "./product.interface";
 
 export interface ISubcategory {
   id: number;
@@ -7,4 +8,6 @@ export interface ISubcategory {
   title: string;
 
   category?: ICategory;
+
+  products: IProduct[];
 }
