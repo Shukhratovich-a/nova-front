@@ -17,6 +17,7 @@ export * from "./blocks/product-related/product-related";
 // Post page blocks
 export * from "./blocks/post-item/post-item";
 export * from "./blocks/posts-list/posts-list";
+export * from "./blocks/posts-related/posts-related";
 
 // CARDS
 export * from "./cards/article/article-card";
@@ -29,3 +30,6 @@ export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
 export * from "./language/language";
+export * from "./ui/tag/tag";
+export * from "./ui/date/date";
+export * from "./ui/show-link/show-link";

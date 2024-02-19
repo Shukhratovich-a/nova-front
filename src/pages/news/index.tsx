@@ -7,7 +7,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { IPost } from "@/types/post.interface";
 
-import { getAll } from "@/api/post.api";
+import { getAll, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/Layout";
 
@@ -29,11 +29,25 @@ const PostsPage: FC<PostsPageProps> = ({ posts, total }) => {
 
 export const getServerSideProps: GetServerSideProps<PostsPageProps> = async ({
   locale,
-  query: { limit },
+  query: { limit, tags },
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
+  if (tags) {
+    const {
+      data: { data: posts, total },
+    } = await getByTags([String(tags)], { limit: limit ? Number(limit) : 12, language: locale });
+
+    return {
+      props: {
+        posts,
+        total,
+        ...(await serverSideTranslations(String(locale))),
+      },
+    };
+  }
+
   const {
     data: { data: posts, total },
-  } = await getAll(1, limit ? Number(limit) : 12, locale);
+  } = await getAll({ page: 1, limit: limit ? Number(limit) : 12, language: locale });
 
   return {
     props: {

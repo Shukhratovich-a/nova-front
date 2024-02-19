@@ -3,7 +3,7 @@ export interface IPost {
   alias: string;
   poster: string;
   image: string;
-  type: string;
+  type: "ver" | "hor" | "none";
   title: string;
   subtitle: string;
   body: string;

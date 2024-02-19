@@ -2,98 +2,72 @@
 @import "@/styles/media/media-queries";
 
 .wrapper {
-  margin-bottom: 80px;
+  margin-bottom: 30px;
+  column-gap: 30px;
+
+  &--ver {
+    display: grid;
+    grid-template-columns: max(450px) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "image head"
+      "image content";
+
+    .image {
+      max-height: none !important;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &--hor {
+    margin-bottom: 0;
+
+    .head {
+      padding-bottom: 0;
+      margin-bottom: calc(clamp(1.563rem, 1.386rem + 0.66vw, 2rem) + 20px);
+
+      border-bottom: none;
+    }
+
+    .image {
+      margin-bottom: 15px;
+    }
+  }
 }
 
-.head,
+.head {
+  grid-area: head;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+  border-bottom: 1px solid $stroke;
+}
+
 .title {
   margin-bottom: 10px;
 }
 
-.body {
-  display: flex;
-  gap: 30px;
-  @include desktop {
-    flex-direction: column;
-  }
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  flex: 1;
-}
-
-.article {
-  max-width: 350px;
-  @include desktop {
-    max-width: 100%;
-  }
-
-  &-head {
-    margin-bottom: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-
-    a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-  }
-
-  &-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    @include desktop {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      justify-items: center;
-      // flex-direction: row;
-      gap: 20px;
-    }
-  }
-}
-
 .image {
   width: 100%;
-  height: auto;
+  max-height: 500px;
+  grid-area: image;
+  object-fit: cover;
 
   border-radius: 16px;
 }
 
-// .item {
-//   @include table {
-//     display: none;
-//     &:nth-child(-n + 6) {
-//       display: grid;
-//     }
-//   }
-// }
+.content {
+  grid-area: content;
+}
 
-// .type1 {
-//   & .head {
-//     border-bottom: 1px solid $stroke;
-//     padding-bottom: 10px;
-//   }
-//   & .body {
-//     flex-direction: column;
-//   }
+.body {
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
 
-//   & .article {
-//     max-width: 100%;
-//     &-body {
-//       display: grid;
-//       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-//       justify-items: center;
-//       // flex-direction: row;
-//       gap: 20px;
-//     }
-//   }
-// }
+.subtitle {
+  margin-bottom: 15px;
+}

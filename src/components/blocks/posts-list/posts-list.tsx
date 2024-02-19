@@ -9,7 +9,7 @@ import { Button, PostCard } from "@/components";
 import styles from "./posts-list.module.scss";
 
 export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
-  const { push, query } = useRouter();
+  const { replace, query } = useRouter();
   const [displayCount, setDisplayCount] = useState<number>(query.limit ? Number(query.limit) : 12);
   const { t } = useTranslation();
 
@@ -21,7 +21,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
 
   useEffect(() => {
     if (displayCount) {
-      push({ query: { limit: displayCount } }, "", { scroll: false });
+      replace({ query: { ...query, limit: displayCount } }, "", { scroll: false });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayCount]);
@@ -29,6 +29,8 @@ export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
   useEffect(() => {
     if (query && query.limit) {
       setDisplayCount(Number(query.limit));
+    } else {
+      setDisplayCount(12);
     }
   }, [query]);
 
