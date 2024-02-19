@@ -1,10 +1,9 @@
 import queryString from "query-string";
 import axios from "./axios";
 
-import { IGetAll } from "@/types/response.interface";
-
-import { IPost } from "@/types/post.interface";
 import { IGetManyOptions, IGetOneOptions } from "@/types/request.interface";
+import { IGetAll } from "@/types/response.interface";
+import { IPost } from "@/types/post.interface";
 
 export const getAll = (options?: IGetManyOptions) => {
   const query = queryString.stringifyUrl({ url: `/news/get-all`, query: { ...options } });
