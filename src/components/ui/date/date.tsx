@@ -4,11 +4,11 @@ import { format } from "date-fns";
 import { ar, enUS, ru, tr } from "date-fns/locale";
 import { useTranslation } from "next-i18next";
 
-import { DateProps } from "./date.props";
+import { DateTimeProps } from "./date.props";
 
 import styles from "./date.module.scss";
 
-export const Date: FC<DateProps> = ({ className, date, size = "sm", ...props }) => {
+export const DateTime: FC<DateTimeProps> = ({ className, date, size = "sm", ...props }) => {
   const { i18n } = useTranslation();
   const { language } = i18n;
 
@@ -22,7 +22,7 @@ export const Date: FC<DateProps> = ({ className, date, size = "sm", ...props }) 
       })}
       {...props}
     >
-      {format(date, "dd MMMM yyyy", { locale })}
+      {format(new Date(date), "dd MMMM yyyy", { locale })}
     </time>
   );
 };
