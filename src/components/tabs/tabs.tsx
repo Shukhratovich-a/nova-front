@@ -7,17 +7,9 @@ interface IActionsList {
   name: string;
 }
 
-const tabsTitle: string[] = [
-  "Технические ХАРАКТЕРИСТИКИ",
-  "ПРИМЕНЕНИЕ",
-  "ФУНКЦИИ",
-  "ЛОГИСТИЧЕСКАЯ ИНФОРМАЦИЯ",
-  "ОБЪЕМ ПОСТАВКИ",
-];
+const MORE_BTN_RESERVED_WIDTH = 90;
 
-export const ACTION_BTNS_GAP = 16;
-export const MORE_BTN_RESERVED_WIDTH = 90;
-export const ACTIONS_LIST: IActionsList[] = [
+const ACTIONS_LIST: IActionsList[] = [
   {
     key: 1,
     name: "Технические ХАРАКТЕРИСТИКИ",
@@ -38,35 +30,35 @@ export const ACTIONS_LIST: IActionsList[] = [
     key: 5,
     name: "ОБЪЕМ ПОСТАВКИ",
   },
-  // {
-  //   key: 6,
-  //   name: "Six",
-  // },
-  // {
-  //   key: 7,
-  //   name: "Seven",
-  // },
-  // {
-  //   key: 8,
-  //   name: "Eight",
-  // },
-  // {
-  //   key: 9,
-  //   name: "Nine",
-  // },
-  // {
-  //   key: 10,
-  //   name: "Ten",
-  // },
+  {
+    key: 6,
+    name: "Six",
+  },
+  {
+    key: 7,
+    name: "Seven",
+  },
+  {
+    key: 8,
+    name: "Eight",
+  },
+  {
+    key: 9,
+    name: "Nine",
+  },
+  {
+    key: 10,
+    name: "Ten",
+  },
 ];
 
 export const Tabs: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-
   const containerVisibleWidth = useRef<number>(0); //достаточно ли свободного места для видимых вкладок
   const actionElementsWidth = useRef<number[]>([]);
   const moreBtnLeftPosition = useRef<number>(0); //помогут нам постоянно обновлять положение кнопки
 
+  const [toggle, setToggle] = useState(ACTIONS_LIST[0].name);
   const [actionsMoreList, setActionsMoreList] = useState<IActionsList[]>([]);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
 
@@ -84,7 +76,7 @@ export const Tabs: FC = () => {
         i !== actionElements.length - 1 ? visibleElementsWidth + MORE_BTN_RESERVED_WIDTH : visibleElementsWidth;
 
       if (visibleSpaceWidth <= containerVisibleWidth.current && isVisible) {
-        actionEl.className = `${styles.action} ${styles.visible}`;
+        actionEl.classList.add(styles.visible);
       } else {
         if (isVisible) {
           moreBtnLeftPosition.current = actionElementsWidth.current.slice(0, i).reduce((acc, item) => item + acc, 0);
@@ -92,7 +84,7 @@ export const Tabs: FC = () => {
           isVisible = false;
         }
 
-        actionEl.className = `${styles.action} ${styles.hidden}`;
+        actionEl.classList.add(styles.hidden);
 
         actionsMoreData.push(ACTIONS_LIST[i]);
       }
@@ -131,9 +123,13 @@ export const Tabs: FC = () => {
     <div className={styles.wrapper}>
       <div className={styles["actions-wrapper"]}>
         <div className={styles["main-actions"]} ref={containerRef}>
-          {ACTIONS_LIST.map((action) => (
-            <div key={action.key} className={styles.action}>
-              {action.name}
+          {ACTIONS_LIST.map(({ key, name }) => (
+            <div
+              key={key}
+              onClick={() => setToggle(name)}
+              className={cn(styles.action, toggle === name ? styles["action-active"] : "")}
+            >
+              {name}
             </div>
           ))}
           <div
@@ -147,9 +143,13 @@ export const Tabs: FC = () => {
       </div>
 
       <div className={cn(styles["more-options"], isMoreOpen ? styles.visible : styles.hidden)}>
-        {actionsMoreList.map((action) => (
-          <div className={styles.action} key={action.key}>
-            {action.name}
+        {actionsMoreList.map(({ key, name }) => (
+          <div
+            key={key}
+            onClick={() => setToggle(name)}
+            className={cn(styles.action, toggle === name ? styles["action-active"] : "")}
+          >
+            {name}
           </div>
         ))}
       </div>

@@ -8,7 +8,7 @@
 }
 
 .main-actions {
-  padding: 1px 0 0 1px;
+  padding: 1px 0 1px 0;
 
   flex-shrink: 1;
   display: flex;
@@ -23,14 +23,27 @@
   padding: 10px 20px;
   margin-top: -1px;
   margin-left: -1px;
-  border: 1px solid $stroke;
   width: fit-content;
   cursor: pointer;
+  text-transform: uppercase;
+}
+
+.action {
+  border: 1px solid $stroke;
+  &:hover,
+  &-active {
+    background-color: $accent;
+    color: $white;
+  }
 }
 
 .more-btn {
   box-sizing: border-box;
-  background: $stroke;
+  border: 1px solid $yellow;
+  background: $yellow;
+  color: $white;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .more-options {
