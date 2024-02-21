@@ -8,29 +8,29 @@
 }
 
 .main-actions {
+  padding: 1px 0 0 1px;
+
   flex-shrink: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+
   overflow: hidden;
-  padding: 1px 0 0 1px;
 }
 
-.action {
+.action,
+.more-btn {
   padding: 10px 20px;
   margin-top: -1px;
   margin-left: -1px;
   border: 1px solid $stroke;
   width: fit-content;
+  cursor: pointer;
 }
 
 .more-btn {
-  position: absolute;
-  top: 0;
-  padding: 10px 20px;
   box-sizing: border-box;
-  border-radius: 20px;
   background: $stroke;
-  cursor: pointer;
 }
 
 .more-options {
@@ -55,7 +55,11 @@
 }
 
 .hidden {
+  display: none;
   visibility: hidden;
+}
+
+@include mobile {
 }
 
 // .wrapper {

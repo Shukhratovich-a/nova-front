@@ -71,57 +71,33 @@ export const Tabs: FC = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
 
   const calculateVisibility = (actionElements: HTMLDivElement[]) => {
-    // variable for actual visible tabs width + gaps between tabs calculations
-    // to define if the next tab has a free space to be visible or not
     let visibleElementsWidth = 0;
 
-    // variable for the list of hidden tabs which will be put to react state
     const actionsMoreData: IActionsList[] = [];
 
-    // variable which works as a flag and changes to false with the
-    // first hidden tab during actionElements iteration
     let isVisible = true;
 
     [...actionElements].forEach((actionEl, i) => {
-      // necessary gap after the tab
-
-      // const gapWidth = i === actionElements.length - 1 ? 0 : ACTION_BTNS_GAP;
-
-      // visibleElementsWidth will be increased by
-      // the corresponding width of the element + gapWidth
-
       visibleElementsWidth += actionElementsWidth.current[i];
-      //  + gapWidth;
 
-      // calculates how much space is necessary for all the previous
-      // tabs + the next tab or button "More"
       const visibleSpaceWidth =
         i !== actionElements.length - 1 ? visibleElementsWidth + MORE_BTN_RESERVED_WIDTH : visibleElementsWidth;
 
-      // compare if container's actual width is enough to show all
-      // the elements that need space equal to visibleSpaceWidth width
       if (visibleSpaceWidth <= containerVisibleWidth.current && isVisible) {
-        // add classNames for visible tabs
         actionEl.className = `${styles.action} ${styles.visible}`;
       } else {
         if (isVisible) {
-          // calculate left property for button "More" which has
-          // absolute position
           moreBtnLeftPosition.current = actionElementsWidth.current.slice(0, i).reduce((acc, item) => item + acc, 0);
-          // + ACTION_BTNS_GAP * i;
 
-          // set isVisible to false for the first hidden tab
           isVisible = false;
         }
-        // add classNames for hidden tabs
+
         actionEl.className = `${styles.action} ${styles.hidden}`;
 
-        // update actionsMoreData with the new hidden tab's data
         actionsMoreData.push(ACTIONS_LIST[i]);
       }
     });
 
-    // update React state with the list of hidden tabs
     setActionsMoreList([...actionsMoreData]);
   };
 
@@ -129,34 +105,24 @@ export const Tabs: FC = () => {
     if (actionElementsWidth?.current && containerRef?.current) {
       const actionElements: HTMLDivElement[] | [] =
         (Array.from(containerRef.current.children) as HTMLDivElement[]) || [];
-
-      // defining the actual width of each tab
+      actionElements.splice(-1, 1);
       const actionsListWidth: number[] = [];
       [...actionElements].forEach((actionEl) => {
         actionsListWidth.push(actionEl.offsetWidth);
       });
-
-      // update the array with all the tabs width numbers,
-      // stored inside actionElementsWidth ref
       actionElementsWidth.current = [...actionsListWidth];
 
       const resizeObserver = new ResizeObserver((entries) => {
         for (const entry of entries) {
           if (entry.contentBoxSize) {
             const contentBoxSize = entry.contentBoxSize[0];
-
-            // Math.ceil is necessary to round up and return
-            // the smallest integer for the size of observed element
             containerVisibleWidth.current = Math.ceil(contentBoxSize.inlineSize);
 
-            // invoke the functions which calculates tabs visibility
-            // and sets data to the list of hidden tabs
             calculateVisibility(actionElements);
           }
         }
       });
 
-      // adding ResizeObserver to the observed container
       resizeObserver.observe(containerRef.current);
     }
   }, []);
@@ -164,30 +130,23 @@ export const Tabs: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles["actions-wrapper"]}>
-        <div
-          className={styles["main-actions"]}
-          // style={{ gap: ACTION_BTNS_GAP }}
-          ref={containerRef}
-        >
+        <div className={styles["main-actions"]} ref={containerRef}>
           {ACTIONS_LIST.map((action) => (
             <div key={action.key} className={styles.action}>
               {action.name}
             </div>
           ))}
-        </div>
-
-        <div
-          className={cn(styles["more-btn"], actionsMoreList.length ? styles.visible : styles.hidden)}
-          style={{ left: moreBtnLeftPosition.current }}
-          onClick={() => setIsMoreOpen(!isMoreOpen)}
-        >
-          More...
+          <div
+            className={cn(styles["more-btn"], actionsMoreList.length ? styles.visible : styles.hidden)}
+            style={{ left: moreBtnLeftPosition.current }}
+            onClick={() => setIsMoreOpen(!isMoreOpen)}
+          >
+            More...
+          </div>
         </div>
       </div>
 
-      <div
-        className={cn(styles["more-options"], isMoreOpen ? styles.visible : styles.hidden)}
-      >
+      <div className={cn(styles["more-options"], isMoreOpen ? styles.visible : styles.hidden)}>
         {actionsMoreList.map((action) => (
           <div className={styles.action} key={action.key}>
             {action.name}
