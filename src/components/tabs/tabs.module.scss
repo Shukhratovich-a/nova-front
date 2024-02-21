@@ -1,55 +1,134 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
 
-.wrapper {
-  max-width: fit-content;
-  margin: 0 auto;
+.wrapper,
+.actions-wrapper {
+  position: relative;
+  text-wrap: nowrap;
 }
 
-.tabs {
-  margin-bottom: 10px;
-
+.main-actions {
+  flex-shrink: 1;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  padding: 1px 0 0 1px;
+}
 
-  text-transform: uppercase;
-
+.action {
+  padding: 10px 20px;
+  margin-top: -1px;
+  margin-left: -1px;
   border: 1px solid $stroke;
+  width: fit-content;
+}
+
+.more-btn {
+  position: absolute;
+  top: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: $stroke;
   cursor: pointer;
-
-  & li {
-    padding: 7px 14px;
-    border-right: 1px solid $stroke;
-    transition:
-      background-color 0.4s ease,
-      color 0.4s ease;
-
-    &:last-child {
-      border-right: none;
-    }
-
-    // hover effect
-    @include hover-control {
-      background-color: $accent;
-      color: $white;
-    }
-  }
-
-  &-active {
-    background-color: $accent;
-    color: $white;
-  }
 }
 
-.content {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  border-collapse: collapse;
-  li {
-    display: flex;
-    justify-content: space-between;
+.more-options {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $stroke;
+  background: $bg-primary;
+  & .action {
+    border: 0;
     border-bottom: 1px solid $stroke;
-    padding: 10px 30px;
+    width: 100%;
   }
 }
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+// .wrapper {
+//   max-width: fit-content;
+//   margin: 0 auto;
+//   @include mobile {
+//     max-width: 100%;
+//   }
+// }
+
+// .tabs {
+//   margin-bottom: 10px;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   // flex-wrap: wrap;
+//   overflow: hidden;
+
+//   text-wrap: nowrap;
+
+//   text-transform: uppercase;
+//   border-collapse: collapse;
+
+//   cursor: pointer;
+//   padding-left: 1px;
+
+//   @include mobile {
+//     flex-direction: column;
+//     align-items: flex-start;
+//     text-wrap: wrap;
+//   }
+
+//   & li {
+//     user-select: none;
+//     padding: 7px 14px;
+//     border: 1px solid $stroke;
+//     margin-left: -1px;
+//     transition:
+//       background-color 0.4s ease,
+//       color 0.4s ease;
+//     &:active {
+//       cursor: grabbing;
+//     }
+
+//     // hover effect
+//     @include hover-control {
+//       background-color: $accent;
+//       color: $white;
+//     }
+
+//     @include mobile {
+//       width: 100%;
+//       &:active {
+//         cursor: pointer;
+//       }
+//     }
+//   }
+
+//   &-active {
+//     background-color: $accent;
+//     color: $white;
+//   }
+// }
+
+// .content {
+//   max-width: 1000px;
+//   width: 100%;
+//   margin: 0 auto;
+
+//   li {
+//     display: flex;
+//     justify-content: space-between;
+//     border-bottom: 1px solid $stroke;
+//     padding: 10px 30px;
+//   }
+// }
