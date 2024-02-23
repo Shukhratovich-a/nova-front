@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 // import { useTranslation } from "next-i18next";
@@ -30,9 +30,9 @@ const Categories: FC<CategoriesProps> = ({ categories }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<CategoriesProps> = async ({
+export const getStaticProps: GetStaticProps<CategoriesProps> = async ({
   locale,
-}: GetServerSidePropsContext<ParsedUrlQuery>) => {
+}: GetStaticPropsContext<ParsedUrlQuery>) => {
   const {
     data: { data: categories, total },
   } = await getAll({ limit: 1000 });
@@ -43,6 +43,7 @@ export const getServerSideProps: GetServerSideProps<CategoriesProps> = async ({
       total,
       ...(await serverSideTranslations(String(locale))),
     },
+    revalidate: 300,
   };
 };
 
