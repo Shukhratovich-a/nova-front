@@ -33,6 +33,12 @@
     .image {
       margin-bottom: 15px;
     }
+
+    @include desktop {
+      .head {
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 
