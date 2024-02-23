@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...rest }) 
       <div className="container">
         <div className={styles.wrap}>
           <Link className={styles.logo} href="/">
-            <Image src={getLogoByPath} alt="nova logo" width={220} height={62} />
+            <Image src={getLogoByPath} alt="nova logo" width={220} height={62} priority />
           </Link>
           <Navbar onClick={menuController} active={burgerActive} />
           <div className={cn(styles.additions, cx({ active: burgerActive }))}>
