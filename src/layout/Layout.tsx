@@ -2,8 +2,6 @@ import { FunctionComponent } from "react";
 
 import { LayoutProps } from "./Layout.props";
 
-// import { AppContextProvider, IAppContext } from "@/context/app.context";
-
 import { Header } from "./header/header.component";
 import { Footer } from "./Footer/Footer.component";
 
@@ -24,7 +22,6 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      // <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
       <Layout>
         <Component {...props} />
       </Layout>
