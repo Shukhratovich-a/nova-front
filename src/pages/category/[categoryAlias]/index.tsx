@@ -56,16 +56,22 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
   if (!params) return { notFound: true };
 
   const alias = params.categoryAlias as string;
+  if (!alias) return { notFound: true };
 
-  const { data: category } = await getByAlias(alias);
+  try {
+    const { data: category } = await getByAlias(alias);
+    if (!category) return { notFound: true };
 
-  return {
-    props: {
-      category,
-      ...(await serverSideTranslations(String(locale))),
-    },
-    revalidate: 300,
-  };
+    return {
+      props: {
+        category,
+        ...(await serverSideTranslations(String(locale))),
+      },
+      revalidate: 300,
+    };
+  } catch {
+    return { notFound: true };
+  }
 };
 
 export default withLayout(Category);
