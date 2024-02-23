@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Link from "next/link";
 import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -19,7 +20,11 @@ const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
       </Head>
 
       <div className="main-margin container">
-        <div>{`${subcategory.category?.title} > ${subcategory.category?.title}`}</div>
+        <div>
+          <Link href={`/category/${subcategory.category?.alias}`}>{subcategory.category?.title}</Link>
+          {">"}
+          <Link href={`/category/${subcategory.alias}`}>{subcategory.title}</Link>
+        </div>
 
         <ul>
           {subcategory.products.map((product) => (
@@ -59,16 +64,22 @@ export const getStaticProps: GetStaticProps<SubcategoryProps> = async ({
   if (!params) return { notFound: true };
 
   const alias = params.subcategoryAlias as string;
+  if (!alias) return { notFound: true };
 
-  const { data: subcategory } = await getByAlias(alias);
+  try {
+    const { data: subcategory } = await getByAlias(alias);
+    if (!subcategory) return { notFound: true };
 
-  return {
-    props: {
-      subcategory,
-      ...(await serverSideTranslations(String(locale))),
-    },
-    revalidate: 300,
-  };
+    return {
+      props: {
+        subcategory,
+        ...(await serverSideTranslations(String(locale))),
+      },
+      revalidate: 300,
+    };
+  } catch {
+    return { notFound: true };
+  }
 };
 
 export default withLayout(Subcategory);
