@@ -4,3 +4,5 @@ export * from "./Contact/Contact.view";
 export * from "./Media/Media.view";
 export * from "./posts/posts.view";
 export * from "./post/post.view";
+export * from "./categories/categories.view";
+export * from "./category/category.view";
