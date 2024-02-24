@@ -27,6 +27,6 @@ export const menu = [
   {
     id: 6,
     route: "/contact",
-    title: "menu.contact",
+    title: "menu.contacts",
   },
 ].sort((a, b) => a.id - b.id);
