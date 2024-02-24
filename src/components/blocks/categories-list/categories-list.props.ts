@@ -1,0 +1,8 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
+
+import { ICategory } from "@/types/category.interface";
+
+export interface CategoriesListProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  categories: ICategory[];
+  total: number;
+}
