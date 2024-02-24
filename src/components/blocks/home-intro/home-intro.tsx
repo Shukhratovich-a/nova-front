@@ -16,18 +16,11 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banner }) => {
         {banner.map(({ id, poster, title, description, subtitle }) => {
           return (
             <SwiperSlide key={id}>
-              <Image
-                className="swiper-slide-image"
-                width={1200}
-                height={800}
-                alt=""
-                src={`http://localhost:3001${poster}`}
-              />
+              <Image className="swiper-slide-image" src={`http://localhost:3001${poster}`} alt="" fill priority />
               <div className={cn(styles.wrap, "container")}>
                 <div className={styles.content}>
                   <h1 className={cn("color-white")} dangerouslySetInnerHTML={{ __html: title }}></h1>
-                  <p className={cn("subtitle-lg color-white")} dangerouslySetInnerHTML={{ __html: description }}>
-                  </p>
+                  <p className={cn("subtitle-lg color-white")} dangerouslySetInnerHTML={{ __html: description }}></p>
                   <p className={"subtitle-md color-white"} dangerouslySetInnerHTML={{ __html: subtitle }}></p>
                 </div>
               </div>
