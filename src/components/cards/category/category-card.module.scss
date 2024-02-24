@@ -4,14 +4,15 @@
 .card {
   position: relative;
   overflow: hidden;
+
   max-width: 450px;
   width: 100%;
   max-height: 288px;
   aspect-ratio: 17 / 18;
 
-  border-radius: 12px;
-  background: $bg-primary;
   border: 1px solid $stroke;
+  border-radius: 12px;
+  background-color: $bg-primary;
   box-shadow: 4px 4px 15px 0px $stroke;
 
   @include hover-control {
@@ -34,8 +35,7 @@
   justify-content: space-between;
 }
 
-.name {
-  // текст превышаюший 3 строки скрывается
+.title {
   max-width: 90%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -44,19 +44,15 @@
 }
 
 .image {
-  width: 300px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   margin: auto;
-  object-fit: cover;
-  object-position: center;
-  background-color: $stroke;
 
   transform: scale(1.1);
-  transition: transform 0.4s ease;
-}
 
-.link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  object-fit: cover;
+  object-position: center;
+  background-color: $bg-primary;
+
+  transition: transform 0.4s ease;
 }
