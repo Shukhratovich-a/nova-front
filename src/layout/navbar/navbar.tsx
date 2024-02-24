@@ -1,17 +1,14 @@
-import cn from "classnames";
-import Link from "next/link";
 import { FC } from "react";
-import styles from "./navbar.module.scss";
+import Link from "next/link";
+import cn from "classnames";
+
 import { NavbarProps } from "./navbar.props";
-import cnBind from "classnames/bind";
 
-const cx = cnBind.bind(styles);
+import styles from "./navbar.module.scss";
 
-const Navbar: FC<NavbarProps> = ({ className, active, onClick }) => {
-  const classActive = active ? cx({ active: true }) : "";
-
+export const Navbar: FC<NavbarProps> = ({ className, ...props }) => {
   return (
-    <nav onClick={onClick} className={cn(styles.nav, className, classActive)}>
+    <nav className={cn(styles.nav, className)} {...props}>
       <ul className={styles.list}>
         <li className={styles.item}>
           <Link className={cn(styles.link, "nav-link-text")} href="/">
@@ -40,7 +37,7 @@ const Navbar: FC<NavbarProps> = ({ className, active, onClick }) => {
         </li>
         <li className={styles.item}>
           <Link className={cn(styles.link, "nav-link-text")} href="/contact">
-            Кантакты
+            Контакты
           </Link>
         </li>
       </ul>
