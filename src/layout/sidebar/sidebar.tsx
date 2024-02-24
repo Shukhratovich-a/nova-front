@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
+import { SidebarProps } from "./sidebar.props";
+
 import { SideBarContext } from "@/contexts/sidebar.context";
 
 import { menu } from "@/helpers/menu.helper";
@@ -15,7 +17,7 @@ import { IconSearch } from "@/assets/icons";
 
 import styles from "./sidebar.module.scss";
 
-export const Sidebar = () => {
+export const Sidebar = ({ className, ...props }: SidebarProps) => {
   const isTable = useMediaQuery({ maxWidth: 800 });
   const { t } = useTranslation();
   const { isOpen, setIsOpen } = useContext(SideBarContext);
@@ -33,11 +35,12 @@ export const Sidebar = () => {
   return (
     isTable && (
       <motion.div
-        className={cn(styles.sidebar)}
+        className={cn(styles.sidebar, className)}
         variants={variants}
         initial={"hidden"}
         animate={isOpen ? "visible" : "hidden"}
         transition={{ ease: "backIn", x: { duration: 0.4 } }}
+        {...props}
       >
         <div className="container">
           <div className={cn(styles.header)}>
