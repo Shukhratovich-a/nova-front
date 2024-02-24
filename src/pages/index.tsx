@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import axios from "axios";
 
 import { IBanner } from "@/types/banner.interface";
+
+import { getAll } from "@/api/banner.api";
 
 import { withLayout } from "@/layout/layout";
 
@@ -17,22 +18,31 @@ const HomePage: FC<HomePageProps> = ({ banners }) => {
         <title>Nova</title>
       </Head>
 
-      <HomeView banner={banners} />
+      <HomeView banners={banners} />
     </>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
-  const {
-    data: { data: banners },
-  } = await axios.get(`http://localhost:3001/banner/get-all?language=${locale}`).catch((error) => error);
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+  try {
+    const {
+      data: { data: banners },
+    } = await getAll({ language: locale });
 
-  return {
-    props: {
-      banners,
-      ...(await serverSideTranslations(String(locale))),
-    },
-  };
+    return {
+      props: {
+        banners,
+        ...(await serverSideTranslations(String(locale))),
+      },
+    };
+  } catch {
+    return {
+      props: {
+        banners: [],
+        ...(await serverSideTranslations(String(locale))),
+      },
+    };
+  }
 };
 
 export default withLayout(HomePage);
