@@ -4,5 +4,14 @@
 
   "show": "Show",
   "show-all": "Show all",
-  "show-more": "Show more"
+  "show-more": "Show more",
+
+  "menu": {
+    "home": "Главная",
+    "about": "О нас",
+    "products": "Товары",
+    "media": "Медиа",
+    "news": "Новости",
+    "contact": "Контакты"
+  }
 }

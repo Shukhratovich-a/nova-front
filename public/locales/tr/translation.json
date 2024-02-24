@@ -4,5 +4,14 @@
 
   "show": "Bakmak",
   "show-all": "Hepsini Göster",
-  "show-more": "Daha fazla göster"
+  "show-more": "Daha fazla göster",
+
+  "menu": {
+    "home": "Главная",
+    "about": "О нас",
+    "products": "Товары",
+    "media": "Медиа",
+    "news": "Новости",
+    "contact": "Контакты"
+  }
 }
