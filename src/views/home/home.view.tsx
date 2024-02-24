@@ -2,9 +2,9 @@ import { FC } from "react";
 
 import { HomeProps } from "./home.props";
 
-import { ArticleSlide, HomeIntro, HomeProduct } from "@/components";
+import { ArticleSlide, HomeIntro, HomeCategories } from "@/components";
 
-export const HomeView: FC<HomeProps> = ({ banners }) => {
+export const HomeView: FC<HomeProps> = ({ banners, categories }) => {
   return (
     <>
       <section>
@@ -12,7 +12,7 @@ export const HomeView: FC<HomeProps> = ({ banners }) => {
       </section>
 
       <section className="container">
-        <HomeProduct />
+        <HomeCategories categories={categories} />
       </section>
 
       <section className="container">
