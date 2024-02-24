@@ -1,12 +1,14 @@
-import { ArticleSlide, HomeIntro, HomeProduct } from "@/components";
-import { IBanner } from "@/types/banner.interface";
 import { FC } from "react";
 
-export const HomeView: FC<{ banner: IBanner[] }> = ({ banner }) => {
+import { HomeProps } from "./home.props";
+
+import { ArticleSlide, HomeIntro, HomeProduct } from "@/components";
+
+export const HomeView: FC<HomeProps> = ({ banners }) => {
   return (
     <>
       <section>
-        <HomeIntro banner={banner} />
+        <HomeIntro banners={banners} />
       </section>
 
       <section className="container">
