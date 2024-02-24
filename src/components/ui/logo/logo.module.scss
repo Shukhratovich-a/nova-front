@@ -1,0 +1,24 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.logo {
+  &--custom {
+    &,
+    & *[fill] {
+      fill: currentColor !important;
+    }
+  }
+
+  @include desktop {
+    width: 130px;
+    height: auto;
+  }
+
+  @include table {
+    width: 177px;
+  }
+
+  @include mobile {
+    width: 130px;
+  }
+}
