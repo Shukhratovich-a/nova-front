@@ -224,14 +224,15 @@ img,
 svg,
 video {
   max-width: 100%;
+  vertical-align: middle;
 }
 
-svg,
-svg *[fill] {
-  fill: currentColor;
-}
+// svg,
+// svg *[fill] {
+//   fill: currentColor;
+// }
 
-svg,
-svg *[stroke] {
-  stroke: currentColor;
-}
+// svg,
+// svg *[stroke] {
+//   stroke: currentColor;
+// }
