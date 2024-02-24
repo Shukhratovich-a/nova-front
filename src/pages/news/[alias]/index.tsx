@@ -8,7 +8,7 @@ import { IPost } from "@/types/post.interface";
 
 import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 
 import { PostView } from "@/views";
 

@@ -6,7 +6,7 @@ import axios from "axios";
 
 import { IBanner } from "@/types/banner.interface";
 
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 
 import { HomeView } from "@/views";
 

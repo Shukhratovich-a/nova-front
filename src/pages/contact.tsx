@@ -1,4 +1,4 @@
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 import { ContactView } from "@/views";
 import Head from "next/head";
 import { FC } from "react";

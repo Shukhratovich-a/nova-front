@@ -8,7 +8,7 @@ import { ICategory } from "@/types/category.interface";
 
 import { getAll, getByAlias } from "@/api/category.api";
 
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 import Link from "next/link";
 
 const Category: FC<CategoryProps> = ({ category }) => {

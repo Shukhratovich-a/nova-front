@@ -10,7 +10,7 @@ import { ISubcategory } from "@/types/subcategory.interface";
 import { getByAlias } from "@/api/subcategory.api";
 import { getAllWithChildren } from "@/api/category.api";
 
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 
 const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
   return (
