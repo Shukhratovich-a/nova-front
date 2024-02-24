@@ -2,7 +2,6 @@ import { FC } from "react";
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-// import { useTranslation } from "next-i18next";
 import { ParsedUrlQuery } from "querystring";
 
 import { ICategory } from "@/types/category.interface";
@@ -10,22 +9,17 @@ import { ICategory } from "@/types/category.interface";
 import { getAll } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
-import Link from "next/link";
 
-const Categories: FC<CategoriesProps> = ({ categories }) => {
+import { CategoriesView } from "@/views/categories/categories.view";
+
+const Categories: FC<CategoriesProps> = ({ categories, total }) => {
   return (
     <>
       <Head>
         <title>Categories</title>
       </Head>
 
-      <div className="container main-margin">
-        {categories.map((category) => (
-          <div key={category.id}>
-            <Link href={`/category/${category.alias}`}>{category.title}</Link>
-          </div>
-        ))}
-      </div>
+      <CategoriesView categories={categories} total={total} />
     </>
   );
 };
@@ -35,7 +29,7 @@ export const getStaticProps: GetStaticProps<CategoriesProps> = async ({
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
   const {
     data: { data: categories, total },
-  } = await getAll({ limit: 1000 });
+  } = await getAll({ limit: 10, language: locale });
 
   return {
     props: {

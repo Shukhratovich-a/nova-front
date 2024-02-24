@@ -9,7 +9,8 @@ import { ICategory } from "@/types/category.interface";
 import { getAll, getByAlias } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
-import Link from "next/link";
+
+import { CategoryView } from "@/views";
 
 const Category: FC<CategoryProps> = ({ category }) => {
   return (
@@ -18,16 +19,7 @@ const Category: FC<CategoryProps> = ({ category }) => {
         <title>Category</title>
       </Head>
 
-      <div className="container main-margin">
-        <div>{category.title}</div>
-
-        {category.subcategories?.length &&
-          category.subcategories.map((subcategory) => (
-            <div key={subcategory.id}>
-              <Link href={`/category/${category.alias}/${subcategory.alias}`}>{subcategory.title}</Link>
-            </div>
-          ))}
-      </div>
+      <CategoryView category={category} />
     </>
   );
 };
