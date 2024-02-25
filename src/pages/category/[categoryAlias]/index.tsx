@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
   if (!alias) return { notFound: true };
 
   try {
-    const { data: category } = await getByAlias(alias);
+    const { data: category } = await getByAlias(alias, { language: locale });
     if (!category) return { notFound: true };
 
     return {
