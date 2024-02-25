@@ -2,7 +2,19 @@
   "news": "أخبار",
   "news-related": "أخبار ذات صلة",
 
+  "products": "Продукты",
+  "products-related": "Похожие продукты",
+
   "show": "ينظر",
   "show-all": "عرض الكل",
-  "show-more": "أظهر المزيد"
+  "show-more": "أظهر المزيد",
+
+  "menu": {
+    "home": "Главная",
+    "about": "О нас",
+    "products": "Товары",
+    "media": "Медиа",
+    "news": "Новости",
+    "contact": "Контакты"
+  }
 }

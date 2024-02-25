@@ -8,8 +8,9 @@ import { ICategory } from "@/types/category.interface";
 
 import { getAll, getByAlias } from "@/api/category.api";
 
-import { withLayout } from "@/layout/Layout";
-import Link from "next/link";
+import { withLayout } from "@/layout/layout";
+
+import { CategoryView } from "@/views";
 
 const Category: FC<CategoryProps> = ({ category }) => {
   return (
@@ -18,16 +19,7 @@ const Category: FC<CategoryProps> = ({ category }) => {
         <title>Category</title>
       </Head>
 
-      <div className="container main-margin">
-        <div>{category.title}</div>
-
-        {category.subcategories?.length &&
-          category.subcategories.map((subcategory) => (
-            <div key={subcategory.id}>
-              <Link href={`/category/${category.alias}/${subcategory.alias}`}>{subcategory.title}</Link>
-            </div>
-          ))}
-      </div>
+      <CategoryView category={category} />
     </>
   );
 };
@@ -56,16 +48,22 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
   if (!params) return { notFound: true };
 
   const alias = params.categoryAlias as string;
+  if (!alias) return { notFound: true };
 
-  const { data: category } = await getByAlias(alias);
+  try {
+    const { data: category } = await getByAlias(alias);
+    if (!category) return { notFound: true };
 
-  return {
-    props: {
-      category,
-      ...(await serverSideTranslations(String(locale))),
-    },
-    revalidate: 300,
-  };
+    return {
+      props: {
+        category,
+        ...(await serverSideTranslations(String(locale))),
+      },
+      revalidate: 300,
+    };
+  } catch {
+    return { notFound: true };
+  }
 };
 
 export default withLayout(Category);

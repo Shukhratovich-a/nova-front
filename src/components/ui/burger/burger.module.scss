@@ -1,0 +1,10 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.burger {
+  display: flex;
+  width: 30px;
+  height: 30px;
+
+  color: inherit;
+}

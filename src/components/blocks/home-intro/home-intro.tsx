@@ -1,34 +1,38 @@
-import { Slider } from "@/components";
-import cn from "classnames";
-import Image from "next/image";
 import { FC } from "react";
+import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
-import styles from "./home-intro.module.scss";
+import cn from "classnames";
+
+import { DOMAIN } from "@/helpers/api.helper";
+
 import { HomeIntroProps } from "./home-intro.props";
 
-export const HomeIntro: FC<HomeIntroProps> = ({ banner }) => {
-  // const { id, poster, title, description, subtitle } = props.banner;
-  console.log(banner);
+import { Slider } from "@/components";
 
+import styles from "./home-intro.module.scss";
+
+export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
   return (
     <div className={styles.wrapper}>
-      <Slider type={"full-screen"}>
-        {banner.map(({ id, poster, title, description, subtitle }) => {
+      <Slider className={cn(styles.swiper)} type={"full-screen"}>
+        {banners.map(({ id, poster, title, description, subtitle }) => {
           return (
             <SwiperSlide key={id}>
-              <Image
-                className="swiper-slide-image"
-                width={1200}
-                height={800}
-                alt=""
-                src={`http://localhost:3001${poster}`}
-              />
+              <Image className="swiper-slide-image" src={`${DOMAIN}${poster}`} alt={title} fill priority />
+
               <div className={cn(styles.wrap, "container")}>
                 <div className={styles.content}>
-                  <h1 className={cn("color-white")} dangerouslySetInnerHTML={{ __html: title }}></h1>
-                  <p className={cn("subtitle-lg color-white")} dangerouslySetInnerHTML={{ __html: description }}>
-                  </p>
-                  <p className={"subtitle-md color-white"} dangerouslySetInnerHTML={{ __html: subtitle }}></p>
+                  <h1 className={cn("color-white")} dangerouslySetInnerHTML={{ __html: title }} />
+
+                  <div
+                    className={cn(styles.description, "subtitle-lg", "color-white")}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+
+                  <div
+                    className={cn(styles.subtitle, "subtitle-md", "color-white")}
+                    dangerouslySetInnerHTML={{ __html: subtitle }}
+                  />
                 </div>
               </div>
             </SwiperSlide>

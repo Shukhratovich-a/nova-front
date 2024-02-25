@@ -6,13 +6,17 @@ export * from "./blocks/contacts-map/contacts-map";
 
 // Home page blocks
 export * from "./blocks/home-intro/home-intro";
-export * from "./blocks/home-products/home-products";
+export * from "./blocks/home-categories/home-categories";
 
 // Product page blocks
 export * from "./blocks/product-intro/product-intro";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-related/product-related";
+
+// Categories page blocks
+export * from "./blocks/categories-list/categories-list";
+export * from "./blocks/category-item/category-item";
 
 // Post page blocks
 export * from "./blocks/post-item/post-item";
@@ -22,7 +26,7 @@ export * from "./blocks/posts-related/posts-related";
 // CARDS
 export * from "./cards/article/article-card";
 export * from "./cards/post/post-card";
-export * from "./cards/product/product-card";
+export * from "./cards/category/category-card";
 
 // COMPONENTS
 export * from "./breadcrumbs/breadcrumbs";
@@ -30,6 +34,9 @@ export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
 export * from "./language/language";
+
 export * from "./ui/tag/tag";
 export * from "./ui/date/date";
 export * from "./ui/show-link/show-link";
+export * from "./ui/burger/burger";
+export * from "./ui/logo/logo";

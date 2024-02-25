@@ -1,27 +1,58 @@
-import { withLayout } from "@/layout/Layout";
-import { IBanner } from "@/types/banner.interface";
-
-import { HomeView } from "@/views";
-import axios from "axios";
+import { FC } from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { FC } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Home: FC<{ banner: IBanner[] }> = (props) => {
+import { IBanner } from "@/types/banner.interface";
+import { ICategory } from "@/types/category.interface";
+
+import { getAll as getAllBanners } from "@/api/banner.api";
+import { getAll as getAllCategories } from "@/api/category.api";
+
+import { withLayout } from "@/layout/layout";
+
+import { HomeView } from "@/views";
+
+const HomePage: FC<HomePageProps> = ({ banners, categories }) => {
   return (
     <>
       <Head>
         <title>Nova</title>
       </Head>
-      <HomeView banner={props.banner} />
+
+      <HomeView banners={banners} categories={categories} />
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get("http://localhost:3001/banner/get-all?language=ru").catch((error) => error);
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+  try {
+    const {
+      data: { data: banners },
+    } = await getAllBanners({ language: locale });
 
-  return { props: { banner: res.data || [] } };
+    const {
+      data: { data: categories },
+    } = await getAllCategories({ language: locale, limit: 10 });
+
+    return {
+      props: {
+        banners,
+        categories,
+        ...(await serverSideTranslations(String(locale))),
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
-export default withLayout(Home);
+export default withLayout(HomePage);
+
+export interface HomePageProps extends Record<string, unknown> {
+  banners: IBanner[];
+
+  categories: ICategory[];
+}

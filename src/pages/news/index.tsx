@@ -9,7 +9,7 @@ import { IPost } from "@/types/post.interface";
 
 import { getAll, getByTags } from "@/api/post.api";
 
-import { withLayout } from "@/layout/Layout";
+import { withLayout } from "@/layout/layout";
 
 import { PostsView } from "@/views";
 
