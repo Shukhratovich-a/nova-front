@@ -12,6 +12,8 @@ import { getAllWithChildren } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { SubcategoryView } from "@/views";
+
 const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
   return (
     <>
@@ -19,19 +21,7 @@ const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
         <title>Subcategory</title>
       </Head>
 
-      <div className="main-margin container">
-        <div>
-          <Link href={`/category/${subcategory.category?.alias}`}>{subcategory.category?.title}</Link>
-          {">"}
-          <Link href={`/category/${subcategory.alias}`}>{subcategory.title}</Link>
-        </div>
-
-        <ul>
-          {subcategory.products.map((product) => (
-            <li key={product.id}>{product.title}</li>
-          ))}
-        </ul>
-      </div>
+      <SubcategoryView subcategory={subcategory} />
     </>
   );
 };
@@ -67,7 +57,7 @@ export const getStaticProps: GetStaticProps<SubcategoryProps> = async ({
   if (!alias) return { notFound: true };
 
   try {
-    const { data: subcategory } = await getByAlias(alias);
+    const { data: subcategory } = await getByAlias(alias, { language: locale });
     if (!subcategory) return { notFound: true };
 
     return {
