@@ -18,7 +18,14 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
         {banners.map(({ id, poster, title, description, subtitle }) => {
           return (
             <SwiperSlide key={id}>
-              <Image className="swiper-slide-image" src={`${DOMAIN}${poster}`} alt={title} fill priority />
+              <Image
+                className="swiper-slide-image"
+                src={`${DOMAIN}${poster}`}
+                alt={title}
+                fill
+                priority
+                quality={100}
+              />
 
               <div className={cn(styles.wrap, "container")}>
                 <div className={styles.content}>
