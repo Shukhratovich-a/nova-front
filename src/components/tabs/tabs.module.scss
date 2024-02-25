@@ -30,11 +30,11 @@
 
 .action {
   border: 1px solid $stroke;
-  &:hover,
-  &-active {
-    background-color: $accent;
-    color: $white;
-  }
+}
+
+.active {
+  background-color: $accent;
+  color: $white;
 }
 
 .more-btn {
@@ -65,6 +65,7 @@
 
 .visible {
   visibility: visible;
+  display: flex;
 }
 
 .hidden {
