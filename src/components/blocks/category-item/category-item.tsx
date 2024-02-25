@@ -22,7 +22,7 @@ export const CategoryItem: FC<CategoryItemProps> = ({ className, category, ...pr
           subcategories.length &&
           subcategories.map((subcategory) => (
             <li className={cn(styles.item)} key={subcategory.id}>
-              <CategoryCard category={category} href={`/category/${category.alias}/${subcategory.alias}`} />
+              <CategoryCard category={subcategory} href={`/category/${category.alias}/${subcategory.alias}`} />
             </li>
           ))}
       </ul>
