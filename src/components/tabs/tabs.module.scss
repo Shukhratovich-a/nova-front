@@ -1,14 +1,18 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
 
-.wrapper,
+.tabs,
 .actions-wrapper {
   position: relative;
   text-wrap: nowrap;
 }
 
+.tabs {
+  margin-bottom: 15px;
+}
+
 .main-actions {
-  padding: 1px 0 1px 0;
+  padding: 1px 0 0 1px;
 
   flex-shrink: 1;
   display: flex;
@@ -16,25 +20,44 @@
   justify-content: center;
 
   overflow: hidden;
+
+  &:first-child .title {
+    border-radius: 5px 0 0 5px;
+  }
+  &:last-child .title {
+    border-radius: 0 5px 5px 0;
+  }
 }
 
-.action,
-.more-btn {
-  padding: 10px 20px;
-  margin-top: -1px;
-  margin-left: -1px;
-  width: fit-content;
-  cursor: pointer;
+.more-btn,
+.action {
+  padding: 7px 14px;
+
+  border: 1px solid $stroke;
   text-transform: uppercase;
+  cursor: pointer;
+  margin-left: -1px;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s;
 }
 
 .action {
-  border: 1px solid $stroke;
-}
+  &-mobile {
+    display: none;
+  }
+  &.open {
+    background-color: $accent;
+    color: $white;
+  }
 
-.active {
-  background-color: $accent;
-  color: $white;
+  @include hover-control {
+    &:not(.action-mobile) {
+      background-color: $accent;
+      color: $white;
+    }
+  }
 }
 
 .more-btn {
@@ -51,21 +74,23 @@
   right: 0;
   top: 50px;
   z-index: 2;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   border: 1px solid $stroke;
   background: $bg-primary;
+
   & .action {
     border: 0;
     border-bottom: 1px solid $stroke;
     width: 100%;
   }
-}
 
-.visible {
-  visibility: visible;
-  display: flex;
+  &.close {
+    display: none;
+  }
 }
 
 .hidden {
@@ -73,80 +98,87 @@
   visibility: hidden;
 }
 
-@include mobile {
+// mobile tabs
+.list {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.content {
+  display: none;
+  overflow: hidden;
+
+  width: 100%;
+
+  &.open {
+    display: block;
+  }
 }
 
-// .wrapper {
-//   max-width: fit-content;
-//   margin: 0 auto;
-//   @include mobile {
-//     max-width: 100%;
-//   }
-// }
+.block {
+  max-width: 1000px;
+  width: 100%;
 
-// .tabs {
-//   margin-bottom: 10px;
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   // flex-wrap: wrap;
-//   overflow: hidden;
+  margin: 0 auto;
+  padding: 10px 30px;
 
-//   text-wrap: nowrap;
+  display: flex;
+  justify-content: space-between;
 
-//   text-transform: uppercase;
-//   border-collapse: collapse;
+  border-bottom: 1px solid $stroke;
+}
 
-//   cursor: pointer;
-//   padding-left: 1px;
+.name,
+.value {
+  flex: 1;
+}
+.name {
+  text-align: left;
+}
+.value {
+  text-align: right;
+}
 
-//   @include mobile {
-//     flex-direction: column;
-//     align-items: flex-start;
-//     text-wrap: wrap;
-//   }
+@include mobile {
+  .tabs {
+    display: none;
+  }
 
-//   & li {
-//     user-select: none;
-//     padding: 7px 14px;
-//     border: 1px solid $stroke;
-//     margin-left: -1px;
-//     transition:
-//       background-color 0.4s ease,
-//       color 0.4s ease;
-//     &:active {
-//       cursor: grabbing;
-//     }
+  .list {
+    border: 1px solid $stroke;
+  }
 
-//     // hover effect
-//     @include hover-control {
-//       background-color: $accent;
-//       color: $white;
-//     }
+  .item:last-child .action {
+    border-bottom: none;
+  }
 
-//     @include mobile {
-//       width: 100%;
-//       &:active {
-//         cursor: pointer;
-//       }
-//     }
-//   }
+  .block {
+    padding: 10px;
+  }
 
-//   &-active {
-//     background-color: $accent;
-//     color: $white;
-//   }
-// }
+  .content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
 
-// .content {
-//   max-width: 1000px;
-//   width: 100%;
-//   margin: 0 auto;
+    &.open {
+      display: grid;
+      grid-template-rows: 1fr;
+    }
+  }
 
-//   li {
-//     display: flex;
-//     justify-content: space-between;
-//     border-bottom: 1px solid $stroke;
-//     padding: 10px 30px;
-//   }
-// }
+  .action {
+    display: none;
+    border: none;
+    border-bottom: 1px solid $stroke;
+    margin-left: 0;
+
+    &-mobile {
+      display: block;
+      text-align: left;
+      background-color: $accent;
+      color: $white;
+    }
+  }
+}
