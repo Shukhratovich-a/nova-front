@@ -1,0 +1,82 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  width: 600px;
+  background: $bg-primary;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.body {
+  min-height: 20px;
+  max-height: 300px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 30px;
+  padding-right: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+  padding: 10px;
+  cursor: pointer;
+  @include hover-control {
+    background-color: $white;
+  }
+  img {
+    min-width: 100px;
+    height: auto;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+.title {
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+
+  padding: 0 25px;
+  border-bottom: 2px solid rgba($stroke, 0.3);
+
+  svg {
+    width: 27px;
+    height: 24px;
+  }
+
+  input {
+    width: 100%;
+    padding: 30px 18px;
+    font-size: 18px;
+  }
+}
+
+@include desktop {
+  .wrapper {
+    width: 550px;
+  }
+}
+@include table {
+  .wrapper {
+    width: 450px;
+  }
+}
+@include mobile {
+  .wrapper {
+    width: 320px;
+  }
+}
