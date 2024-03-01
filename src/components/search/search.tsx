@@ -19,7 +19,7 @@ const searchContent = [
   { title: "Кроссовки" },
 ];
 
-const Search: FC<SearchProps> = () => {
+export const Search: FC<SearchProps> = () => {
   const [content, setContent] = useState(searchContent);
 
   const searchByTitle = ({ target }: ChangeEvent<HTMLInputElement>) => {

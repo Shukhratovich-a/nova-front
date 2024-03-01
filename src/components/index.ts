@@ -29,14 +29,17 @@ export * from "./cards/post/post-card";
 export * from "./cards/category/category-card";
 
 // COMPONENTS
+export * from "./search/search";
 export * from "./breadcrumbs/breadcrumbs";
 export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
 export * from "./language/language";
 
+// ui
 export * from "./ui/tag/tag";
 export * from "./ui/date/date";
 export * from "./ui/show-link/show-link";
 export * from "./ui/burger/burger";
 export * from "./ui/logo/logo";
+export * from "./ui/dropdown/dropdown";
