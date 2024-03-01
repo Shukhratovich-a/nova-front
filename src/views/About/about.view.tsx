@@ -6,7 +6,7 @@ export const AboutView: FC = (props) => {
   return (
     <div className="main-margin container">
       <section>
-        <Breadcrumbs mb="30px" />
+        <Breadcrumbs mb="30px" urlList={['about']}/>
       </section>
       <section>
         <AboutContent />

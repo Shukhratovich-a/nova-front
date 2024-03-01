@@ -8,7 +8,7 @@ export const PostsView: FC<PostsProps> = ({ posts, total }) => {
   return (
     <div className="main-margin container">
       <section>
-        <Breadcrumbs mb="30px" />
+        <Breadcrumbs urlList={['news']} mb="30px" />
       </section>
 
       <section>
