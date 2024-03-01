@@ -70,16 +70,26 @@
 }
 
 .more-options {
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: 0fr;
+
+
   position: absolute;
   right: 0;
   top: 50px;
   z-index: 2;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   border: 1px solid $stroke;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.4s ease,
+    opacity 0.4s ease-in;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
   background: $bg-primary;
 
   & .action {
@@ -88,8 +98,10 @@
     width: 100%;
   }
 
-  &.close {
-    display: none;
+  &.open {
+    display: grid;
+    grid-template-rows: 1fr;
+    opacity: 1;
   }
 }
 

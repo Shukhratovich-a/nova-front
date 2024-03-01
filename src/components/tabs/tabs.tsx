@@ -153,7 +153,6 @@ export const Tabs: FC = () => {
 
   useEffect(() => {
     if (actionElementsWidth?.current && containerRef?.current) {
-
       const actionElements: HTMLDivElement[] | [] =
         (Array.from(containerRef.current.children) as HTMLDivElement[]) || [];
       actionElements.splice(-1, 1);
@@ -210,19 +209,21 @@ export const Tabs: FC = () => {
           </div>
         </div>
 
-        <div className={cn(styles["more-options"], isMoreOpen ? "" : styles.close)}>
-          {actionsMoreList.map(({ id, title }) => (
-            <div
-              key={id}
-              onClick={() => {
-                setActiveTab(id);
-                setIsMoreOpen(false);
-              }}
-              className={cn(styles.action, getActiveClass(id), "color-gray nav-link-text")}
-            >
-              {title}
-            </div>
-          ))}
+        <div className={cn(styles["more-options"], isMoreOpen ? styles.open : "")}>
+          <div style={{ minHeight: 0 }}>
+            {actionsMoreList.map(({ id, title }) => (
+              <div
+                key={id}
+                onClick={() => {
+                  setActiveTab(id);
+                  setIsMoreOpen(false);
+                }}
+                className={cn(styles.action, getActiveClass(id), "color-gray nav-link-text")}
+              >
+                {title}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
