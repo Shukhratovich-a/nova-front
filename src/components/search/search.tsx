@@ -35,7 +35,7 @@ export const Search: FC<SearchProps> = () => {
 
   return (
     <div>
-      <Modal trigger={<IconSearch className="color-white" />}>
+      <Modal trigger={<IconSearch/>}>
         <div className={styles.wrapper}>
           <div className={styles.input}>
             <label htmlFor="header-search">
