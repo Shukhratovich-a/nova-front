@@ -6,7 +6,7 @@ import { FC } from "react";
 import styles from "./breadcrumbs.module.scss";
 import { BreadcrumbsProps } from "./breadcrumbs.props";
 
-export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList=[] }) => {
+export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList = [] }) => {
   const router = useRouter();
 
   const getPathSegments = () => {
@@ -22,8 +22,7 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList=[] }) =
       <ul className={styles.list}>
         <li className={styles.item}>
           <Link className={cn(styles.link, "nav-link-text", "color-accent")} href="/">
-            Home
-            <IconArrowRight />
+            Home <IconArrowRight />
           </Link>
         </li>
         {urlList.map((segment, index) => (
