@@ -35,11 +35,11 @@ export const Search: FC<SearchProps> = () => {
 
   return (
     <div>
-      <Modal trigger={<IconSearch/>}>
+      <Modal trigger={<IconSearch />}>
         <div className={styles.wrapper}>
           <div className={styles.input}>
             <label htmlFor="header-search">
-              <IconSearch className="color-accent" />
+              <IconSearch />
             </label>
             <input
               onChange={searchByTitle}
