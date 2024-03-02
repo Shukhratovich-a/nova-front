@@ -1,5 +1,7 @@
-export interface ITabsList {
-  id: number;
-  title: string;
-  content: { name: string; value: string }[];
+import { DetailedHTMLProps, HTMLAttributes } from "react";
+
+import { IDetailCategory } from "@/types/product.interface";
+
+export interface TabsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  tabs: IDetailCategory[];
 }
