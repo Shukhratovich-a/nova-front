@@ -1,17 +1,17 @@
 @import "@/styles/media/media-queries";
 
-// .wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 30px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
-//   margin-bottom: 80px;
+  margin-bottom: 80px;
 
-//   @include mobile {
-//     gap: 20px;
-//     margin-bottom: 30px;
-//   }
-// }
+  @include mobile {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+}
 
 // .list {
 //   display: grid;
@@ -49,7 +49,7 @@
 //   }
 // }
 
-// .button {
-//   display: flex;
-//   justify-content: center;
-// }
+.button {
+  display: flex;
+  justify-content: center;
+}
