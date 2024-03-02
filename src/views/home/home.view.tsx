@@ -14,10 +14,10 @@ export const HomeView: FC<HomeProps> = ({ banners, categories }) => {
       <section className="container">
         <HomeCategories categories={categories} />
       </section>
-
+      {/* 
       <section className="container">
         <ArticleSlide />
-      </section>
+      </section> */}
     </>
   );
 };

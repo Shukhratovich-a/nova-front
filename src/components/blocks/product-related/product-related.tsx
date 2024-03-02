@@ -1,4 +1,4 @@
-import { ArticleCard, Slider } from "@/components";
+import { ProductCard, Slider } from "@/components";
 import cn from "classnames";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
@@ -12,34 +12,34 @@ export const ProductRelated: FC<ProductRelatedProps> = ({ className }) => {
         <h2 className={styles.title}>Похожие продукты</h2>
         <Slider type="dynamic" quantity={5}>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
           <SwiperSlide>
-            <ArticleCard productCode={2020} text={""} imageUrl={""} link={""} />
+            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
           </SwiperSlide>
         </Slider>
       </div>

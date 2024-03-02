@@ -1,5 +1,5 @@
 import { IconArrowRight } from "@/assets/icons";
-import { ArticleCard, Button, Slider } from "@/components";
+import { ProductCard, Button, Slider } from "@/components";
 import cn from "classnames";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
@@ -17,22 +17,22 @@ export const ArticleSlide: FC<ArticleSlideProps> = ({ className, children }) => 
       </div>
       <Slider mobile={true} width={1075} type="dynamic" quantity={3}>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
         <SwiperSlide>
-          <ArticleCard productCode={5190} text={""} imageUrl={""} link={""} />
+          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
         </SwiperSlide>
       </Slider>
       <div className={styles["button-mobile"]}>

@@ -17,6 +17,7 @@ export * from "./blocks/product-related/product-related";
 // Categories page blocks
 export * from "./blocks/categories-list/categories-list";
 export * from "./blocks/category-item/category-item";
+export * from "./blocks/subcategory-item/subcategory-item";
 
 // Post page blocks
 export * from "./blocks/post-item/post-item";
@@ -24,7 +25,7 @@ export * from "./blocks/posts-list/posts-list";
 export * from "./blocks/posts-related/posts-related";
 
 // CARDS
-export * from "./cards/article/article-card";
+export * from "./cards/product/product-card";
 export * from "./cards/post/post-card";
 export * from "./cards/category/category-card";
 

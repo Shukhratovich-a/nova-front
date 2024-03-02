@@ -4,8 +4,7 @@
 .card {
   max-width: 500px;
   width: 100%;
-
-  // aspect-ratio: 7 / 5;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -14,24 +13,27 @@
 
   border-radius: 12px;
   border: 1px solid $stroke;
-  background: $bg-primary;
+  background-color: $bg-primary;
   box-shadow: 4px 4px 15px 0px $stroke;
 }
 
 .image {
   width: 100%;
-  height: auto;
+  height: 272px;
+  padding: 10px;
 
-  background-color: $stroke;
+  background-color: $bg-primary;
+  border-bottom: 1px solid $stroke;
 
   cursor: pointer;
   overflow: hidden;
 
   img {
     width: 100%;
-    height: auto;
+    max-height: 272px;
+    height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     transform: scale(1.1);
     transition: transform 0.6s ease;
