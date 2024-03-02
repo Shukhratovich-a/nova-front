@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChangeEvent, FC, useState } from "react";
 import styles from "./search.module.scss";
 import { SearchProps } from "./search.props";
+import Link from "next/link";
 
 const searchContent = [
   { title: "Футбольный мячvФутбольный мячФутбольный мяч" },
@@ -20,12 +21,15 @@ const searchContent = [
 ];
 
 export const Search: FC<SearchProps> = () => {
-  const [content, setContent] = useState(searchContent);
+  const [content, setContent] = useState<{ title: string }[]>([]);
 
   const searchByTitle = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    if (!target.value) return setContent([]);
+
     const filter = searchContent.filter(({ title }) => {
       return title.toLowerCase().includes(target.value.toLowerCase());
     });
+
     setContent(filter);
   };
 
@@ -45,17 +49,26 @@ export const Search: FC<SearchProps> = () => {
               id="header-search"
             />
           </div>
-          <div className={cn(styles.body, "custom-scrollbar")}>
-            {!content.length && <p className="text-lg">There are no products for this request</p>}
-            {content.map(({ title }, index) => {
-              return (
-                <div key={index} className={styles.item}>
-                  <Image src="https://picsum.photos/100/100" alt="" width={60} height={60} />
-                  <p className={styles.title}>{title}</p>
-                </div>
-              );
-            })}
-          </div>
+          {
+            <div className={styles.body}>
+              <div className={cn(styles.list, "custom-scrollbar")}>
+                {!!content.length ? (
+                  content.map(({ title }, index) => {
+                    return (
+                      <div key={index} className={styles.item}>
+                        <Image src="https://picsum.photos/100/100" alt="" width={60} height={60} />
+                        <p className={styles.title}>{title}</p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <Link href="/category" className={styles.item}>
+                    <p className="text-lg">Categories</p>
+                  </Link>
+                )}
+              </div>
+            </div>
+          }
         </div>
       </Dropdown>
     </div>
