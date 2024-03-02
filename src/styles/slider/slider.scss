@@ -3,7 +3,7 @@
 
 .swiper {
   &-pagination {
-    height: 22px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,8 +11,8 @@
     margin: 0;
 
     &-bullet {
-      width: clamp(0.625rem, 0.5243rem + 0.3791vw, 0.875rem);
-      height: clamp(0.625rem, 0.5243rem + 0.3791vw, 0.875rem);
+      width: 16px;
+      height: 16px;
       margin: 0 !important;
 
       box-sizing: content-box;
@@ -20,7 +20,9 @@
       background: $accent;
       opacity: 0.7;
 
-      transition: transform 0.4s ease, opacity 0.4s ease;
+      transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 
       &-active {
         opacity: 1;
@@ -35,6 +37,7 @@
   }
 }
 
+// обычный слайдер
 .swiper-dynamic.swiper {
   // element shadow view
   width: calc(100% + 15px);
@@ -61,6 +64,7 @@
   }
 }
 
+// полноэкраный Слайдер
 .swiper-full-screen.swiper {
   min-height: 480px;
   max-height: 1300px;
