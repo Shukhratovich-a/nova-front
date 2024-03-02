@@ -1,12 +1,12 @@
 import { FC, useRef } from "react";
-import styles from "./dropdown.module.scss";
-import { DropdownProps } from "./dropdown.props";
+import styles from "./modal.module.scss";
+import { ModalProps } from "./modal.props";
 import cn from "classnames";
 
-export const Dropdown: FC<DropdownProps> = ({ trigger, className, children }) => {
+export const Modal: FC<ModalProps> = ({ trigger, className, children }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  const toggleDropdown = () => {
+  const toggleModal = () => {
     const modalElem = modalRef.current;
     if (!modalElem) return;
 
@@ -19,7 +19,7 @@ export const Dropdown: FC<DropdownProps> = ({ trigger, className, children }) =>
     }
   };
 
-  const closeDropdown = (event: React.MouseEvent<unknown>) => {
+  const closeModal = (event: React.MouseEvent<unknown>) => {
     if (modalRef.current === event.target) {
       document.body.style.overflow = "visible";
       modalRef.current.close();
@@ -28,14 +28,14 @@ export const Dropdown: FC<DropdownProps> = ({ trigger, className, children }) =>
 
   return (
     <>
-      <button onClick={toggleDropdown} className={styles.btn}>
+      <button onClick={toggleModal} className={styles.btn}>
         {trigger}
       </button>
-      <dialog onClick={closeDropdown} ref={modalRef} className={cn(styles.modal, className)}>
+      <dialog onClick={closeModal} ref={modalRef} className={cn(styles.modal, className)}>
         {children}
       </dialog>
     </>
   );
 };
 
-export default Dropdown;
+export default Modal;

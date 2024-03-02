@@ -1,5 +1,5 @@
 import { IconSearch } from "@/assets/icons";
-import { Dropdown } from "@/components";
+import { Modal } from "@/components";
 import cn from "classnames";
 import Image from "next/image";
 import { ChangeEvent, FC, useState } from "react";
@@ -35,7 +35,7 @@ export const Search: FC<SearchProps> = () => {
 
   return (
     <div>
-      <Dropdown trigger={<IconSearch className="color-white" />}>
+      <Modal trigger={<IconSearch className="color-white" />}>
         <div className={styles.wrapper}>
           <div className={styles.input}>
             <label htmlFor="header-search">
@@ -70,7 +70,7 @@ export const Search: FC<SearchProps> = () => {
             </div>
           }
         </div>
-      </Dropdown>
+      </Modal>
     </div>
   );
 };

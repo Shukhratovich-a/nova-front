@@ -42,4 +42,4 @@ export * from "./ui/date/date";
 export * from "./ui/show-link/show-link";
 export * from "./ui/burger/burger";
 export * from "./ui/logo/logo";
-export * from "./ui/dropdown/dropdown";
+export * from "./ui/modal/modal";
