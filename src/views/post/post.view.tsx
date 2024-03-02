@@ -13,7 +13,7 @@ export const PostView: FC<PostProps> = ({ post, relatedPosts }) => {
   return (
     <div className={cn("main-margin", "container")}>
       <section>
-        <Breadcrumbs mb={type === "ver" ? "30px" : "10px"} />
+        <Breadcrumbs mb={type === "ver" ? "30px" : "10px"} urlList={["news", post.title]} />
       </section>
 
       <section className={cn(styles.body, { [styles["body--hor"]]: type === "hor" })}>

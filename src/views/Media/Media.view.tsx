@@ -6,7 +6,7 @@ export const MediaView: FC = () => {
   return (
     <div className="main-margin">
       <section className="container">
-        <Breadcrumbs mb="30px" />
+        <Breadcrumbs mb="30px" urlList={['media']}/>
       </section>
       <section>
         <MediaIntro />

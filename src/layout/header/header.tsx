@@ -9,7 +9,7 @@ import { HeaderProps } from "./header.props";
 import { SideBarContext } from "@/contexts/sidebar.context";
 
 import { Navbar } from "../navbar/navbar";
-import { Burger, Language, Logo } from "@/components";
+import { Burger, Language, Logo, Search } from "@/components";
 
 import { IconLogo, IconSearch } from "@/assets/icons";
 
@@ -69,7 +69,8 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
           {!isTable && <Navbar onClick={menuController} />}
 
           <div className={cn(styles.additions)}>
-            <IconSearch />
+            {/* <IconSearch /> */}
+            <Search />
 
             <Language />
 

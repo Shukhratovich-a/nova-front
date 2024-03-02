@@ -7,7 +7,7 @@ export const ContactView: FC = () => {
   return (
     <div className="main-margin container">
       <section>
-        <Breadcrumbs mb="30px" />
+        <Breadcrumbs mb="30px" urlList={['contacts']}/>
       </section>
       <section className={styles.section}>
         <h2 className={styles.title}>Контакты</h2>

@@ -13,41 +13,41 @@
   }
 }
 
-.list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+// .list {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+//   gap: 20px;
 
-  @include desktop {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  }
+//   @include desktop {
+//     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+//   }
 
-  @include table {
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  }
+//   @include table {
+//     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+//   }
 
-  @include mobile {
-    gap: 15px;
-  }
-}
+//   @include mobile {
+//     gap: 15px;
+//   }
+// }
 
-.item {
-  @include table {
-    display: none;
+// .item {
+//   @include table {
+//     display: none;
 
-    &:nth-child(-n + 6) {
-      display: grid;
-    }
-  }
+//     &:nth-child(-n + 6) {
+//       display: grid;
+//     }
+//   }
 
-  @include mobile {
-    display: none !important;
+//   @include mobile {
+//     display: none !important;
 
-    &:nth-child(-n + 3) {
-      display: grid !important;
-    }
-  }
-}
+//     &:nth-child(-n + 3) {
+//       display: grid !important;
+//     }
+//   }
+// }
 
 .button {
   display: flex;

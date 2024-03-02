@@ -4,10 +4,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import styles from "./breadcrumbs.module.scss";
+import { BreadcrumbsProps } from "./breadcrumbs.props";
 
-export const Breadcrumbs: FC<{ mb?: string }> = ({ mb = "10px" }) => {
+export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList=[] }) => {
   const router = useRouter();
-  const pathSegments = router.asPath.split("/").filter((segment) => segment !== "");
+
+  const getPathSegments = () => {
+    const pathList = router.asPath.split("/").filter((segment) => segment !== "");
+
+    return pathList;
+  };
+
+  const pathSegments = getPathSegments();
 
   return (
     <nav className={styles.wrapper} style={{ marginBottom: mb }}>
@@ -18,7 +26,7 @@ export const Breadcrumbs: FC<{ mb?: string }> = ({ mb = "10px" }) => {
             <IconArrowRight />
           </Link>
         </li>
-        {pathSegments.map((segment, index) => (
+        {urlList.map((segment, index) => (
           <li className={styles.item} key={index}>
             <Link
               className={cn(styles.link, "nav-link-text", "color-accent")}

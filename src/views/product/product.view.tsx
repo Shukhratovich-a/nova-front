@@ -9,7 +9,7 @@ export const ProductView: FC<ProductProps> = ({ className, product, ...props }) 
   return (
     <div className={cn("main-margin", "container", className)} {...props}>
       <section>
-        <Breadcrumbs mb="30px" />
+        <Breadcrumbs mb="30px" urlList={["products", "item"]} />
       </section>
 
       <section>

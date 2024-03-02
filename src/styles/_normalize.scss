@@ -119,6 +119,12 @@ input {
   overflow: visible;
 }
 
+/* Избегаем окрашивания в синий при автозаполнении */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 100px white inset !important; /* Сбрасываем тень */
+}
+
 button,
 select {
   text-transform: none;

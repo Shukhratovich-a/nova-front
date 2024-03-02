@@ -12,7 +12,7 @@ export const CategoryView: FC<CategoryProps> = ({ category }) => {
   return (
     <div className="main-margin container">
       <section>
-        <Breadcrumbs mb="10px" />
+        <Breadcrumbs mb="10px" urlList={['category', title]}/>
       </section>
 
       <section>
