@@ -1,4 +1,4 @@
-@import '@/styles/media/media-queries';
+@import "@/styles/media/media-queries";
 
 .wrapper {
   @include mobile {
@@ -11,12 +11,18 @@
   align-items: center;
   gap: 5px;
 }
-.item {
-}
-.link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
 
-  text-transform: capitalize;
+.item {
+  text-transform: lowercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.link {
+  // display: flex;
+  // align-items: center;
+  // gap: 5px;
+
+  // text-transform: lowercase;
 }
