@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
             <Logo color={scrolled || pathname === "/" ? "custom" : "default"} />
           </Link>
 
-          {!isTable && <Navbar onClick={menuController} />}
+          {!isTable && <Navbar />}
 
           <div className={cn(styles.additions)}>
             {/* <IconSearch /> */}
