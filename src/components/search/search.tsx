@@ -2,10 +2,10 @@ import { IconSearch } from "@/assets/icons";
 import { Modal } from "@/components";
 import cn from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import { ChangeEvent, FC, useState } from "react";
 import styles from "./search.module.scss";
 import { SearchProps } from "./search.props";
-import Link from "next/link";
 
 const searchContent = [
   { title: "Футбольный мячvФутбольный мячФутбольный мяч" },
@@ -63,7 +63,7 @@ export const Search: FC<SearchProps> = () => {
                   })
                 ) : (
                   <Link href="/category" className={styles.item}>
-                    <p className="text-lg">Categories</p>
+                    <p className="text-lg">All Products</p>
                   </Link>
                 )}
               </div>
