@@ -12,6 +12,10 @@ p {
   font-weight: 400;
 }
 
+body.content-rtl {
+  direction: rtl;
+}
+
 .container {
   max-width: 1480px;
   width: auto;

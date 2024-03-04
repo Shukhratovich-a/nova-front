@@ -31,6 +31,9 @@ export const Sidebar = ({ className, ...props }: SidebarProps) => {
 
     visible: { x: 0 },
   };
+  if (document.body.classList.contains("content-rtl")) {
+    variants.hidden = { x: "-100%" };
+  }
 
   return (
     isTable && (

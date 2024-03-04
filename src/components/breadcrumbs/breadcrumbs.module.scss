@@ -12,17 +12,21 @@
   gap: 5px;
 }
 
-.item {
-  text-transform: lowercase;
-  &::first-letter {
-    text-transform: uppercase;
-  }
-}
-
 .link {
-  // display: flex;
-  // align-items: center;
-  // gap: 5px;
+  text-transform: lowercase;
 
-  // text-transform: lowercase;
+  svg {
+    transform: scale(-1, 1);
+  }
+
+  p {
+    font: inherit;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
