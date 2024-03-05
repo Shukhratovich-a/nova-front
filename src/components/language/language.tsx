@@ -19,6 +19,9 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  if (i18n.language === "ar") document.body.classList.add("content-rtl");
+  else document.body.classList.remove("content-rtl");
+
   const locales = languages.filter((language) => language.locale !== i18n.language);
 
   const handleOpenClose = () => {

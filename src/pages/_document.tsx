@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="icon" href="./favicon.ico" sizes="any" />
         </Head>
-        <body className="content-rtl">
+        <body>
           <Main />
           <NextScript />
         </body>
