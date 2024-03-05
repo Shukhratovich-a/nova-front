@@ -15,10 +15,6 @@
 .link {
   text-transform: lowercase;
 
-  svg {
-    transform: scale(-1, 1);
-  }
-
   p {
     font: inherit;
     &::first-letter {
@@ -29,4 +25,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+:global(body.content-rtl) .link svg {
+  transform: scale(-1, 1);
 }
