@@ -37,7 +37,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, children, ...pr
             <div className={styles.text}>
               <h2 className={cn(styles.title, "color-accent")}>{title}</h2>
               <motion.p
-                className={cn(styles.description, "subtitle-md")}
+                className={cn(styles.description, "subtitle-md", { [styles.open]: isOpenArray[index] })}
                 variants={textVariants}
                 initial="closed"
                 animate={isOpenArray[index] ? "open" : "closed"}
