@@ -8,7 +8,7 @@ import { SideBarProvider } from "@/contexts/sidebar.context";
 
 import { Footer } from "./Footer/Footer.component";
 
-import styles from "./Layout.module.scss";
+import styles from "./layout.module.scss";
 
 const Header = dynamic(() => import("./header/header"), {
   ssr: false,
