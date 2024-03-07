@@ -10,10 +10,7 @@ import { Footer } from "./Footer/Footer.component";
 
 import styles from "./layout.module.scss";
 
-const Header = dynamic(() => import("./header/header"), {
-  ssr: false,
-});
-
+const Header = dynamic(() => import("./header/header"), { ssr: false });
 const Sidebar = dynamic(() => import("./sidebar/sidebar"), { ssr: false });
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
