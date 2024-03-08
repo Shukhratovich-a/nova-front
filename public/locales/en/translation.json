@@ -2,19 +2,19 @@
   "news": "News",
   "news-related": "Related news",
 
-  "products": "Продукты",
-  "products-related": "Похожие продукты",
+  "products": "Products",
+  "products-related": "Related products",
 
   "show": "Show",
   "show-all": "Show all",
   "show-more": "Show more",
 
   "menu": {
-    "home": "Главная",
-    "about": "О нас",
-    "products": "Товары",
-    "media": "Медиа",
-    "news": "Новости",
-    "contact": "Контакты"
+    "home": "Home",
+    "about": "About us",
+    "products": "Products",
+    "media": "Media",
+    "news": "News",
+    "contact": "Contacts"
   }
 }
