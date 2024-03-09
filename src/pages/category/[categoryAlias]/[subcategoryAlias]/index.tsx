@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
 
     paths = paths.concat(
       categories.flatMap((category) =>
-        category.subcategories!.map((subcategory) => `${locale}/category/${category.alias}/${subcategory.alias}`)
+        category.subcategories!.map((subcategory) => `/${locale}/category/${category.alias}/${subcategory.alias}`)
       )
     );
   }
