@@ -17,7 +17,12 @@
   align-items: flex-start;
   gap: 30px;
 
-  &:nth-child(even) {
+  // если описание превышает высоту картинки в N раз
+  &-column {
+    flex-direction: column;
+  }
+
+  &:not(.block-column):nth-child(even) {
     .image {
       order: 2;
       @include table {
@@ -53,6 +58,21 @@
 .text {
   margin: auto 0;
   flex: 1;
+
+  // если описание не превышает лимит высоты
+  &-within-limit {
+    & .button {
+      display: none;
+    }
+    & .description {
+      height: auto !important;
+      margin-bottom: 0;
+      overflow: visible;
+      &::before {
+        display: none;
+      }
+    }
+  }
 }
 
 .title {
@@ -71,13 +91,13 @@
 
   overflow: hidden;
   &:not(.open)::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 40px;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 22%, rgba(255, 255, 255, 0.881) 83%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.881) 83%);
   }
 }
 
