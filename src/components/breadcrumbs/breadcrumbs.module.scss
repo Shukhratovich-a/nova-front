@@ -27,6 +27,6 @@
   gap: 6px;
 }
 
-:global(body.content-rtl) .link svg {
+:global(.content-rtl) .link svg {
   transform: scale(-1, 1);
 }
