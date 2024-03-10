@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
 import cn from "classnames";
@@ -33,11 +34,15 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         </div>
 
         <div className={styles.buttons}>
-          <Button appearance="yellow">
-            Скачать <IconArrowBottom />
-          </Button>
+          <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
+            <Button appearance="yellow">
+              Скачать <IconArrowBottom />
+            </Button>
+          </Link>
 
-          <Button appearance="outlined">Смотреть</Button>
+          <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
+            <Button appearance="outlined">Смотреть</Button>
+          </Link>
         </div>
       </div>
 

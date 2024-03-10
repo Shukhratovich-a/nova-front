@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params,
   if (!code) return { notFound: true };
 
   try {
-    const { data: product } = await getByCode(code);
+    const { data: product } = await getByCode(code, { language: locale });
     if (!product) return { notFound: true };
 
     return {

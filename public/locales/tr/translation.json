@@ -2,19 +2,19 @@
   "news": "Haberler",
   "news-related": "Benzer haberler",
 
-  "products": "Продукты",
-  "products-related": "Похожие продукты",
+  "products": "Ürünler",
+  "products-related": "Benzer ürünler",
 
   "show": "Bakmak",
   "show-all": "Hepsini Göster",
   "show-more": "Daha fazla göster",
 
   "menu": {
-    "home": "Главная",
-    "about": "О нас",
-    "products": "Товары",
-    "media": "Медиа",
-    "news": "Новости",
-    "contact": "Контакты"
+    "home": "Ana sayfa",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "media": "Medya",
+    "news": "Haberler",
+    "contact": "Kişiler"
   }
 }
