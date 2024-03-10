@@ -15,12 +15,9 @@ import styles from "./language.module.scss";
 
 export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...props }) => {
   const { i18n } = useTranslation();
-  let { push, query, pathname } = useRouter();
+  let { push, query, pathname, reload } = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  if (i18n.language === "ar") document.body.classList.add("content-rtl");
-  else document.body.classList.remove("content-rtl");
 
   const locales = languages.filter((language) => language.locale !== i18n.language);
 
@@ -32,6 +29,8 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
     setIsOpen(false);
     let currentQuery = { ...query };
 
+    const isArabicLocale = i18n.language === "ar" || locale === "ar";
+
     if (query.tags) {
       const { data } = await getTags(typeof query.tags === "string" ? [query.tags] : [...query.tags], {
         language: locale,
@@ -40,7 +39,8 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
       currentQuery = { ...query, tags: data };
     }
 
-    push({ pathname, query: currentQuery }, "", { locale, scroll: false });
+    await push({ pathname, query: currentQuery }, "", { locale, scroll: false });
+    if (isArabicLocale) reload();
   };
 
   return (
@@ -61,7 +61,13 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
         })}
       >
         {locales.map(({ locale }) => (
-          <li className={cn(styles.language__list__item)} key={locale} onClick={() => handleChange(locale)}>
+          <li
+            className={cn(styles.language__list__item)}
+            key={locale}
+            onClick={() => {
+              handleChange(locale);
+            }}
+          >
             {locale}
           </li>
         ))}

@@ -1,6 +1,10 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
 
+.content-rtl .swiper-slide {
+  margin-right: 0 !important;
+}
+
 .swiper {
   &-pagination {
     height: 25px;
@@ -49,8 +53,9 @@
   flex-direction: column;
   gap: 20px;
 
-  // & .swiper-wrapper {
-  // }
+  & .swiper-wrapper {
+    box-sizing: inherit;
+  }
 
   & .swiper-pagination {
     position: static;
