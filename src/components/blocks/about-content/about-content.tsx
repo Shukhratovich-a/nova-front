@@ -18,7 +18,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, children, ...pr
 
   const textVariants = {
     open: { height: "auto" },
-    closed: { height: "8em" },
+    closed: { height: "5em" },
   };
 
   const toggleOpen = (index: number) => {
@@ -66,7 +66,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, children, ...pr
         return (
           <div ref={ref} key={index} className={styles.block}>
             <div className={styles.image}>
-              <Image width={650} height={465} alt="" src={imageUrl} />
+              <Image width={650} height={365} alt="" src={imageUrl} />
             </div>
             <div className={styles.text}>
               <h2 className={cn(styles.title, "color-accent")}>{title}</h2>
