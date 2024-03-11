@@ -15,26 +15,7 @@ export const ArticleSlide: FC<ArticleSlideProps> = ({ className, children }) => 
           Показать все <IconArrowRight />
         </Button>
       </div>
-      <Slider mobile={true} width={1075} type="dynamic" quantity={3}>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard productCode={5190} text={""} imageUrl={""} link={""} />
-        </SwiperSlide>
-      </Slider>
+      <Slider mobile={true} width={1075} type="dynamic" quantity={3}></Slider>
       <div className={styles["button-mobile"]}>
         <Button className={"color-white"} appearance="yellow">
           Показать все <IconArrowRight />
