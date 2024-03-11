@@ -23,6 +23,7 @@
     "react-i18next": "^14.0.5",
     "react-responsive": "^9.0.2",
     "sass": "^1.70.0",
+    "sharp": "^0.33.2",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
