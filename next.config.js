@@ -10,6 +10,10 @@ const nextConfig = {
         hostname: "picsum.photos",
       },
       {
+        protocol: "https",
+        hostname: "api.novaplastik.uz",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
         port: "3001",

@@ -10,38 +10,7 @@ export const ProductRelated: FC<ProductRelatedProps> = ({ className }) => {
     <>
       <div className={cn(styles.wrapper, className)}>
         <h2 className={styles.title}>Похожие продукты</h2>
-        <Slider type="dynamic" quantity={5}>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard productCode={2020} text={""} imageUrl={""} link={""} />
-          </SwiperSlide>
-        </Slider>
+        <Slider type="dynamic" quantity={5}></Slider>
       </div>
     </>
   );

@@ -12,7 +12,7 @@ export const SubcategoryView: FC<SubcategoryProps> = ({ subcategory }) => {
   return (
     <div className="main-margin container">
       <section>
-        <Breadcrumbs mb="10px" />
+        <Breadcrumbs urlList={[]} mb="10px" />
       </section>
 
       <section>
