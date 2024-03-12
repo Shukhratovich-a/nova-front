@@ -17,15 +17,17 @@ export const SubcategoryItem: FC<SubcategoryItemProps> = ({ className, subcatego
     <div className={cn(styles.wrapper, className)} {...props}>
       <h2>{title}</h2>
 
-      <ul className={cn(styles.list)}>
-        {products &&
-          products.length &&
-          products.map((product) => (
+      {products && products.length ? (
+        <ul className={cn(styles.list)}>
+          {products.map((product) => (
             <li className={cn(styles.item)} key={product.id}>
               <ProductCard product={product} />
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <span>No products yet</span>
+      )}
     </div>
   );
 };

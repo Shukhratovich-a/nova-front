@@ -38,14 +38,17 @@ export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{t("news")}</h2>
 
-      <ul className={styles.list}>
-        {posts.length &&
-          posts.map((post) => (
+      {!!posts.length ? (
+        <ul className={styles.list}>
+          {posts.map((post) => (
             <li className={styles.post} key={post.id}>
               <PostCard post={post} />
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <span>No news yet</span>
+      )}
 
       {displayCount < total && (
         <Button className={styles.button} onClick={loadMore}>
