@@ -63,6 +63,7 @@
 .input {
   display: flex;
   align-items: center;
+  gap: 18px;
 
   padding: 0 25px;
   border-bottom: 2px solid rgba($stroke, 0.3);
@@ -77,7 +78,7 @@
 
   input {
     width: 100%;
-    padding: 30px 0px 30px 18px;
+    padding: 30px 0;
     font-size: 18px;
   }
 }

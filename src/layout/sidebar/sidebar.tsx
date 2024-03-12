@@ -27,10 +27,13 @@ export const Sidebar = ({ className, ...props }: SidebarProps) => {
   };
 
   const variants = {
-    hidden: { x: "100%" },
+    hidden: { x: "100%", opacity: 0 },
 
-    visible: { x: 0 },
+    visible: { x: 0, opacity: 1 },
   };
+  if (document.body.classList.contains("content-rtl")) {
+    variants.hidden = { x: "-100%", opacity: 0 };
+  }
 
   return (
     isTable && (

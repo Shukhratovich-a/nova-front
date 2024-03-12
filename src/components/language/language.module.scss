@@ -26,15 +26,12 @@
 .language--selected {
   display: flex;
   align-items: center;
-  padding: 10px;
-  margin: -10px;
+  gap: 5px;
 
-  cursor: pointer;
+  padding: 10px 0;
+
   user-select: none;
-
-  span {
-    margin-right: 5px;
-  }
+  cursor: pointer;
 }
 
 .language__list {

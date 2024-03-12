@@ -134,10 +134,10 @@
   flex: 1;
 }
 .name {
-  text-align: left;
+  text-align: start;
 }
 .value {
-  text-align: right;
+  text-align: end;
 }
 
 @include mobile {

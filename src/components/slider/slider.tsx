@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 
 // Swiper
 import { Swiper } from "swiper/react";
@@ -8,9 +8,10 @@ import { getSwiperConfig } from "./swiper.config";
 
 export const Slider: FC<SliderProps> = ({ mobile = false, type, quantity, width, children, className, ...rest }) => {
   // className="swiper-slide-image"
+  const { current: swiperConfig } = useRef(getSwiperConfig({ mobile, type, quantity, width, className }));
 
   return (
-    <Swiper {...getSwiperConfig({ mobile, type, quantity, width, className })} style={{ maxWidth: width }}>
+    <Swiper {...swiperConfig} style={{ maxWidth: width }}>
       {children}
     </Swiper>
   );

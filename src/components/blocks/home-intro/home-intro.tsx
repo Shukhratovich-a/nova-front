@@ -15,7 +15,7 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
   return (
     <div className={styles.wrapper}>
       <Slider className={cn(styles.swiper)} type={"full-screen"}>
-        {banners.map(({ id, poster, title, description, subtitle }) => {
+        {banners.map(({ id, poster, title, description, subtitle }, index) => {
           return (
             <SwiperSlide key={id}>
               <Image
@@ -23,8 +23,7 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
                 src={`${DOMAIN}${poster}`}
                 alt={title}
                 fill
-                priority
-                quality={100}
+                loading={index > 1 ? "lazy" : "eager"}
               />
 
               <div className={cn(styles.wrap, "container")}>

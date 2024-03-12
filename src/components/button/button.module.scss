@@ -1,14 +1,25 @@
 @import "@/styles/variables";
+@import "@/styles/media/media-queries";
 
 .button {
   display: flex;
   align-items: center;
   gap: 5px;
-  
+
   padding: 16px 32px;
 
   text-transform: capitalize;
   border-radius: 100px;
+
+  transition: transform 0.4s ease;
+
+  @include hover-control {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
 .yellow {
