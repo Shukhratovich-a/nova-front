@@ -7,3 +7,7 @@
     fill: none !important;
   }
 }
+
+.rtl svg {
+  transform: scaleX(-1);
+}
