@@ -16,9 +16,11 @@ export const ProductView: FC<ProductProps> = ({ className, product, ...props }) 
         <ProductIntro product={product} />
       </section>
 
-      <section>
-        <ProductInfo detailCategories={product.detailCategories} />
-      </section>
+      {!!product.detailCategories.length && (
+        <section>
+          <ProductInfo detailCategories={product.detailCategories} />
+        </section>
+      )}
 
       <section>{/* <ProductRelated /> */}</section>
     </div>
