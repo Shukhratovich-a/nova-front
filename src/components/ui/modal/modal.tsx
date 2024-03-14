@@ -40,6 +40,7 @@ export const Modal: FC<ModalProps> = ({ trigger, className, children }) => {
     return () => {
       document.removeEventListener("keydown", closeModalOnEsc);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
