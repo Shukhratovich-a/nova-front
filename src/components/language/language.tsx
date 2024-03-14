@@ -15,7 +15,7 @@ import styles from "./language.module.scss";
 
 export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...props }) => {
   const { i18n } = useTranslation();
-  let { push, query, pathname, reload } = useRouter();
+  let { replace, query, pathname, reload } = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -39,7 +39,7 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
       currentQuery = { ...query, tags: data };
     }
 
-    await push({ pathname, query: currentQuery }, "", { locale, scroll: false });
+    await replace({ pathname, query: currentQuery }, "", { locale, scroll: false });
     if (isArabicLocale) reload();
   };
 
