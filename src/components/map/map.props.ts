@@ -1,4 +1,3 @@
 export interface MapProps {
-  latitude: number;
-  longitude: number;
+  map: string | HTMLIFrameElement;
 }
