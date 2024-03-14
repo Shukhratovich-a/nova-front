@@ -11,10 +11,10 @@
   background: $bg-primary;
 
   &:not(.cardOrientRow):nth-child(even) {
-    padding-left: 15px;
+    padding-inline-start: 15px;
   }
   &:not(.cardOrientRow):nth-child(odd) {
-    padding-right: 15px;
+    padding-inline-end: 15px;
   }
 
   &:not(.cardOrientRow):nth-child(even),
