@@ -61,6 +61,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, children, ...pr
   return (
     <div className={styles.wrapper}>
       {dataArray.map(({ title, description, imageUrl }, index) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const ref = useRef<HTMLDivElement>(null);
         descriptionRefs.current[index] = ref;
         return (
@@ -91,75 +92,24 @@ export const AboutContent: FC<AboutContentProps> = ({ className, children, ...pr
 
 const dataArray: IAboutData[] = [
   {
-    title: "Наша фабрика 1",
-    description: `Lorem
-     ipsum dolor sit amet, consectetur adipisicing elit. Quia accusantium tempora nemo fuga fugiat non vero natus earum enim maiores beatae labore quibusdam voluptatum officia aliquid minus consequnatus earum enim maiores beatae labore quibusdam voluptatum officia aliquid minus consequuntur, quasi facilis explicabo neque rem praesentium dolor corporis illo. Voluptas commodi asperiores ariat non vero natus earum enim maiores beatae labore quibusdam voluptatum officia aliquid minus consequnatus earum enim maiores beatae labore quibusdam voluptatum `,
-    imageUrl: "https://picsum.photos/650/465",
+    title: "НАША ФАБРИКА",
+    description: `NOVA была основана в 1988 году Ахметом Шерефом Йылмазом беем. С момента своего создания она сыграла важную роль в керамической промышленности для ванных комнат и кухонь. Производство Nova началось со смывов для раковин и сидений для унитазов в небольшой мастерской в ​​Топчуларе. Сегодня производство продолжается на современных заводах площадью 18 500 квадратных метров в Турции, Египте и Узбекистане.`,
+    imageUrl: "https://api.novaplastik.uz/uploads/about/factory.png",
   },
   {
-    title: "Наша фабрика 2",
-    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere repellat maxime accusamus ipsum laboriosam
-    voluptate? Omnis libero eaque sed dicta saepe maiores accusamus reiciendis quo, quis sint magni facilis? Id,
-    delectus labore earum ab ea pariatur eum modi magni minus necessitatibus omnis deserunt blanditiis sed
-    ratione. Dolore placeat modi repellat maiores nulla doloremque? Vero, nihil corporis impedit officiis, vitae
-    labore, eligendi eaque cumque voluptatibus neque sequi? Illum, natus? Possimus dolor placeat et sint illo
-    labore, quas minus nihil eius, explicabo molestias iusto veniam eligendi natus aliquam velit ducimus, rem
-    magnam aperiam fuga. Repellendus vitae asperiores autem, soluta tempora quia quisquam, tempora, ex commodi beatae corrupti recusandae aliquid modi.
-    Error ratione, nesciunt cupiditate porro autem similique aliquid illo.`,
-    imageUrl: "https://picsum.photos/650/465",
+    title: "ПРОИЗВОДСТВО",
+    description: `Благодаря использованию новейших технологий производства и соблюдению международных стандартов для керамической продукции, NOVA стала предпочтительной компанией для клиентов со штатом более 500 сотрудников. Наши мощности по производству сливов, бачков и смывных механизмов, сидений для унитазов и другой продукции составляют в среднем 2 000 000 штук в месяц. Продукция NOVA экспортируется в более чем 60 стран мира.`,
+    imageUrl: "https://api.novaplastik.uz/uploads/about/proiz.png",
   },
   {
-    title: "Наша фабрика 3",
-    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere repellat maxime accusamus ipsum laboriosam
-    voluptate? Omnis libero eaque sed dicta saepe maiores accusamus reiciendis quo, quis sint magni facilis? Id,
-    delectus labore earum ab ea pariatur eum modi magni minus necessitatibus omnis deserunt blanditiis sed
-    ratione. Dolosperiores autem, soluta tempora quia quisquam, sapiente cum
-    laboriosam adipisci ullam veniam? Magni distinctio labore in voluptas reprehenderit maxime sunt commodi
-    provident incidunt? Sed accusamus ipsum, officiis quis qui ab consequatur dicta aliquid, voluptatum
-    consequuntur similique. Molestiae provident tempore natus voluptatum dolorum blanditiis mollitia a officia
-    incidunt nobis! Dicta, doloremque vel. Id magni quaerat possimus ratione quasi laudantium dicta incidunt,
-    labore optio pariatur reprehenderit. Velit molestias accusantium consequuntur doloremque ullam. Unde
-    voluptatibus illo a, inventore enim amet, similique est voluptates tempore numquam perspiciatis. Maxime
-    laboriosam adipisci obcaecati officiis illo tempora, ex commodi beatae corrupti recusandae aliquid modi.
-    Error ratione, nesciunt cupiditate porro autem similique aliquid illo.`,
-    imageUrl: "https://picsum.photos/650/465",
+    title: "30 ЛЕТ NOVA",
+    description: `Отмечая свое 35-летие, NOVA прошла процесс ребрендинга и приняла новый логотип. С новым брендом и логотипом «Nova Plumbing Solutions» наша компания стремится еще больше подчеркнуть наш традиционный подход в керамической промышленности. Мы можем принять этот подход как свою миссию: решать проблемы клиентов и достигать 100% удовлетворенности клиентов путем производства прочных, простых в сборке продуктов.`,
+    imageUrl: "https://api.novaplastik.uz/uploads/about/year.png",
   },
   {
-    title: "Наша фабрика 4",
-    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere repellat maxime accusamus ipsum laboriosam
-    voluptate? Omnis libero eaque sed dicta saepe maiores accusamus reiciendis quo, quis sint magni facilis? Id,
-    delectus labore earum ab ea pariatur eum modi magni minus necessitatibus omnis deserunt blanditiis sed
-    ratione. Dolore placeat modi repellat maiores nulla doloremque? Vero, nihil corporis impedit officiis, vitae
-    labore, eligendi eaque cumque voluptatibus neque sequi? Illum, natus? Possimus dolor placeat et sint illo
-    labore, quas minus nihil eius, explicabo molestias iusto veniam eligendi natus aliquam vehenderit. Velit molestias accusantium consequuntur doloremque ullam. Unde
-    voluptatibus illo a, inventore enim amet, similique est voluptates tempore numquam perspiciatis. Maxime
-    laboriosam adipisci obcaecati officiis illo tempora, ex commodi beatae corrupti recusandae aliquid modi.
-    Error ratione, nesciunt cupiditate porro autem similique aliquid illo.`,
-    imageUrl: "https://picsum.photos/650/465",
-  },
-  {
-    title: "Наша фабрика 5",
-    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere repellat maxime accusamus ipsum laboriosam
-    voluptate? Omnis libero eaque sed dicta saepe maiores accusamus reiciendis quo, quis sint magni facilis? Id,
-    delectus labore earum ab ea pariatur eum modi magni minus necessitatibus omnis deserunt blanditiis sed
-    ratione. Dolore placeat modi repellat maiores nulla doloremque? Vero, nihil corporis impedit officiis, vitae
-    labore, eligendi eaque cumque voluptatibus neque sequi? Illum, natus? Possimus dolor placeat et sint illo
-    labore, quas minus nihil eius, explicabo molestias iusto veniam eligendi natus aliquam velit ducimus, rem
-    magnam aperiam fuga. Repellendus vitae asperiores autem, soluta tempora quia quisquam, sapiente cum
-    laboriosam adipisci ullam veniam? Magni distinctio labore in voluptas reprehenderit maxime sunt commodi
-    provident incidunt? Sed accusamus ipsum, offolore placeat modi repellat maiores nulla doloremque? Vero, nihil corporis impedit officiis, vitae
-    labore, eligendi eaque cumque voluptatibus neque sequi? Illum, natus? Possimus dolor placeat et sint illo
-    labore, quas minus nihil eius, explicabo molestias iusto veniam eligendi natus aliquam velit ducimus, rem
-    magnam aperiam fuga. Repellendus vitae asperiores autem, soluta tempora quia quisquam, sapiente cum
-    laboriosam adipisci ullam veniam? Magni distinctio labore in voluptas reprehenderit maxime sunt commodi
-    provident incidunt? Sed accusamus ipsum, officiis quis qui ab consequatur dicta aliquid, voluptatum
-    consequuntur similique. Molestiae provident tempore natus voluptatum dolorum blanditiis mollitia a officia
-    incidunt nobis! Dicta, doloremque vel. Id magni quaerat possimus ratione quasi laudantium dicta incidunt,
-    labore optio pariatur reprehenderit. Velit molestias accusantium consequuntur doloremque ullam. Unde
-    voluptatibus illo a, inventore enim amet, similique est voluptates tempore numquam perspiciatis. Maxime
-    laboriosam adipisci obcaecati officiis illo tempora, ex commodi beatae corrupti recusandae aliquid modi.
-    Error ratione, nesciunt cupiditate porro autem similique aliquid illo.`,
-    imageUrl: "https://picsum.photos/650/465",
+    title: "НАШ ОСНОВАТЕЛЬ",
+    description: `Мы вспоминаем нашего основателя Ахмета Шерефа Йылмаза с тоской и уважением. Наш уважаемый основатель, покойный Ахмет Шереф Йылмаз, родился в Эрзинджане в 1942 году. Окончив факультет политических наук (Mekteb-i Mülkiee), он решил заняться деловой жизнью и сначала работал в Tübsan Tic. Он основал Акционерное общество (TUBSAN TAŞ), а затем Акционерное общество Nova Plastic Industry and Trade. Наш основатель, который всю свою жизнь посвятил себя индустриализму, внес большой вклад в свою страну, создав рабочие места в Стамбуле и Кыркларели Visa. Компания Nova Plastik, его творение, продолжает управляться и служить своей стране его детьми, Мехметом Ойтуном Йылмазом и Зейнеп Зерен Йылмаз Юджель.`,
+    imageUrl: "https://api.novaplastik.uz/uploads/about/founder.png",
   },
 ];
 
