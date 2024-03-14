@@ -41,6 +41,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
         categories,
         ...(await serverSideTranslations(String(locale))),
       },
+      revalidate: 10,
     };
   } catch {
     return {

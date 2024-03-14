@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<CategoriesProps> = async ({
       total,
       ...(await serverSideTranslations(String(locale))),
     },
-    revalidate: 300,
+    revalidate: 10,
   };
 };
 

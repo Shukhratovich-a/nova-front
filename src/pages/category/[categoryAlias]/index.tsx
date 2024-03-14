@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
         category,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 300,
+      revalidate: 10,
     };
   } catch {
     return { notFound: true };

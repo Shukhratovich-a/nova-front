@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params,
         product,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 300,
+      revalidate: 10,
     };
   } catch {
     return { notFound: true };

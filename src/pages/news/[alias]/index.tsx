@@ -64,6 +64,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
         relatedPosts,
         ...(await serverSideTranslations(String(locale))),
       },
+      revalidate: 10,
     };
   } catch {
     return { notFound: true };
