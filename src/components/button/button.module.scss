@@ -22,6 +22,11 @@
   }
 }
 
+:global(.content-rtl) .button svg {
+  transform: scaleX(-1);
+}
+
+
 .yellow {
   color: $white;
   background-color: $yellow;

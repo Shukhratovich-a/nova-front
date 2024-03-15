@@ -8,6 +8,6 @@
   }
 }
 
-.rtl svg {
+:global(.content-rtl) .link svg {
   transform: scaleX(-1);
 }

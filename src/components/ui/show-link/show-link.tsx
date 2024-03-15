@@ -10,11 +10,10 @@ import { IconArrowRight } from "@/assets/icons";
 import styles from "./show-link.module.scss";
 
 export const ShowLink: FC<ShowLinkProps> = ({ className, children, ...props }) => {
-  const { t, i18n } = useTranslation();
-  const isArabic = i18n.language === "ar";
+  const { t } = useTranslation();
 
   return (
-    <Link className={cn(className, styles.link, "color-accent", { [styles.rtl]: isArabic })} {...props}>
+    <Link className={cn(className, styles.link, "color-accent")} {...props}>
       <p>{children ? children : t("show")}</p> <IconArrowRight />
     </Link>
   );
