@@ -12,8 +12,16 @@
   gap: 5px;
 }
 
+.item:last-child .link::after {
+  content: "";
+}
+
 .link {
   text-transform: lowercase;
+
+  &::after {
+    content: "›";
+  }
 
   p {
     font: inherit;

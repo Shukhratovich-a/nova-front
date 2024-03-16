@@ -10,7 +10,7 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList = [] })
   const router = useRouter();
 
   const getPathSegments = () => {
-    const pathList = router.asPath.split("/").filter((segment) => segment !== "");
+    const pathList = router.asPath.split("/").filter(Boolean);
 
     return pathList;
   };
@@ -22,7 +22,8 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList = [] })
       <ul className={styles.list}>
         <li className={styles.item}>
           <Link className={cn(styles.link, "nav-link-text", "color-accent")} href="/">
-            <p>Home</p> <IconArrowRight />
+            <p>Home</p> 
+            {/* <IconArrowRight /> */}
           </Link>
         </li>
         {urlList.map((segment, index) => (
@@ -31,7 +32,8 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ mb = "10px", urlList = [] })
               className={cn(styles.link, "nav-link-text", "color-accent")}
               href={`/${pathSegments.slice(0, index + 1).join("/")}`}
             >
-              <p>{segment}</p> {index < pathSegments.length - 1 ? <IconArrowRight /> : ""}
+              <p>{segment}</p> 
+              {/* {index < pathSegments.length - 1 ? <IconArrowRight /> : ""} */}
             </Link>
           </li>
         ))}
