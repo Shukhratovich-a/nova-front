@@ -41,7 +41,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
       {!!posts.length ? (
         <ul className={styles.list}>
           {posts.map((post) => (
-            <li className={styles.post} key={post.id}>
+            <li className={styles.item} key={post.id}>
               <PostCard post={post} />
             </li>
           ))}
