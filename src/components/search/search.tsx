@@ -1,36 +1,41 @@
-import { IconSearch } from "@/assets/icons";
-import { Modal } from "@/components";
-import cn from "classnames";
+import { ChangeEvent, FC, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChangeEvent, FC, useState } from "react";
-import styles from "./search.module.scss";
+import { useTranslation } from "next-i18next";
+import cn from "classnames";
+
+import { IProduct } from "@/types/product.interface";
 import { SearchProps } from "./search.props";
 
-const searchContent = [
-  { title: "Футбольный мячvФутбольный мячФутбольный мяч" },
-  { title: "Ноутбук" },
-  { title: "Фотоаппарат" },
-  { title: "Книга 'Война и мир'" },
-  { title: "Смартфон" },
-  { title: "Фитнес трекер" },
-  { title: "Кофеварка" },
-  { title: "Наушники" },
-  { title: "Футболка" },
-  { title: "Кроссовки" },
-];
+import { search } from "@/api/product.api";
+import { DOMAIN } from "@/helpers/api.helper";
+
+import { Modal, Loader } from "@/components";
+
+import { IconSearch } from "@/assets/icons";
+
+import styles from "./search.module.scss";
 
 export const Search: FC<SearchProps> = () => {
-  const [content, setContent] = useState<{ title: string }[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const { i18n } = useTranslation();
 
-  const searchByTitle = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    if (!target.value) return setContent([]);
+  const handleSearch = async ({ target }: ChangeEvent<HTMLInputElement>) => {
+    try {
+      if (!target.value) return setProducts([]);
+      setLoading(true);
 
-    const filter = searchContent.filter(({ title }) => {
-      return title.toLowerCase().includes(target.value.toLowerCase());
-    });
+      const {
+        data: { data: products },
+      } = await search(target.value, { language: i18n.language, page: 1, limit: 10 });
 
-    setContent(filter);
+      setLoading(false);
+      setProducts(products);
+    } catch {
+      setLoading(false);
+      setProducts([]);
+    }
   };
 
   return (
@@ -41,34 +46,39 @@ export const Search: FC<SearchProps> = () => {
             <label htmlFor="header-search">
               <IconSearch />
             </label>
-            <input
-              onChange={searchByTitle}
-              placeholder="Search"
-              type="search"
-              name="header-search"
-              id="header-search"
-            />
+
+            <input onChange={handleSearch} placeholder="Search" type="search" name="header-search" id="header-search" />
           </div>
-          {
-            <div className={styles.body}>
-              <div className={cn(styles.list, "custom-scrollbar")}>
-                {!!content.length ? (
-                  content.map(({ title }, index) => {
-                    return (
-                      <div key={index} className={styles.item}>
-                        <Image src="https://picsum.photos/100/100" alt="" width={60} height={60} />
-                        <p className={styles.title}>{title}</p>
+
+          <div className={styles.body}>
+            <div className={cn(styles.list, "custom-scrollbar")}>
+              {loading ? (
+                <div className={cn(styles.loader)}>
+                  <Loader />
+                </div>
+              ) : !!products.length ? (
+                products.map(({ id, code, title, mainImage }) => {
+                  return (
+                    <div key={id} className={styles.item}>
+                      <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
+
+                      <div className={cn(styles.content)}>
+                        <p className={styles.code}>{code}</p>
+
+                        <p className={styles.title} title={title}>
+                          {title}
+                        </p>
                       </div>
-                    );
-                  })
-                ) : (
-                  <Link href="/category" className={styles.item}>
-                    <p className="text-lg">All Products</p>
-                  </Link>
-                )}
-              </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <Link href="/category" className={styles.item}>
+                  <p className="text-lg">All Products</p>
+                </Link>
+              )}
             </div>
-          }
+          </div>
         </div>
       </Modal>
     </div>
