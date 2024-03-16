@@ -11,13 +11,6 @@
   flex-direction: column;
 
   border-radius: 16px 16px 0 0;
-
-  @include desktop {
-  }
-  @include table {
-  }
-  @include mobile {
-  }
 }
 
 // head
@@ -37,7 +30,7 @@
   img {
     width: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     transform: scale(1.1);
     cursor: pointer;
 
@@ -54,9 +47,11 @@
 // captions
 .captions {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  inset: 0;
+
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -65,7 +60,9 @@
 
   line-height: 30px !important;
 
-  border-radius: 0 15px 15px 0;
+  border-end-end-radius: 15px;
+  border-start-end-radius: 15px;
+
   background: $bg-primary;
 }
 
@@ -73,7 +70,7 @@
 .content {
   height: inherit;
   flex: 1;
-
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
