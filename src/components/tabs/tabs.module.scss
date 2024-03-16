@@ -29,10 +29,7 @@
   text-transform: uppercase;
   cursor: pointer;
   margin-left: -1px;
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.3s;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 .action {
@@ -45,7 +42,7 @@
   }
 
   @include hover-control {
-    &:not(.action-mobile) {
+    &:not(.action-mobile):not(.more-btn) {
       background-color: $accent;
       color: $white;
     }
@@ -74,9 +71,7 @@
 
   border: 1px solid $stroke;
   opacity: 0;
-  transition:
-    grid-template-rows 0.4s ease,
-    opacity 0.4s ease-in;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease-in;
 
   background: $bg-primary;
 
