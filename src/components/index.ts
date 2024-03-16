@@ -45,3 +45,4 @@ export * from "./ui/show-link/show-link";
 export * from "./ui/burger/burger";
 export * from "./ui/logo/logo";
 export * from "./ui/modal/modal";
+export * from "./ui/loader/loader";
