@@ -59,7 +59,7 @@ export const Search: FC<SearchProps> = () => {
               ) : !!products.length ? (
                 products.map(({ id, code, title, mainImage }) => {
                   return (
-                    <div key={id} className={styles.item}>
+                    <Link className={styles.item} href={`/product/${code}`} key={id}>
                       <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
 
                       <div className={cn(styles.content)}>
@@ -69,7 +69,7 @@ export const Search: FC<SearchProps> = () => {
                           {title}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })
               ) : (
