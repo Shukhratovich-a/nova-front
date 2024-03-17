@@ -1,20 +1,28 @@
 {
-  "news": "أخبار",
-  "news-related": "أخبار ذات صلة",
+  "news": "الاخبار",
+  "news-related": "الاخبار المتشابهة",
 
-  "products": "Продукты",
-  "products-related": "Похожие продукты",
+  "products": "المنتجات",
+  "products-related": "المنتجات المتشابهة",
 
-  "show": "ينظر",
+  "show": "إظهار",
   "show-all": "عرض الكل",
-  "show-more": "أظهر المزيد",
+  "show-more": "عرض المزيد",
+
+  "contacts": "جهات الاتصال",
+  "central": "المكتب الرئيسي",
+  "factory": "مصنع",
+  "factories": "مصانعنا",
+  "address": "العنوان",
+  "phone": "تلفون",
+  "email": "البريد الالكتروني",
 
   "menu": {
-    "home": "Главная",
-    "about": "О нас",
-    "products": "Товары",
-    "media": "Медиа",
-    "news": "Новости",
-    "contact": "Контакты"
+    "home": "الصفحة الرئيسية",
+    "about": "من نحن",
+    "products": "المنتجات",
+    "media": "المعرض",
+    "news": "الاخبار",
+    "contact": "جهات التواصل"
   }
 }
