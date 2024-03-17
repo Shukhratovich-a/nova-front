@@ -3,6 +3,7 @@ export * from "./blocks/article-slide/article-slide";
 
 // Contact page blocks
 export * from "./blocks/contacts-map/contacts-map";
+export * from "./blocks/contacts-our-factories/contacts-our-factories";
 
 // Home page blocks
 export * from "./blocks/home-intro/home-intro";
