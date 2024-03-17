@@ -6,14 +6,14 @@ import styles from "./article-slide.module.scss";
 import { ArticleSlideProps } from "./article-slide.props";
 import { useRouter } from "next/router";
 
-export const ArticleSlide: FC<ArticleSlideProps> = ({ title, className, children }) => {
+export const ArticleSlide: FC<ArticleSlideProps> = ({anchor, title, className, children }) => {
   const { push } = useRouter();
 
   return (
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.content}>
         <h2 className="color-accent">{title}</h2>
-        <Button className="color-white" appearance="yellow" onClick={() => push("/media/#")}>
+        <Button className="color-white" appearance="yellow" onClick={() => push(`/media/#${anchor}`)}>
           Показать все <IconArrowRight />
         </Button>
       </div>

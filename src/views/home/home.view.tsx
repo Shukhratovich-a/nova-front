@@ -17,7 +17,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificate }) =>
       </section>
 
       <section className="container">
-        <ArticleSlide title="Сертификаты">
+        <ArticleSlide anchor="certificate" title="Сертификаты">
           {certificate.map((item) => {
             return (
               <SwiperSlide key={item.id}>

@@ -15,7 +15,7 @@ export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
       <section>
         <MediaIntro />
       </section>
-      <section className="container">
+      <section id="certificate" className="container">
         <h2 className={cn(styles.title, "color-accent")}>Сертификаты</h2>
         <Slider type={"dynamic"} quantity={5}>
           {certificate.map((item) => {
@@ -27,7 +27,7 @@ export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
           })}
         </Slider>
       </section>
-      <section className="container">
+      <section id="video" className="container">
         <h2 className={cn(styles.title, "color-accent")}>Видеоинструкция по монтажу</h2>
         <Slider type={"dynamic"} quantity={5}>
           {video.map((item) => {
