@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
+import cn from "classnames";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
-import cn from "classnames";
+import Link from "next/link";
+import { useContext } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import { SidebarProps } from "./sidebar.props";
 
@@ -11,9 +11,7 @@ import { SideBarContext } from "@/contexts/sidebar.context";
 
 import { headerMenu } from "@/helpers/menu.helper";
 
-import { Burger, Language, Logo } from "@/components";
-
-import { IconSearch } from "@/assets/icons";
+import { Burger, Language, Logo, Search } from "@/components";
 
 import styles from "./sidebar.module.scss";
 
@@ -28,7 +26,6 @@ export const Sidebar = ({ className, ...props }: SidebarProps) => {
 
   const variants = {
     hidden: { x: "100%", opacity: 0 },
-
     visible: { x: 0, opacity: 1 },
   };
   if (document.body.classList.contains("content-rtl")) {
@@ -53,7 +50,7 @@ export const Sidebar = ({ className, ...props }: SidebarProps) => {
               </Link>
 
               <div className={cn(styles.additions)}>
-                <IconSearch />
+                <Search />
 
                 <Language />
 
