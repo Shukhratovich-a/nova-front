@@ -5,7 +5,7 @@ import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 import styles from "./media.module.scss";
 import { MediaProps } from "./media.props";
-import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
+// import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
 
 export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
   return (
@@ -19,13 +19,12 @@ export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
 
       <section id="video" className={cn(styles["block-mb"], "container")}>
         <h2 className={cn(styles.title, "color-accent")}>Видеоинструкция по монтажу</h2>
-        <Slider type={"dynamic"} quantity={3}>
+        <Slider type={"dynamic"} quantity={4}>
           {video.map((item) => {
-            if (!("video" in item)) return "";
             return (
               <SwiperSlide key={item.id}>
-                {/* <ProductCard card="video" product={item} /> */}
-                <YoutubePlayer url={item.video} width={300} height={250} />
+                <ProductCard card="video" product={item} />
+                {/* <YoutubePlayer url={item.video} width={300} height={250} /> */}
               </SwiperSlide>
             );
           })}

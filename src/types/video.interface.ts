@@ -13,4 +13,5 @@ export interface IVideoCard {
   id: number;
   poster: string;
   title: string;
+  code: string;
 }
