@@ -13,7 +13,7 @@ import { withLayout } from "@/layout/layout";
 
 import { ContactView } from "@/views";
 
-export const ContactPage: FC<ContactPageProps> = ({ centrals, factories }) => {
+export const ContactPage: FC<ContactPageProps> = ({ _nextI18Next, ...rest }) => {
   const { t } = useTranslation();
 
   return (
@@ -22,7 +22,7 @@ export const ContactPage: FC<ContactPageProps> = ({ centrals, factories }) => {
         <title>{`${t("contacts")} - NOVA Plastik`}</title>
       </Head>
 
-      <ContactView centrals={centrals} factories={factories} />
+      <ContactView {...rest} />
     </>
   );
 };

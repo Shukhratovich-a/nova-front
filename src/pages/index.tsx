@@ -8,23 +8,25 @@ import { ICategory } from "@/types/category.interface";
 
 import { getAll as getAllBanners } from "@/api/banner.api";
 import { getAll as getAllCategories } from "@/api/category.api";
+import { getAll as getAllCatalogs } from "@/api/catalog.api";
 import { getAll as getAllCertificates } from "@/api/certificate.api";
 import { getAll as getAllPosts } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
-import { HomeView } from "@/views";
 import { IPost } from "@/types/post.interface";
+import { HomeView } from "@/views";
 
-const HomePage: FC<HomePageProps> = ({ banners, categories, certificates, posts}) => {
+const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   return (
     <>
       <Head>
         <title>NOVA Plastik</title>
       </Head>
 
-      <HomeView banners={banners} categories={categories} certificates={certificates} posts={posts}/>
+      <HomeView {...rest} />
     </>
   );
 };
@@ -38,18 +40,21 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
     const {
       data: { data: categories },
     } = await getAllCategories({ language: locale, limit: 12 });
-
-    const { data: certificates } = await getAllCertificates({ language: locale });
-
+    const {
+      data: { data: catalogs },
+    } = await getAllCatalogs({ language: locale, limit: 12 });
     const {
       data: { data: posts },
     } = await getAllPosts({ language: locale, limit: 12 });
+
+    const { data: certificates } = await getAllCertificates({ language: locale });
 
     return {
       props: {
         banners,
         categories,
         certificates,
+        catalogs,
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
@@ -69,4 +74,5 @@ export interface HomePageProps extends Record<string, unknown> {
   certificates: ICertificate[];
   categories: ICategory[];
   posts: IPost[];
+  catalogs: ICatalog[];
 }

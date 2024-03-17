@@ -4,36 +4,43 @@ import Head from "next/head";
 import { FC } from "react";
 
 import { getAll as getAllCertificate } from "@/api/certificate.api";
-import { getAll as getAllVideos, getCards } from "@/api/video.api";
+import { getCards } from "@/api/video.api";
 import { withLayout } from "@/layout/layout";
 
+import { getAll as getAllCatalogs } from "@/api/catalog.api";
+import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
-import { IVideo, IVideoCard } from "@/types/video.interface";
+import { IVideoCard } from "@/types/video.interface";
 import { MediaView } from "@/views";
 
-export const MediaPage: FC<MediaPageProps> = ({ video, certificate }) => {
+export const MediaPage: FC<MediaPageProps> = ({ _nextI18Next, ...rest }) => {
   return (
     <>
       <Head>
         <title>Media</title>
       </Head>
 
-      <MediaView video={video} certificate={certificate} />
+      <MediaView {...rest} />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale }) => {
   try {
-    const { data: video } = await getAllVideos({ language: locale });
-    // const video = await getCards({ language: locale });
+    // const { data: video } = await getAllVideos({ language: locale });
+    const video = await getCards({ language: locale });
 
     const { data: certificate } = await getAllCertificate({ language: locale });
+
+    const {
+      data: { data: catalogs },
+    } = await getAllCatalogs({ language: locale, limit: 12 });
 
     return {
       props: {
         video,
         certificate,
+        catalogs,
         ...(await serverSideTranslations(String(locale))),
       },
       revalidate: 10,
@@ -48,6 +55,7 @@ export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale })
 export default withLayout(MediaPage);
 
 export interface MediaPageProps extends Record<string, unknown> {
-  video: IVideoCard[] | IVideo[];
+  video: IVideoCard[];
   certificate: ICertificate[];
+  catalogs: ICatalog[];
 }

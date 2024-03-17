@@ -16,9 +16,9 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   let image = "";
   let url = "";
 
-  const isProduct = type === "product" && "code" in product;
+  const isProduct = type === "product" && "code" in product && "mainImage" in product;
   const isCertificate = type === "certificate" && "certificate" in product;
-  const isVideo = type === "video" && "poster" in product;
+  const isVideo = type === "video" && "poster" in product && "code" in product;
   const isCatalog = type === "catalog" && "poster" in product;
 
   if (isProduct) {
@@ -31,8 +31,9 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   } else if (isVideo) {
     image = product.poster;
     url = `/video/${product.id}`;
+    code = product.code;
   } else if (isCatalog) {
-    image = '';
+    image = "";
     url = `/media`;
   }
 
