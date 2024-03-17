@@ -17,7 +17,7 @@ const HomePage: FC<HomePageProps> = ({ banners, categories }) => {
   return (
     <>
       <Head>
-        <title>Nova</title>
+        <title>NOVA Plastik</title>
       </Head>
 
       <HomeView banners={banners} categories={categories} />

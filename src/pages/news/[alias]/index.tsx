@@ -1,7 +1,8 @@
+import React from "react";
 import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React from "react";
+import { useTranslation } from "next-i18next";
 import { ParsedUrlQuery } from "querystring";
 
 import { IPost } from "@/types/post.interface";
@@ -13,10 +14,12 @@ import { withLayout } from "@/layout/layout";
 import { PostView } from "@/views";
 
 const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>{`Новости - ${post.title}`}</title>
+        <title>{`${t("news")} - ${post.title}`}</title>
       </Head>
 
       <PostView post={post} relatedPosts={relatedPosts} />

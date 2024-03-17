@@ -18,7 +18,7 @@ const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
   return (
     <>
       <Head>
-        <title>Subcategory</title>
+        <title>{`${subcategory.title}`}</title>
       </Head>
 
       <SubcategoryView subcategory={subcategory} />
