@@ -11,8 +11,6 @@ import { SideBarContext } from "@/contexts/sidebar.context";
 import { Navbar } from "../navbar/navbar";
 import { Burger, Language, Logo, Search } from "@/components";
 
-import { IconLogo, IconSearch } from "@/assets/icons";
-
 import styles from "./header.module.scss";
 
 export const Header: React.FC<HeaderProps> = ({ className, children, ...props }) => {
@@ -62,14 +60,13 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
     >
       <div className="container">
         <div className={styles.wrap}>
-          <Link className={styles.logo} href="/">
-            <Logo color={scrolled || pathname === "/" ? "custom" : "default"} />
+          <Link href="/">
+            <Logo className={styles.logo} color={scrolled || pathname === "/" ? "custom" : "default"} />
           </Link>
 
           {!isTable && <Navbar />}
 
           <div className={cn(styles.additions)}>
-            {/* <IconSearch /> */}
             <Search />
 
             <Language />
