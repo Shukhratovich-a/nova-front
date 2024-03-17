@@ -8,7 +8,7 @@ import { MediaProps } from "./media.props";
 
 export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
   return (
-    <div className="main-margin">
+    <div id="catalog" className="main-margin">
       <section className="container">
         <Breadcrumbs mb="30px" urlList={["media"]} />
       </section>
