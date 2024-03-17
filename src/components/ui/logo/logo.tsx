@@ -7,12 +7,12 @@ import { IconLogo } from "@/assets/icons";
 
 import styles from "./logo.module.scss";
 
-export const Logo: FC<LogoProps> = ({ color = "default", ...props }) => {
+export const Logo: FC<LogoProps> = ({ color = "default", width = 220, height = 62, ...props }) => {
   return (
     <IconLogo
       className={cn(styles.logo, { [styles["logo--custom"]]: color === "custom" })}
-      width={220}
-      height={62}
+      width={width}
+      height={height}
       {...props}
     />
   );
