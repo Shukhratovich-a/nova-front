@@ -16,25 +16,35 @@ import { IconSearch } from "@/assets/icons";
 
 import styles from "./search.module.scss";
 
+interface ISearch {
+  products: IProduct[];
+  total: number;
+}
+
+const limit = 10;
+
 export const Search: FC<SearchProps> = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [searchState, setSearchState] = useState<ISearch>({ products: [], total: 0 });
+  const [value, setValue] = useState<string>("");
+
   const [loading, setLoading] = useState<boolean>(false);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleSearch = async ({ target }: ChangeEvent<HTMLInputElement>) => {
     try {
-      if (!target.value) return setProducts([]);
+      if (!target.value) return setSearchState({ products: [], total: 0 });
+      setValue(target.value);
       setLoading(true);
 
       const {
-        data: { data: products },
-      } = await search(target.value, { language: i18n.language, page: 1, limit: 10 });
+        data: { data: products, total },
+      } = await search(target.value, { language: i18n.language, page: 1, limit });
 
       setLoading(false);
-      setProducts(products);
+      setSearchState({ products, total });
     } catch {
       setLoading(false);
-      setProducts([]);
+      setSearchState({ products: [], total: 0 });
     }
   };
 
@@ -56,25 +66,33 @@ export const Search: FC<SearchProps> = () => {
                 <div className={cn(styles.loader)}>
                   <Loader />
                 </div>
-              ) : !!products.length ? (
-                products.map(({ id, code, title, mainImage }) => {
-                  return (
-                    <Link className={styles.item} href={`/product/${code}`} key={id}>
-                      <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
+              ) : !!searchState.products.length ? (
+                <>
+                  {searchState.products.map(({ id, code, title, mainImage }) => {
+                    return (
+                      <Link className={styles.item} href={`/product/${code}`} key={id}>
+                        <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
 
-                      <div className={cn(styles.content)}>
-                        <p className={styles.code}>{code}</p>
+                        <div className={cn(styles.content)}>
+                          <p className={styles.code}>{code}</p>
 
-                        <p className={styles.title} title={title}>
-                          {title}
-                        </p>
-                      </div>
+                          <p className={styles.title} title={title}>
+                            {title}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+
+                  {searchState.products.length + 1 < searchState.total && (
+                    <Link className={cn(styles.item, styles.more)} href={{ pathname: "/product", query: { q: value } }}>
+                      {t("show-more")}
                     </Link>
-                  );
-                })
+                  )}
+                </>
               ) : (
                 <Link href="/category" className={styles.item}>
-                  <p className="text-lg">All Products</p>
+                  <p className="text-lg">{t("all-products")}</p>
                 </Link>
               )}
             </div>
