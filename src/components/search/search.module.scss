@@ -63,6 +63,13 @@
   }
 }
 
+.more {
+  justify-content: center !important;
+
+  font-weight: 700;
+  color: $accent;
+}
+
 .content {
   flex-grow: 1;
   overflow: hidden;
