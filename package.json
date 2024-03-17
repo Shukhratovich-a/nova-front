@@ -14,7 +14,6 @@
     "date-fns": "^3.3.1",
     "framer-motion": "^11.0.6",
     "i18next": "^23.8.2",
-    "i18next-http-backend": "^2.4.3",
     "next": "14.1.0",
     "next-i18next": "^15.2.0",
     "query-string": "^8.2.0",
