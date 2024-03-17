@@ -20,9 +20,8 @@
 .video,
 .certificate {
   display: flex;
-  height: auto;
-  aspect-ratio: 7 / 5;
   .image {
+    aspect-ratio: 7 / 4;
     flex: 1;
     padding: 0;
     height: auto;
@@ -57,7 +56,16 @@
 }
 
 .catalog {
-  background: #000;
+  .image {
+    aspect-ratio: 23 / 32;
+    flex: 1;
+    height: auto;
+    max-height: 480px;
+
+    img {
+      max-height: max-content;
+    }
+  }
 }
 
 .image {

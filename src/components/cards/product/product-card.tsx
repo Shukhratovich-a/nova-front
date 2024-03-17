@@ -40,6 +40,9 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   } else if (isVideo) {
     image = getYoutubePoster(product.video);
     url = `/video/${product.id}`;
+  } else if (isCatalog) {
+    image = getYoutubePoster(product.poster);
+    url = `/media`;
   }
 
   const wrapperClass = cn(styles.card, {
