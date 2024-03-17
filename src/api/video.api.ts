@@ -2,8 +2,7 @@ import queryString from "query-string";
 import axios from "./axios";
 
 import { IGetManyOptions, IGetOneOptions } from "@/types/request.interface";
-import { IGetAll } from "@/types/response.interface";
-import { IVideo } from "@/types/video.interface";
+import { IVideo, IVideoCard } from "@/types/video.interface";
 
 export const getAll = async (options?: IGetManyOptions) => {
   const query = queryString.stringifyUrl({ url: `/video/get-all`, query: { ...options } });
@@ -17,10 +16,20 @@ export const getById = async (id: string, options?: IGetOneOptions) => {
   return axios.get<IVideo>(query);
 };
 
-export const getCard = async (options?: IGetManyOptions) => {
-  const { data } = await getAll(options);
-  console.log(data);
-  return data;
-};
+export const getCards = async (options?: IGetManyOptions) => {
+  const getYoutubePoster = (url: string) => {
+    // Проверяем, является ли URL корректным URL YouTube видео
+    const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(youtubeUrlRegex);
+    const videoId = match && match[4];
 
-getCard()
+    return `https://img.youtube.com/vi_webp/${videoId}/hqdefault.webp`;
+  };
+
+  const { data } = await getAll(options);
+  const videoCards = data.map(({ id, title, video }) => {
+    return { id, title, poster: getYoutubePoster(video) };
+  });
+
+  return videoCards;
+};

@@ -9,3 +9,8 @@ export interface IVideo {
   createAt: string;
   updateAt: string;
 }
+export interface IVideoCard {
+  id: number;
+  poster: string;
+  title: string;
+}

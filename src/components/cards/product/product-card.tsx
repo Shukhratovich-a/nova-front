@@ -18,17 +18,8 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
 
   const isProduct = type === "product" && "code" in product;
   const isCertificate = type === "certificate" && "certificate" in product;
-  const isVideo = type === "video" && "video" in product;
-  const isCatalog = type === "catalog";
-
-  const getYoutubePoster = (url: string) => {
-    // Проверяем, является ли URL корректным URL YouTube видео
-    const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(youtubeUrlRegex);
-    const videoId = match && match[4];
-
-    return `https://img.youtube.com/vi_webp/${videoId}/hqdefault.webp`;
-  };
+  const isVideo = type === "video" && "poster" in product;
+  const isCatalog = type === "catalog" && "poster" in product;
 
   if (isProduct) {
     code = product.code;
@@ -38,10 +29,10 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
     image = `${DOMAIN}${product.poster}`;
     url = `${DOMAIN}${product.certificate}`;
   } else if (isVideo) {
-    image = getYoutubePoster(product.video);
+    image = product.poster;
     url = `/video/${product.id}`;
   } else if (isCatalog) {
-    image = getYoutubePoster(product.poster);
+    image = '';
     url = `/media`;
   }
 
