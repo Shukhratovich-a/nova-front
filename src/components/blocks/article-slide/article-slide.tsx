@@ -6,25 +6,25 @@ import styles from "./article-slide.module.scss";
 import { ArticleSlideProps } from "./article-slide.props";
 import { useRouter } from "next/router";
 
-export const ArticleSlide: FC<ArticleSlideProps> = ({anchor, title, className, children }) => {
+export const ArticleSlide: FC<ArticleSlideProps> = ({ anchor, title, className, children }) => {
   const { push } = useRouter();
+
+  const viewAllButton = (
+    <Button className="color-white" appearance="yellow" onClick={() => push(`/media/#${anchor}`)}>
+      Показать все <IconArrowRight />
+    </Button>
+  );
 
   return (
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.content}>
         <h2 className="color-accent">{title}</h2>
-        <Button className="color-white" appearance="yellow" onClick={() => push(`/media/#${anchor}`)}>
-          Показать все <IconArrowRight />
-        </Button>
+        {viewAllButton}
       </div>
       <Slider mobile={true} width={1075} type="dynamic" quantity={3}>
         {children}
       </Slider>
-      <div className={styles["button-mobile"]}>
-        <Button className={"color-white"} appearance="yellow">
-          Показать все <IconArrowRight />
-        </Button>
-      </div>
+      <div className={styles["button-mobile"]}>{viewAllButton}</div>
     </div>
   );
 };
