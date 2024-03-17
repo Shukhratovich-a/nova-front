@@ -2,10 +2,10 @@ import { FC } from "react";
 
 import { HomeProps } from "./home.props";
 
-import { ArticleSlide, HomeCategories, HomeIntro, ProductCard } from "@/components";
+import { ArticleSlide, HomeCategories, HomeIntro, PostCard, ProductCard } from "@/components";
 import { SwiperSlide } from "swiper/react";
 
-export const HomeView: FC<HomeProps> = ({ banners, categories, certificate }) => {
+export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, posts }) => {
   return (
     <>
       <section>
@@ -18,10 +18,32 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificate }) =>
 
       <section className="container">
         <ArticleSlide anchor="certificate" title="Сертификаты">
-          {certificate.map((item) => {
+          {certificates.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <ProductCard card="certificate" product={item} />
+              </SwiperSlide>
+            );
+          })}
+        </ArticleSlide>
+      </section>
+      <section className="container">
+        {/* <ArticleSlide anchor="catalog" title="catalog">
+          {catalog.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <ProductCard card="catalog" product={item} />
+              </SwiperSlide>
+            );
+          })}
+        </ArticleSlide> */}
+      </section>
+      <section className="container">
+        <ArticleSlide anchor="certificate" title="Сертификаты">
+          {posts.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <PostCard post={item} />
               </SwiperSlide>
             );
           })}

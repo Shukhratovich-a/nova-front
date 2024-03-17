@@ -8,21 +8,23 @@ import { ICategory } from "@/types/category.interface";
 
 import { getAll as getAllBanners } from "@/api/banner.api";
 import { getAll as getAllCategories } from "@/api/category.api";
-import { getAll as getAllCertificate } from "@/api/certificate.api";
+import { getAll as getAllCertificates } from "@/api/certificate.api";
+import { getAll as getAllPosts } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
 import { ICertificate } from "@/types/certificate.interface";
 import { HomeView } from "@/views";
+import { IPost } from "@/types/post.interface";
 
-const HomePage: FC<HomePageProps> = ({ banners, categories, certificate }) => {
+const HomePage: FC<HomePageProps> = ({ banners, categories, certificates, posts}) => {
   return (
     <>
       <Head>
         <title>NOVA Plastik</title>
       </Head>
 
-      <HomeView banners={banners} categories={categories} certificate={certificate} />
+      <HomeView banners={banners} categories={categories} certificates={certificates} posts={posts}/>
     </>
   );
 };
@@ -37,13 +39,18 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
       data: { data: categories },
     } = await getAllCategories({ language: locale, limit: 10 });
 
-    const { data: certificate } = await getAllCertificate({ language: locale });
+    const { data: certificates } = await getAllCertificates({ language: locale });
+
+    const {
+      data: { data: posts },
+    } = await getAllPosts({ language: locale });
 
     return {
       props: {
         banners,
         categories,
-        certificate,
+        certificates,
+        posts,
         ...(await serverSideTranslations(String(locale))),
       },
       revalidate: 10,
@@ -59,6 +66,7 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
-  certificate: ICertificate[];
+  certificates: ICertificate[];
   categories: ICategory[];
+  posts: IPost[];
 }
