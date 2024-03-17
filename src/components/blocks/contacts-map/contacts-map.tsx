@@ -1,41 +1,47 @@
-import { Map } from "@/components";
-import cn from "classnames";
-import Link from "next/link";
 import { FC } from "react";
-import styles from "./contacts-map.module.scss";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import cn from "classnames";
+
 import { ContactsMapProps } from "./contacts-map.props";
 
-export const ContactsMap: FC<ContactsMapProps> = (props) => {
-  const {
-    orient,
-    title,
-    className,
-    // , address, map, phone, mail,
-    ...rest
-  } = props;
+import { Map } from "@/components";
 
-  // Стиль ориентации блока
-  const orientStyle = orient === "row" ? styles.cardOrientRow : styles.cardColumn;
+import styles from "./contacts-map.module.scss";
+
+export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, ...props }) => {
+  const { map, address, type, phone, email, country } = contact;
+
+  const { t } = useTranslation();
+  const { t: countryT } = useTranslation("countries");
 
   return (
-    <div className={cn(styles.card, orientStyle, className)} {...rest}>
+    <div
+      className={cn(styles.card, className, {
+        [styles.cardOrientRow]: orient === "row",
+        [styles.cardColumn]: orient === "column",
+      })}
+      {...props}
+    >
       <div className={styles.map}>
-        <Map latitude={0} longitude={0} />
+        <Map map={map} />
       </div>
 
       <div className={styles.content}>
-        <h2 className="color-accent">Центральный офис</h2>
+        <h2 className="color-accent">{`${t(type)} (${countryT(country)})`}</h2>
+
         <div className={styles.info}>
-          <p className="text-lg fw-bold">Адрес :</p>
-          <p className="text-lg">Istanbul Tower Kat:10 No:48 Uluyol Cad. Bayrampasa, Istanbul / Turkey</p>
-          <p className="text-lg fw-bold">Телефон :</p>
-          <Link href={`tel:${""}`} className="color-accent text-lg">
-            
-            +90 212 612 42 43
+          <p className="text-lg fw-bold">{`${t("address")} :`}</p>
+          <p className="text-lg">{address}</p>
+          <p className="text-lg fw-bold">{`${t("phone")} :`}</p>
+          <Link href={`tel:${phone}`} className="color-accent text-lg">
+            {phone}
           </Link>
-          <p className="text-lg fw-bold">Электронная почта :</p>
-          <Link href={`mailto:${""}`} className="color-accent text-lg">
-            info@novaplastik.com
+
+          <p className="text-lg fw-bold">{`${t("email")} :`}</p>
+
+          <Link href={`mailto:${email}`} className="color-accent text-lg">
+            {email}
           </Link>
         </div>
       </div>
