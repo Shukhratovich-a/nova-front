@@ -21,7 +21,7 @@ export const SubcategoryItem: FC<SubcategoryItemProps> = ({ className, subcatego
         <ul className={cn(styles.list)}>
           {products.map((product) => (
             <li className={cn(styles.item)} key={product.id}>
-              <ProductCard product={product} />
+              <ProductCard product={product} card="product" />
             </li>
           ))}
         </ul>

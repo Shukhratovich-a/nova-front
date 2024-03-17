@@ -9,3 +9,4 @@ export * from "./category/category.view";
 export * from "./subcategory/subcategory.view";
 export * from "./about/about.view";
 export * from "./video/video.view";
+export * from "./products/products.view";
