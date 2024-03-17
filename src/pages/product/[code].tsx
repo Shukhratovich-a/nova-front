@@ -19,6 +19,10 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
     <>
       <Head>
         <title>{`${t("product")} - ${product.title}`}</title>
+
+        <meta property="og:title" content={product.title} />
+        <meta property="og:description" content={product.description} />
+        <meta property="og:image" content={product.mainImage} />
       </Head>
 
       <ProductView product={product} />
