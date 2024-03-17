@@ -1,21 +1,25 @@
 import { IconArrowRight } from "@/assets/icons";
-import { ProductCard, Button, Slider } from "@/components";
+import { Button, Slider } from "@/components";
 import cn from "classnames";
 import { FC } from "react";
-import { SwiperSlide } from "swiper/react";
 import styles from "./article-slide.module.scss";
 import { ArticleSlideProps } from "./article-slide.props";
+import { useRouter } from "next/router";
 
-export const ArticleSlide: FC<ArticleSlideProps> = ({ className, children }) => {
+export const ArticleSlide: FC<ArticleSlideProps> = ({ title, className, children }) => {
+  const { push } = useRouter();
+
   return (
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.content}>
-        <h2 className="color-accent">Видеоинструкция по монтажу</h2>
-        <Button className="color-white" appearance="yellow">
+        <h2 className="color-accent">{title}</h2>
+        <Button className="color-white" appearance="yellow" onClick={() => push("/media/#")}>
           Показать все <IconArrowRight />
         </Button>
       </div>
-      <Slider mobile={true} width={1075} type="dynamic" quantity={3}></Slider>
+      <Slider mobile={true} width={1075} type="dynamic" quantity={3}>
+        {children}
+      </Slider>
       <div className={styles["button-mobile"]}>
         <Button className={"color-white"} appearance="yellow">
           Показать все <IconArrowRight />

@@ -1,3 +1,5 @@
-import { HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface ArticleSlideProps extends HTMLAttributes<HTMLDivElement> {}
+export interface ArticleSlideProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  title: string;
+}
