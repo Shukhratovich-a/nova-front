@@ -1,10 +1,8 @@
-import { HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface ContactsMapProps extends HTMLAttributes<HTMLDivElement> {
+import { IContact } from "@/types/contact.interface";
+
+export interface ContactsMapProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   orient: "row" | "column";
-  // title: string;
-  // address: string;
-  // map: { latitude: number | string; longitude: number | string };
-  // phone: string | number;
-  // mail: string;
+  contact: IContact;
 }
