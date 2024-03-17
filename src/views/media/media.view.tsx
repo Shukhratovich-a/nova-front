@@ -7,14 +7,14 @@ import styles from "./media.module.scss";
 import { MediaProps } from "./media.props";
 // import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
 
-export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
+export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   return (
     <div id="catalog" className="main-margin">
       <section className="container">
         <Breadcrumbs mb="30px" urlList={["media"]} />
       </section>
       <section>
-        <MediaIntro />
+        <MediaIntro catalogs={catalogs}/>
       </section>
 
       <section id="video" className={cn(styles["block-mb"], "container")}>
