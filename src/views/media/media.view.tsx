@@ -5,6 +5,7 @@ import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 import styles from "./media.module.scss";
 import { MediaProps } from "./media.props";
+import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
 
 export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
   return (
@@ -15,25 +16,29 @@ export const MediaView: FC<MediaProps> = ({ video, certificate }) => {
       <section>
         <MediaIntro />
       </section>
-      <section id="certificate" className="container">
+
+      <section id="video" className={cn(styles["block-mb"], "container")}>
+        <h2 className={cn(styles.title, "color-accent")}>Видеоинструкция по монтажу</h2>
+        <Slider type={"dynamic"} quantity={3}>
+          {video.map((item) => {
+            if (!("video" in item)) return "";
+            return (
+              <SwiperSlide key={item.id}>
+                {/* <ProductCard card="video" product={item} /> */}
+                <YoutubePlayer url={item.video} width={300} height={250} />
+              </SwiperSlide>
+            );
+          })}
+        </Slider>
+      </section>
+
+      <section id="certificate" className={cn(styles["block-mb"], "container")}>
         <h2 className={cn(styles.title, "color-accent")}>Сертификаты</h2>
         <Slider type={"dynamic"} quantity={5}>
           {certificate.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <ProductCard card="certificate" product={item} />
-              </SwiperSlide>
-            );
-          })}
-        </Slider>
-      </section>
-      <section id="video" className="container">
-        <h2 className={cn(styles.title, "color-accent")}>Видеоинструкция по монтажу</h2>
-        <Slider type={"dynamic"} quantity={5}>
-          {video.map((item) => {
-            return (
-              <SwiperSlide key={item.id}>
-                <ProductCard card="video" product={item} />
               </SwiperSlide>
             );
           })}
