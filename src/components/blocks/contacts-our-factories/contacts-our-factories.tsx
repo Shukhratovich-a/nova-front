@@ -1,17 +1,23 @@
-import cn from "classnames";
 import { FC } from "react";
-import styles from "./contacts-our-factories.module.scss";
-import { ContactsOurFactoriesProps } from "./contacts-our-factories.props";
-import ContactsMap from "../contacts-map/contacts-map";
+import { useTranslation } from "next-i18next";
+import cn from "classnames";
 
-export const ContactsOurFactories: FC<ContactsOurFactoriesProps> = ({ className, children }) => {
+import { ContactsOurFactoriesProps } from "./contacts-our-factories.props";
+
+import { ContactsMap } from "@/components";
+
+import styles from "./contacts-our-factories.module.scss";
+
+export const ContactsOurFactories: FC<ContactsOurFactoriesProps> = ({ className, contacts, ...props }) => {
+  const { t } = useTranslation();
+
   return (
-    <div className={styles.wrapper}>
-      <h2 className={cn(styles.title, "text-center")}>Наши заводы</h2>
-      <div className={styles.content}>
-        <ContactsMap orient="column" />
-        <ContactsMap orient="column" />
-        <ContactsMap orient="column" />
+    <div className={cn(styles.wrapper, className)} {...props}>
+      <h2 className={cn(styles.title, "text-center")}>{t("factories")}</h2>
+
+      <div className={cn(styles.content)}>
+        {!!contacts.length &&
+          contacts.map((contact) => <ContactsMap contact={contact} orient="column" key={contact.id} />)}
       </div>
     </div>
   );
