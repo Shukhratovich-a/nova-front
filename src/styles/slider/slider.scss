@@ -62,6 +62,7 @@
   }
 
   & .swiper-slide {
+    height: auto;
     &-image {
       object-fit: cover;
       height: 100%;
