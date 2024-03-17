@@ -1,5 +1,7 @@
 // BLOCKS
 export * from "./blocks/article-slide/article-slide";
+export * from "./blocks/about-content/about-content";
+export * from "./blocks/media-intro/media-intro";
 
 // Contact page blocks
 export * from "./blocks/contacts-map/contacts-map";
