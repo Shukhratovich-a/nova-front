@@ -7,11 +7,6 @@
   gap: 30px;
 
   margin-bottom: 80px;
-
-  @include table {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
 .content {
@@ -20,17 +15,26 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-
-  button {
-    @include table {
-      display: none;
-    }
-  }
 }
 
 .button-mobile {
   display: none;
-  @include table {
+}
+
+@include table {
+  .wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content {
+    align-items: center;
+    button {
+      display: none;
+    }
+  }
+
+  .button-mobile {
     display: flex;
   }
 }
