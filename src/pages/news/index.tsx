@@ -19,7 +19,7 @@ const PostsPage: FC<PostsPageProps> = ({ posts, total }) => {
   return (
     <>
       <Head>
-        <title>{`${t("news")}`}</title>
+        <title>{`${t("news")} - Nova Plastik`}</title>
       </Head>
 
       <PostsView posts={posts} total={total} />

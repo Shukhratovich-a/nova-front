@@ -2,12 +2,23 @@
   "news": "News",
   "news-related": "Related news",
 
+  "category": "Product categories",
+
+  "product": "Product",
   "products": "Products",
   "products-related": "Related products",
 
   "show": "Show",
   "show-all": "Show all",
   "show-more": "Show more",
+
+  "contacts": "Contacts",
+  "central": "Central Office",
+  "factory": "Factory",
+  "factories": "Our factories",
+  "address": "Address",
+  "phone": "Phone",
+  "email": "E-mail",
 
   "menu": {
     "home": "Home",

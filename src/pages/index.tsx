@@ -19,7 +19,7 @@ const HomePage: FC<HomePageProps> = ({ banners, categories, certificate }) => {
   return (
     <>
       <Head>
-        <title>Nova</title>
+        <title>NOVA Plastik</title>
       </Head>
 
       <HomeView banners={banners} categories={categories} certificate={certificate} />

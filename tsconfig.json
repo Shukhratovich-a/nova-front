@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
@@ -30,7 +31,8 @@
       "@hooks/*": ["./hooks/*"],
       "@components": ["./components"],
       "@sections": ["./sections"],
-      "@views": ["./views"]
+      "@views": ["./views"],
+      "@i18n": ["../next-i18next.config.js"]
     }
   },
   "include": ["next-env-custom.d.ts", "images.d.ts", "**/*.ts", "**/*.tsx"],

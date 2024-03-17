@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import Head from "next/head";
 
 import { IProduct } from "@/types/product.interface";
@@ -12,10 +13,12 @@ import { withLayout } from "@/layout/layout";
 import { ProductView } from "@/views";
 
 export const ProductPage: FC<ProductPageProps> = ({ product }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>{`${product.title}`}</title>
+        <title>{`${t("product")} - ${product.title}`}</title>
       </Head>
 
       <ProductView product={product} />

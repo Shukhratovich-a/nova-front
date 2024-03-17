@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import { NavbarProps } from "./navbar.props";
 
-import { menu } from "@/helpers/menu.helper";
+import { headerMenu } from "@/helpers/menu.helper";
 
 import styles from "./navbar.module.scss";
 
@@ -15,8 +15,8 @@ export const Navbar: FC<NavbarProps> = ({ className, ...props }) => {
   return (
     <nav className={cn(styles.nav, className)} {...props}>
       <ul className={styles.list}>
-        {menu.length &&
-          menu.map((item) => (
+        {headerMenu.length &&
+          headerMenu.map((item) => (
             <li className={styles.item} key={item.id}>
               <Link className={cn(styles.link, "nav-link-text")} href={item.route}>
                 {t(item.title)}

@@ -1,3 +1,8 @@
-import { HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface ContactsOurFactoriesProps extends HTMLAttributes<HTMLDivElement> {}
+import { IContact } from "@/types/contact.interface";
+
+export interface ContactsOurFactoriesProps
+  extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "children"> {
+  contacts: IContact[];
+}

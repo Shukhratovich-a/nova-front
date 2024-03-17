@@ -2,12 +2,23 @@
   "news": "Haberler",
   "news-related": "Benzer haberler",
 
+  "category": "Ürün kategorileri",
+
+  "product": "Ürün",
   "products": "Ürünler",
   "products-related": "Benzer ürünler",
 
   "show": "Bakmak",
   "show-all": "Hepsini Göster",
   "show-more": "Daha fazla göster",
+
+  "contacts": "Kişiler",
+  "central": "Merkez Ofis",
+  "factory": "Fabrika",
+  "factories": "Fabrikalarımız",
+  "address": "Adres",
+  "phone": "Telefon",
+  "email": "E-Posta",
 
   "menu": {
     "home": "Ana sayfa",

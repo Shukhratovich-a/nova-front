@@ -9,7 +9,7 @@ import { SidebarProps } from "./sidebar.props";
 
 import { SideBarContext } from "@/contexts/sidebar.context";
 
-import { menu } from "@/helpers/menu.helper";
+import { headerMenu } from "@/helpers/menu.helper";
 
 import { Burger, Language, Logo } from "@/components";
 
@@ -64,8 +64,8 @@ export const Sidebar = ({ className, ...props }: SidebarProps) => {
 
           <nav className={cn(styles.nav)}>
             <ul className={cn(styles.nav__list)}>
-              {menu.length &&
-                menu.map((item) => (
+              {headerMenu.length &&
+                headerMenu.map((item) => (
                   <li className={cn(styles.nav__item)} key={item.id}>
                     <Link className={cn(styles.nav__link, "nav-link-text")} href={item.route}>
                       {t(item.title)}
