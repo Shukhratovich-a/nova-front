@@ -8,7 +8,7 @@ import { IVideo } from "@/types/video.interface";
 export const getAll = async (options?: IGetManyOptions) => {
   const query = queryString.stringifyUrl({ url: `/video/get-all`, query: { ...options } });
 
-  return axios.get<IGetAll<IVideo[]>>(query);
+  return axios.get<IVideo[]>(query);
 };
 
 export const getById = async (id: string, options?: IGetOneOptions) => {
@@ -20,5 +20,7 @@ export const getById = async (id: string, options?: IGetOneOptions) => {
 export const getCard = async (options?: IGetManyOptions) => {
   const { data } = await getAll(options);
   console.log(data);
-  return data
+  return data;
 };
+
+getCard()
