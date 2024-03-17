@@ -5,7 +5,7 @@ import { HomeProps } from "./home.props";
 import { ArticleSlide, HomeCategories, HomeIntro, PostCard, ProductCard } from "@/components";
 import { SwiperSlide } from "swiper/react";
 
-export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, posts }) => {
+export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, posts, catalogs }) => {
   return (
     <>
       <section>
@@ -28,15 +28,15 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
         </ArticleSlide>
       </section>
       <section className="container">
-        {/* <ArticleSlide anchor="catalog" title="catalog">
-          {catalog.map((item) => {
+        <ArticleSlide anchor="catalog" title="Каталог товаров">
+          {catalogs.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <ProductCard card="catalog" product={item} />
               </SwiperSlide>
             );
           })}
-        </ArticleSlide> */}
+        </ArticleSlide>
       </section>
       <section className="container">
         <ArticleSlide anchor="certificate" title="Новости">

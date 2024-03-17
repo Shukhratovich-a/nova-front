@@ -19,7 +19,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   const isProduct = type === "product" && "code" in product && "mainImage" in product;
   const isCertificate = type === "certificate" && "certificate" in product;
   const isVideo = type === "video" && "poster" in product && "code" in product;
-  const isCatalog = type === "catalog" && "poster" in product;
+  const isCatalog = type === "catalog" && "poster" in product && "catalog" in product;
 
   if (isProduct) {
     code = product.code;
@@ -33,8 +33,8 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
     url = `/video/${product.id}`;
     code = product.code;
   } else if (isCatalog) {
-    image = "";
-    url = `/media`;
+    image = `${DOMAIN}${product.poster}`;
+    url = `${DOMAIN}${product.catalog}`;
   }
 
   const wrapperClass = cn(styles.card, {
@@ -46,7 +46,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   const { push } = useRouter();
 
   const handleNavigation = () => {
-    if (isCertificate) window.open(url, "_blank");
+    if (isCertificate || isCatalog) window.open(url, "_blank");
     else push(url);
   };
 

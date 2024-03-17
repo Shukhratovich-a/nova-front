@@ -1,6 +1,10 @@
 export interface ICatalog {
-  id: string | number;
+  id: number;
   poster: string;
+  catalog: string;
+  year: string;
+  createAt: string;
+  updateAt: string;
   title: string;
-  image: string;
+  subtitle: string;
 }
