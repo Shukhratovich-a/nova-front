@@ -1,6 +1,6 @@
 export * from "./home/home.view";
 export * from "./product/product.view";
-export * from "./Contact/Contact.view";
+export * from "./contact/contact.view";
 export * from "./Media/Media.view";
 export * from "./posts/posts.view";
 export * from "./post/post.view";
