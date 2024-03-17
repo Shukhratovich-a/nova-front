@@ -8,3 +8,4 @@ export * from "./categories/categories.view";
 export * from "./category/category.view";
 export * from "./subcategory/subcategory.view";
 export * from "./about/about.view";
+export * from "./video/video.view";
