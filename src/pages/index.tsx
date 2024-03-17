@@ -37,13 +37,13 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
 
     const {
       data: { data: categories },
-    } = await getAllCategories({ language: locale, limit: 10 });
+    } = await getAllCategories({ language: locale, limit: 12 });
 
     const { data: certificates } = await getAllCertificates({ language: locale });
 
     const {
       data: { data: posts },
-    } = await getAllPosts({ language: locale });
+    } = await getAllPosts({ language: locale, limit: 12 });
 
     return {
       props: {
