@@ -1,12 +1,12 @@
-import { ArticleSlide, Breadcrumbs } from "@/components";
-import MediaIntro from "@/components/blocks/media-intro/media-intro";
 import { FC } from "react";
+
+import { ArticleSlide, Breadcrumbs, MediaIntro } from "@/components";
 
 export const MediaView: FC = () => {
   return (
     <div className="main-margin">
       <section className="container">
-        <Breadcrumbs mb="30px" urlList={['media']}/>
+        <Breadcrumbs mb="30px" urlList={["media"]} />
       </section>
       <section>
         <MediaIntro />
