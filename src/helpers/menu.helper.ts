@@ -1,4 +1,4 @@
-export const menu = [
+export const headerMenu = [
   {
     id: 1,
     route: "/",
@@ -26,6 +26,24 @@ export const menu = [
   },
   {
     id: 6,
+    route: "/contact",
+    title: "menu.contact",
+  },
+].sort((a, b) => a.id - b.id);
+
+export const footerMenu = [
+  {
+    id: 1,
+    route: "/about",
+    title: "menu.about",
+  },
+  {
+    id: 2,
+    route: "/media",
+    title: "menu.media",
+  },
+  {
+    id: 3,
     route: "/contact",
     title: "menu.contact",
   },
