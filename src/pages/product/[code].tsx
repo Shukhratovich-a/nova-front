@@ -6,6 +6,8 @@ import Head from "next/head";
 
 import { IProduct } from "@/types/product.interface";
 
+import { DOMAIN } from "@/helpers/api.helper";
+
 import { getAll, getByCode } from "@/api/product.api";
 
 import { withLayout } from "@/layout/layout";
@@ -22,7 +24,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
 
         <meta property="og:title" content={product.title} />
         <meta property="og:description" content={product.description} />
-        <meta property="og:image" content={product.mainImage} />
+        <meta property="og:image" content={`${DOMAIN}${product.mainImage}`} />
       </Head>
 
       <ProductView product={product} />
