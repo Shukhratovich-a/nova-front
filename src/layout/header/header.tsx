@@ -1,15 +1,15 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
 import cn from "classnames";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import { HeaderProps } from "./header.props";
 
 import { SideBarContext } from "@/contexts/sidebar.context";
 
-import { Navbar } from "../navbar/navbar";
 import { Burger, Language, Logo, Search } from "@/components";
+import { Navbar } from "../navbar/navbar";
 
 import styles from "./header.module.scss";
 
@@ -50,14 +50,13 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
     };
   }, [handleScroll, isBrowser]);
 
+  const headerClasses = cn(className, styles.header, {
+    [styles["header--home"]]: pathname === "/",
+    [styles["header--scroll"]]: scrolled,
+  });
+
   return (
-    <header
-      className={cn(className, styles.header, {
-        [styles["header--home"]]: pathname === "/",
-        [styles["header--scroll"]]: scrolled,
-      })}
-      {...props}
-    >
+    <header className={headerClasses} {...props}>
       <div className="container">
         <div className={styles.wrap}>
           <Link href="/">
@@ -68,7 +67,6 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
 
           <div className={cn(styles.additions)}>
             <Search />
-
             <Language />
 
             {isTable && <Burger isActive={false} onClick={menuController} />}
