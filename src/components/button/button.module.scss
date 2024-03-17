@@ -2,8 +2,11 @@
 @import "@/styles/media/media-queries";
 
 .button {
+  width: max-content;
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
   gap: 5px;
 
   padding: 16px 32px;
@@ -25,7 +28,6 @@
 :global(.content-rtl) .button svg {
   transform: scaleX(-1);
 }
-
 
 .yellow {
   color: $white;
