@@ -6,7 +6,7 @@ import { LayoutProps } from "./layout.props";
 
 import { SideBarProvider } from "@/contexts/sidebar.context";
 
-import { Footer } from "./Footer/Footer.component";
+import { Footer } from "./footer/footer.component";
 
 import styles from "./layout.module.scss";
 
