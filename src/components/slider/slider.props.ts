@@ -5,7 +5,7 @@ export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
   type: "full-screen" | "dynamic";
   width?: number;
   mobile?: boolean;
-  children?: ReactNode;
+  // children?: ReactNode;
 }
 
 export interface IBreakpoints {
