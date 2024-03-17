@@ -11,6 +11,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+      {
+        protocol: "https",
         hostname: "api.novaplastik.uz",
       },
       {
