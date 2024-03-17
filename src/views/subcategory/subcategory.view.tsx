@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { SubcategoryProps } from "./subcategory.props";
 
-import { Breadcrumbs, CategoryItem, SubcategoryItem } from "@/components";
+import { Breadcrumbs, SubcategoryItem } from "@/components";
 
 import styles from "./category.module.scss";
 
