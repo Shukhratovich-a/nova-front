@@ -42,7 +42,7 @@ export const getSwiperConfig = ({ mobile, type, quantity = 1, width = 1440, clas
     slidesPerView: 1,
     slidesPerGroup: 1,
     className: `mySwiper swiper-full-screen ${className}`,
-    // autoplay: { delay: 5000 },
+    autoplay: { delay: 5000 },
   };
 
   const multipleSwiperAttr = {
