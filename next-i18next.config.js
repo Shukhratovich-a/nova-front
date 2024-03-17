@@ -7,5 +7,5 @@ module.exports = {
   react: { useSuspense: true },
 
   defaultNS: "translation",
-  ns: ["translation"],
+  ns: ["translation", "countries"],
 };
