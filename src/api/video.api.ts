@@ -2,7 +2,7 @@ import queryString from "query-string";
 import axios from "./axios";
 
 import { IGetManyOptions, IGetOneOptions } from "@/types/request.interface";
-import { IVideo, IVideoCard } from "@/types/video.interface";
+import { IVideo } from "@/types/video.interface";
 
 export const getAll = async (options?: IGetManyOptions) => {
   const query = queryString.stringifyUrl({ url: `/video/get-all`, query: { ...options } });
@@ -27,8 +27,12 @@ export const getCards = async (options?: IGetManyOptions) => {
   };
 
   const { data } = await getAll(options);
-  const videoCards = data.map(({ id, title, video }) => {
-    return { id, title, poster: getYoutubePoster(video) };
+  const videoCards = data.map(({ id, title, video, products }) => {
+    let code = "";
+
+    if (products) code = `${products[0].code} ${products[products.length - 1].code}`;
+
+    return { id, title, poster: getYoutubePoster(video), code };
   });
 
   return videoCards;
