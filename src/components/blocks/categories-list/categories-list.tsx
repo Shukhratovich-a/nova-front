@@ -14,7 +14,7 @@ export const CategoriesList: FC<CategoriesListProps> = ({ className, categories,
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <h2>{t("products")}</h2>
+      <h2>{t("category")}</h2>
 
       <ul className={cn(styles.list)}>
         {categories.length &&
