@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
-import { FooterProps } from "./Footer.props";
+import { FooterProps } from "./footer.props";
 
 import { footerMenu } from "@/helpers/menu.helper";
 
