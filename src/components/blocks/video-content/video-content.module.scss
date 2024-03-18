@@ -1,0 +1,42 @@
+@import "@/styles/media/media-queries";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-bottom: 80px;
+  @include mobile {
+    gap: 50px;
+  }
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.content {
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+
+  @include desktop {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  @include table {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  @include mobile {
+    gap: 15px;
+  }
+}
