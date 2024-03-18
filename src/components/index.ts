@@ -16,6 +16,7 @@ export * from "./blocks/product-intro/product-intro";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-info/product-info";
 export * from "./blocks/product-related/product-related";
+export * from "./blocks/products-list/products-list";
 
 // Categories page blocks
 export * from "./blocks/categories-list/categories-list";
