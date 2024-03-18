@@ -70,6 +70,14 @@ h3 {
   font-weight: 500;
 }
 
+h1,
+h2,
+h3 {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
 // subtitle
 .subtitle-lg {
   font-size: clamp(1.25rem, 1.1493rem + 0.3791vw, 1.5rem); // 20-24
