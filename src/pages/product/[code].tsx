@@ -15,16 +15,20 @@ import { withLayout } from "@/layout/layout";
 import { ProductView } from "@/views";
 
 export const ProductPage: FC<ProductPageProps> = ({ product }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
       <Head>
         <title>{`${t("product")} - ${product.title}`}</title>
 
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={product.title} />
+        <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={product.description} />
         <meta property="og:image" content={`${DOMAIN}${product.mainImage}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
 
       <ProductView product={product} />
