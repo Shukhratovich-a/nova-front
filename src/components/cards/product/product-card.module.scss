@@ -73,8 +73,9 @@
 
 .image {
   width: 100%;
-  height: 272px;
+  // height: 272px;
   padding: 10px;
+  aspect-ratio: 1/1;
 
   background-color: $bg-primary;
   border-bottom: 1px solid $stroke;
@@ -114,4 +115,8 @@
     -webkit-line-clamp: 2;
     cursor: pointer;
   }
+}
+
+.code {
+  width: min-content;
 }

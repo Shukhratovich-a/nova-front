@@ -1,8 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
+import { HTMLAttributes } from "react";
 
-export interface YoutubePlayerProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface YoutubePlayerProps extends HTMLAttributes<HTMLIFrameElement> {
   url: string;
   width?: number | string;
-  height?: number | string
+  height?: number | string;
 }
-
