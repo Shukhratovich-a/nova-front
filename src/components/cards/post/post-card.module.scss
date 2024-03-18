@@ -85,13 +85,12 @@
 }
 
 .name {
-  height: calc($h3-lh * 2);
   // текст превышающий 2 строки скрывается
   -webkit-line-clamp: 2;
 }
 
 .description {
-  height: calc($text-md-lh * 3);
   // текст превышающий 3 строки скрывается
   -webkit-line-clamp: 3;
+  margin-bottom: auto;
 }
