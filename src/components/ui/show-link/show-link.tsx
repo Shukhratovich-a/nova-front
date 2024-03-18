@@ -14,7 +14,7 @@ export const ShowLink: FC<ShowLinkProps> = ({ className, children, ...props }) =
 
   return (
     <Link className={cn(className, styles.link, "color-accent")} {...props}>
-      <p>{children ? children : t("show")}</p> <IconArrowRight />
+      <span>{children ? children : t("show")}</span> <IconArrowRight />
     </Link>
   );
 };
