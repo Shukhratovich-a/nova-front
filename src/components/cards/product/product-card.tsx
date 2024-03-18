@@ -58,7 +58,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
       </div>
 
       <div className={cn(styles.content)}>
-        {!!code && <p className="subtitle-sm fw-extrabold color-accent">{code}</p>}
+        {!!code && <p className={cn("subtitle-sm fw-extrabold color-accent", styles.code)}>{code}</p>}
         <h3 title={title}>{title}</h3>
       </div>
     </div>
