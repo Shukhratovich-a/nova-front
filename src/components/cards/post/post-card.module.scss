@@ -4,7 +4,6 @@
 .card {
   max-width: 450px;
   width: auto;
-  min-height: 370px;
 
   background: $bg-primary;
   display: flex;
@@ -24,11 +23,11 @@
 .image {
   background-color: $stroke;
   overflow: hidden;
-
+  aspect-ratio: 7 / 4;
   border-radius: 16px;
-
-  img {
+  & img {
     width: 100%;
+    height: auto;
     object-fit: cover;
     object-position: top;
     transform: scale(1.1);
@@ -47,7 +46,7 @@
 // captions
 .captions {
   position: absolute;
-  inset: 0;
+  inset: auto 0 0 0;
 
   display: flex;
   align-items: flex-end;
@@ -68,9 +67,9 @@
 
 // content
 .content {
-  height: inherit;
+  min-height: 140px;
   flex: 1;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,20 +77,21 @@
 }
 
 // текст превышающий n строк скрывается
-.title,
+.name,
 .description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.title {
+.name {
+  height: calc($h3-lh * 2);
   // текст превышающий 2 строки скрывается
   -webkit-line-clamp: 2;
 }
 
 .description {
+  height: calc($text-md-lh * 3);
   // текст превышающий 3 строки скрывается
   -webkit-line-clamp: 3;
-  margin-bottom: auto;
 }
