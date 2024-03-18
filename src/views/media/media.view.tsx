@@ -5,7 +5,6 @@ import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 import styles from "./media.module.scss";
 import { MediaProps } from "./media.props";
-// import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
 
 export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   return (
@@ -24,7 +23,6 @@ export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
             return (
               <SwiperSlide key={item.id}>
                 <ProductCard card="video" product={item} />
-                {/* <YoutubePlayer url={item.video} width={300} height={250} /> */}
               </SwiperSlide>
             );
           })}
