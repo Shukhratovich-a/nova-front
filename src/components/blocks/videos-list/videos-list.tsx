@@ -1,10 +1,11 @@
-import { useTranslation } from "next-i18next";
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
+
+import { VideosListProps } from "./videos-list.props";
 
 import { ProductCard } from "@/components";
 
 import styles from "./videos-list.module.scss";
-import { VideosListProps } from "./videos-list.props";
 
 export const VideosList: FC<VideosListProps> = ({ videos }) => {
   const { t } = useTranslation();
