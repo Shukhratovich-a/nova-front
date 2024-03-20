@@ -9,11 +9,8 @@ import { MediaProps } from "./media.props";
 export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   return (
     <div id="catalog" className="main-margin">
-      <section className="container">
-        <Breadcrumbs mb="30px" urlList={["media"]} />
-      </section>
       <section>
-        <MediaIntro catalogs={catalogs}/>
+        <MediaIntro catalogs={catalogs} />
       </section>
 
       <section id="video" className={cn(styles["block-mb"], "container")}>
