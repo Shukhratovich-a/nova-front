@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 
 import { ContactPageProps } from "@/pages/contact";
 
-import { Breadcrumbs, ContactsMap, ContactsOurFactories } from "@/components";
+import { ContactsMap, ContactsOurFactories } from "@/components";
 
 import styles from "./contact.module.scss";
 
@@ -12,10 +12,6 @@ export const ContactView: FC<ContactPageProps> = ({ centrals, factories, ...prop
 
   return (
     <div className="main-margin container" {...props}>
-      <section>
-        <Breadcrumbs mb="30px" urlList={["contacts"]} />
-      </section>
-
       {!!centrals.length && (
         <section className={styles.section}>
           <h2 className={styles.title}>{t("contacts")}</h2>
