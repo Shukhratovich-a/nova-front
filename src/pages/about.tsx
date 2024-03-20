@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IAbout } from "@/types/about.interface";
@@ -12,13 +13,15 @@ import { withLayout } from "@/layout/layout";
 import { AboutView } from "@/views";
 
 const AboutPage: FC<AboutPageProps> = ({ abouts }) => {
+  const { t } = useTranslation();
+
   return (
     <div>
       <Head>
-        <title>About</title>
+        <title>{`${t("menu.about")} - Nova Plastik`}</title>
       </Head>
 
-      <AboutView />
+      <AboutView abouts={abouts} />
     </div>
   );
 };
