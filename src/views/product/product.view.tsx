@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { ProductProps } from "./product.props";
@@ -6,10 +7,20 @@ import { ProductProps } from "./product.props";
 import { Breadcrumbs, ProductInfo, ProductIntro, ProductRelated } from "@/components";
 
 export const ProductView: FC<ProductProps> = ({ className, product, ...props }) => {
+  const { t } = useTranslation();
+
+  const { subcategory } = product;
+
+  const urlList = [
+    { title: t("products"), link: "/category" },
+    { title: subcategory!.category!.title, link: `/category/${subcategory?.category?.alias}` },
+    { title: subcategory!.title, link: `/category/${subcategory?.category?.alias}/${subcategory?.alias}` },
+  ];
+
   return (
     <div className={cn("main-margin", "container", className)} {...props}>
       <section>
-        <Breadcrumbs mb="30px" urlList={["products", "item"]} />
+        <Breadcrumbs mb="30px" urlList={urlList} />
       </section>
 
       <section>
