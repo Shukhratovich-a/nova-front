@@ -2,6 +2,8 @@
 export * from "./blocks/article-slide/article-slide";
 export * from "./blocks/about-content/about-content";
 export * from "./blocks/media-intro/media-intro";
+export * from "./blocks/video-content/video-content";
+export * from "./blocks/videos-list/videos-list";
 
 // Contact page blocks
 export * from "./blocks/contacts-map/contacts-map";
@@ -50,3 +52,4 @@ export * from "./ui/burger/burger";
 export * from "./ui/logo/logo";
 export * from "./ui/modal/modal";
 export * from "./ui/loader/loader";
+export * from "./ui/youtube-player/youtube-player";
