@@ -18,7 +18,7 @@ export const getByCode = async (code: string, options?: IGetOneOptions) => {
 };
 
 export const search = async (q: string, options?: IGetManyOptions) => {
-  const query = queryString.stringifyUrl({ url: `/product/search`, query: { ...options, q } });
+  const query = queryString.stringifyUrl({ url: `/product/search`, query: { ...options, q: q ? q : "" } });
 
   return axios.get<IGetAll<IProduct[]>>(query);
 };
