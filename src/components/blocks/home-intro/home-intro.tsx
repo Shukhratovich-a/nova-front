@@ -17,14 +17,21 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
       <Slider className={cn(styles.swiper)} type={"full-screen"}>
         {banners.map(({ id, poster, title, description, subtitle }, index) => {
           return (
-            <SwiperSlide key={id}>
-              <Image
-                className="swiper-slide-image"
-                src={`${DOMAIN}${poster}`}
-                alt={title}
-                fill
-                loading={index > 1 ? "lazy" : "eager"}
-              />
+            <SwiperSlide className={cn(styles.slide)} key={id}>
+              <div
+                className={cn(styles.background, {
+                  [styles["background--blue"]]: index % 2 !== 0,
+                })}
+              >
+                <Image
+                  className="swiper-slide-image"
+                  src={`${DOMAIN}${poster}`}
+                  alt={title}
+                  fill
+                  priority={index > 1 ? false : true}
+                  loading={index > 1 ? "lazy" : "eager"}
+                />
+              </div>
 
               <div className={cn(styles.wrap, "container")}>
                 <div className={styles.content}>

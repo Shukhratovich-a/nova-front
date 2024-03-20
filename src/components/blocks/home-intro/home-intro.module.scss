@@ -2,7 +2,14 @@
 @import "@/styles/media/media-queries";
 
 .wrapper {
+  position: relative;
   margin-bottom: 80px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+  }
 
   @include mobile {
     margin-bottom: 30px;
@@ -45,5 +52,67 @@
 .subtitle {
   p {
     font: inherit;
+  }
+}
+
+.slide {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+  user-select: none;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    right: 50vw;
+    z-index: 1;
+
+    width: 100vw;
+    height: 100vw;
+
+    background-color: #a6babe;
+    border-radius: 0 0% 100% 0;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0%;
+    right: 48vw;
+    z-index: 1;
+
+    width: 100vw;
+    height: 125vw;
+
+    background-color: #a6babe;
+    opacity: 0.7;
+    border-radius: 0 0% 150% 0;
+  }
+
+  &--blue {
+    &::after,
+    &::before {
+      background-color: #003f7c !important;
+    }
+  }
+
+  @include desktop {
+    &::after,
+    &::before {
+      content: none;
+    }
   }
 }
