@@ -1,3 +1,5 @@
+import { ISubcategory } from "./subcategory.interface";
+
 export interface IProduct {
   id: number;
   code: string;
@@ -8,6 +10,8 @@ export interface IProduct {
   schemeImage: string;
 
   detailCategories: IDetailCategory[];
+
+  subcategory?: ISubcategory;
 
   createAt: string;
   updateAt: string;
