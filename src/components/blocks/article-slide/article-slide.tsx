@@ -6,11 +6,11 @@ import styles from "./article-slide.module.scss";
 import { ArticleSlideProps } from "./article-slide.props";
 import { useRouter } from "next/router";
 
-export const ArticleSlide: FC<ArticleSlideProps> = ({ anchor, title, className, children }) => {
+export const ArticleSlide: FC<ArticleSlideProps> = ({ page = 'media' ,anchor, title, className, children }) => {
   const { push } = useRouter();
 
   const viewAllButton = (
-    <Button className="color-white" appearance="yellow" onClick={() => push(`/media/#${anchor}`)}>
+    <Button className="color-white" appearance="yellow" onClick={() => push(`/${page}/#${anchor}`)}>
       Показать все <IconArrowRight />
     </Button>
   );
