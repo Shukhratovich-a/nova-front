@@ -1,3 +1,8 @@
-import { HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface AboutContentProps extends HTMLAttributes<HTMLDivElement> {}
+import { IAbout } from "@/types/about.interface";
+
+export interface AboutContentProps
+  extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "children"> {
+  abouts: IAbout[];
+}
