@@ -1,17 +1,23 @@
-import { Breadcrumbs } from "@/components";
-import VideoContent from "@/components/blocks/video-content/video-content";
-import { YoutubePlayer } from "@/components/ui/youtube-player/youtube-player";
-import { IVideo } from "@/types/video.interface";
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
 
-export const VideoView: FC<{ video: IVideo }> = ({ video }) => {
+import { VideoProps } from "./video.props";
+
+import { Breadcrumbs, VideoContent } from "@/components";
+
+export const VideoView: FC<VideoProps> = ({ video, ...props }) => {
+  const { t } = useTranslation();
+
+  const urlList = [{ title: t("video"), link: "/video" }];
+
   return (
-    <div className="main-margin container">
+    <div className="main-margin container" {...props}>
       <section>
-        <Breadcrumbs mb="30px" urlList={["video", video.title]} />
+        <Breadcrumbs mb="30px" urlList={urlList} />
       </section>
+
       <section>
-        <VideoContent video={video}/>
+        <VideoContent video={video} />
       </section>
     </div>
   );
