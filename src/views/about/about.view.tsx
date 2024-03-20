@@ -1,15 +1,19 @@
 import { FC } from "react";
+import cn from "classnames";
+
+import { AboutProps } from "./about.props";
 
 import { Breadcrumbs, AboutContent } from "@/components";
 
-export const AboutView: FC = (props) => {
+export const AboutView: FC<AboutProps> = ({ className, abouts, ...props }) => {
   return (
-    <div className="main-margin container">
+    <div className={cn("main-margin", "container", className)} {...props}>
       <section>
         <Breadcrumbs mb="30px" urlList={["about"]} />
       </section>
+
       <section>
-        <AboutContent />
+        <AboutContent abouts={abouts} />
       </section>
     </div>
   );
