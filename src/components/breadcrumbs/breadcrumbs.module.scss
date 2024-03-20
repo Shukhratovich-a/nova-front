@@ -23,8 +23,9 @@
     content: "›";
   }
 
-  p {
+  span {
     font: inherit;
+
     &::first-letter {
       text-transform: uppercase;
     }
