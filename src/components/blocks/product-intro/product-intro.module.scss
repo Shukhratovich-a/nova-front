@@ -41,6 +41,11 @@
   gap: 20px;
 }
 
+.image {
+  height: 500px !important;
+  object-fit: contain !important;
+}
+
 .gallery {
   // height: 425px;
   // flex: 1;
