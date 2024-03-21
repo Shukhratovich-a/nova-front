@@ -16,14 +16,17 @@ export const CategoriesList: FC<CategoriesListProps> = ({ className, categories,
     <div className={cn(styles.wrapper, className)} {...props}>
       <h2>{t("category")}</h2>
 
-      <ul className={cn(styles.list)}>
-        {categories.length &&
-          categories.map((category) => (
+      {categories.length ? (
+        <ul className={cn(styles.list)}>
+          {categories.map((category) => (
             <li className={cn(styles.item)} key={category.id}>
               <CategoryCard category={category} />
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <span>No categories yet</span>
+      )}
 
       {categories.length < total && (
         <div className={cn(styles.button)}>
