@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ params, l
         video,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   } catch {
     return { notFound: true };

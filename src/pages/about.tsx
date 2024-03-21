@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<AboutPageProps> = async ({ locale })
         abouts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   } catch {
     return {

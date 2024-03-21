@@ -11,7 +11,6 @@ import { withLayout } from "@/layout/layout";
 import VideosView from "@/views/videos/videos.view";
 
 export const VideoPage: FC<VideoPageProps> = ({ videos }) => {
-
   return (
     <>
       <Head>
@@ -32,7 +31,7 @@ export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ locale })
         videos,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   } catch {
     return { notFound: true };

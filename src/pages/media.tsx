@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale })
         catalogs,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   } catch {
     return {
