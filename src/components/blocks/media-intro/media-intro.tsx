@@ -11,18 +11,14 @@ import { MediaIntroProps } from "./media-intro.props";
 
 import { Button, Slider } from "@/components";
 
+import CatalogBackground from "@images/catalog-background.webp";
+
 import styles from "./media-intro.module.scss";
 
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
   const catalogBg = (
     <div className={cn("swiper-slide-image", styles.background)}>
-      <Image
-        fill
-        priority
-        className={cn(styles.image)}
-        alt="catalog background image"
-        src={"/catalog-background.jpg"}
-      />
+      <Image fill priority className={cn(styles.image)} alt="catalog background image" src={CatalogBackground} />
     </div>
   );
 
