@@ -38,7 +38,6 @@ export * from "./cards/category/category-card";
 // COMPONENTS
 export * from "./search/search";
 export * from "./breadcrumbs/breadcrumbs";
-export * from "./button/button";
 export * from "./map/map";
 export * from "./slider/slider";
 export * from "./language/language";
@@ -52,4 +51,5 @@ export * from "./ui/burger/burger";
 export * from "./ui/logo/logo";
 export * from "./ui/modal/modal";
 export * from "./ui/loader/loader";
+export * from "./ui/button/button";
 export * from "./ui/youtube-player/youtube-player";
