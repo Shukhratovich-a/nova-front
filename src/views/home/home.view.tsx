@@ -1,9 +1,9 @@
 import { FC } from "react";
+import { SwiperSlide } from "swiper/react";
 
 import { HomeProps } from "./home.props";
 
 import { ArticleSlide, HomeCategories, HomeIntro, PostCard, ProductCard } from "@/components";
-import { SwiperSlide } from "swiper/react";
 
 export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, posts, catalogs }) => {
   return (
