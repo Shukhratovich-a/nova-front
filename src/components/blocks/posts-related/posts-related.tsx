@@ -21,14 +21,17 @@ export const PostsRelated: FC<PostsRelatedProps> = ({ className, post, relatedPo
         {type === "hor" && <ShowLink href={{ pathname: "/news", query: { tags } }}>{t("show-all")}</ShowLink>}
       </div>
 
-      <ul className={cn(styles.list)}>
-        {relatedPosts.length &&
-          relatedPosts.map((post) => (
+      {!!relatedPosts.length ? (
+        <ul className={cn(styles.list)}>
+          {relatedPosts.map((post) => (
             <li className={cn(styles.post)} key={post.id}>
               {<PostCard post={post} />}
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <span>No news yet</span>
+      )}
 
       {type !== "hor" && (
         <Link href={{ pathname: "/news", query: { tags } }}>
