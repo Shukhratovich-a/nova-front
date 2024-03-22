@@ -28,5 +28,19 @@
     "media": "Medya",
     "news": "Haberler",
     "contact": "Kişiler"
+  },
+
+  "empty": {
+    "list": "No elements yet",
+
+    "posts": "",
+    "related-posts": "No related news yet",
+
+    "categories": "No categories yet",
+    "subcategories": "No subcategories yet",
+
+    "products": "No products yet",
+
+    "videos": "No videos yet"
   }
 }
