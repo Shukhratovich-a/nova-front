@@ -2,24 +2,35 @@
 @import "@/styles/media/media-queries";
 
 .wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "text gallery"
+    "description gallery"
+    "buttons gallery";
+  align-content: start;
+  column-gap: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 
   border-bottom: 1px solid $stroke;
 
   @include table {
-    flex-direction: column;
-  }
-}
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    grid-template-areas:
+      "text"
+      "gallery"
+      "description"
+      "buttons";
 
-.content {
-  min-width: 50%;
-  flex: 1;
-  @include table {
-    order: 2;
+    text-align: center;
+  }
+
+  @include mobile {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
 
@@ -27,32 +38,55 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 30px;
+  grid-area: text;
+
+  @include table {
+    margin-bottom: 30px;
+  }
 }
 
 .description {
   max-height: 150px;
   overflow: auto;
+  margin-top: 10px;
+  margin-right: -7px;
   padding-right: 7px;
+  grid-area: description;
+
+  p {
+    font: inherit;
+  }
 }
 
 .buttons {
   display: flex;
   gap: 20px;
+  grid-area: buttons;
+  margin-top: 30px;
+
+  @include table {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  @include mobile {
+    margin-top: 15px;
+  }
 }
 
 .image {
-  height: 500px !important;
+  max-width: 660px;
+  width: auto;
+  height: 400px !important;
+  margin: 0 auto;
   object-fit: contain !important;
+  object-position: center;
 }
 
 .gallery {
-  // height: 425px;
-  // flex: 1;
-  @include table {
-    order: 1;
+  grid-area: gallery;
+
+  @include mobile {
+    gap: 10px !important;
   }
 }
-// .image {
-//   height: 425px;
-// }

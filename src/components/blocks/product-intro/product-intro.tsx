@@ -19,41 +19,39 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <div className={styles.content}>
-        <div className={styles.text}>
-          <h1 className="color-accent">{code}</h1>
+      <div className={styles.text}>
+        <h1 className="color-accent">{code}</h1>
 
-          <h2>{title}</h2>
-
-          {description && (
-            <div
-              className={cn(styles.description, "subtitle-md", "custom-scrollbar")}
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-          )}
-        </div>
-
-        <div className={styles.buttons}>
-          <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
-            <Button appearance="yellow">
-              Скачать <IconArrowBottom />
-            </Button>
-          </Link>
-
-          <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
-            <Button appearance="outlined">Смотреть</Button>
-          </Link>
-        </div>
+        <h2>{title}</h2>
       </div>
 
-      <Slider type="dynamic" quantity={1}>
+      <div
+        className={cn(styles.description, "subtitle-md", "custom-scrollbar")}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+
+      {/* <p className={cn(styles.description, "subtitle-md", "custom-scrollbar")}>{description}</p> */}
+
+      <div className={styles.buttons}>
+        <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
+          <Button appearance="yellow">
+            Скачать <IconArrowBottom />
+          </Button>
+        </Link>
+
+        <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
+          <Button appearance="outlined">Смотреть</Button>
+        </Link>
+      </div>
+
+      <Slider className={cn(styles.gallery)} type="dynamic" quantity={1}>
         <SwiperSlide>
           <Image
             className={cn(styles.image, "swiper-slide-image")}
             src={`${DOMAIN}${mainImage}`}
             alt={title}
             width={800}
-            height={500}
+            height={400}
             priority
             quality={100}
           />
