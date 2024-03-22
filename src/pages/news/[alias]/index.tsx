@@ -7,6 +7,8 @@ import { ParsedUrlQuery } from "querystring";
 
 import { IPost } from "@/types/post.interface";
 
+import { DOMAIN } from "@/helpers/api.helper";
+
 import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
@@ -14,11 +16,22 @@ import { withLayout } from "@/layout/layout";
 import { PostView } from "@/views";
 
 const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
-  const { t } = useTranslation();
+  const { title, body, image } = post;
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
       <Head>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${t("news")} - ${title}`} />
+        <meta property="og:locale" content={i18n.language} />
+        <meta property="og:description" content={body} />
+        <meta property="og:image" content={`${DOMAIN}${image}`} />
+        <meta property="og:image:secure_ur" content={`${DOMAIN}${image}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         <title>{`${t("news")} - ${post.title}`}</title>
       </Head>
 
