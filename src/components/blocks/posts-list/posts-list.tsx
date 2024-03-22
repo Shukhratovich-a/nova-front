@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 
 import { PostsListProps } from "./posts-list.props";
 
-import { Button, PostCard } from "@/components";
+import { Button, PostCard, EmptyList } from "@/components";
 
 import styles from "./posts-list.module.scss";
 
@@ -47,7 +47,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, total }) => {
           ))}
         </ul>
       ) : (
-        <span>No news yet</span>
+        <EmptyList translateKey="posts" />
       )}
 
       {displayCount < total && (

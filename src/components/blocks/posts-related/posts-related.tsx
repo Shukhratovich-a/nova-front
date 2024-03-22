@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import { PostsRelatedProps } from "./posts-related.props";
 
-import { Button, PostCard, ShowLink } from "@/components";
+import { Button, PostCard, ShowLink, EmptyList } from "@/components";
 
 import styles from "./posts-related.module.scss";
 
@@ -30,7 +30,7 @@ export const PostsRelated: FC<PostsRelatedProps> = ({ className, post, relatedPo
           ))}
         </ul>
       ) : (
-        <span>No news yet</span>
+        <EmptyList translateKey="related-posts" />
       )}
 
       {type !== "hor" && (

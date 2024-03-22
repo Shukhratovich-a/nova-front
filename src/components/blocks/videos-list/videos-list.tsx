@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 
 import { VideosListProps } from "./videos-list.props";
 
-import { ProductCard } from "@/components";
+import { ProductCard, EmptyList } from "@/components";
 
 import styles from "./videos-list.module.scss";
 
@@ -23,7 +23,7 @@ export const VideosList: FC<VideosListProps> = ({ videos }) => {
           ))}
         </ul>
       ) : (
-        <span>No video yet</span>
+        <EmptyList translateKey="videos" />
       )}
     </div>
   );

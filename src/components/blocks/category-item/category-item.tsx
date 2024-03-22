@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import { CategoryItemProps } from "./category-item.props";
 
-import { CategoryCard, Button } from "@/components";
+import { CategoryCard, EmptyList } from "@/components";
 
 import styles from "./category-item.module.scss";
 
@@ -23,7 +23,7 @@ export const CategoryItem: FC<CategoryItemProps> = ({ className, category, ...pr
           ))}
         </ul>
       ) : (
-        <span>No subcategories yet</span>
+        <EmptyList translateKey="subcategories" />
       )}
     </div>
   );

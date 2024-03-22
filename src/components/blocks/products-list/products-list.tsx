@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import { ProductsListProps } from "./products-list.props";
 
-import { ProductCard, Button } from "@/components";
+import { ProductCard, Button, EmptyList } from "@/components";
 
 import styles from "./products-list.module.scss";
 
@@ -46,7 +46,7 @@ export const ProductsList: FC<ProductsListProps> = ({ className, products, total
           ))}
         </ul>
       ) : (
-        <span>No products yet</span>
+        <EmptyList translateKey="products" />
       )}
       {displayCount < total && (
         <Button className={styles.button} onClick={loadMore}>

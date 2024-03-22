@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import { CategoriesListProps } from "./categories-list.props";
 
-import { CategoryCard, Button } from "@/components";
+import { CategoryCard, Button, EmptyList } from "@/components";
 
 import styles from "./categories-list.module.scss";
 
@@ -25,7 +25,7 @@ export const CategoriesList: FC<CategoriesListProps> = ({ className, categories,
           ))}
         </ul>
       ) : (
-        <span>No categories yet</span>
+        <EmptyList translateKey="categories" />
       )}
 
       {categories.length < total && (
