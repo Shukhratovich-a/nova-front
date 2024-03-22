@@ -17,10 +17,18 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
   text-transform: lowercase;
 
   &::after {
     content: "›";
+  }
+
+  @include desktop {
+    max-width: 250px;
   }
 
   span {
@@ -29,11 +37,13 @@
     &::first-letter {
       text-transform: uppercase;
     }
-  }
 
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    @include desktop {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
 }
 
 :global(.content-rtl) .link svg {
