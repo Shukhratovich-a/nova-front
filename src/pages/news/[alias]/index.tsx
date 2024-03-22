@@ -16,7 +16,7 @@ import { withLayout } from "@/layout/layout";
 import { PostView } from "@/views";
 
 const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
-  const { title, body, image } = post;
+  const { title, subtitle, poster } = post;
 
   const { t, i18n } = useTranslation();
 
@@ -26,9 +26,9 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${t("news")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
-        <meta property="og:description" content={body} />
-        <meta property="og:image" content={`${DOMAIN}${image}`} />
-        <meta property="og:image:secure_ur" content={`${DOMAIN}${image}`} />
+        <meta property="og:description" content={subtitle} />
+        <meta property="og:image" content={`${DOMAIN}${poster}`} />
+        <meta property="og:image:secure_ur" content={`${DOMAIN}${poster}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
