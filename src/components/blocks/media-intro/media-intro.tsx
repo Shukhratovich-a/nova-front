@@ -1,9 +1,9 @@
-import { FC } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { SwiperSlide } from "swiper/react";
-import queryString from "query-string";
 import cn from "classnames";
+import Image from "next/image";
+import Link from "next/link";
+import queryString from "query-string";
+import { FC, useEffect, useState } from "react";
+import { SwiperSlide } from "swiper/react";
 
 import { DOMAIN } from "@/helpers/api.helper";
 
@@ -14,13 +14,24 @@ import { Button, Slider } from "@/components";
 import CatalogBackground from "@images/catalog-background.webp";
 
 import styles from "./media-intro.module.scss";
+import { getPdfSupported } from "@/utils/is-pdf-support";
+
+interface BrowserFlags {
+  [key: string]: boolean; // Индексный тип, позволяющий использовать любую строку в качестве ключа
+}
 
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
+  const [isPDFSupported, setIsPDFSupported] = useState(true);
+
   const catalogBg = (
     <div className={cn("swiper-slide-image", styles.background)}>
       <Image fill priority className={cn(styles.image)} alt="catalog background image" src={CatalogBackground} />
     </div>
   );
+
+  useEffect(() => {
+    setIsPDFSupported(getPdfSupported());
+  }, [isPDFSupported]);
 
   return (
     <div className={styles.wrapper}>
@@ -52,12 +63,14 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
                       <Button appearance="yellow">Скачать</Button>
                     </Link>
 
-                    <Link
-                      href={queryString.stringifyUrl({ url: `${DOMAIN}/file/get-file`, query: { file: catalog } })}
-                      target="_blank"
-                    >
-                      <Button appearance="outlined">Смотреть</Button>
-                    </Link>
+                    {isPDFSupported && (
+                      <Link
+                        href={queryString.stringifyUrl({ url: `${DOMAIN}/file/get-file`, query: { file: catalog } })}
+                        target="_blank"
+                      >
+                        <Button appearance="outlined">Смотреть</Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
