@@ -1,4 +1,8 @@
 {
+  "certificates": "الشهادات",
+  "catalog": "فهرس",
+  "video": "فيديوهات التثبيت",
+
   "news": "الاخبار",
   "news-related": "الاخبار المتشابهة",
 
@@ -31,16 +35,16 @@
   },
 
   "empty": {
-    "list": "No elements yet",
+    "list": "لا توجد عناصر حتى الآن",
 
-    "posts": "",
-    "related-posts": "No related news yet",
+    "posts": "لم ترد أنباء حتى الآن",
+    "related-posts": "لا توجد أخبار ذات صلة حتى الآن",
 
-    "categories": "No categories yet",
-    "subcategories": "No subcategories yet",
+    "categories": "لا توجد فئات بعد",
+    "subcategories": "لا توجد فئات فرعية حتى الآن",
 
-    "products": "No products yet",
+    "products": "لا توجد منتجات حتى الآن",
 
-    "videos": "No videos yet"
+    "videos": "لا توجد مقاطع فيديو حتى الآن"
   }
 }

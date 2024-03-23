@@ -1,4 +1,8 @@
 {
+  "certificates": "Sertifikalar",
+  "catalog": "Katalog",
+  "video": "Kurulum videoları",
+
   "news": "Haberler",
   "news-related": "Benzer haberler",
 
@@ -31,16 +35,16 @@
   },
 
   "empty": {
-    "list": "No elements yet",
+    "list": "Henüz öğe yok",
 
-    "posts": "",
-    "related-posts": "No related news yet",
+    "posts": "Henüz haber yok",
+    "related-posts": "Henüz ilgili haber yok",
 
-    "categories": "No categories yet",
-    "subcategories": "No subcategories yet",
+    "categories": "Henüz kategori yok",
+    "subcategories": "Henüz alt kategori yok",
 
-    "products": "No products yet",
+    "products": "Henüz ürün yok",
 
-    "videos": "No videos yet"
+    "videos": "Henüz video yok"
   }
 }

@@ -1,4 +1,8 @@
 {
+  "certificates": "Сертификаты",
+  "catalog": "Каталог товаров",
+  "video": "Видеоинструкция по монтажу",
+
   "news": "Новости",
   "news-related": "Похожие новости",
 
@@ -31,16 +35,16 @@
   },
 
   "empty": {
-    "list": "No elements yet",
+    "list": "Элементов пока нет",
 
-    "posts": "",
-    "related-posts": "No related news yet",
+    "posts": "Новостей пока нет",
+    "related-posts": "Похожих новостей пока нет",
 
-    "categories": "No categories yet",
-    "subcategories": "No subcategories yet",
+    "categories": "Категорий пока нет",
+    "subcategories": "Подкатегории пока нет",
 
-    "products": "No products yet",
+    "products": "Товаров пока нет",
 
-    "videos": "No videos yet"
+    "videos": "Видео пока нет"
   }
 }

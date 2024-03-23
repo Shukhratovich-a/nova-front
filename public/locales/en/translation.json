@@ -1,4 +1,8 @@
 {
+  "certificates": "Certificates",
+  "catalog": "Catalog",
+  "video": "Installation videos",
+
   "news": "News",
   "news-related": "Related news",
 
@@ -33,7 +37,7 @@
   "empty": {
     "list": "No elements yet",
 
-    "posts": "",
+    "posts": "No news yet",
     "related-posts": "No related news yet",
 
     "categories": "No categories yet",
