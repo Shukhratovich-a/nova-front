@@ -28,7 +28,7 @@ export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, 
       </div>
 
       <div className={styles.content}>
-        <h2 className="color-accent">{`${t(type)} (${countryT(country)})`}</h2>
+        <h2 className={cn(styles.title, "color-accent")}>{`${t(type)} (${countryT(country)})`}</h2>
 
         <div className={styles.info}>
           <p className="text-lg fw-bold">{`${t("address")} :`}</p>

@@ -3,10 +3,17 @@
 
 .wrapper {
   margin-bottom: 80px;
+
+  @include mobile {
+    margin-bottom: 30px;
+  }
 }
 
 .title {
   text-align: center;
   margin-bottom: 30px;
-}
 
+  @include mobile {
+    margin-bottom: 20px;
+  }
+}

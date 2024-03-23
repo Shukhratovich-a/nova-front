@@ -27,6 +27,10 @@
   @include table {
     width: 100%;
   }
+
+  @include mobile {
+    gap: 20px;
+  }
 }
 
 .map {
@@ -52,10 +56,20 @@
   }
 }
 
+.title {
+  @include mobile {
+    text-align: center;
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @include mobile {
+    gap: 10px;
+  }
 }
 
 // info

@@ -48,6 +48,7 @@ export const ProductsList: FC<ProductsListProps> = ({ className, products, total
       ) : (
         <EmptyList translateKey="products" />
       )}
+
       {displayCount < total && (
         <Button className={styles.button} onClick={loadMore}>
           Показать больше
