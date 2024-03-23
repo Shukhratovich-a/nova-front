@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
 import { SwiperSlide } from "swiper/react";
 
 import { HomeProps } from "./home.props";
@@ -6,6 +7,8 @@ import { HomeProps } from "./home.props";
 import { ArticleSlide, HomeCategories, HomeIntro, PostCard, ProductCard } from "@/components";
 
 export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, posts, catalogs }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <section>
@@ -20,7 +23,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
 
       {!!certificates.length && (
         <section className="container">
-          <ArticleSlide anchor="certificate" title="Сертификаты">
+          <ArticleSlide anchor="certificate" title={t("certificates")}>
             {certificates.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
@@ -34,7 +37,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
 
       {!!catalogs.length && (
         <section className="container">
-          <ArticleSlide anchor="catalog" title="Каталог товаров">
+          <ArticleSlide anchor="catalog" title={t("catalog")}>
             {catalogs.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
@@ -48,7 +51,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
 
       {!!posts.length && (
         <section className="container">
-          <ArticleSlide title="Новости" page="news">
+          <ArticleSlide title={t("news")} page="news">
             {posts.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
