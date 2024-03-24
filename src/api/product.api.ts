@@ -22,3 +22,9 @@ export const search = async (q: string, options?: IGetManyOptions) => {
 
   return axios.get<IGetAll<IProduct[]>>(query);
 };
+
+export const getRelated = async (id: number, options?: IGetManyOptions) => {
+  const query = queryString.stringifyUrl({ url: `/product/get-related/${id}`, query: { ...options } });
+
+  return axios.get<IGetAll<IProduct[]>>(query);
+};

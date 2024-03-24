@@ -6,7 +6,7 @@ import { ProductProps } from "./product.props";
 
 import { Breadcrumbs, ProductInfo, ProductIntro, ProductRelated } from "@/components";
 
-export const ProductView: FC<ProductProps> = ({ className, product, ...props }) => {
+export const ProductView: FC<ProductProps> = ({ className, product, relatedProducts, ...props }) => {
   const { t } = useTranslation();
 
   const { subcategory } = product;
@@ -33,7 +33,9 @@ export const ProductView: FC<ProductProps> = ({ className, product, ...props }) 
         </section>
       )}
 
-      <section>{/* <ProductRelated /> */}</section>
+      <section>
+        <ProductRelated relatedProducts={relatedProducts} />
+      </section>
     </div>
   );
 };

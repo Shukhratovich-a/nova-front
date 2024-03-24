@@ -8,13 +8,13 @@ import { IProduct } from "@/types/product.interface";
 
 import { DOMAIN } from "@/helpers/api.helper";
 
-import { getAll, getByCode } from "@/api/product.api";
+import { getAll, getByCode, getRelated } from "@/api/product.api";
 
 import { withLayout } from "@/layout/layout";
 
 import { ProductView } from "@/views";
 
-export const ProductPage: FC<ProductPageProps> = ({ product }) => {
+export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) => {
   const { title, description, mainImage } = product;
 
   const { t, i18n } = useTranslation();
@@ -34,7 +34,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product }) => {
         <title>{`${t("product")} - ${title}`}</title>
       </Head>
 
-      <ProductView product={product} />
+      <ProductView product={product} relatedProducts={relatedProducts} />
     </>
   );
 };
@@ -66,9 +66,15 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params,
     const { data: product } = await getByCode(code, { language: locale });
     if (!product) return { notFound: true };
 
+    const {
+      data: { data: relatedProducts },
+    } = await getRelated(product.id, { language: locale });
+    if (!product) return { notFound: true };
+
     return {
       props: {
         product,
+        relatedProducts,
         ...(await serverSideTranslations(String(locale))),
       },
       revalidate: 1,
@@ -82,4 +88,5 @@ export default withLayout(ProductPage);
 
 interface ProductPageProps extends Record<string, unknown> {
   product: IProduct;
+  relatedProducts: IProduct[];
 }
