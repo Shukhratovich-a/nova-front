@@ -1,15 +1,21 @@
-import { ArticleSlide, EmptyList, ProductCard, Slider } from "@/components";
-import cn from "classnames";
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
 import { SwiperSlide } from "swiper/react";
-import styles from "./product-related.module.scss";
+import cn from "classnames";
+
 import { ProductRelatedProps } from "./product-related.props";
 
+import { EmptyList, ProductCard, Slider } from "@/components";
+
+import styles from "./product-related.module.scss";
+
 export const ProductRelated: FC<ProductRelatedProps> = ({ className, relatedProducts }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={cn(styles.wrapper, className)}>
-        <h2 className={styles.title}>Похожие продукты</h2>
+        <h2 className={styles.title}>{t("products-related")}</h2>
 
         {!!relatedProducts.length ? (
           <Slider type="dynamic" quantity={5}>
@@ -20,7 +26,7 @@ export const ProductRelated: FC<ProductRelatedProps> = ({ className, relatedProd
             ))}
           </Slider>
         ) : (
-          <EmptyList />
+          <EmptyList key={"products-related"} />
         )}
       </div>
     </>
