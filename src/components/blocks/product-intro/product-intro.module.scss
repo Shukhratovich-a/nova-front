@@ -77,10 +77,15 @@
 .image {
   max-width: 660px;
   width: auto;
-  height: 400px !important;
+  max-height: 400px !important;
+  height: auto;
   margin: 0 auto;
   object-fit: contain !important;
   object-position: center;
+
+  @include table {
+    max-width: 100%;
+  }
 }
 
 .gallery {
