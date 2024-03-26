@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<CategoriesProps> = async ({
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
   const {
     data: { data: categories, total },
-  } = await getAll({ limit: 10, language: locale });
+  } = await getAll({ language: locale });
 
   return {
     props: {

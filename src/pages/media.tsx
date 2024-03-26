@@ -27,14 +27,13 @@ export const MediaPage: FC<MediaPageProps> = ({ _nextI18Next, ...rest }) => {
 
 export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale }) => {
   try {
-    // const { data: video } = await getAllVideos({ language: locale });
     const video = await getCards({ language: locale });
 
     const { data: certificate } = await getAllCertificate({ language: locale });
 
     const {
       data: { data: catalogs },
-    } = await getAllCatalogs({ language: locale, limit: 12 });
+    } = await getAllCatalogs({ language: locale });
 
     return {
       props: {

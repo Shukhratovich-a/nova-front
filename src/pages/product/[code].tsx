@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params,
 
     const {
       data: { data: relatedProducts },
-    } = await getRelated(product.id, { language: locale });
+    } = await getRelated(product.id, { language: locale, limit: 10 });
     if (!product) return { notFound: true };
 
     return {

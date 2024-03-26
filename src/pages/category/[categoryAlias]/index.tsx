@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   for (let locale of locales as string[]) {
     const {
       data: { data: categories },
-    } = await getAll({ limit: 100000000, language: locale });
+    } = await getAll({ language: locale });
 
     paths = paths.concat(categories.map((category) => `/${locale}/category/${category.alias}`));
   }
