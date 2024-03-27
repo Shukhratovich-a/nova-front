@@ -1,13 +1,33 @@
+@import "@/styles/variables";
+@import "@/styles/media/media-queries";
+
 .link {
+  @include hover-control {
+    & svg {
+      transform: translateX(2px);
+    }
+  }
   display: flex;
   align-items: center;
   gap: 5px;
 
-  svg *[fill] {
-    fill: none !important;
+  & svg {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+
+    & *[fill] {
+      fill: none !important;
+    }
   }
 }
 
-:global(.content-rtl) .link svg {
-  transform: scaleX(-1);
+:global(.content-rtl) .link {
+  & svg {
+    transform: scaleX(-1) translateX(0px);
+  }
+  @include hover-control {
+    & svg {
+      transform: scaleX(-1) translateX(2px);
+    }
+  }
 }
