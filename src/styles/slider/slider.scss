@@ -1,11 +1,17 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
 
-.content-rtl .swiper-slide {
-  margin-right: 0 !important;
-}
-
 .swiper {
+  &-slide,
+  &-wrapper {
+    cursor: pointer;
+    &:active {
+      cursor: grabbing;
+    }
+  }
+  &-wrapper {
+    user-select: none;
+  }
   &-pagination {
     height: 25px;
     display: flex;
@@ -43,11 +49,11 @@
 
 // обычный слайдер
 .swiper-dynamic.swiper {
-  // element shadow view
-  width: calc(100% + 15px);
-  padding-right: 15px;
-  border-radius: 0 10px 0 0;
-  margin-right: -15px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  padding: 12px;
+  margin: -12px;
+
 
   display: flex;
   flex-direction: column;
@@ -62,7 +68,10 @@
   }
 
   & .swiper-slide {
+    margin: 0 !important;
+    margin-inline-end: 20px !important;
     height: auto;
+
     &-image {
       object-fit: cover;
       height: 100%;
