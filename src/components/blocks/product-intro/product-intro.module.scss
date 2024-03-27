@@ -49,8 +49,9 @@
   max-height: 150px;
   overflow: auto;
   margin-top: 10px;
-  margin-right: -7px;
-  padding-right: 7px;
+  margin-inline-start: -7px;
+  padding-inline-start: 7px;
+  
   grid-area: description;
 
   p {

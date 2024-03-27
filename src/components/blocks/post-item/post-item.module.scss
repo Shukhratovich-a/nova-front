@@ -57,6 +57,7 @@
 .image {
   width: 100%;
   max-height: 500px;
+  height: auto;
   grid-area: image;
   object-fit: cover;
 
