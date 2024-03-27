@@ -13,7 +13,7 @@ export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   const { t } = useTranslation();
 
   return (
-    <div id="catalog" className="main-margin">
+    <div className="main-margin">
       {!!catalogs.length && (
         <section>
           <MediaIntro catalogs={catalogs} />

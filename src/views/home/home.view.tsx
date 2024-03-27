@@ -37,7 +37,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
 
       {!!catalogs.length && (
         <section className="container">
-          <ArticleSlide anchor="catalog" title={t("catalog")}>
+          <ArticleSlide title={t("catalog")}>
             {catalogs.map((item) => {
               return (
                 <SwiperSlide key={item.id}>

@@ -14,9 +14,10 @@ import styles from "./article-slide.module.scss";
 export const ArticleSlide: FC<ArticleSlideProps> = ({ page = "media", anchor, title, className, children }) => {
   const { push } = useRouter();
   const { t } = useTranslation();
+  const pushPath = anchor ? `/${page}/#${anchor}` : `/${page}`;
 
   const viewAllButton = (
-    <Button className="color-white" appearance="yellow" onClick={() => push(`/${page}/#${anchor}`)}>
+    <Button className="color-white" appearance="yellow" onClick={() => push(pushPath)}>
       {t("show-all")} <IconArrowRight />
     </Button>
   );
@@ -25,7 +26,6 @@ export const ArticleSlide: FC<ArticleSlideProps> = ({ page = "media", anchor, ti
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.content}>
         <h2 className="color-accent">{title}</h2>
-
         {viewAllButton}
       </div>
 
