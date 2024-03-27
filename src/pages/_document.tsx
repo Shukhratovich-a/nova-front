@@ -1,4 +1,3 @@
-import { UserConfig } from "next-i18next";
 import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from "next/document";
 
 import i18nextConfig from "../../next-i18next.config.js";
@@ -11,6 +10,9 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     const currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
+    
+    // Устанавливает класс направления тела документа при изменении языка
+    const isRtl = currentLocale === "ar" ? "content-rtl" : "";
 
     return (
       <Html lang={currentLocale}>
@@ -27,7 +29,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <body>
+        <body className={isRtl}>
           <Main />
           <NextScript />
         </body>
