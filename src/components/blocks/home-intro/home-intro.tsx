@@ -1,15 +1,27 @@
-import { FC } from "react";
-import Image from "next/image";
-import { SwiperSlide } from "swiper/react";
 import cn from "classnames";
+import Image from "next/image";
+import { FC } from "react";
+import { SwiperSlide } from "swiper/react";
 
-import { DOMAIN } from "@/helpers/api.helper";
 
 import { HomeIntroProps } from "./home-intro.props";
 
 import { Slider } from "@/components";
 
 import styles from "./home-intro.module.scss";
+
+const colorArray = [
+  "#a6babe",
+  "#A6ABBF",
+  "#A6BFB3",
+  "#A6B3BF",
+  "#999966",
+  "#A6BFBB",
+  "#809980",
+  "#999933",
+  "#66664D",
+  "#4D80CC",
+];
 
 export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
   return (
@@ -19,17 +31,16 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
           return (
             <SwiperSlide className={cn(styles.slide)} key={id}>
               <div
-                className={cn(styles.background, {
-                  [styles["background--blue"]]: index % 2 !== 0,
-                })}
+                className={cn(styles.background)}
+                style={{ backgroundColor: colorArray[index] }}
               >
                 <Image
                   className="swiper-slide-image"
-                  src={`${DOMAIN}${poster}`}
+                  src={`${poster}`}
                   alt={title}
                   fill
-                  priority={index > 1 ? false : true}
-                  loading={index > 1 ? "lazy" : "eager"}
+                  priority
+                  loading='eager'
                 />
               </div>
 
