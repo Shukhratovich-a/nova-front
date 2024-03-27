@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
 import cn from "classnames";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { getTags } from "@/api/tag.api";
 
@@ -9,24 +9,16 @@ import { LanguageProps } from "./language.props";
 
 import { languages } from "@/helpers/languages.helper";
 
-import { IconArrowBottom } from "@icons";
-
+import Select from "../ui/select/select";
 import styles from "./language.module.scss";
 
 export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...props }) => {
   const { i18n } = useTranslation();
   let { replace, query, pathname, reload } = useRouter();
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const locales = languages.filter((language) => language.locale !== i18n.language);
 
-  const handleOpenClose = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   const handleChange = async (locale: string) => {
-    setIsOpen(false);
     let currentQuery = { ...query };
 
     const isArabicLocale = i18n.language === "ar" || locale === "ar";
@@ -43,6 +35,11 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
     if (isArabicLocale) reload();
   };
 
+  const options = locales.map(({ locale }) => ({
+    option: locale,
+    optionOnClick: () => handleChange(locale),
+  }));
+
   return (
     <div
       className={cn(styles["language"], "button", className, {
@@ -50,28 +47,7 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled = false, ...
       })}
       {...props}
     >
-      <span className={cn(styles["language--selected"])} onClick={handleOpenClose}>
-        <span>{i18n.language}</span>
-        <IconArrowBottom />
-      </span>
-
-      <ul
-        className={cn(styles["language__list"], {
-          [styles["language__list--open"]]: isOpen,
-        })}
-      >
-        {locales.map(({ locale }) => (
-          <li
-            className={cn(styles.language__list__item)}
-            key={locale}
-            onClick={() => {
-              handleChange(locale);
-            }}
-          >
-            {locale}
-          </li>
-        ))}
-      </ul>
+      <Select select={i18n.language} options={options} />
     </div>
   );
 };
