@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
 
   const { isOpen, setIsOpen } = useContext(SideBarContext);
   const [scrolled, setScrolled] = useState(false);
-  const isTable = useMediaQuery({ maxWidth: 800 });
+  const isTable = useMediaQuery({ maxWidth: 900 });
   const { pathname } = useRouter();
 
   const menuController = () => {
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ className, children, ...props })
             <Logo className={styles.logo} color={scrolled || pathname === "/" ? "custom" : "default"} />
           </Link>
 
-          {!isTable && <Navbar />}
+          {!isTable && <Navbar headerIsScrolled={scrolled} />}
 
           <div className={cn(styles.additions)}>
             <Search />

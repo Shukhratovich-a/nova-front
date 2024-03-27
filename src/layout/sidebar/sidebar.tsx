@@ -16,7 +16,7 @@ import { Burger, Language, Logo, Search } from "@/components";
 import styles from "./sidebar.module.scss";
 
 export const Sidebar = ({ className, ...props }: SidebarProps) => {
-  const isTable = useMediaQuery({ maxWidth: 800 });
+  const isTable = useMediaQuery({ maxWidth: 900 });
   const { t } = useTranslation();
   const { isOpen, setIsOpen } = useContext(SideBarContext);
 
