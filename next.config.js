@@ -35,6 +35,18 @@ const nextConfig = {
   },
 
   i18n,
+  async rewrites() {
+    return [
+      {
+        source: `/uploads/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_DOMAIN}/uploads/:path*`,
+      },
+      {
+        source: `/file/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_DOMAIN}/file/:path*`,
+      },
+    ];
+  },
 
   webpack(config, options) {
     config.module.rules.push({
