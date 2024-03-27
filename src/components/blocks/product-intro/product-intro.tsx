@@ -1,11 +1,8 @@
-import { FC } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { SwiperSlide } from "swiper/react";
 import cn from "classnames";
-
-import { DOMAIN } from "@/helpers/api.helper";
-
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
+import { SwiperSlide } from "swiper/react";
 import { ProductIntroProps } from "./product-intro.props";
 
 import { Button, Slider } from "@/components";
@@ -33,13 +30,13 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
       {/* <p className={cn(styles.description, "subtitle-md", "custom-scrollbar")}>{description}</p> */}
 
       <div className={styles.buttons}>
-        <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
+        <Link href={`/file/download-product-file/${code}`}>
           <Button appearance="yellow">
             Скачать <IconArrowBottom />
           </Button>
         </Link>
 
-        <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
+        <Link href={`/file/get-product-file/${code}`} target="_blank">
           <Button appearance="outlined">Смотреть</Button>
         </Link>
       </div>
@@ -48,7 +45,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         <SwiperSlide>
           <Image
             className={cn(styles.image, "swiper-slide-image")}
-            src={`${DOMAIN}${mainImage}`}
+            src={`${mainImage}`}
             alt={title}
             width={800}
             height={400}
@@ -61,7 +58,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
           <SwiperSlide>
             <Image
               className={cn(styles.image, "swiper-slide-image")}
-              src={`${DOMAIN}${schemeImage}`}
+              src={`${schemeImage}`}
               alt={title}
               width={800}
               height={500}
@@ -75,7 +72,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
           <SwiperSlide>
             <Image
               className={cn(styles.image, "swiper-slide-image")}
-              src={`${DOMAIN}${boxImage}`}
+              src={`${boxImage}`}
               alt={title}
               width={800}
               height={500}

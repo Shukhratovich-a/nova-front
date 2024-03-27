@@ -1,8 +1,6 @@
-import { FC, lazy } from "react";
-import Image from "next/image";
 import cn from "classnames";
-
-import { DOMAIN } from "@/helpers/api.helper";
+import Image from "next/image";
+import { FC } from "react";
 
 import { PostItemProps } from "./post-item.props";
 
@@ -22,7 +20,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
       </div>
 
       {type !== "none" && (
-        <Image className={cn(styles.image)} width={1000} height={480} alt="" src={`${DOMAIN}${image}`} priority />
+        <Image className={cn(styles.image)} width={1000} height={480} alt="" src={image || ""} priority />
       )}
 
       <div className={cn(styles.content)}>

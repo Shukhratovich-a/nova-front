@@ -1,16 +1,15 @@
-import { ChangeEvent, FC, useState } from "react";
+import cn from "classnames";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
-import cn from "classnames";
+import { ChangeEvent, FC, useState } from "react";
 
 import { IProduct } from "@/types/product.interface";
 import { SearchProps } from "./search.props";
 
 import { search } from "@/api/product.api";
-import { DOMAIN } from "@/helpers/api.helper";
 
-import { Modal, Loader } from "@/components";
+import { Loader, Modal } from "@/components";
 
 import { IconSearch } from "@/assets/icons";
 
@@ -71,7 +70,7 @@ export const Search: FC<SearchProps> = () => {
                   {searchState.products.map(({ id, code, title, mainImage }) => {
                     return (
                       <Link className={styles.item} href={`/product/${code}`} key={id}>
-                        <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
+                        <Image src={`${mainImage}`} alt="" width={60} height={60} quality={20} />
 
                         <div className={cn(styles.content)}>
                           <p className={styles.code}>{code}</p>

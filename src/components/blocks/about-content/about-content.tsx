@@ -1,11 +1,9 @@
-import { FC, RefObject, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import cn from "classnames";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FC, RefObject, useEffect, useRef, useState } from "react";
 
 import { AboutContentProps } from "./about-content.props";
-
-import { DOMAIN } from "@/helpers/api.helper";
 
 import { Button } from "@/components";
 
@@ -66,7 +64,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...prop
         return (
           <div ref={ref} key={index} className={styles.block}>
             <div className={styles.image}>
-              <Image src={`${DOMAIN}${poster}`} alt={title} width={650} height={365} priority />
+              <Image src={`${poster}`} alt={title} width={650} height={365} priority />
             </div>
 
             <div className={styles.text}>

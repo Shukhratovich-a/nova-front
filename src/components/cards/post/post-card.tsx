@@ -1,14 +1,11 @@
-import { FC } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import Link from "next/link";
 import cn from "classnames";
-
-import { DOMAIN } from "@/helpers/api.helper";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { PostCardProps } from "./post-card.props";
 
-import { Tag, DateTime, ShowLink } from "@/components";
+import { DateTime, ShowLink, Tag } from "@/components";
 
 import styles from "./post-card.module.scss";
 
@@ -25,7 +22,7 @@ export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
     <div className={cn(className, styles.card)} {...props}>
       <div className={cn(styles.head)}>
         <div className={cn(styles.image)} onClick={handleNavigation}>
-          <Image src={`${DOMAIN}${poster}`} alt={`${title}`} width={350} height={200} priority />
+          <Image src={`${poster}`} alt={`${title}`} width={350} height={200} priority />
         </div>
 
         <div className={cn(styles.captions)}>

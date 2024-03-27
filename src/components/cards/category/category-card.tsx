@@ -1,12 +1,10 @@
-import { FC } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
 import cn from "classnames";
+import { useTranslation } from "next-i18next";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { CategoryCardProps } from "./category-card.props";
-
-import { DOMAIN } from "@/helpers/api.helper";
 
 import { ShowLink } from "@/components/ui/show-link/show-link";
 
@@ -24,7 +22,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({ className, category, href,
 
   return (
     <div className={cn(styles.card, className)} onClick={() => handleNavigation()} {...props}>
-      <Image className={cn(styles.image)} src={`${DOMAIN}${poster}`} alt={title} width={300} height={300} priority />
+      <Image className={cn(styles.image)} src={`${poster}`} alt={title} width={300} height={300} priority />
 
       <div className={cn(styles.content)}>
         <h3 className={cn(styles.title)} title={title}>

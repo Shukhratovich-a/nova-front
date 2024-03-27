@@ -1,13 +1,11 @@
-import React from "react";
 import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
-import Head from "next/head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
+import React from "react";
 
 import { IPost } from "@/types/post.interface";
-
-import { DOMAIN } from "@/helpers/api.helper";
 
 import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
@@ -27,8 +25,8 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
         <meta property="og:title" content={`${t("news")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={subtitle} />
-        <meta property="og:image" content={`${DOMAIN}${poster}`} />
-        <meta property="og:image:secure_ur" content={`${DOMAIN}${poster}`} />
+        <meta property="og:image" content={`${poster}`} />
+        <meta property="og:image:secure_ur" content={`${poster}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 

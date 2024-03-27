@@ -1,12 +1,10 @@
-import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import { FC } from "react";
 
 import { IProduct } from "@/types/product.interface";
-
-import { DOMAIN } from "@/helpers/api.helper";
 
 import { getAll, getByCode, getRelated } from "@/api/product.api";
 
@@ -26,8 +24,8 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
         <meta property="og:title" content={`${t("product")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${DOMAIN}${mainImage}`} />
-        <meta property="og:image:secure_ur" content={`${DOMAIN}${mainImage}`} />
+        <meta property="og:image" content={`${mainImage}`} />
+        <meta property="og:image:secure_ur" content={`${mainImage}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
