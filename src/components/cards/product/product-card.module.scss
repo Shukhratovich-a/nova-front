@@ -14,7 +14,7 @@
   border-radius: 12px;
   border: 1px solid $stroke;
   background-color: $bg-primary;
-  box-shadow: 4px 4px 15px 0px $stroke;
+  box-shadow: $card-shadow;
 }
 
 .video,
@@ -80,7 +80,6 @@
   background-color: $bg-primary;
   border-bottom: 1px solid $stroke;
 
-  cursor: pointer;
   overflow: hidden;
 
   img {
