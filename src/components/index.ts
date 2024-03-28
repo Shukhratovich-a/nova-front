@@ -11,7 +11,6 @@ export * from "./blocks/contacts-our-factories/contacts-our-factories";
 
 // Home page blocks
 export * from "./blocks/home-intro/home-intro";
-export * from "./blocks/home-categories/home-categories";
 
 // Product page blocks
 export * from "./blocks/product-intro/product-intro";
