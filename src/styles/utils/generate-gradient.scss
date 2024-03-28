@@ -1,0 +1,24 @@
+@function generate-gradient($cols, $line-color) {
+  $gradient: "";
+  $pin: 100 / $cols;
+  $step: $cols - 1;
+
+  @for $i from 1 through $step {
+    $gradient: $gradient + gradient-line(#fff, $pin, $i, $step);
+  }
+
+  @return unquote("linear-gradient(180deg, #{$gradient})");
+}
+
+@function gradient-line($line-color, $pin, $i, $step) {
+  $start: unquote("transparent #{(($pin * $i) - 5)}%");
+  $end: unquote("transparent #{(($pin * $i) + 5)}%");
+  $line-start: unquote("#{$line-color} #{(($pin * $i) - 2)}%");
+  $line-end: unquote("#{$line-color} #{(($pin * $i) + 2)}%");
+
+  @if $step != $i and $step > 1 {
+    $end: unquote("#{$end},");
+  }
+
+  @return $start, $line-start, $line-end, $end;
+}

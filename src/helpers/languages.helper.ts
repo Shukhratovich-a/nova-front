@@ -8,7 +8,8 @@ export const languages = [
   {
     locale: "tr",
   },
-  {
-    locale: "ar",
-  },
+  // ar-off
+  // {
+  //   locale: "ar",
+  // },
 ];

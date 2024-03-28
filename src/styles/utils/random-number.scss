@@ -1,0 +1,3 @@
+@function random-range($min, $max) {
+  @return random($max - $min + 1) + $min;
+}

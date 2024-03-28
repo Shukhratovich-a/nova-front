@@ -22,16 +22,17 @@ export const CategoryCard: FC<CategoryCardProps> = ({ className, category, href,
 
   return (
     <div className={cn(styles.card, className)} onClick={() => handleNavigation()} {...props}>
-      <Image className={cn(styles.image)} src={`${poster}`} alt={title} width={300} height={300} priority />
-
+      <div className={cn(styles.image)}>
+        <Image src={`${poster}`} alt={title} width={300} height={300} priority />
+      </div>
       <div className={cn(styles.content)}>
         <h3 className={cn(styles.title)} title={title}>
           {title}
         </h3>
-
+{/* 
         <ShowLink className={cn(styles.link)} href={href ? href : `/category/${alias}`}>
           {t("show")}
-        </ShowLink>
+        </ShowLink> */}
       </div>
     </div>
   );
