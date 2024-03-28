@@ -14,13 +14,13 @@ export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
 
   return (
     <div className="main-margin">
-      {!!catalogs.length && (
+      {!!catalogs?.length && (
         <section>
           <MediaIntro catalogs={catalogs} />
         </section>
       )}
 
-      {!!video.length && (
+      {!!video?.length && (
         <section id="video" className={cn(styles["block-mb"], "container")}>
           <h2 className={cn(styles.title, "color-accent")}>{t("video")}</h2>
 
@@ -36,7 +36,7 @@ export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
         </section>
       )}
 
-      {!!certificate.length && (
+      {!!certificate?.length && (
         <section id="certificate" className={cn(styles["block-mb"], "container")}>
           <h2 className={cn(styles.title, "color-accent")}>{t("certificates")}</h2>
 
