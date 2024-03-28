@@ -1,5 +1,6 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
+@import "@/styles/skeleton";
 
 .card {
   max-width: 500px;
@@ -112,6 +113,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 2;
+    @include skeleton-text(2);
+
     cursor: pointer;
   }
 }

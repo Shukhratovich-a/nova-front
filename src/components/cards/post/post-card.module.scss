@@ -1,5 +1,7 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
+@import "@/styles/utils/random-number";
+@import "@/styles/skeleton";
 
 .card {
   max-width: 450px;
@@ -89,12 +91,12 @@
 }
 
 .name {
-  // текст превышающий 2 строки скрывается
   -webkit-line-clamp: 2;
+  @include skeleton-text(2);
 }
 
 .description {
-  // текст превышающий 3 строки скрывается
   -webkit-line-clamp: 3;
   margin-bottom: auto;
+  @include skeleton-text(3);
 }

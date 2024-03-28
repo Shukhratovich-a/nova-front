@@ -1,5 +1,7 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
+@import "@/styles/skeleton";
+
 
 :global(.content-rtl) .card {
   & .image {
@@ -60,6 +62,7 @@
 
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  @include skeleton-text(3);
 
   text-transform: uppercase;
 }
