@@ -59,9 +59,10 @@ h1 {
 }
 
 h2 {
-  font-size: $h2-fz; // 32-36
-  line-height: $h2-lh; // 36-40
+  font-size: $h2-fz; // 32-36 -> 26-30
+  line-height: $h2-lh; // 36-40 -> 30-34
   font-weight: 700;
+  color: $accent;
 }
 
 h3 {
