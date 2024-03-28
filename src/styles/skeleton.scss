@@ -1,0 +1,40 @@
+@import "@/styles/utils/repeat-text";
+@import "@/styles/utils/random-number";
+@import "@/styles/utils/generate-gradient";
+
+@mixin skeleton-text($line-count, $parent-bg: #ffffff) {
+  &:empty {
+    position: relative;
+    width: 100%;
+    background-color: #f7f7f7;
+
+    &::after,
+    &::before {
+      content: "-";
+      display: block;
+      color: transparent;
+      white-space: pre-wrap;
+    }
+
+    @if $line-count > 1 {
+      &::before {
+        content: repeat-text($line-count, "\A");
+        display: block;
+        width: 100%;
+
+        background: generate-gradient($line-count, $parent-bg);
+      }
+      &::after {
+        content: "-";
+        width: random-range(10%, 70%);
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+
+        background: #fff;
+      }
+    }
+  }
+}

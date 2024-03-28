@@ -1,0 +1,7 @@
+@function repeat-text($count, $text) {
+  $res: "";
+  @for $i from 1 through $count {
+    $res: "#{$res}#{$text}";
+  }
+  @return $res;
+}
