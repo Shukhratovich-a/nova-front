@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - development-server-side
 name: 🚀 Deploy website on push
 
 jobs:
