@@ -9,6 +9,7 @@ import { SideBarProvider } from "@/contexts/sidebar.context";
 import { Footer } from "./footer/footer.component";
 
 import styles from "./layout.module.scss";
+import FixedIcon from "@/components/ui/fixed-icon/fixed-icon";
 
 const Header = dynamic(() => import("./header/header"), { ssr: false });
 const Sidebar = dynamic(() => import("./sidebar/sidebar"), { ssr: false });
@@ -19,7 +20,10 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Header className={cn(styles.header)} />
       <Sidebar className={cn(styles.sidebar)} />
 
-      <main className={cn(styles.main)}>{children}</main>
+      <main className={cn(styles.main)}>
+        {children}
+        <FixedIcon />
+      </main>
 
       <Footer className={cn(styles.footer)} />
     </div>
