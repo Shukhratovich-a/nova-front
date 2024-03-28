@@ -39,11 +39,11 @@ const nextConfig = {
     return [
       {
         source: `/uploads/:path*`,
-        destination: `${process.env.NEXT_PUBLIC_DOMAIN}/uploads/:path*`,
+        destination: `https://api.novaplastik.uz/uploads/:path*`,
       },
       {
         source: `/file/:path*`,
-        destination: `${process.env.NEXT_PUBLIC_DOMAIN}/file/:path*`,
+        destination: `https://api.novaplastik.uz/file/:path*`,
       },
     ];
   },
