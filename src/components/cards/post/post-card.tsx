@@ -7,6 +7,7 @@ import { PostCardProps } from "./post-card.props";
 
 import { DateTime, ShowLink, Tag } from "@/components";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./post-card.module.scss";
 
 export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
@@ -22,7 +23,7 @@ export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
     <div className={cn(className, styles.card)} {...props}>
       <div className={cn(styles.head)}>
         <div className={cn(styles.image)} onClick={handleNavigation}>
-          <Image src={`${poster}`} alt={`${title}`} width={350} height={200} priority />
+          <Image src={`${DOMAIN}${poster}`} alt={`${title}`} width={350} height={200} priority />
         </div>
 
         <div className={cn(styles.captions)}>

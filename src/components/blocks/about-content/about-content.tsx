@@ -7,6 +7,7 @@ import { AboutContentProps } from "./about-content.props";
 
 import { Button } from "@/components";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./about-content.module.scss";
 
 export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...props }) => {
@@ -64,7 +65,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...prop
         return (
           <div ref={ref} key={index} className={styles.block}>
             <div className={styles.image}>
-              <Image src={`${poster}`} alt={title} width={650} height={365} priority />
+              <Image src={`${DOMAIN}${poster}`} alt={title} width={650} height={365} priority />
             </div>
 
             <div className={styles.text}>

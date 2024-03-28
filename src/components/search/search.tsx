@@ -13,6 +13,7 @@ import { Loader, Modal } from "@/components";
 
 import { IconSearch } from "@/assets/icons";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./search.module.scss";
 
 interface ISearch {
@@ -70,7 +71,7 @@ export const Search: FC<SearchProps> = () => {
                   {searchState.products.map(({ id, code, title, mainImage }) => {
                     return (
                       <Link className={styles.item} href={`/product/${code}`} key={id}>
-                        <Image src={`${mainImage}`} alt="" width={60} height={60} quality={20} />
+                        <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
 
                         <div className={cn(styles.content)}>
                           <p className={styles.code}>{code}</p>

@@ -3,9 +3,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-import { ProductCardProps } from "./product-card.props";
 import { IconYoutube } from "@/assets/icons";
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./product-card.module.scss";
+import { ProductCardProps } from "./product-card.props";
 
 export const ProductCard: FC<ProductCardProps> = ({ className, product, card: type = "product", ...props }) => {
   const title = product.title;
@@ -20,17 +21,17 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
 
   if (isProduct) {
     code = product.code;
-    image = `${product.mainImage}`;
+    image = `${DOMAIN}${product.mainImage}`;
     url = `/product/${product.code}`;
   } else if (isCertificate) {
-    image = `${product.poster}`;
+    image = `${DOMAIN}${product.poster}`;
     url = `${product.certificate}`;
   } else if (isVideo) {
     image = product.poster;
     url = `/video/${product.id}`;
     code = product.code;
   } else if (isCatalog) {
-    image = `${product.poster}`;
+    image = `${DOMAIN}${product.poster}`;
     url = `${product.catalog}`;
   }
 

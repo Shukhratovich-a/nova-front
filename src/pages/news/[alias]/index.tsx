@@ -11,6 +11,7 @@ import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import { PostView } from "@/views";
 
 const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
@@ -25,8 +26,8 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
         <meta property="og:title" content={`${t("news")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={subtitle} />
-        <meta property="og:image" content={`${poster}`} />
-        <meta property="og:image:secure_ur" content={`${poster}`} />
+        <meta property="og:image" content={`${DOMAIN}${poster}`} />
+        <meta property="og:image:secure_ur" content={`${DOMAIN}${poster}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 

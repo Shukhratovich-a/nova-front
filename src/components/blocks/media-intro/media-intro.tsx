@@ -47,7 +47,7 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
                   width={372}
                   height={522}
                   alt={title}
-                  src={`${poster}`}
+                  src={`${DOMAIN}${poster}`}
                 />
                 <div className={styles.content}>
                   <h2 className={cn("color-accent")}>
@@ -57,13 +57,13 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
                   {subtitle && <p className={cn("subtitle-lg color-gray")}>{subtitle}</p>}
 
                   <div className={styles.buttons}>
-                    <Link href={queryString.stringifyUrl({ url: `/file/download-file`, query: { file: catalog } })}>
+                    <Link href={queryString.stringifyUrl({ url: `${DOMAIN}/file/download-file`, query: { file: catalog } })}>
                       <Button appearance="yellow">Скачать</Button>
                     </Link>
 
                     {isPDFSupported && (
                       <Link
-                        href={queryString.stringifyUrl({ url: `/file/get-file`, query: { file: catalog } })}
+                        href={queryString.stringifyUrl({ url: `${DOMAIN}/file/get-file`, query: { file: catalog } })}
                         target="_blank"
                       >
                         <Button appearance="outlined">Смотреть</Button>

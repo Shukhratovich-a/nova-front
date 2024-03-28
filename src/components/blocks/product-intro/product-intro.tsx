@@ -9,6 +9,7 @@ import { Button, Slider } from "@/components";
 
 import { IconArrowBottom } from "@/assets/icons";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./product-intro.module.scss";
 
 export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...props }) => {
@@ -30,13 +31,13 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
       {/* <p className={cn(styles.description, "subtitle-md", "custom-scrollbar")}>{description}</p> */}
 
       <div className={styles.buttons}>
-        <Link href={`/file/download-product-file/${code}`}>
+        <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
           <Button appearance="yellow">
             Скачать <IconArrowBottom />
           </Button>
         </Link>
 
-        <Link href={`/file/get-product-file/${code}`} target="_blank">
+        <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
           <Button appearance="outlined">Смотреть</Button>
         </Link>
       </div>
@@ -45,7 +46,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         <SwiperSlide>
           <Image
             className={cn(styles.image, "swiper-slide-image")}
-            src={`${mainImage}`}
+            src={`${DOMAIN}${mainImage}`}
             alt={title}
             width={800}
             height={400}
@@ -58,7 +59,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
           <SwiperSlide>
             <Image
               className={cn(styles.image, "swiper-slide-image")}
-              src={`${schemeImage}`}
+              src={`${DOMAIN}${schemeImage}`}
               alt={title}
               width={800}
               height={500}
@@ -72,7 +73,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
           <SwiperSlide>
             <Image
               className={cn(styles.image, "swiper-slide-image")}
-              src={`${boxImage}`}
+              src={`${DOMAIN}${boxImage}`}
               alt={title}
               width={800}
               height={500}

@@ -6,6 +6,7 @@ import { PostItemProps } from "./post-item.props";
 
 import { DateTime } from "@/components";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./post-item.module.scss";
 
 export const PostItem: FC<PostItemProps> = ({ post }) => {
@@ -20,7 +21,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
       </div>
 
       {type !== "none" && (
-        <Image className={cn(styles.image)} width={1000} height={480} alt="" src={image || ""} priority />
+        <Image className={cn(styles.image)} width={1000} height={480} alt="" src={`${DOMAIN}${image}`} priority />
       )}
 
       <div className={cn(styles.content)}>
