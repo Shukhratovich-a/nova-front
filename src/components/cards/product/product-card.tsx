@@ -25,14 +25,14 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
     url = `/product/${product.code}`;
   } else if (isCertificate) {
     image = `${DOMAIN}${product.poster}`;
-    url = `${product.certificate}`;
+    url = `${DOMAIN}${product.certificate}`;
   } else if (isVideo) {
     image = product.poster;
     url = `/video/${product.id}`;
     code = product.code;
   } else if (isCatalog) {
     image = `${DOMAIN}${product.poster}`;
-    url = `${product.catalog}`;
+    url = `${DOMAIN}${product.catalog}`;
   }
 
   const wrapperClass = cn(styles.card, {
