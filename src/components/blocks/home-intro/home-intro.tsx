@@ -3,11 +3,11 @@ import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 
-
 import { HomeIntroProps } from "./home-intro.props";
 
 import { Slider } from "@/components";
 
+import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./home-intro.module.scss";
 
 const colorArray = [
@@ -30,17 +30,14 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
         {banners.map(({ id, poster, title, description, subtitle }, index) => {
           return (
             <SwiperSlide className={cn(styles.slide)} key={id}>
-              <div
-                className={cn(styles.background)}
-                style={{ backgroundColor: colorArray[index] }}
-              >
+              <div className={cn(styles.background)} style={{ backgroundColor: colorArray[index] }}>
                 <Image
                   className="swiper-slide-image"
-                  src={`${poster}`}
+                  src={`${DOMAIN}${poster}`}
                   alt={title}
                   fill
                   priority
-                  loading='eager'
+                  loading="eager"
                 />
               </div>
 
