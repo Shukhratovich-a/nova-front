@@ -11,7 +11,8 @@
     "description gallery"
     "buttons gallery";
   align-content: start;
-  column-gap: 30px;
+  gap: 30px;
+
   padding-bottom: 30px;
   margin-bottom: 30px;
 
@@ -40,10 +41,6 @@
   flex-direction: column;
   gap: 10px;
   grid-area: text;
-
-  @include table {
-    margin-bottom: 30px;
-  }
 }
 
 .description {
@@ -61,10 +58,8 @@
   margin-inline-end: -7px;
   padding-inline-end: 7px;
 
-  
   grid-area: description;
-  
-  
+
   @include skeleton-text(12);
   @include table {
     @include skeleton-text(6);
@@ -83,15 +78,10 @@
   display: flex;
   gap: 20px;
   grid-area: buttons;
-  margin-top: 30px;
 
   @include table {
     gap: 10px;
     justify-content: center;
-  }
-
-  @include mobile {
-    margin-top: 15px;
   }
 }
 
