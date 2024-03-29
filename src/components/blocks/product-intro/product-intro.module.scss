@@ -1,10 +1,11 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
+@import "@/styles/skeleton";
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "text gallery"
     "description gallery"
@@ -46,16 +47,35 @@
 }
 
 .description {
-  max-height: 150px;
+  ul,
+  ol,
+  li {
+    list-style: revert;
+    margin-inline-start: 10px;
+  }
+  max-height: 300px;
   overflow: auto;
+  overflow-x: hidden;
+
   margin-top: 10px;
-  margin-inline-start: -7px;
-  padding-inline-start: 7px;
+  margin-inline-end: -7px;
+  padding-inline-end: 7px;
 
+  
   grid-area: description;
+  
+  
+  @include skeleton-text(12);
+  @include table {
+    @include skeleton-text(6);
+  }
+  @include mobile {
+    @include skeleton-text(4);
+  }
 
-  p {
+  & * {
     font: inherit;
+    text-wrap: wrap;
   }
 }
 
@@ -86,7 +106,7 @@
   @include table {
     max-width: 100%;
   }
-  
+
   img {
     width: auto;
     height: 100%;
