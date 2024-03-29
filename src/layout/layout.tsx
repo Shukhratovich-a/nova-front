@@ -7,9 +7,9 @@ import { LayoutProps } from "./layout.props";
 import { SideBarProvider } from "@/contexts/sidebar.context";
 
 import { Footer } from "./footer/footer.component";
+import { FixedIcon } from "@/components";
 
 import styles from "./layout.module.scss";
-import FixedIcon from "@/components/ui/fixed-icon/fixed-icon";
 
 const Header = dynamic(() => import("./header/header"), { ssr: false });
 const Sidebar = dynamic(() => import("./sidebar/sidebar"), { ssr: false });
