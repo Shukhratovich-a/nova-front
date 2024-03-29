@@ -44,13 +44,9 @@
 }
 
 .description {
-  ul,
-  ol,
-  li {
-    list-style: revert;
-    margin-inline-start: 10px;
-  }
   max-height: 300px;
+  height: fit-content;
+
   overflow: auto;
   overflow-x: hidden;
 
@@ -61,14 +57,24 @@
   grid-area: description;
 
   @include skeleton-text(12);
+
   @include table {
     @include skeleton-text(6);
   }
+
   @include mobile {
     @include skeleton-text(4);
   }
 
-  & * {
+  ul,
+  ol,
+  li {
+    list-style: revert;
+    margin-inline-start: 10px;
+  }
+
+  & pre,
+  & p {
     font: inherit;
     text-wrap: wrap;
   }
@@ -85,12 +91,16 @@
   }
 }
 
+:global(.swiper-dynamic.swiper .swiper-slide):has(.image) {
+  display: flex;
+}
+
 .image {
   max-width: 660px;
   max-height: 400px;
-  aspect-ratio: 1/1;
 
-  margin: 0 auto;
+  aspect-ratio: 1/1;
+  margin: auto;
   // padding: 20px;
 
   @include table {
