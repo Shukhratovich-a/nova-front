@@ -16,16 +16,12 @@ import CatalogBackground from "@images/catalog-background.webp";
 import styles from "./media-intro.module.scss";
 import { getPdfSupported } from "@/utils/is-pdf-support";
 
-interface BrowserFlags {
-  [key: string]: boolean; // Индексный тип, позволяющий использовать любую строку в качестве ключа
-}
-
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
   const [isPDFSupported, setIsPDFSupported] = useState(true);
 
   const catalogBg = (
     <div className={cn("swiper-slide-image", styles.background)}>
-      <Image fill priority className={cn(styles.image)} alt="catalog background image" src={CatalogBackground} />
+      {CatalogBackground && <Image fill priority alt="catalog background image" src={CatalogBackground} />}
     </div>
   );
 
@@ -57,7 +53,9 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
                   {subtitle && <p className={cn("subtitle-lg color-gray")}>{subtitle}</p>}
 
                   <div className={styles.buttons}>
-                    <Link href={queryString.stringifyUrl({ url: `${DOMAIN}/file/download-file`, query: { file: catalog } })}>
+                    <Link
+                      href={queryString.stringifyUrl({ url: `${DOMAIN}/file/download-file`, query: { file: catalog } })}
+                    >
                       <Button appearance="yellow">Скачать</Button>
                     </Link>
 
