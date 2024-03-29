@@ -1,6 +1,6 @@
 @function generate-gradient($cols, $line-color) {
   $gradient: "";
-  $pin: 100 / $cols;
+  $pin: round(100 / $cols * 10) / 10;
   $step: $cols - 1;
 
   @for $i from 1 through $step {
@@ -11,14 +11,22 @@
 }
 
 @function gradient-line($line-color, $pin, $i, $step) {
-  $start: unquote("transparent #{(($pin * $i) - 5)}%");
-  $end: unquote("transparent #{(($pin * $i) + 5)}%");
-  $line-start: unquote("#{$line-color} #{(($pin * $i) - 2)}%");
-  $line-end: unquote("#{$line-color} #{(($pin * $i) + 2)}%");
+  $point: $pin * $i;
+
+  $line-weight: 6%;
+  $line-between: $pin / 100 * $line-weight;
+
+  $wrap-weight: 15%;
+  $wrap-between: $pin / 100 * $wrap-weight;
+
+  $wrap-start: unquote("transparent #{$point - $wrap-between}");
+  $wrap-end: unquote("transparent #{$point + $wrap-between}");
+  $line-start: unquote("#{$line-color} #{$point - $line-between}");
+  $line-end: unquote("#{$line-color} #{$point + $line-between}");
 
   @if $step != $i and $step > 1 {
-    $end: unquote("#{$end},");
+    $wrap-end: unquote("#{$wrap-end},");
   }
 
-  @return $start, $line-start, $line-end, $end;
+  @return $wrap-start, $line-start, $line-end, $wrap-end;
 }

@@ -4,8 +4,10 @@
 
 @mixin skeleton-text($line-count, $parent-bg: #ffffff) {
   &:empty {
-    position: relative;
     width: 100%;
+    position: relative;
+    padding: 0;
+
     background-color: #f7f7f7;
 
     &::after,
