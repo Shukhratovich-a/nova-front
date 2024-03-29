@@ -15,6 +15,12 @@ import styles from "./product-intro.module.scss";
 export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...props }) => {
   const { code, title, description, mainImage, schemeImage, boxImage } = product;
 
+  const images = [
+    { id: 1, image: mainImage },
+    { id: 2, image: schemeImage },
+    { id: 3, image: boxImage },
+  ];
+
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
       <div className={styles.text}>
@@ -43,45 +49,25 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
       </div>
 
       <Slider className={cn(styles.gallery)} type="dynamic" quantity={1}>
-        <SwiperSlide>
-          <Image
-            className={cn(styles.image, "swiper-slide-image")}
-            src={`${DOMAIN}${mainImage}`}
-            alt={title}
-            width={800}
-            height={400}
-            priority
-            quality={100}
-          />
-        </SwiperSlide>
+        {images.map(({ id, image }) => {
+          if (!image) return "";
 
-        {schemeImage && (
-          <SwiperSlide>
-            <Image
-              className={cn(styles.image, "swiper-slide-image")}
-              src={`${DOMAIN}${schemeImage}`}
-              alt={title}
-              width={800}
-              height={500}
-              priority
-              quality={100}
-            />
-          </SwiperSlide>
-        )}
-
-        {boxImage && (
-          <SwiperSlide>
-            <Image
-              className={cn(styles.image, "swiper-slide-image")}
-              src={`${DOMAIN}${boxImage}`}
-              alt={title}
-              width={800}
-              height={500}
-              priority
-              quality={100}
-            />
-          </SwiperSlide>
-        )}
+          return (
+            <SwiperSlide key={id}>
+              <div className={styles.image}>
+                <Image
+                  className={cn("swiper-slide-image")}
+                  src={`${DOMAIN}${image}`}
+                  alt={title}
+                  width={800}
+                  height={400}
+                  priority
+                  quality={100}
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Slider>
     </div>
   );

@@ -51,7 +51,7 @@
   margin-top: 10px;
   margin-inline-start: -7px;
   padding-inline-start: 7px;
-  
+
   grid-area: description;
 
   p {
@@ -77,15 +77,22 @@
 
 .image {
   max-width: 660px;
-  width: auto;
-  max-height: 400px !important;
-  height: auto;
+  max-height: 400px;
+  aspect-ratio: 1/1;
+
   margin: 0 auto;
-  object-fit: contain !important;
-  object-position: center;
+  padding: 20px;
 
   @include table {
     max-width: 100%;
+  }
+  
+  img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: contain !important;
+    object-position: center;
   }
 }
 
