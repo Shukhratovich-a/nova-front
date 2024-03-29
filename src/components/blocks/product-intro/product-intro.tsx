@@ -1,14 +1,12 @@
 import cn from "classnames";
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 import { ProductIntroProps } from "./product-intro.props";
 
-import { Button, Slider } from "@/components";
+import { Slider } from "@/components";
 
-import { IconArrowBottom } from "@/assets/icons";
-
+import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
 import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./product-intro.module.scss";
 
@@ -25,7 +23,6 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
     <div className={cn(styles.wrapper, className)} {...props}>
       <div className={styles.text}>
         <h1 className="color-accent">{code}</h1>
-
         <h2>{title}</h2>
       </div>
 
@@ -34,19 +31,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         dangerouslySetInnerHTML={{ __html: description }}
       />
 
-      {/* <p className={cn(styles.description, "subtitle-md", "custom-scrollbar")}>{description}</p> */}
-
-      <div className={styles.buttons}>
-        <Link href={`${DOMAIN}/file/download-product-file/${code}`}>
-          <Button appearance="yellow">
-            Скачать <IconArrowBottom />
-          </Button>
-        </Link>
-
-        <Link href={`${DOMAIN}/file/get-product-file/${code}`} target="_blank">
-          <Button appearance="outlined">Смотреть</Button>
-        </Link>
-      </div>
+      <PdfButtons name={code} type="product" className={styles.buttons} />
 
       <Slider className={cn(styles.gallery)} type="dynamic" quantity={1}>
         {images.map(({ id, image }) => {

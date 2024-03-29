@@ -1,7 +1,5 @@
 import cn from "classnames";
 import Image from "next/image";
-import Link from "next/link";
-import queryString from "query-string";
 import { FC, useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 
@@ -9,12 +7,13 @@ import { DOMAIN } from "@/helpers/api.helper";
 
 import { MediaIntroProps } from "./media-intro.props";
 
-import { Button, Slider } from "@/components";
+import { Slider } from "@/components";
 
 import CatalogBackground from "@images/catalog-background.webp";
 
-import styles from "./media-intro.module.scss";
+import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
 import { getPdfSupported } from "@/utils/is-pdf-support";
+import styles from "./media-intro.module.scss";
 
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
   const [isPDFSupported, setIsPDFSupported] = useState(true);
@@ -52,22 +51,7 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
 
                   {subtitle && <p className={cn("subtitle-lg color-gray")}>{subtitle}</p>}
 
-                  <div className={styles.buttons}>
-                    <Link
-                      href={queryString.stringifyUrl({ url: `${DOMAIN}/file/download-file`, query: { file: catalog } })}
-                    >
-                      <Button appearance="yellow">Скачать</Button>
-                    </Link>
-
-                    {isPDFSupported && (
-                      <Link
-                        href={queryString.stringifyUrl({ url: `${DOMAIN}/file/get-file`, query: { file: catalog } })}
-                        target="_blank"
-                      >
-                        <Button appearance="outlined">Смотреть</Button>
-                      </Link>
-                    )}
-                  </div>
+                  <PdfButtons name={catalog} type="catalog" className={styles.buttons} />
                 </div>
               </div>
             </SwiperSlide>
