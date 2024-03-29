@@ -53,3 +53,4 @@ export * from "./ui/loader/loader";
 export * from "./ui/button/button";
 export * from "./ui/youtube-player/youtube-player";
 export * from "./ui/empty-list/empty-list";
+export * from "./ui/fixed-icon/fixed-icon";
