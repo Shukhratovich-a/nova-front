@@ -1,6 +1,13 @@
 @import "@/styles/variables";
 @import "@/styles/media/media-queries";
 
+.gallery {
+  grid-area: gallery;
+  @include table {
+    margin-bottom: 30px;
+  }
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -25,8 +32,6 @@
       "gallery"
       "description"
       "buttons";
-
-    text-align: center;
   }
 
   @include mobile {
@@ -35,7 +40,7 @@
   }
 }
 
-.text {
+.head {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -43,6 +48,7 @@
 
   @include table {
     margin-bottom: 30px;
+    text-align: center;
   }
 }
 
@@ -89,35 +95,27 @@
   }
 }
 
-:global(.swiper-dynamic.swiper .swiper-slide):has(.image) {
-  display: flex;
-}
+// :global(.swiper-dynamic.swiper .swiper-slide):has(.image) {
+//   display: flex;
+// }
 
-.image {
-  max-width: 660px;
-  max-height: 400px;
+// .image {
+//   max-width: 660px;
+//   max-height: 400px;
 
-  aspect-ratio: 1/1;
-  margin: auto;
-  // padding: 20px;
+//   aspect-ratio: 1/1;
+//   margin: auto;
+//   // padding: 20px;
 
-  @include table {
-    max-width: 100%;
-  }
+//   @include table {
+//     max-width: 100%;
+//   }
 
-  img {
-    width: auto;
-    height: 100%;
-    margin: 0 auto;
-    object-fit: contain !important;
-    object-position: center;
-  }
-}
-
-.gallery {
-  grid-area: gallery;
-
-  @include mobile {
-    gap: 10px !important;
-  }
-}
+//   img {
+//     width: auto;
+//     height: 100%;
+//     margin: 0 auto;
+//     object-fit: contain !important;
+//     object-position: center;
+//   }
+// }
