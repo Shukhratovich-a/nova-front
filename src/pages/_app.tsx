@@ -1,6 +1,5 @@
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
-import { appWithTranslation, useTranslation } from "next-i18next";
-import { useEffect } from "react";
 
 import i18nextConfig from "../../next-i18next.config.js";
 
@@ -10,6 +9,7 @@ import "@/styles/globals.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "@/styles/slider/slider.scss";
+import "@/styles/gallery/gallery.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />;
