@@ -1,19 +1,18 @@
 import { DOMAIN } from "@/helpers/api.helper";
-import { getPdfSupported } from "@/utils/is-pdf-support";
 import cn from "classnames";
 import Link from "next/link";
 import queryString from "query-string";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Button from "../button/button";
 import styles from "./pdf-buttons.module.scss";
 import { PdfButtonsProps } from "./pdf-buttons.props";
 
 const PdfButtons: FC<PdfButtonsProps> = ({ name, type, className }) => {
-  const [isPDFSupported, setIsPDFSupported] = useState(true);
+  // const [isPDFSupported, setIsPDFSupported] = useState(true);
 
-  useEffect(() => {
-    setIsPDFSupported(getPdfSupported());
-  }, [isPDFSupported]);
+  // useEffect(() => {
+  //   setIsPDFSupported(getPdfSupported());
+  // }, [isPDFSupported]);
 
   const urls = {
     product: {
@@ -32,11 +31,11 @@ const PdfButtons: FC<PdfButtonsProps> = ({ name, type, className }) => {
         <Button appearance="yellow">Скачать</Button>
       </Link>
 
-      {isPDFSupported && (
+      {/* {isPDFSupported && (
         <Link href={urls[type].preview} target="_blank">
           <Button appearance="outlined">Смотреть</Button>
         </Link>
-      )}
+      )} */}
     </div>
   );
 };
