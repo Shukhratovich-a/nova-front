@@ -17,6 +17,11 @@
   right: 30px;
   bottom: 30px;
   z-index: 1;
+
+  @include mobile {
+    right: 15px;
+    bottom: 15px;
+  }
 }
 
 .icon {
@@ -35,6 +40,7 @@
 
   transform: scale(0.8);
   animation: scaleAnimation 1s linear infinite alternate;
+
   @include hover-control {
     animation-play-state: paused;
     & svg {
