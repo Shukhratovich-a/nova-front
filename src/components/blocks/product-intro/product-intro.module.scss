@@ -53,17 +53,19 @@
 }
 
 .description {
-  max-height: 300px;
-  height: fit-content;
-
-  overflow: auto;
-  overflow-x: hidden;
-
   margin-top: 10px;
   margin-inline-end: -7px;
   padding-inline-end: 7px;
 
   grid-area: description;
+
+  // @include table {
+  //   max-height: 300px;
+  //   height: fit-content;
+
+  //   overflow: auto;
+  //   overflow-x: hidden;
+  // }
 
   ul,
   ol,
@@ -87,7 +89,6 @@
 
   @include table {
     gap: 10px;
-    justify-content: center;
   }
 
   @include mobile {
