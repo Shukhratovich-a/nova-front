@@ -19,15 +19,15 @@ export const Footer: FC<FooterProps> = ({ className }) => {
   return (
     <footer className={cn(styles.wrapper, className)}>
       <div className={styles.social}>
-        <Link href={""} target="_blank">
+        <Link href="https://www.facebook.com/NovaPlastik" target="_blank">
           <IconFacebook className="color-accent" width={40} height={40} />
         </Link>
 
-        <Link href={""} target="_blank">
+        <Link href="https://www.youtube.com/@novaplastik1130" target="_blank">
           <IconYoutube className="color-accent" width={40} height={40} />
         </Link>
 
-        <Link href={""} target="_blank">
+        <Link href="https://vk.com/novaplastik" target="_blank">
           <IconVk className="color-accent" width={40} height={40} />
         </Link>
       </div>
