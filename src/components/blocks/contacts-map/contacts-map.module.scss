@@ -36,6 +36,7 @@
 .map {
   width: 100%;
   aspect-ratio: 235 / 132;
+  flex: 1;
 }
 
 .cardOrientRow {
@@ -66,6 +67,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  flex: 1;
 
   @include mobile {
     gap: 10px;
@@ -80,4 +82,7 @@
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(3, auto);
   gap: 10px;
+  p:global(.fw-bold) {
+    text-wrap: nowrap;
+  }
 }
