@@ -10,19 +10,6 @@ import { Slider } from "@/components";
 import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./home-intro.module.scss";
 
-const colorArray = [
-  "#a6babe",
-  "#A6ABBF",
-  "#A6BFB3",
-  "#A6B3BF",
-  "#999966",
-  "#A6BFBB",
-  "#809980",
-  "#999933",
-  "#66664D",
-  "#4D80CC",
-];
-
 export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
   return (
     <div className={styles.wrapper}>
@@ -30,7 +17,7 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
         {banners.map(({ id, poster, title, description, subtitle }, index) => {
           return (
             <SwiperSlide className={cn(styles.slide)} key={id}>
-              <div className={cn(styles.background)} style={{ backgroundColor: colorArray[index] }}>
+              <div className={cn(styles.background)}>
                 <Image
                   className="swiper-slide-image"
                   src={`${DOMAIN}${poster}`}
