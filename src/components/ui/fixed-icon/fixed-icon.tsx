@@ -1,19 +1,16 @@
 import { FC } from "react";
 
-import { IconVk } from "@/assets/icons";
+import { IconWhatsApp } from "@/assets/icons";
 
 import styles from "./fixed-icon.module.scss";
+import Link from "next/link";
 
-export const FixedIcon: FC<{ url?: string }> = ({ url }) => {
-  const handleNavigate = (url: string) => {
-    window.open(url, "_blank");
-  };
-
+export const FixedIcon: FC<{ url: string }> = ({ url = "https://api.whatsapp.com/send?phone=998933883042" }) => {
   return (
     <div className={styles.wrapper}>
-      <div onClick={() => handleNavigate(url || "https://vk.com/novaplastik")} className={styles.icon}>
-        <IconVk />
-      </div>
+      <Link href={url} target="_blank" title="WhatsApp" className={styles.icon}>
+        <IconWhatsApp />
+      </Link>
     </div>
   );
 };

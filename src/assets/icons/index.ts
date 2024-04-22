@@ -1,4 +1,5 @@
 export { default as IconSearch } from "./search.svg";
+export { default as IconWhatsApp } from "./whats-app.svg";
 export { default as IconFacebook } from "./facebook.svg";
 export { default as IconYoutube } from "./youtube.svg";
 export { default as IconVk } from "./vk.svg";
