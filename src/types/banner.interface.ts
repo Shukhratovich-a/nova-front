@@ -1,6 +1,7 @@
 export interface IBanner {
   id: string | number;
-  poster: string;
+  posterDesktop: string;
+  posterMobile: string;
   title: string;
   description: string;
   subtitle: string;
