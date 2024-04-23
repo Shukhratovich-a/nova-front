@@ -8,6 +8,17 @@
   }
 }
 
+.thumbnail {
+  width: 100px !important;
+  height: 100px !important;
+
+  img {
+    width: 92px !important;
+    height: 92px !important;
+    object-fit: contain !important;
+  }
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
