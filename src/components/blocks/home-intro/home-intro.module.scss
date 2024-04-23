@@ -74,6 +74,33 @@
   user-select: none;
   background-color: #a6babe;
 
+  &__desktop,
+  &__mobile {
+    position: inherit;
+
+    width: inherit;
+    height: inherit;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__desktop {
+    display: block;
+
+    @media (max-aspect-ratio: 5/4) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: none;
+
+    @media (max-aspect-ratio: 5/4) {
+      display: block;
+    }
+  }
+
   // &::before,
   // &::after {
   //   content: "";
