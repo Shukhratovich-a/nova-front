@@ -10,7 +10,7 @@ import { Map } from "@/components";
 import styles from "./contacts-map.module.scss";
 
 export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, ...props }) => {
-  const { map, address, type, phone, email, country } = contact;
+  const { map, address, type, phone, email, country, company } = contact;
 
   const { t } = useTranslation();
   const { t: countryT } = useTranslation("countries");
@@ -31,8 +31,15 @@ export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, 
         <h2 className={cn(styles.title, "color-accent")}>{`${t(type)} (${countryT(country)})`}</h2>
 
         <div className={styles.info}>
+          {company && (
+            <>
+              <p className="text-lg fw-bold">{`${t("company-name")} :`}</p>
+              <p className="text-lg">{company}</p>
+            </>
+          )}
           <p className="text-lg fw-bold">{`${t("address")} :`}</p>
           <p className="text-lg">{address}</p>
+
           <p className="text-lg fw-bold">{`${t("phone")} :`}</p>
           <Link href={`tel:${phone}`} className="color-accent text-lg">
             {phone}
