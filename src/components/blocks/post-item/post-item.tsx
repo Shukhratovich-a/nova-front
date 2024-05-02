@@ -25,7 +25,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
       )}
 
       <div className={cn(styles.content)}>
-        <p className={cn(styles.subtitle, "subtitle-sm")}>{subtitle}</p>
+        {subtitle && <p className={cn(styles.subtitle, "subtitle-sm")}>{subtitle}</p>}
 
         <div className={cn(styles.body, "text-lg")} dangerouslySetInnerHTML={{ __html: body }} />
       </div>
