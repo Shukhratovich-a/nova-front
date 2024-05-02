@@ -10,7 +10,7 @@ import { DOMAIN } from "@/helpers/api.helper";
 import styles from "./post-item.module.scss";
 
 export const PostItem: FC<PostItemProps> = ({ post }) => {
-  const { title, subtitle, body, image, createAt, type } = post;
+  const { title, subtitle, body, poster, image, createAt, type } = post;
 
   return (
     <div className={cn(styles.wrapper, styles[`wrapper--${type}`])}>
@@ -21,7 +21,14 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
       </div>
 
       {type !== "none" && (
-        <Image className={cn(styles.image)} width={1000} height={480} alt="" src={`${DOMAIN}${image}`} priority />
+        <Image
+          className={cn(styles.image)}
+          width={1000}
+          height={480}
+          alt=""
+          src={`${DOMAIN}${image || poster}`}
+          priority
+        />
       )}
 
       <div className={cn(styles.content)}>
