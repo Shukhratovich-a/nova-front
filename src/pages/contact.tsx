@@ -29,8 +29,8 @@ export const ContactPage: FC<ContactPageProps> = ({ _nextI18Next, ...rest }) => 
 
 export const getStaticProps: GetStaticProps<ContactPageProps> = async ({ locale }) => {
   try {
-    const { data: centrals } = await getByType(ContactTypeEnum.CENTRAL);
-    const { data: factories } = await getByType(ContactTypeEnum.FACTORY);
+    const { data: centrals } = await getByType(ContactTypeEnum.CENTRAL, locale);
+    const { data: factories } = await getByType(ContactTypeEnum.FACTORY, locale);
 
     return {
       props: {

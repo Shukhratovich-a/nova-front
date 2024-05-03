@@ -13,7 +13,6 @@ export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, 
   const { map, address, type, phone, email, country, company } = contact;
 
   const { t } = useTranslation();
-  const { t: countryT } = useTranslation("countries");
 
   return (
     <div
@@ -28,7 +27,7 @@ export const ContactsMap: FC<ContactsMapProps> = ({ className, contact, orient, 
       </div>
 
       <div className={styles.content}>
-        <h2 className={cn(styles.title, "color-accent")}>{`${t(type)} (${countryT(country)})`}</h2>
+        <h2 className={cn(styles.title, "color-accent")}>{`${t(type)} (${country})`}</h2>
 
         <div className={styles.info}>
           {company && (
