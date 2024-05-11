@@ -1,6 +1,6 @@
 import cn from "classnames";
 import Image from "next/image";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 
 import { DOMAIN } from "@/helpers/api.helper";
@@ -12,21 +12,14 @@ import { Slider } from "@/components";
 import CatalogBackground from "@images/catalog-background.webp";
 
 import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
-import { getPdfSupported } from "@/utils/is-pdf-support";
 import styles from "./media-intro.module.scss";
 
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
-  const [isPDFSupported, setIsPDFSupported] = useState(true);
-
   const catalogBg = (
     <div className={cn("swiper-slide-image", styles.background)}>
       {CatalogBackground && <Image fill priority alt="catalog background image" src={CatalogBackground} />}
     </div>
   );
-
-  useEffect(() => {
-    setIsPDFSupported(getPdfSupported());
-  }, [isPDFSupported]);
 
   return (
     <div className={styles.wrapper}>
