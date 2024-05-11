@@ -7,6 +7,9 @@
   "news": "News",
   "news-related": "Related news",
 
+  "more": "More",
+  "hide": "Hide",
+
   "category": "Product categories",
 
   "product": "Product",
@@ -28,6 +31,8 @@
   "address": "Address",
   "phone": "Phone",
   "email": "E-mail",
+
+  "allRightsReserved": "All rights reserved",
 
   "menu": {
     "home": "Home",

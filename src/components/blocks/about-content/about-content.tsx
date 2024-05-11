@@ -8,9 +8,11 @@ import { AboutContentProps } from "./about-content.props";
 import { Button } from "@/components";
 
 import { DOMAIN } from "@/helpers/api.helper";
+import { useTranslation } from "next-i18next";
 import styles from "./about-content.module.scss";
 
 export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...props }) => {
+  const { t } = useTranslation();
   const [isOpenArray, setIsOpenArray] = useState<boolean[]>([]);
   const descriptionRefs = useRef<Array<RefObject<HTMLDivElement>>>([]);
 
@@ -80,7 +82,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...prop
               />
 
               <Button className={styles.button} onClick={() => toggleOpen(index)}>
-                {isOpenArray[index] ? "Скрыть" : "Подробнее"}
+                {isOpenArray[index] ? t("hide") : t("more")}
               </Button>
             </div>
           </div>

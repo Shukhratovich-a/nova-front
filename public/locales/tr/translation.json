@@ -7,6 +7,9 @@
   "news": "Haberler",
   "news-related": "Benzer haberler",
 
+  "more": "Daha",
+  "hide": "Gizle",
+
   "category": "Ürün kategorileri",
 
   "product": "Ürün",
@@ -28,6 +31,8 @@
   "address": "Adres",
   "phone": "Telefon",
   "email": "E-Posta",
+
+  "allRightsReserved": "Tüm hakları saklıdır",
 
   "menu": {
     "home": "Ana sayfa",

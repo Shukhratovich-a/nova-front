@@ -7,6 +7,9 @@
   "news": "الاخبار",
   "news-related": "الاخبار المتشابهة",
 
+  "more": "More",
+  "hide": "Hide",
+
   "category": "فئات المنتجات",
 
   "product": "منتج",
@@ -28,6 +31,9 @@
   "address": "العنوان",
   "phone": "تلفون",
   "email": "البريد الالكتروني",
+
+  "allRightsReserved": "All rights reserved",
+
 
   "menu": {
     "home": "الصفحة الرئيسية",
