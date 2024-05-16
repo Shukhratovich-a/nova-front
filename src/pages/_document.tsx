@@ -10,7 +10,7 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     const currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
-    
+
     // Устанавливает класс направления тела документа при изменении языка
     const isRtl = currentLocale === "ar" ? "content-rtl" : "";
 
@@ -28,6 +28,43 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
+
+          {/* <!-- Primary Meta Tags --> */}
+          <meta name="title" content="Nova Plastik - Ваш надежный поставщик сантехники" />
+          <meta
+            name="description"
+            content="Ознакомьтесь с широким ассортиментом высококачественной сантехники и приспособлений по выгодным ценам. Покупайте смесители, раковины, трубы и многое другое от ведущих брендов. Быстрая доставка и отличное обслуживание клиентов."
+          />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://novaplastik.uz" />
+          <meta property="og:title" content="Nova Plastik - Ваш надежный поставщик сантехники" />
+          <meta
+            property="og:description"
+            content="Ознакомьтесь с широким ассортиментом высококачественной сантехники и приспособлений по выгодным ценам. Покупайте смесители, раковины, трубы и многое другое от ведущих брендов. Быстрая доставка и отличное обслуживание клиентов."
+          />
+          <meta property="og:image" content="https://i.ibb.co/vBDgkb0/novaplastik-1440x1700-rounded-minify.webp" />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="novaplastik.uz" />
+          <meta property="twitter:url" content="https://novaplastik.uz" />
+          <meta property="twitter:title" content="Nova Plastik - Ваш надежный поставщик сантехники" />
+          <meta
+            property="twitter:description"
+            content="Ознакомьтесь с широким ассортиментом высококачественной сантехники и приспособлений по выгодным ценам. Покупайте смесители, раковины, трубы и многое другое от ведущих брендов. Быстрая доставка и отличное обслуживание клиентов."
+          />
+          <meta property="twitter:image" content="https://i.ibb.co/vBDgkb0/novaplastik-1440x1700-rounded-minify.webp" />
+
+          <meta
+            name="keywords"
+            content="сантехника, сантехнические изделия, nova, nova plastik, трубы, фитинги, смесители, ванны, унитазы, аксессуары для ванной комнаты, кухонные мойки, водонагреватели, дренажные системы"
+          />
+
+          <meta name="robots" content="index, follow" />
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="language" content="Russian" />
         </Head>
         <body className={isRtl}>
           <Main />
