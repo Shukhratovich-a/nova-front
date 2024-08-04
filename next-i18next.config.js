@@ -7,7 +7,7 @@ module.exports = {
       "ru",
       "tr",
       // ar-off
-      // "ar"
+      "ar",
     ],
   },
   react: { useSuspense: true },

@@ -23,9 +23,6 @@
   width: calc(100% + 15px);
   height: 0;
 
-  display: flex;
-  justify-content: center;
-
   background-color: $accent;
   border-radius: 8px;
 
@@ -44,7 +41,7 @@
 
 .open {
   & .options {
-    min-height: 200%;
+    min-height: 300%;
   }
 
   & .button::after {

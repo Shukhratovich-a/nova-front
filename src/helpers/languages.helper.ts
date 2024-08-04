@@ -9,7 +9,7 @@ export const languages = [
     locale: "tr",
   },
   // ar-off
-  // {
-  //   locale: "ar",
-  // },
+  {
+    locale: "ar",
+  },
 ];
