@@ -24,7 +24,8 @@ export const loadMoreReducer = <T>(
     case "reset": {
       return {
         ...state,
-        limitedItems: state.allItems.slice(0, 10),
+        allItems: action.initialState,
+        limitedItems: action.initialState.slice(0, 10),
         limit: 10,
       };
     }
