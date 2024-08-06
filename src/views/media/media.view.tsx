@@ -16,7 +16,7 @@ export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   return (
     <div className="main-margin">
       {/* {!!catalogs?.length && (
-        <section>
+        <section>p
           <MediaIntro catalogs={catalogs} />
         </section>
       )} */}
