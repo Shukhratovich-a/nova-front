@@ -20,7 +20,7 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN }} >> .env
+          echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_EG }} >> .env
           echo DEFAULT_LANG=ru >> .env
 
       - name: 🔨 Build Project
@@ -32,7 +32,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.SERVER }}
-          username: ${{ secrets.USER }}
+          username: ${{ secrets.USER_EG }}
           password: ${{ secrets.PASSWORD }}
           protocol: ${{ secrets.PROTOCOL }}
           local-dir: "./.next/standalone/"
