@@ -9,9 +9,10 @@ module.exports = {
       // ar-off
       "ar",
     ],
+    localeDetection: false,
   },
-  react: { useSuspense: true },
 
+  react: { useSuspense: true },
   defaultNS: "translation",
   ns: ["translation", "countries"],
 };
