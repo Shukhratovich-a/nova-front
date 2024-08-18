@@ -1,27 +1,28 @@
 {
   "certificates": "الشهادات",
-  "catalogs": "فهرس",
-  "video": "فيديوهات التثبيت",
-  "company-name": "none",
+  "catalogs": "الكالوجات",
+  "video": "فيديوهات ارشادات التركيب",
+  "company-name": "اسم الشركة",
 
   "news": "الاخبار",
-  "news-related": "الاخبار المتشابهة",
+  "news-related": "منتجات مشابهة",
 
-  "more": "More",
-  "hide": "Hide",
+  "more": "المزيد",
+  "hide": "يخفي",
 
   "category": "فئات المنتجات",
 
   "product": "منتج",
+  "product-info": "بيانات عن  المنتج",
   "products": "المنتجات",
-  "products-related": "المنتجات المتشابهة",
+  "products-related": "منتجات مشابهة",
   "all-products": "جميع المنتجات",
 
-  "show": "إظهار",
-  "show-all": "عرض الكل",
-  "show-more": "عرض المزيد",
+  "show": "اظهر",
+  "show-all": "اظهر الكل",
+  "show-more": "اظهر المزيد",
 
-  "download": "تحميل",
+  "download": "تنزيل",
   "product-download": "تحميل بطاقة المنتج",
 
   "contacts": "جهات الاتصال",
@@ -32,16 +33,15 @@
   "phone": "تلفون",
   "email": "البريد الالكتروني",
 
-  "allRightsReserved": "All rights reserved",
-
+  "allRightsReserved": "جميع الحقوق محفوظة",
 
   "menu": {
-    "home": "الصفحة الرئيسية",
-    "about": "من نحن",
+    "home": "الرئيسية",
+    "about": "عن شركتنا",
     "products": "المنتجات",
-    "media": "المعرض",
+    "media": "الصحافة و الاعلام",
     "news": "الاخبار",
-    "contact": "جهات التواصل"
+    "contact": "اتصل بنا"
   },
 
   "empty": {
