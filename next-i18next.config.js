@@ -2,16 +2,11 @@
 module.exports = {
   i18n: {
     defaultLocale: process.env.DEFAULT_LANG || "en",
-    locales: [
-      "en",
-      "ru",
-      "tr",
-      // ar-off
-      "ar",
-    ],
+    locales: ["en", "ru", "tr", "ar"],
+    localeDetection: false,
   },
-  react: { useSuspense: true },
 
+  react: { useSuspense: true },
   defaultNS: "translation",
   ns: ["translation", "countries"],
 };
