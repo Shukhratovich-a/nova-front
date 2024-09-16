@@ -35,7 +35,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
         <Logo width={142} height={40} />
 
         <p className={cn(styles["copyright-info"], "text-md color-gray")}>
-          © NOVA Plastic 2024. {t("allRightsReserved")}
+          © Nova Plastik 2024. {t("allRightsReserved")}
         </p>
 
         <nav>
