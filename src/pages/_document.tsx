@@ -22,7 +22,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ea" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1d5b7d" />
           <meta name="apple-mobile-web-app-title" content="Nova Plastik" />
           <meta name="application-name" content="Nova Plastik" />
           <meta name="msapplication-TileColor" content="#2d89ef" />

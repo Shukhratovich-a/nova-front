@@ -7,11 +7,6 @@
   margin-bottom: 80px;
 }
 
-.title {
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
 .block {
   display: flex;
   align-items: flex-start;
@@ -63,7 +58,7 @@
 
   // если описание не превышает лимит высоты
   &-within-limit {
-    & .button {
+    & .button { 
       display: none;
     }
     & .description {
@@ -78,6 +73,7 @@
 }
 
 .title {
+  text-transform: uppercase;
   margin-bottom: 20px;
   @include table {
     margin-bottom: 10px;
