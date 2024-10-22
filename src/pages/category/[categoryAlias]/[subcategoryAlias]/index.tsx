@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticPaths, GetStaticPathsContext, GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
@@ -26,31 +26,31 @@ const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPathsContext) => {
-  let paths: string[] = [];
+// export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPathsContext) => {
+//   let paths: string[] = [];
 
-  for (let locale of locales as string[]) {
-    const {
-      data: { data: categories },
-    } = await getAllWithChildren({ language: locale });
+//   for (let locale of locales as string[]) {
+//     const {
+//       data: { data: categories },
+//     } = await getAllWithChildren({ language: locale });
 
-    paths = paths.concat(
-      categories.flatMap((category) =>
-        category.subcategories!.map((subcategory) => `/${locale}/category/${category.alias}/${subcategory.alias}`)
-      )
-    );
-  }
+//     paths = paths.concat(
+//       categories.flatMap((category) =>
+//         category.subcategories!.map((subcategory) => `/${locale}/category/${category.alias}/${subcategory.alias}`)
+//       )
+//     );
+//   }
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
 
-export const getStaticProps: GetStaticProps<SubcategoryProps> = async ({
+export const getServerSideProps: GetServerSideProps<SubcategoryProps> = async ({
   locale,
   params,
-}: GetStaticPropsContext<ParsedUrlQuery>) => {
+}: GetServerSidePropsContext<ParsedUrlQuery>) => {
   if (!params) return { notFound: true };
 
   const alias = params.subcategoryAlias as string;

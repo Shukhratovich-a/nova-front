@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
@@ -38,24 +38,24 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  let paths: string[] = [];
+// export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+//   let paths: string[] = [];
 
-  for (let locale of locales as string[]) {
-    const {
-      data: { data: products },
-    } = await getAll({ limit: 1000000000000, language: locale });
+//   for (let locale of locales as string[]) {
+//     const {
+//       data: { data: products },
+//     } = await getAll({ limit: 1000000000000, language: locale });
 
-    paths = paths.concat(products.map((product) => `/${locale}/product/${product.code}`));
-  }
+//     paths = paths.concat(products.map((product) => `/${locale}/product/${product.code}`));
+//   }
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
 
-export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params, locale }) => {
+export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({ params, locale }) => {
   if (!params) return { notFound: true };
 
   const code = params.code as string;
