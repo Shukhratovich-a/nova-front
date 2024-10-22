@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
@@ -6,7 +6,7 @@ import { FC } from "react";
 
 import { IProduct } from "@/types/product.interface";
 
-import { getAll, getByCode, getRelated } from "@/api/product.api";
+import { getByCode, getRelated } from "@/api/product.api";
 
 import { withLayout } from "@/layout/layout";
 
@@ -76,7 +76,7 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
         relatedProducts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return { notFound: true };

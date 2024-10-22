@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
@@ -39,27 +39,27 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPathsContext) => {
-  let paths: string[] = [];
+// export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPathsContext) => {
+//   let paths: string[] = [];
 
-  for (let locale of locales as string[]) {
-    const {
-      data: { data: posts },
-    } = await getAll({ language: locale });
+//   for (let locale of locales as string[]) {
+//     const {
+//       data: { data: posts },
+//     } = await getAll({ language: locale });
 
-    paths = paths.concat(posts.map((post) => `/${locale}/news/${post.alias}`));
-  }
+//     paths = paths.concat(posts.map((post) => `/${locale}/news/${post.alias}`));
+//   }
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
 
-export const getStaticProps: GetStaticProps<PostPageProps> = async ({
+export const getServerSideProps: GetServerSideProps<PostPageProps> = async ({
   params,
   locale,
-}: GetStaticPropsContext<ParsedUrlQuery>) => {
+}: GetServerSidePropsContext<ParsedUrlQuery>) => {
   if (!params) return { notFound: true };
 
   const alias = params.alias as string;
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
         relatedPosts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return { notFound: true };

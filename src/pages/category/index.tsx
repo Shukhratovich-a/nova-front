@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps<CategoriesProps> = async ({
       total,
       ...(await serverSideTranslations(String(locale))),
     },
-    revalidate: 1,
+    // revalidate: 1,
   };
 };
 

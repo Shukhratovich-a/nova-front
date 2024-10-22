@@ -1,16 +1,17 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { FC } from "react";
 
 import { getAll as getAllCertificate } from "@/api/certificate.api";
 import { getCards } from "@/api/video.api";
+import { getAll as getAllCatalogs } from "@/api/catalog.api";
 import { withLayout } from "@/layout/layout";
 
-import { getAll as getAllCatalogs } from "@/api/catalog.api";
 import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
 import { IVideoCard } from "@/types/video.interface";
+
 import { MediaView } from "@/views";
 
 export const MediaPage: FC<MediaPageProps> = ({ _nextI18Next, ...rest }) => {
@@ -25,7 +26,7 @@ export const MediaPage: FC<MediaPageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<MediaPageProps> = async ({ locale }) => {
   try {
     const video = await getCards({ language: locale });
 
@@ -42,7 +43,7 @@ export const getStaticProps: GetStaticProps<MediaPageProps> = async ({ locale })
         catalogs,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return {

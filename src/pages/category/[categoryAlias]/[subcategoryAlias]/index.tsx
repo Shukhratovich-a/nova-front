@@ -1,6 +1,5 @@
 import { FC } from "react";
-import Link from "next/link";
-import { GetStaticPaths, GetStaticPathsContext, GetServerSideProps, GetServerSidePropsContext } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
@@ -8,7 +7,6 @@ import { ParsedUrlQuery } from "querystring";
 import { ISubcategory } from "@/types/subcategory.interface";
 
 import { getByAlias } from "@/api/subcategory.api";
-import { getAllWithChildren } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
 
@@ -65,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<SubcategoryProps> = async ({
         subcategory,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return { notFound: true };

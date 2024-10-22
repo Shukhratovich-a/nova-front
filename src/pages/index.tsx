@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { FC } from "react";
@@ -31,7 +31,7 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
   try {
     const {
       data: { data: banners },
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return {
