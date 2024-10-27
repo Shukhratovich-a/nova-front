@@ -6,7 +6,7 @@
 
 body,
 p {
-  font-family: "Inter", "Rubik", "Arial", sans-serif;
+  font-family: "Inter", "Rubik", "Tajawal", "Arial", sans-serif;
 
   font-size: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 14-16
   line-height: clamp(0.875rem, 0.825rem + 0.19vw, 1rem); // 18-24
@@ -15,6 +15,7 @@ p {
 
 .content-rtl {
   direction: rtl;
+  font-family: "Tajawal", "Inter", "Rubik", "Arial", sans-serif !important;
 }
 
 .container {
