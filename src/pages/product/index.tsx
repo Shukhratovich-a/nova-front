@@ -1,8 +1,8 @@
-import { FC } from "react";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
+import { FC } from "react";
 
 import { IProduct } from "@/types/product.interface";
 

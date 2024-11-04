@@ -1,14 +1,11 @@
+import { ProductCard, Slider } from "@/components";
+import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
 import cn from "classnames";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
-
-import { MediaProps } from "./media.props";
-
-import { ProductCard, Slider } from "@/components";
-
-import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
 import styles from "./media.module.scss";
+import { MediaProps } from "./media.props";
 
 export const MediaView: FC<MediaProps> = ({ video, certificate, catalogs }) => {
   const { t } = useTranslation();
