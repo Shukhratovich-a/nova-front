@@ -13,6 +13,7 @@ import styles from "./layout.module.scss";
 
 const Header = dynamic(() => import("./header/header"), { ssr: false });
 const Sidebar = dynamic(() => import("./sidebar/sidebar"), { ssr: false });
+const whatsappPhone = process?.env?.WHATSAPP_PHONE;
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
@@ -22,7 +23,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
       <main className={cn(styles.main)}>
         {children}
-        <FixedIcon />
+        {whatsappPhone && <FixedIcon />}
       </main>
 
       <Footer className={cn(styles.footer)} />
