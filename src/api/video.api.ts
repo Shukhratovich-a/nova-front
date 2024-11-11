@@ -18,7 +18,8 @@ export const getById = async (id: string, options?: IGetOneOptions) => {
 
 export const getCards = async (options?: IGetManyOptions) => {
   const getYoutubePoster = (url: string) => {
-    // Проверяем, является ли URL корректным URL YouTube видео
+    if (!url) return "";
+
     const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
     const match = url.match(youtubeUrlRegex);
     const videoId = match && match[4];
@@ -30,7 +31,7 @@ export const getCards = async (options?: IGetManyOptions) => {
   const videoCards = data.map(({ id, title, video, products }) => {
     let code = "";
 
-    if (products) code = `${products[0].code} ${products[products.length - 1].code}`;
+    if (products && !!products?.length) code = `${products[0].code} ${products[products.length - 1].code}`;
 
     return { id, title, poster: getYoutubePoster(video), code };
   });
