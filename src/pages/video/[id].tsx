@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 
@@ -23,22 +23,22 @@ export const VideoPage: FC<VideoPageProps> = ({ video }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  let paths: string[] = [];
+// export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+//   let paths: string[] = [];
 
-  for (let locale of locales as string[]) {
-    const { data: videos } = await getAll({ limit: 1000000000000, language: locale });
+//   for (let locale of locales as string[]) {
+//     const { data: videos } = await getAll({ limit: 1000000000000, language: locale });
 
-    paths = paths.concat(videos.map((video) => `/${locale}/video/${video.id}`));
-  }
+//     paths = paths.concat(videos.map((video) => `/${locale}/video/${video.id}`));
+//   }
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
 
-export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ params, locale }) => {
+export const getServerSideProps: GetServerSideProps<VideoPageProps> = async ({ params, locale }) => {
   if (!params) return { notFound: true };
 
   const id = params.id as string;
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ params, l
         video,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return { notFound: true };

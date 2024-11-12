@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -26,7 +26,7 @@ const AboutPage: FC<AboutPageProps> = ({ abouts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<AboutPageProps> = async ({ locale }) => {
   try {
     const {
       data: { data: abouts },
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<AboutPageProps> = async ({ locale })
         abouts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return {

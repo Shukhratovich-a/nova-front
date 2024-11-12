@@ -21,7 +21,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_UZ }} >> .env
-          echo DEFAULT_LANG=ru >> .env
+          echo DEFAULT_LANG=en >> .env
 
       - name: 🔨 Build Project
         run: |
@@ -53,7 +53,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_TR }} >> .env
-          echo DEFAULT_LANG=tr >> .env
+          echo DEFAULT_LANG=en >> .env
 
       - name: 🔨 Build Project
         run: |
@@ -85,7 +85,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_EG }} >> .env
-          echo DEFAULT_LANG=ar >> .env
+          echo DEFAULT_LANG=en >> .env
 
       - name: 🔨 Build Project
         run: |

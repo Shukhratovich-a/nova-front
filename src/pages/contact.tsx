@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -27,7 +27,7 @@ export const ContactPage: FC<ContactPageProps> = ({ _nextI18Next, ...rest }) => 
   );
 };
 
-export const getStaticProps: GetStaticProps<ContactPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ locale }) => {
   try {
     const { data: centrals } = await getByType(ContactTypeEnum.CENTRAL, locale);
     const { data: factories } = await getByType(ContactTypeEnum.FACTORY, locale);
@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps<ContactPageProps> = async ({ locale 
         factories,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
   } catch {
     return {
