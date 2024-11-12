@@ -5,7 +5,8 @@ import { IconWhatsApp } from "@/assets/icons";
 import styles from "./fixed-icon.module.scss";
 import Link from "next/link";
 
-export const FixedIcon: FC<{ url?: string }> = ({ url = "https://api.whatsapp.com/send?phone=998933883042" }) => {
+const whatsappPhone = process?.env?.WHATSAPP_PHONE;
+export const FixedIcon: FC<{ url?: string }> = ({ url = `https://api.whatsapp.com/send?phone=${whatsappPhone}` }) => {
   return (
     <div className={styles.wrapper}>
       <Link href={url} target="_blank" title="WhatsApp" className={styles.icon}>

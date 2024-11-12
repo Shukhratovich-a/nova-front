@@ -15,3 +15,24 @@ export interface IVideoCard {
   title: string;
   code: string;
 }
+
+export interface IProductVideo {
+  id: number;
+  video: string;
+  products: [
+    {
+      id: number;
+      code: string;
+      mainImage: string;
+      boxImage: null | string;
+      schemeImage: string;
+      title: string;
+      description: string;
+      createAt: string;
+      updateAt: string;
+    }
+  ];
+  createAt: string;
+  updateAt: string;
+  title: string;
+}

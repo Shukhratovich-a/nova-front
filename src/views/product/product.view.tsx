@@ -1,13 +1,19 @@
-import { FC } from "react";
-import { useTranslation } from "next-i18next";
-import cn from "classnames";
-
-import { ProductProps } from "./product.props";
-
+import { getByProductId } from "@/api/video.api";
 import { Breadcrumbs, ProductInfo, ProductIntro, ProductRelated } from "@/components";
+import ProductVideos from "@/components/product-videos/product-videos";
+import { IVideoCard } from "@/types/video.interface";
+import cn from "classnames";
+import { useTranslation } from "next-i18next";
+import { FC, useEffect, useState } from "react";
+import { ProductProps } from "./product.props";
 
 export const ProductView: FC<ProductProps> = ({ className, product, relatedProducts, ...props }) => {
   const { t } = useTranslation();
+  const [productVideoData, setProductVideoData] = useState<IVideoCard[]>([]);
+
+  useEffect(() => {
+    getByProductId(product?.id).then((data) => setProductVideoData(data));
+  }, [product?.id]);
 
   const { subcategory } = product;
 
@@ -33,6 +39,11 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
         </section>
       )}
 
+      {!!productVideoData?.length && (
+        <section>
+          <ProductVideos videos={productVideoData} />
+        </section>
+      )}
       <section>
         <ProductRelated relatedProducts={relatedProducts} />
       </section>
