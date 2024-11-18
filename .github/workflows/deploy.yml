@@ -22,6 +22,7 @@ jobs:
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_UZ }} >> .env
           echo DEFAULT_LANG=en >> .env
+          echo NEXT_PUBLIC_WHATSAPP_PHONE=+998933883042 >> .env
 
       - name: 🔨 Build Project
         run: |
@@ -54,6 +55,7 @@ jobs:
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_TR }} >> .env
           echo DEFAULT_LANG=en >> .env
+          echo NEXT_PUBLIC_WHATSAPP_PHONE=+905494886682 >> .env
 
       - name: 🔨 Build Project
         run: |
