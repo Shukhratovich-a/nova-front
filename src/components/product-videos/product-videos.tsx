@@ -1,7 +1,7 @@
 import { IVideoCard } from "@/types/video.interface";
 import cn from "classnames";
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { SwiperSlide } from "swiper/react";
 import ProductCard from "../cards/product/product-card";
 import Slider from "../slider/slider";
