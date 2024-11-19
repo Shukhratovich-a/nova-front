@@ -9,14 +9,16 @@ export const VideoContent: FC<VideoContentProps> = ({ video, children, ...props 
   return (
     <div className={styles.wrapper} {...props}>
       <YoutubePlayer className={styles.video} width={1440} height={684} url={url} />
-      <div className={styles.content}>
-        <h2 className={styles.title}>товары, связанные с видео</h2>
-        <div className={styles.products}>
-          {products?.map((item) => {
-            return <ProductCard key={item.id} product={item} card={"product"} />;
-          })}
+      {products?.length !== 0 && (
+        <div className={styles.content}>
+          <h2 className={styles.title}>товары, связанные с видео</h2>
+          <div className={styles.products}>
+            {products?.map((item) => {
+              return <ProductCard key={item.id} product={item} card={"product"} />;
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
