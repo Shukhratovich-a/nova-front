@@ -8,7 +8,6 @@ import { InstallationProps } from "./installation.props";
 
 export const InstallationView: FC<InstallationProps> = ({ video }) => {
   const { t } = useTranslation();
-  const vidoes = Array.from({ length: 20 }).map(() => video[0]);
 
   return (
     // <div className="main-margin">
@@ -29,7 +28,7 @@ export const InstallationView: FC<InstallationProps> = ({ video }) => {
     //   )}
     // </div>
     <div className="main-margin container">
-      <VideosList videos={vidoes} />
+      <VideosList videos={video} />
     </div>
   );
 };
