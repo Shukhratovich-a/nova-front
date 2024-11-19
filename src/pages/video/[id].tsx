@@ -1,11 +1,11 @@
-import { FC } from "react";
-import { GetStaticPaths, GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import { FC } from "react";
 
 import { IVideo } from "@/types/video.interface";
 
-import { getAll, getById } from "@/api/video.api";
+import { getById, getByInstallationId } from "@/api/video.api";
 
 import { withLayout } from "@/layout/layout";
 
@@ -41,11 +41,15 @@ export const VideoPage: FC<VideoPageProps> = ({ video }) => {
 export const getServerSideProps: GetServerSideProps<VideoPageProps> = async ({ params, locale }) => {
   if (!params) return { notFound: true };
 
-  const id = params.id as string;
+  const id = params?.id as string;
+  const isInstalationVidoe = id?.includes("i");
   if (!id) return { notFound: true };
 
   try {
-    const { data: video } = await getById(id, { language: locale });
+    const { data: video } = await (isInstalationVidoe
+      ? getByInstallationId(id?.replace("i", ""), { language: locale })
+      : getById(id, { language: locale }));
+
     if (!video) return { notFound: true };
 
     return {

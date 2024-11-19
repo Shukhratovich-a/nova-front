@@ -9,7 +9,11 @@ import styles from "./product-card.module.scss";
 import { ProductCardProps } from "./product-card.props";
 
 export const ProductCard: FC<ProductCardProps> = ({ className, product, card: type = "product", ...props }) => {
-  const title = product.title;
+  const { push } = useRouter();
+
+  if (!product) return;
+
+  const title = product?.title;
   let code = "";
   let image = "";
   let url = "";
@@ -20,19 +24,19 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
   const isCatalog = type === "catalog" && "poster" in product && "catalog" in product;
 
   if (isProduct) {
-    code = product.code;
-    image = `${DOMAIN}${product.mainImage}`;
-    url = `/product/${product.code}`;
+    code = product?.code;
+    image = `${DOMAIN}${product?.mainImage}`;
+    url = `/product/${product?.code}`;
   } else if (isCertificate) {
-    image = `${DOMAIN}${product.poster}`;
-    url = `${DOMAIN}${product.certificate}`;
+    image = `${DOMAIN}${product?.poster}`;
+    url = `${DOMAIN}${product?.certificate}`;
   } else if (isVideo) {
-    image = product.poster;
-    url = `/video/${product.id}`;
-    code = product.code;
+    image = product?.poster;
+    url = `/video/${product?.id}`;
+    code = product?.code;
   } else if (isCatalog) {
-    image = `${DOMAIN}${product.poster}`;
-    url = `${DOMAIN}${product.catalog}`;
+    image = `${DOMAIN}${product?.poster}`;
+    url = `${DOMAIN}${product?.catalog}`;
   }
 
   const wrapperClass = cn(styles.card, {
@@ -40,8 +44,6 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
     [styles.catalog]: isCatalog,
     [styles.video]: isVideo,
   });
-
-  const { push } = useRouter();
 
   const handleNavigation = () => {
     if (isCertificate || isCatalog) window.open(url, "_blank");

@@ -1,0 +1,24 @@
+.title {
+  margin-bottom: 30px;
+}
+
+.block-mb {
+  margin-bottom: 80px;
+}
+
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pdfButton {
+  a,
+  button {
+    width: 100%;
+    justify-content: center;
+  }
+  button {
+    padding: 7px 32px;
+  }
+}

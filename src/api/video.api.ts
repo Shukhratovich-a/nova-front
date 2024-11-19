@@ -2,7 +2,7 @@ import queryString from "query-string";
 import axios from "./axios";
 
 import { IGetManyOptions, IGetOneOptions } from "@/types/request.interface";
-import { IProductVideo, IVideo } from "@/types/video.interface";
+import { IInstalattionVideo, IProductVideo, IVideo } from "@/types/video.interface";
 
 const getYoutubePoster = (url: string) => {
   // Проверяем, является ли URL корректным URL YouTube видео
@@ -25,8 +25,19 @@ export const getAll = async (options?: IGetManyOptions) => {
   return axios.get<IVideo[]>(query);
 };
 
+export const getAllInstallationVideo = async (options?: IGetManyOptions) => {
+  const query = queryString.stringifyUrl({ url: `/installation/get-all`, query: { ...options } });
+
+  return axios.get<IInstalattionVideo[]>(query);
+};
+
 export const getById = async (id: string, options?: IGetOneOptions) => {
   const query = queryString.stringifyUrl({ url: `/video/get-by-id/${id}`, query: { ...options } });
+
+  return axios.get<IVideo>(query);
+};
+export const getByInstallationId = async (id: string, options?: IGetOneOptions) => {
+  const query = queryString.stringifyUrl({ url: `/installation/get-by-id/${id}`, query: { ...options } });
 
   return axios.get<IVideo>(query);
 };
@@ -52,6 +63,19 @@ export const getCards = async (options?: IGetManyOptions) => {
     const poster = getYoutubePoster(video);
 
     return { id, title, poster, code };
+  });
+
+  return videoCards;
+};
+
+export const getInstallationCards = async (options?: IGetManyOptions) => {
+  const { data } = await getAllInstallationVideo(options);
+
+  const videoCards = data?.map(({ id, title, installation, products }) => {
+    const code = getVideoCode(products);
+    const poster = getYoutubePoster(installation);
+
+    return { id: `i${id}`, title, poster, code };
   });
 
   return videoCards;
