@@ -1,6 +1,6 @@
 {
   "name": "nova-front",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -37,4 +37,3 @@
     "typescript": "5.3.3"
   }
 }
-
