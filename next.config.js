@@ -32,7 +32,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "api.novaplastik.com",
+        hostname: "eg.novaplastik.com",
       },
       {
         protocol: "http",
