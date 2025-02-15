@@ -31,7 +31,7 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ res, locale }) => {
   try {
     const {
       data: { data: banners },
@@ -58,7 +58,6 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
-      // revalidate: 1,
     };
   } catch {
     return {
