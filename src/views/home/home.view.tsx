@@ -20,7 +20,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
         <HomeIntro banners={banners} />
       </section>
 
-      {!!categories.length && (
+      {/* {!!categories.length && (
         <section className="container">
           <ArticleSlide page="category" title={t("products")}>
             {categories.length &&
@@ -31,7 +31,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
               ))}
           </ArticleSlide>
         </section>
-      )}
+      )} */}
 
       {/* {!!certificates.length && (
         <section className="container">
