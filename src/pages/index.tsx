@@ -35,9 +35,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ re
   try {
     const { data: banners } = await getAllBanners({ language: locale });
 
-    const {
-      data: { data: categories },
-    } = await getAllCategories({ language: locale, limit: 12 });
+    const { data: categories } = await getAllCategories({ language: locale, limit: 12 });
     // const {
     // data: { data: catalogs },
     // } = await getAllCatalogs({ language: locale, limit: 12 });
