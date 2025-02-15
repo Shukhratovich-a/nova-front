@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { FC } from "react";
@@ -17,7 +17,6 @@ import { withLayout } from "@/layout/layout";
 import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
 import { IPost } from "@/types/post.interface";
-
 import { HomeView } from "@/views";
 
 const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
@@ -32,7 +31,7 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
   try {
     const {
       data: { data: banners },
@@ -40,7 +39,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
 
     const {
       data: { data: categories },
-    } = await getAllCategories({ language: locale, limit: 9 });
+    } = await getAllCategories({ language: locale, limit: 12 });
     const {
       data: { data: catalogs },
     } = await getAllCatalogs({ language: locale, limit: 12 });
@@ -59,11 +58,9 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
+      // revalidate: 1,
     };
-  } catch (e) {
-    console.log(e);
-
+  } catch {
     return {
       notFound: true,
     };
@@ -74,8 +71,8 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
-  categories: ICategory[];
   certificates: ICertificate[];
+  categories: ICategory[];
   posts: IPost[];
   catalogs: ICatalog[];
 }
