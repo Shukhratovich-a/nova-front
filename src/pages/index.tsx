@@ -38,9 +38,9 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
       data: { data: banners },
     } = await getAllBanners({ language: locale });
 
-    // const {
-    //   data: { data: categories },
-    // } = await getAllCategories({ language: locale, limit: 12 });
+    const {
+      data: { data: categories },
+    } = await getAllCategories({ language: locale, limit: 9 });
     // const {
     //   data: { data: catalogs },
     // } = await getAllCatalogs({ language: locale, limit: 12 });
@@ -53,7 +53,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
     return {
       props: {
         banners,
-        // categories,
+        categories,
         // certificates,
         // catalogs,
         // posts,
@@ -73,8 +73,8 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
+  categories: ICategory[];
   // certificates: ICertificate[];
-  // categories: ICategory[];
   // posts: IPost[];
   // catalogs: ICatalog[];
 }
