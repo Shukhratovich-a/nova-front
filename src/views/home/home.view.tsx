@@ -10,10 +10,10 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
   const { t } = useTranslation();
 
   //ставит ограничение на количество элементов
-  if (categories.length > 9) categories.length = 9;
-  if (certificates.length > 9) certificates.length = 9;
-  if (posts.length > 9) posts.length = 9;
-  if (catalogs.length > 9) catalogs.length = 9;
+  // if (categories.length > 9) categories.length = 9;
+  // if (certificates.length > 9) certificates.length = 9;
+  // if (posts.length > 9) posts.length = 9;
+  // if (catalogs.length > 9) catalogs.length = 9;
 
   return (
     <>
@@ -21,7 +21,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
         <HomeIntro banners={banners} />
       </section>
 
-      {!!categories.length && (
+      {/* {!!categories.length && (
         <section className="container">
           <ArticleSlide page="category" title={t("products")}>
             {categories.length &&
@@ -74,7 +74,7 @@ export const HomeView: FC<HomeProps> = ({ banners, categories, certificates, pos
             })}
           </ArticleSlide>
         </section>
-      )}
+      )} */}
     </>
   );
 };

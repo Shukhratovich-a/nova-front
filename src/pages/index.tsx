@@ -38,25 +38,25 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
       data: { data: banners },
     } = await getAllBanners({ language: locale });
 
-    const {
-      data: { data: categories },
-    } = await getAllCategories({ language: locale, limit: 12 });
-    const {
-      data: { data: catalogs },
-    } = await getAllCatalogs({ language: locale, limit: 12 });
-    const {
-      data: { data: posts },
-    } = await getAllPosts({ language: locale, limit: 12 });
+    // const {
+    //   data: { data: categories },
+    // } = await getAllCategories({ language: locale, limit: 12 });
+    // const {
+    //   data: { data: catalogs },
+    // } = await getAllCatalogs({ language: locale, limit: 12 });
+    // const {
+    //   data: { data: posts },
+    // } = await getAllPosts({ language: locale, limit: 12 });
 
-    const { data: certificates } = await getAllCertificates({ language: locale });
+    // const { data: certificates } = await getAllCertificates({ language: locale });
 
     return {
       props: {
         banners,
-        categories,
-        certificates,
-        catalogs,
-        posts,
+        // categories,
+        // certificates,
+        // catalogs,
+        // posts,
         ...(await serverSideTranslations(String(locale))),
       },
     };
@@ -73,8 +73,8 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
-  certificates: ICertificate[];
-  categories: ICategory[];
-  posts: IPost[];
-  catalogs: ICatalog[];
+  // certificates: ICertificate[];
+  // categories: ICategory[];
+  // posts: IPost[];
+  // catalogs: ICatalog[];
 }
