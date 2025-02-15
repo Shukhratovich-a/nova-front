@@ -17,6 +17,7 @@ import { withLayout } from "@/layout/layout";
 import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
 import { IPost } from "@/types/post.interface";
+
 import { HomeView } from "@/views";
 
 const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
@@ -58,9 +59,10 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
-      // revalidate: 1,
     };
-  } catch {
+  } catch (e) {
+    console.log(e);
+
     return {
       notFound: true,
     };
