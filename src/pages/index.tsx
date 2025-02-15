@@ -59,9 +59,11 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) 
         posts,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 10,
+      revalidate: 1,
     };
-  } catch {
+  } catch (e) {
+    console.log(e);
+
     return {
       notFound: true,
     };

@@ -41,6 +41,14 @@ const nextConfig = {
       },
       {
         protocol: "http",
+        hostname: "api.novaplastik.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.novaplastik.com",
+      },
+      {
+        protocol: "http",
         hostname: "localhost",
         port: "3001",
       },
