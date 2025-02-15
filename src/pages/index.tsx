@@ -31,13 +31,17 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ res, locale }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
   try {
-    const { data: banners } = await getAllBanners({ language: locale });
+    const {
+      data: { data: banners },
+    } = await getAllBanners({ language: locale });
 
-    const { data: categories } = await getAllCategories({ language: locale, limit: 12 });
     // const {
-    // data: { data: catalogs },
+    //   data: { data: categories },
+    // } = await getAllCategories({ language: locale, limit: 12 });
+    // const {
+    //   data: { data: catalogs },
     // } = await getAllCatalogs({ language: locale, limit: 12 });
     // const {
     //   data: { data: posts },
@@ -48,16 +52,15 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ re
     return {
       props: {
         banners,
-        categories,
+        // categories,
         // certificates,
         // catalogs,
         // posts,
         ...(await serverSideTranslations(String(locale))),
       },
+      // revalidate: 1,
     };
-  } catch (e) {
-    console.log(e);
-
+  } catch {
     return {
       notFound: true,
     };
@@ -68,8 +71,8 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
-  categories: ICategory[];
+  // categories: ICategory[];
   // certificates: ICertificate[];
-  // posts: IPost[];
   // catalogs: ICatalog[];
+  // posts: IPost[];
 }
