@@ -24,15 +24,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "api.novaplastik.uz",
-      },
-      {
-        protocol: "http",
-        hostname: "api.novaplastik.com",
-      },
-      {
-        protocol: "https",
-        hostname: "eg.novaplastik.com",
+        hostname: "novaplastik.uz",
       },
       {
         protocol: "http",
