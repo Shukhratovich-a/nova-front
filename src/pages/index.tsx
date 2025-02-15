@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { FC } from "react";
@@ -32,37 +32,36 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
   try {
     const {
       data: { data: banners },
     } = await getAllBanners({ language: locale });
 
-    // const {
-    //   data: { data: categories },
-    // } = await getAllCategories({ language: locale, limit: 9 });
-    // const {
-    //   data: { data: catalogs },
-    // } = await getAllCatalogs({ language: locale, limit: 12 });
-    // const {
-    //   data: { data: posts },
-    // } = await getAllPosts({ language: locale, limit: 12 });
+    const {
+      data: { data: categories },
+    } = await getAllCategories({ language: locale, limit: 9 });
+    const {
+      data: { data: catalogs },
+    } = await getAllCatalogs({ language: locale, limit: 12 });
+    const {
+      data: { data: posts },
+    } = await getAllPosts({ language: locale, limit: 12 });
 
-    // const { data: certificates } = await getAllCertificates({ language: locale });
+    const { data: certificates } = await getAllCertificates({ language: locale });
 
     return {
       props: {
         banners,
-        // categories,
-        // certificates,
-        // catalogs,
-        // posts,
+        categories,
+        certificates,
+        catalogs,
+        posts,
         ...(await serverSideTranslations(String(locale))),
       },
+      revalidate: 10,
     };
-  } catch (e) {
-    console.log(e);
-
+  } catch {
     return {
       notFound: true,
     };
@@ -73,8 +72,8 @@ export default withLayout(HomePage);
 
 export interface HomePageProps extends Record<string, unknown> {
   banners: IBanner[];
-  // categories: ICategory[];
-  // certificates: ICertificate[];
-  // posts: IPost[];
-  // catalogs: ICatalog[];
+  categories: ICategory[];
+  certificates: ICertificate[];
+  posts: IPost[];
+  catalogs: ICatalog[];
 }
