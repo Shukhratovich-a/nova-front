@@ -39,7 +39,9 @@ export const getServerSideProps: GetServerSideProps<AboutPageProps> = async ({ l
       },
       // revalidate: 1,
     };
-  } catch {
+  } catch (e) {
+    console.log(e);
+
     return {
       notFound: true,
     };
