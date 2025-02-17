@@ -29,6 +29,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "api.novaplastik.com",
+      },
       {
         protocol: "http",
         hostname: "api.greathistory.com",
