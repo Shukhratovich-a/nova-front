@@ -32,11 +32,11 @@ const nextConfig = {
       },
       {
         protocol: "http",
-        hostname: "api.greathistory.uz",
+        hostname: "apmath.nuu.uz",
       },
       {
         protocol: "https",
-        hostname: "api.greathistory.uz",
+        hostname: "apmath.nuu.uz",
       },
       {
         protocol: "http",
