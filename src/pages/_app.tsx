@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import i18nextConfig from "../../next-i18next.config.js";
 
 import "@/styles/globals.scss";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 // Import Swiper styles
 import "swiper/css";
