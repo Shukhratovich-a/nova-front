@@ -29,11 +29,11 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
         <Breadcrumbs mb="30px" urlList={urlList} />
       </section>
 
-      <section>
+      {/* <section>
         <ProductIntro product={product} />
-      </section>
+      </section> */}
 
-      {/* {!!product.detailCategories.length && (
+      {!!product.detailCategories.length && (
         <section>
           <ProductInfo detailCategories={product.detailCategories} />
         </section>
@@ -46,7 +46,7 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
       )}
       <section>
         <ProductRelated relatedProducts={relatedProducts} />
-      </section> */}
+      </section>
     </div>
   );
 };
