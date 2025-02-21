@@ -33,7 +33,7 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
         <ProductIntro product={product} />
       </section>
 
-      {!!product.detailCategories.length && (
+      {/* {!!product.detailCategories.length && (
         <section>
           <ProductInfo detailCategories={product.detailCategories} />
         </section>
@@ -46,7 +46,7 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
       )}
       <section>
         <ProductRelated relatedProducts={relatedProducts} />
-      </section>
+      </section> */}
     </div>
   );
 };

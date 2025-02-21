@@ -33,7 +33,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
         <title>{`${t("product")} - ${title}`}</title>
       </Head>
 
-      {/* <ProductView product={product} relatedProducts={relatedProducts} /> */}
+      <ProductView product={product} relatedProducts={relatedProducts} />
     </>
   );
 };
@@ -52,9 +52,6 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
       data: { data: relatedProducts },
     } = await getRelated(product.id, { language: locale, limit: 10 });
     if (!product) return { notFound: true };
-
-    console.log(product);
-    console.log(relatedProducts);
 
     return {
       props: {
