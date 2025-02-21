@@ -60,9 +60,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
       },
       // revalidate: 1,
     };
-  } catch (e) {
-    console.log(e);
-
+  } catch {
     return {
       notFound: true,
     };

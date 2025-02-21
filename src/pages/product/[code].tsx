@@ -33,27 +33,10 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
         <title>{`${t("product")} - ${title}`}</title>
       </Head>
 
-      <ProductView product={product} relatedProducts={relatedProducts} />
+      {/* <ProductView product={product} relatedProducts={relatedProducts} /> */}
     </>
   );
 };
-
-// export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-//   let paths: string[] = [];
-
-//   for (let locale of locales as string[]) {
-//     const {
-//       data: { data: products },
-//     } = await getAll({ limit: 1000000000000, language: locale });
-
-//     paths = paths.concat(products.map((product) => `/${locale}/product/${product.code}`));
-//   }
-
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// };
 
 export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({ params, locale }) => {
   if (!params) return { notFound: true };
@@ -70,13 +53,15 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
     } = await getRelated(product.id, { language: locale, limit: 10 });
     if (!product) return { notFound: true };
 
+    console.log(product);
+    console.log(relatedProducts);
+
     return {
       props: {
         product,
         relatedProducts,
         ...(await serverSideTranslations(String(locale))),
       },
-      // revalidate: 1,
     };
   } catch {
     return { notFound: true };
