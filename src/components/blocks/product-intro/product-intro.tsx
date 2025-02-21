@@ -33,7 +33,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         dangerouslySetInnerHTML={{ __html: description }}
       />
       <PdfButtons name={code + "-" + i18n.language} type="product" className={styles.buttons} />
-      <ImageGallery showNav={false} showPlayButton={false} additionalClass={styles.gallery} items={items} />
+      {/* <ImageGallery showNav={false} showPlayButton={false} additionalClass={styles.gallery} items={items} /> */}
     </div>
   );
 };

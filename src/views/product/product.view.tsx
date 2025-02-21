@@ -29,9 +29,9 @@ export const ProductView: FC<ProductProps> = ({ className, product, relatedProdu
         <Breadcrumbs mb="30px" urlList={urlList} />
       </section>
 
-      {/* <section>
+      <section>
         <ProductIntro product={product} />
-      </section> */}
+      </section>
 
       {!!product.detailCategories.length && (
         <section>
