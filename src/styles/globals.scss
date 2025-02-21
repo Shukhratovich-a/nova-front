@@ -2,7 +2,7 @@
 @import "./variables";
 @import "./fonts";
 @import "@/styles/media/media-queries";
-// @import "~react-image-gallery/styles/scss/image-gallery.scss";
+// @import "react-image-gallery/styles/scss/image-gallery.scss";
 
 body,
 p {
@@ -229,4 +229,9 @@ a {
     border-radius: 5px;
     background: $accent;
   }
+}
+
+.swiper-slide-thumb-active {
+  opacity: 1 !important;
+  border: 1px solid rgb(130, 130, 255);
 }
