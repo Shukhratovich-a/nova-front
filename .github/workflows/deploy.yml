@@ -21,7 +21,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_UZ }} >> .env
-          echo DEFAULT_LANG=en >> .env
+          echo DEFAULT_LANG=ru >> .env
           echo NEXT_PUBLIC_WHATSAPP_PHONE=+998933883042 >> .env
 
       - name: 🔨 Build Project
@@ -54,7 +54,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_TR }} >> .env
-          echo DEFAULT_LANG=en >> .env
+          echo DEFAULT_LANG=tr >> .env
           echo NEXT_PUBLIC_WHATSAPP_PHONE=+905494886682 >> .env
 
       - name: 🔨 Build Project
@@ -87,7 +87,7 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_DOMAIN=${{ secrets.NEXT_PUBLIC_DOMAIN_EG }} >> .env
-          echo DEFAULT_LANG=en >> .env
+          echo DEFAULT_LANG=ar >> .env
 
       - name: 🔨 Build Project
         run: |
