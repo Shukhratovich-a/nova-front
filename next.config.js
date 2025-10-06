@@ -1,12 +1,17 @@
 const { i18n } = require("./next-i18next.config");
 const APP_ENV = process.env.APP_ENV || "uz";
 
+require("dotenv").config({ path: `.env.${APP_ENV}` });
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   distDir: `.next-${APP_ENV}`,
   env: {
     NEXT_PUBLIC_APP_ENV: APP_ENV,
+    NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
+    DEFAULT_LANG: process.env.DEFAULT_LANG,
+    NEXT_PUBLIC_WHATSAPP_PHONE: process.env.NEXT_PUBLIC_WHATSAPP_PHONE,
   },
   images: {
     remotePatterns: [

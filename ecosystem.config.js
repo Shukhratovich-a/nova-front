@@ -2,8 +2,12 @@ module.exports = {
   apps: [
     {
       name: "novaplastik-uz",
+      cwd: "./",
       script: "node_modules/next/dist/bin/next",
       args: "start -p 4001",
+      instances: 1,
+      exec_mode: "fork",
+      autorestart: true,
       env: {
         NODE_ENV: "production",
         APP_ENV: "uz",
@@ -14,8 +18,12 @@ module.exports = {
     },
     {
       name: "novaplastik-tr",
+      cwd: "./",
       script: "node_modules/next/dist/bin/next",
       args: "start -p 4002",
+      instances: 1,
+      exec_mode: "fork",
+      autorestart: true,
       env: {
         NODE_ENV: "production",
         APP_ENV: "tr",
@@ -26,8 +34,12 @@ module.exports = {
     },
     {
       name: "novaplastik-eg",
+      cwd: "./",
       script: "node_modules/next/dist/bin/next",
       args: "start -p 4003",
+      instances: 1,
+      exec_mode: "fork",
+      autorestart: true,
       env: {
         NODE_ENV: "production",
         APP_ENV: "eg",
