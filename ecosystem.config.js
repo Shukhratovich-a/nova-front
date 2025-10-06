@@ -7,8 +7,8 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         APP_ENV: "uz",
-        NEXT_PUBLIC_DOMAIN: "uz",
-        DEFAULT_LANG: "https://api.novaplastik.com/v2/uz",
+        NEXT_PUBLIC_DOMAIN: "https://api.novaplastik.com/v2/uz",
+        DEFAULT_LANG: "uz",
         NEXT_PUBLIC_WHATSAPP_PHONE: "+998933883042",
       },
     },
@@ -19,8 +19,8 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         APP_ENV: "tr",
-        NEXT_PUBLIC_DOMAIN: "tr",
-        DEFAULT_LANG: "https://api.novaplastik.com/v2/tr",
+        NEXT_PUBLIC_DOMAIN: "https://api.novaplastik.com/v2/tr",
+        DEFAULT_LANG: "tr",
         NEXT_PUBLIC_WHATSAPP_PHONE: "+905494886682",
       },
     },
@@ -31,8 +31,8 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         APP_ENV: "eg",
-        NEXT_PUBLIC_DOMAIN: "eg",
-        DEFAULT_LANG: "https://api.novaplastik.com/v2/eg",
+        NEXT_PUBLIC_DOMAIN: "https://api.novaplastik.com/v2/eg",
+        DEFAULT_LANG: "eg",
       },
     },
   ],
