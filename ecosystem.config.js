@@ -32,7 +32,7 @@ module.exports = {
         NODE_ENV: "production",
         APP_ENV: "eg",
         NEXT_PUBLIC_DOMAIN: "https://api.novaplastik.com/v2/eg",
-        DEFAULT_LANG: "eg",
+        DEFAULT_LANG: "ar",
       },
     },
   ],
