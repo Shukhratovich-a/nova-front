@@ -1,9 +1,13 @@
 const { i18n } = require("./next-i18next.config");
+const APP_ENV = process.env.APP_ENV || "uz";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: "standalone",
+  distDir: `.next-${APP_ENV}`,
+  env: {
+    NEXT_PUBLIC_APP_ENV: APP_ENV,
+  },
   images: {
     remotePatterns: [
       {
@@ -41,12 +45,12 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "3001",
+        port: "3002",
       },
       {
         protocol: "http",
         hostname: "127.0.0.1",
-        port: "3001",
+        port: "3002",
       },
     ],
   },
