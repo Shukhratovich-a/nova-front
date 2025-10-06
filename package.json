@@ -10,7 +10,7 @@
     "build:uz": "cross-env APP_ENV=uz next build",
     "build:tr": "cross-env APP_ENV=tr next build",
     "build:eg": "cross-env APP_ENV=eg next build",
-    "build:all": "pnpm run build:uz && pnpm run build:tr && pnpm run build:eg",
+    "build:all": "npm run build:uz && npm run build:tr && npm run build:eg",
     "start:uz": "cross-env APP_ENV=uz next start -p 4001",
     "start:tr": "cross-env APP_ENV=tr next start -p 4002",
     "start:eg": "cross-env APP_ENV=eg next start -p 4003",
