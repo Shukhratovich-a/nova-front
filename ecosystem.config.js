@@ -1,22 +1,12 @@
 module.exports = {
   apps: [
     {
-      name: "novaplastik-uz",
-      script: "node_modules/next/dist/bin/next",
-      args: "start -p 4001",
-      env: { NODE_ENV: "production", APP_ENV: "uz" },
-    },
-    {
-      name: "novaplastik-tr",
-      script: "node_modules/next/dist/bin/next",
-      args: "start -p 4002",
-      env: { NODE_ENV: "production", APP_ENV: "tr" },
-    },
-    {
-      name: "novaplastik-eg",
-      script: "node_modules/next/dist/bin/next",
-      args: "start -p 4003",
-      env: { NODE_ENV: "production", APP_ENV: "eg" },
+      name: "novaplastik",
+      script: "server.js",
+      exec_mode: "fork",
+      instances: 1,
+      env: { NODE_ENV: "production", PORT: 4000 },
+      max_memory_restart: "500M",
     },
   ],
 };

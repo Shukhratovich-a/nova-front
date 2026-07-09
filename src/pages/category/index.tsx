@@ -11,6 +11,7 @@ import { getAll } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { CategoriesView } from "@/views/categories/categories.view";
 
 const Categories: FC<CategoriesProps> = ({ categories, total }) => {
@@ -27,7 +28,7 @@ const Categories: FC<CategoriesProps> = ({ categories, total }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<CategoriesProps> = async ({
+export const getServerSideProps: GetServerSideProps<CategoriesProps> = withTenantProps<CategoriesProps>(async ({
   locale,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
   const {
@@ -42,7 +43,7 @@ export const getServerSideProps: GetServerSideProps<CategoriesProps> = async ({
     },
     // revalidate: 1,
   };
-};
+});
 
 export default withLayout(Categories);
 

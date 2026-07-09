@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { FC } from "react";
@@ -8,6 +8,7 @@ import { IVideoCard } from "@/types/video.interface";
 import { getCards } from "@/api/video.api";
 
 import { withLayout } from "@/layout/layout";
+import { withTenantProps } from "@/server/with-tenant-props";
 import VideosView from "@/views/videos/videos.view";
 
 export const VideoPage: FC<VideoPageProps> = ({ videos }) => {
@@ -22,7 +23,7 @@ export const VideoPage: FC<VideoPageProps> = ({ videos }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<VideoPageProps> = withTenantProps<VideoPageProps>(async ({ locale }) => {
   try {
     const videos = await getCards({ language: locale });
 
@@ -31,12 +32,11 @@ export const getStaticProps: GetStaticProps<VideoPageProps> = async ({ locale })
         videos,
         ...(await serverSideTranslations(String(locale))),
       },
-      revalidate: 1,
     };
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(VideoPage);
 

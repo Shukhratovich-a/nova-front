@@ -10,6 +10,7 @@ import { getAll } from "@/api/about.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { AboutView } from "@/views";
 
 const AboutPage: FC<AboutPageProps> = ({ abouts }) => {
@@ -26,7 +27,7 @@ const AboutPage: FC<AboutPageProps> = ({ abouts }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<AboutPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<AboutPageProps> = withTenantProps<AboutPageProps>(async ({ locale }) => {
   try {
     const {
       data: { data: abouts },
@@ -46,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<AboutPageProps> = async ({ l
       notFound: true,
     };
   }
-};
+});
 
 export default withLayout(AboutPage);
 

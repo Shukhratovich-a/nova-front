@@ -11,9 +11,6 @@
 # next.js
 /.next/
 /out/
-/.next-uz/
-/.next-tr/
-/.next-eg/
 
 # production
 /build
@@ -36,6 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.env.eg
-.env.uz
-.env.tr
+
+# per-tenant secrets (all tenants now share one process/env file)
+.env
+.env.production

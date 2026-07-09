@@ -11,13 +11,15 @@ import { getAll, getByAlias, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
+import { withTenantProps } from "@/server/with-tenant-props";
 import { PostView } from "@/views";
 
 const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
   const { title, subtitle, poster } = post;
 
   const { t, i18n } = useTranslation();
+  const domain = useApiDomain();
 
   return (
     <>
@@ -26,8 +28,8 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
         <meta property="og:title" content={`${t("news")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={subtitle} />
-        <meta property="og:image" content={`${DOMAIN}${poster}`} />
-        <meta property="og:image:secure_ur" content={`${DOMAIN}${poster}`} />
+        <meta property="og:image" content={`${domain}${poster}`} />
+        <meta property="og:image:secure_ur" content={`${domain}${poster}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -56,7 +58,7 @@ const PostPage: React.FC<PostPageProps> = ({ post, relatedPosts }) => {
 //   };
 // };
 
-export const getServerSideProps: GetServerSideProps<PostPageProps> = async ({
+export const getServerSideProps: GetServerSideProps<PostPageProps> = withTenantProps<PostPageProps>(async ({
   params,
   locale,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
@@ -84,7 +86,7 @@ export const getServerSideProps: GetServerSideProps<PostPageProps> = async ({
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(PostPage);
 

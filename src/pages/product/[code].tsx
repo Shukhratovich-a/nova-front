@@ -10,13 +10,15 @@ import { getByCode, getRelated } from "@/api/product.api";
 
 import { withLayout } from "@/layout/layout";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
+import { withTenantProps } from "@/server/with-tenant-props";
 import { ProductView } from "@/views";
 
 export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) => {
   const { title, description, mainImage } = product;
 
   const { t, i18n } = useTranslation();
+  const domain = useApiDomain();
 
   return (
     <>
@@ -25,8 +27,8 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
         <meta property="og:title" content={`${t("product")} - ${title}`} />
         <meta property="og:locale" content={i18n.language} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${DOMAIN}${mainImage}`} />
-        <meta property="og:image:secure_ur" content={`${DOMAIN}${mainImage}`} />
+        <meta property="og:image" content={`${domain}${mainImage}`} />
+        <meta property="og:image:secure_ur" content={`${domain}${mainImage}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -38,7 +40,7 @@ export const ProductPage: FC<ProductPageProps> = ({ product, relatedProducts }) 
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({ params, locale }) => {
+export const getServerSideProps: GetServerSideProps<ProductPageProps> = withTenantProps<ProductPageProps>(async ({ params, locale }) => {
   if (!params) return { notFound: true };
 
   const code = params.code as string;
@@ -63,7 +65,7 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(ProductPage);
 

@@ -1,4 +1,4 @@
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import cn from "classnames";
 import Link from "next/link";
 import queryString from "query-string";
@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 
 const PdfButtons: FC<PdfButtonsProps> = ({ name, type, className }) => {
   const { t } = useTranslation();
+  const domain = useApiDomain();
   // const [isPDFSupported, setIsPDFSupported] = useState(true);
 
   // useEffect(() => {
@@ -18,13 +19,13 @@ const PdfButtons: FC<PdfButtonsProps> = ({ name, type, className }) => {
 
   const urls = {
     product: {
-      download: `${DOMAIN}/file/download-product-file/${name}`,
-      preview: `${DOMAIN}/file/get-product-file/${name}`,
+      download: `${domain}/file/download-product-file/${name}`,
+      preview: `${domain}/file/get-product-file/${name}`,
       button: "product-download",
     },
     catalog: {
-      download: queryString.stringifyUrl({ url: `${DOMAIN}/file/download-file`, query: { file: name } }),
-      preview: queryString.stringifyUrl({ url: `${DOMAIN}/file/get-file`, query: { file: name } }),
+      download: queryString.stringifyUrl({ url: `${domain}/file/download-file`, query: { file: name } }),
+      preview: queryString.stringifyUrl({ url: `${domain}/file/get-file`, query: { file: name } }),
       button: "download",
     },
   };

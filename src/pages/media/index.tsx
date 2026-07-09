@@ -8,6 +8,7 @@ import { getCards } from "@/api/video.api";
 import { getAll as getAllCatalogs } from "@/api/catalog.api";
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
 import { IVideoCard } from "@/types/video.interface";
@@ -26,7 +27,7 @@ export const MediaPage: FC<MediaPageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<MediaPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<MediaPageProps> = withTenantProps<MediaPageProps>(async ({ locale }) => {
   try {
     const video = await getCards({ language: locale });
 
@@ -50,7 +51,7 @@ export const getServerSideProps: GetServerSideProps<MediaPageProps> = async ({ l
       notFound: true,
     };
   }
-};
+});
 
 export default withLayout(MediaPage);
 

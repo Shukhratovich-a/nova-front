@@ -6,7 +6,7 @@ import { FC } from "react";
 
 import { CategoryCardProps } from "./category-card.props";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import styles from "./category-card.module.scss";
 
 export const CategoryCard: FC<CategoryCardProps> = ({ className, category, href, ...props }) => {
@@ -14,6 +14,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({ className, category, href,
 
   const { t } = useTranslation();
   const { push } = useRouter();
+  const domain = useApiDomain();
 
   const handleNavigation = () => {
     push(href ? href : `/category/${alias}`);
@@ -22,7 +23,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({ className, category, href,
   return (
     <div className={cn(styles.card, className)} onClick={() => handleNavigation()} {...props}>
       <div className={cn(styles.image)}>
-        <Image src={`${DOMAIN}${poster}`} alt={title} width={300} height={300} priority />
+        <Image src={`${domain}${poster}`} alt={title} width={300} height={300} priority />
       </div>
       <div className={cn(styles.content)}>
         <h3 className={cn(styles.title)} title={title}>

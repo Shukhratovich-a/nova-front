@@ -11,6 +11,7 @@ import { getAll, getByTags } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { PostsView } from "@/views";
 
 const PostsPage: FC<PostsPageProps> = ({ posts, total }) => {
@@ -27,7 +28,7 @@ const PostsPage: FC<PostsPageProps> = ({ posts, total }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<PostsPageProps> = async ({
+export const getServerSideProps: GetServerSideProps<PostsPageProps> = withTenantProps<PostsPageProps>(async ({
   locale,
   query: { limit, tags },
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
@@ -56,7 +57,7 @@ export const getServerSideProps: GetServerSideProps<PostsPageProps> = async ({
       ...(await serverSideTranslations(String(locale))),
     },
   };
-};
+});
 
 export default withLayout(PostsPage);
 

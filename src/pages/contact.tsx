@@ -11,6 +11,7 @@ import { getByType } from "@/api/contact.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { ContactView } from "@/views";
 
 export const ContactPage: FC<ContactPageProps> = ({ _nextI18Next, ...rest }) => {
@@ -27,7 +28,7 @@ export const ContactPage: FC<ContactPageProps> = ({ _nextI18Next, ...rest }) => 
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<ContactPageProps> = withTenantProps<ContactPageProps>(async ({ locale }) => {
   try {
     const { data: centrals } = await getByType(ContactTypeEnum.CENTRAL, locale);
     const { data: factories } = await getByType(ContactTypeEnum.FACTORY, locale);
@@ -45,7 +46,7 @@ export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({
       notFound: true,
     };
   }
-};
+});
 
 export default withLayout(ContactPage);
 

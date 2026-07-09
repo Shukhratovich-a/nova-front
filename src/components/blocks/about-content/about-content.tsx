@@ -7,12 +7,13 @@ import { AboutContentProps } from "./about-content.props";
 
 import { Button } from "@/components";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import { useTranslation } from "next-i18next";
 import styles from "./about-content.module.scss";
 
 export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...props }) => {
   const { t } = useTranslation();
+  const domain = useApiDomain();
   const [isOpenArray, setIsOpenArray] = useState<boolean[]>([]);
   const descriptionRefs = useRef<Array<RefObject<HTMLDivElement>>>([]);
 
@@ -67,7 +68,7 @@ export const AboutContent: FC<AboutContentProps> = ({ className, abouts, ...prop
         return (
           <div ref={ref} key={index} className={styles.block}>
             <div className={styles.image}>
-              <Image src={`${DOMAIN}${poster}`} alt={title} width={650} height={365} priority />
+              <Image src={`${domain}${poster}`} alt={title} width={650} height={365} priority />
             </div>
 
             <div className={styles.text}>

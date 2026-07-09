@@ -1,7 +1,12 @@
 import axios from "axios";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { getApiDomain } from "@/helpers/api.helper";
 
-axios.defaults.baseURL = DOMAIN;
+const instance = axios.create();
 
-export default axios;
+instance.interceptors.request.use((config) => {
+  config.baseURL = getApiDomain();
+  return config;
+});
+
+export default instance;

@@ -6,11 +6,12 @@ import { PostItemProps } from "./post-item.props";
 
 import { DateTime } from "@/components";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import styles from "./post-item.module.scss";
 
 export const PostItem: FC<PostItemProps> = ({ post }) => {
   const { title, subtitle, body, poster, image, createAt, type } = post;
+  const domain = useApiDomain();
 
   return (
     <div className={cn(styles.wrapper, styles[`wrapper--${type}`])}>
@@ -26,7 +27,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
           width={1000}
           height={480}
           alt=""
-          src={`${DOMAIN}${image || poster}`}
+          src={`${domain}${image || poster}`}
           priority
         />
       )}

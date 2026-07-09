@@ -10,6 +10,7 @@ import { search } from "@/api/product.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { ProductsView } from "@/views";
 
 export const ProductPage: FC<ProductPageProps> = ({ products, total }) => {
@@ -26,7 +27,10 @@ export const ProductPage: FC<ProductPageProps> = ({ products, total }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({ locale, query: { q, limit } }) => {
+export const getServerSideProps: GetServerSideProps<ProductPageProps> = withTenantProps<ProductPageProps>(async ({
+  locale,
+  query: { q, limit },
+}) => {
   const {
     data: { data: products, total },
   } = await search(q as string, { language: locale, limit: limit ? Number(limit) : 10 });
@@ -38,7 +42,7 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
       ...(await serverSideTranslations(String(locale))),
     },
   };
-};
+});
 
 export default withLayout(ProductPage);
 

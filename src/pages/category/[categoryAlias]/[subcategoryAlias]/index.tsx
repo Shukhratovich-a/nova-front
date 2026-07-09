@@ -10,6 +10,7 @@ import { getByAlias } from "@/api/subcategory.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { SubcategoryView } from "@/views";
 
 const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
@@ -45,7 +46,7 @@ const Subcategory: FC<SubcategoryProps> = ({ subcategory }) => {
 //   };
 // };
 
-export const getServerSideProps: GetServerSideProps<SubcategoryProps> = async ({
+export const getServerSideProps: GetServerSideProps<SubcategoryProps> = withTenantProps<SubcategoryProps>(async ({
   locale,
   params,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
@@ -68,7 +69,7 @@ export const getServerSideProps: GetServerSideProps<SubcategoryProps> = async ({
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(Subcategory);
 

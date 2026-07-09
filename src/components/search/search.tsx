@@ -13,7 +13,7 @@ import { Loader, Modal } from "@/components";
 
 import { IconSearch } from "@/assets/icons";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import styles from "./search.module.scss";
 
 interface ISearch {
@@ -29,6 +29,7 @@ export const Search: FC<SearchProps> = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const { i18n, t } = useTranslation();
+  const domain = useApiDomain();
 
   const handleSearch = async ({ target }: ChangeEvent<HTMLInputElement>) => {
     try {
@@ -71,7 +72,7 @@ export const Search: FC<SearchProps> = () => {
                   {searchState.products.map(({ id, code, title, mainImage }) => {
                     return (
                       <Link className={styles.item} href={`/product/${code}`} key={id}>
-                        <Image src={`${DOMAIN}${mainImage}`} alt="" width={60} height={60} quality={20} />
+                        <Image src={`${domain}${mainImage}`} alt="" width={60} height={60} quality={20} />
 
                         <div className={cn(styles.content)}>
                           <p className={styles.code}>{code}</p>

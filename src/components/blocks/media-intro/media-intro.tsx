@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { SwiperSlide } from "swiper/react";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 
 import { MediaIntroProps } from "./media-intro.props";
 
@@ -15,6 +15,7 @@ import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
 import styles from "./media-intro.module.scss";
 
 export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
+  const domain = useApiDomain();
   const catalogBg = (
     <div className={cn("swiper-slide-image", styles.background)}>
       {CatalogBackground && <Image fill priority alt="catalog background image" src={CatalogBackground} />}
@@ -35,7 +36,7 @@ export const MediaIntro: FC<MediaIntroProps> = ({ catalogs }) => {
                   width={372}
                   height={522}
                   alt={title}
-                  src={`${DOMAIN}${poster}`}
+                  src={`${domain}${poster}`}
                 />
                 <div className={styles.content}>
                   <h2 className={cn("color-accent")}>

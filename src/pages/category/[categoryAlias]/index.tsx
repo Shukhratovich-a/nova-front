@@ -10,6 +10,7 @@ import { getByAlias } from "@/api/category.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { CategoryView } from "@/views";
 
 const Category: FC<CategoryProps> = ({ category }) => {
@@ -41,7 +42,7 @@ const Category: FC<CategoryProps> = ({ category }) => {
 //   };
 // };
 
-export const getServerSideProps: GetServerSideProps<CategoryProps> = async ({
+export const getServerSideProps: GetServerSideProps<CategoryProps> = withTenantProps<CategoryProps>(async ({
   locale,
   params,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
@@ -64,7 +65,7 @@ export const getServerSideProps: GetServerSideProps<CategoryProps> = async ({
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(Category);
 

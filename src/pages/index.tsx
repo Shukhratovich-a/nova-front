@@ -14,6 +14,7 @@ import { getAll as getAllPosts } from "@/api/post.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { ICatalog } from "@/types/catalog.interface";
 import { ICertificate } from "@/types/certificate.interface";
 import { IPost } from "@/types/post.interface";
@@ -31,7 +32,7 @@ const HomePage: FC<HomePageProps> = ({ _nextI18Next, ...rest }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = withTenantProps<HomePageProps>(async ({ locale }) => {
   try {
     const {
       data: { data: banners },
@@ -65,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
       notFound: true,
     };
   }
-};
+});
 
 export default withLayout(HomePage);
 

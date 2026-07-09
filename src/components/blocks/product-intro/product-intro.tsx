@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { ProductIntroProps } from "./product-intro.props";
 
 import PdfButtons from "@/components/ui/pdf-buttons/pdf-buttons";
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import { useTranslation } from "next-i18next";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { type SwiperClass, Swiper, SwiperSlide } from "swiper/react";
@@ -18,6 +18,7 @@ import Image from "next/image";
 
 export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...props }) => {
   const { i18n } = useTranslation();
+  const domain = useApiDomain();
   const { code, title, description, mainImage, schemeImage, boxImage } = product || {};
   const [thumbsSwiper, setThumbsSwiper] = useState<null | SwiperClass>(null);
   const images = [mainImage, schemeImage, boxImage].filter((url) => !!url);
@@ -60,7 +61,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         >
           {images?.map((src, index) => (
             <SwiperSlide key={index} className={styles["swiper-slide"]}>
-              <Image style={{ objectFit: "contain" }} width={500} height={500} alt="product" src={`${DOMAIN}${src}`} />
+              <Image style={{ objectFit: "contain" }} width={500} height={500} alt="product" src={`${domain}${src}`} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -75,7 +76,7 @@ export const ProductIntro: FC<ProductIntroProps> = ({ className, product, ...pro
         >
           {images?.map((src, index) => (
             <SwiperSlide key={index} className={styles["swiper-slide"]}>
-              <Image style={{ objectFit: "contain" }} width={150} height={150} alt="product" src={`${DOMAIN}${src}`} />
+              <Image style={{ objectFit: "contain" }} width={150} height={150} alt="product" src={`${domain}${src}`} />
             </SwiperSlide>
           ))}
         </Swiper>

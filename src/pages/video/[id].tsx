@@ -9,6 +9,7 @@ import { getById, getByInstallationId } from "@/api/video.api";
 
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { VideoView } from "@/views";
 
 export const VideoPage: FC<VideoPageProps> = ({ video }) => {
@@ -38,7 +39,7 @@ export const VideoPage: FC<VideoPageProps> = ({ video }) => {
 //   };
 // };
 
-export const getServerSideProps: GetServerSideProps<VideoPageProps> = async ({ params, locale }) => {
+export const getServerSideProps: GetServerSideProps<VideoPageProps> = withTenantProps<VideoPageProps>(async ({ params, locale }) => {
   if (!params) return { notFound: true };
 
   const id = params?.id as string;
@@ -62,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<VideoPageProps> = async ({ p
   } catch {
     return { notFound: true };
   }
-};
+});
 
 export default withLayout(VideoPage);
 

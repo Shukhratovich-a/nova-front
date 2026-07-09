@@ -6,6 +6,7 @@ import { FC } from "react";
 import { getInstallationCards } from "@/api/video.api";
 import { withLayout } from "@/layout/layout";
 
+import { withTenantProps } from "@/server/with-tenant-props";
 import { IInstallationVideoCard, IVideoCard } from "@/types/video.interface";
 
 import { InstallationView } from "@/views";
@@ -22,7 +23,7 @@ export const InstallationPage: FC<InstallationPageProps> = ({ _nextI18Next, ...r
   );
 };
 
-export const getServerSideProps: GetServerSideProps<InstallationPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<InstallationPageProps> = withTenantProps<InstallationPageProps>(async ({ locale }) => {
   try {
     const video = await getInstallationCards({ language: locale });
 
@@ -38,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<InstallationPageProps> = asy
       notFound: true,
     };
   }
-};
+});
 
 export default withLayout(InstallationPage);
 

@@ -1,18 +1,8 @@
 const { i18n } = require("./next-i18next.config");
-const APP_ENV = process.env.APP_ENV || "uz";
-
-require("dotenv").config({ path: `.env.${APP_ENV}` });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  distDir: `.next-${APP_ENV}`,
-  env: {
-    NEXT_PUBLIC_APP_ENV: APP_ENV,
-    NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
-    DEFAULT_LANG: process.env.DEFAULT_LANG,
-    NEXT_PUBLIC_WHATSAPP_PHONE: process.env.NEXT_PUBLIC_WHATSAPP_PHONE,
-  },
   images: {
     remotePatterns: [
       {
@@ -57,24 +47,32 @@ const nextConfig = {
         hostname: "127.0.0.1",
         port: "3002",
       },
+      // Per-tenant API domains — required for next/image to accept images
+      // served from each tenant's API, resolved at runtime (see
+      // tenant.config.js / TENANT_*_API_DOMAIN env vars).
+      ...require("./tenant.config")
+        .tenants.map((tenant) => {
+          try {
+            const { protocol, hostname, port } = new URL(tenant.apiDomain);
+            return { protocol: protocol.replace(":", ""), hostname, port };
+          } catch {
+            return null;
+          }
+        })
+        .filter(Boolean),
     ],
   },
 
   i18n,
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: `/uploads/:path*`,
-  //       destination: `${process.env.NEXT_PUBLIC_DOMAIN}/uploads/:path*`,
-  //     },
-  //     {
-  //       source: `/file/:path*`,
-  //       destination: `${process.env.NEXT_PUBLIC_DOMAIN}/file/:path*`,
-  //     },
-  //   ];
-  // },
 
-  webpack(config, options) {
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      // tenant-context.js pulls in Node's async_hooks; it's guarded by a
+      // `typeof window` check at runtime, but the client webpack build
+      // still needs to resolve the import at build time.
+      config.resolve.fallback = { ...config.resolve.fallback, async_hooks: false };
+    }
+
     config.module.rules.push({
       loader: "@svgr/webpack",
       issuer: /\.[jt]sx?$/,

@@ -7,13 +7,14 @@ import { PostCardProps } from "./post-card.props";
 
 import { DateTime, ShowLink, Tag } from "@/components";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import styles from "./post-card.module.scss";
 
 export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
   const { poster, title, subtitle, body, alias, tags, createAt } = post;
 
   const { push } = useRouter();
+  const domain = useApiDomain();
 
   const handleNavigation = () => {
     push(`/news/${alias}`);
@@ -23,7 +24,7 @@ export const PostCard: FC<PostCardProps> = ({ className, post, ...props }) => {
     <div className={cn(className, styles.card)} {...props}>
       <div className={cn(styles.head)}>
         <div className={cn(styles.image)} onClick={handleNavigation}>
-          <Image src={`${DOMAIN}${poster}`} alt={`${title}`} width={350} height={200} priority />
+          <Image src={`${domain}${poster}`} alt={`${title}`} width={350} height={200} priority />
         </div>
 
         <div className={cn(styles.captions)}>

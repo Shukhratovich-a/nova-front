@@ -6,11 +6,13 @@ import { HomeIntroProps } from "./home-intro.props";
 
 import { Slider } from "@/components";
 
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 
 import styles from "./home-intro.module.scss";
 
 export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
+  const domain = useApiDomain();
+
   return (
     <div className={styles.wrapper}>
       <Slider className={cn(styles.swiper)} type={"full-screen"}>
@@ -20,12 +22,12 @@ export const HomeIntro: FC<HomeIntroProps> = ({ banners }) => {
               <div className={cn(styles.background)}>
                 <div
                   className={cn(styles.background__desktop)}
-                  style={{ backgroundImage: `url('${DOMAIN}${posterDesktop}')` }}
+                  style={{ backgroundImage: `url('${domain}${posterDesktop}')` }}
                 />
 
                 <div
                   className={cn(styles.background__mobile)}
-                  style={{ backgroundImage: `url('${DOMAIN}${posterMobile ? posterMobile : posterDesktop}')` }}
+                  style={{ backgroundImage: `url('${domain}${posterMobile ? posterMobile : posterDesktop}')` }}
                 />
               </div>
 

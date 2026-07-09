@@ -6,6 +6,7 @@ import { LayoutProps } from "./layout.props";
 
 import { SideBarProvider } from "@/contexts/sidebar.context";
 
+import { useWhatsappPhone } from "@/contexts/tenant.context";
 import { Footer } from "./footer/footer.component";
 
 import styles from "./layout.module.scss";
@@ -13,9 +14,10 @@ import styles from "./layout.module.scss";
 const Header = dynamic(() => import("./header/header"), { ssr: false });
 const Sidebar = dynamic(() => import("./sidebar/sidebar"), { ssr: false });
 const FixedIcon = dynamic(() => import("../components/ui/fixed-icon/fixed-icon"), { ssr: false });
-const whatsappPhone = process?.env?.NEXT_PUBLIC_WHATSAPP_PHONE;
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
+  const whatsappPhone = useWhatsappPhone();
+
   return (
     <div className={cn(styles.wrapper)}>
       <Header className={cn(styles.header)} />

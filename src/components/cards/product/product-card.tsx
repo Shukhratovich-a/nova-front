@@ -4,12 +4,13 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 
 import { IconYoutube } from "@/assets/icons";
-import { DOMAIN } from "@/helpers/api.helper";
+import { useApiDomain } from "@/contexts/tenant.context";
 import styles from "./product-card.module.scss";
 import { ProductCardProps } from "./product-card.props";
 
 export const ProductCard: FC<ProductCardProps> = ({ className, product, card: type = "product", ...props }) => {
   const { push } = useRouter();
+  const domain = useApiDomain();
 
   if (!product) return;
 
@@ -25,18 +26,18 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product, card: ty
 
   if (isProduct) {
     code = product?.code;
-    image = `${DOMAIN}${product?.mainImage}`;
+    image = `${domain}${product?.mainImage}`;
     url = `/product/${product?.code}`;
   } else if (isCertificate) {
-    image = `${DOMAIN}${product?.poster}`;
-    url = `${DOMAIN}${product?.certificate}`;
+    image = `${domain}${product?.poster}`;
+    url = `${domain}${product?.certificate}`;
   } else if (isVideo) {
     image = product?.poster;
     url = `/video/${product?.id}`;
     code = product?.code;
   } else if (isCatalog) {
-    image = `${DOMAIN}${product?.poster}`;
-    url = `${DOMAIN}${product?.catalog}`;
+    image = `${domain}${product?.poster}`;
+    url = `${domain}${product?.catalog}`;
   }
 
   const wrapperClass = cn(styles.card, {
