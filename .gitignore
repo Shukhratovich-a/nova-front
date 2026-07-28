@@ -39,3 +39,9 @@ next-env.d.ts
 .env.eg
 .env.uz
 .env.tr
+
+# yangiish-fetcher: live session credentials and fetched output
+/tools/yangiish-fetcher/.env
+/tools/yangiish-fetcher/.token.json
+/tools/yangiish-fetcher/data/
+/tools/yangiish-fetcher/*.log
